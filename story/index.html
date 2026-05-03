@@ -1,232 +1,280 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Our story · Pheeew</title>
-  <meta name="description" content="Two founders, eight months of formula iterations, made between Los Angeles and Seoul. Held by All Vital Organics." />
-  <link rel="stylesheet" href="../styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Story · Pheeew · Founders, formula, supply chain</title>
+<meta name="description" content="Three founders, eight months of formula iterations, made between Los Angeles and Hyderabad. Pheeew, Inc. — Delaware C-Corp. The story behind the synbiotic stick.">
+<meta property="og:title" content="Our Story · Pheeew">
+<meta property="og:description" content="Three founders. One stick. A lot of iterations.">
+<link rel="canonical" href="https://allvitalorganics.github.io/pheeew-live/story/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AboutPage","name":"Pheeew Story","description":"The founders behind Pheeew — Alex Kim, Jason Ko, Dawon Kim — and the eight-month build of the daily synbiotic stick.","mainEntity":{"@type":"Organization","name":"Pheeew, Inc.","legalName":"Pheeew, Inc.","foundingDate":"2025","founders":[{"@type":"Person","name":"Alex Kim","jobTitle":"CEO"},{"@type":"Person","name":"Jason Ko","jobTitle":"COO"},{"@type":"Person","name":"Dawon Kim","jobTitle":"CDO"}],"address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"}}}
+</script>
+<style>
+:root{--blue:#2657CD;--blue-deep:#1F4AA8;--blue-soft:#E2EAFA;--cream:#FAF7F2;--warm:#F5EFE5;--ink:#1C1A18;--soft:#4A453F;--mute:#8A847C;--peach:#E89B6F;--peach-soft:#FBE4D2;--line:rgba(28,26,24,.10);--shadow:0 12px 40px rgba(28,26,24,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Libre Franklin',sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.wrap-tight{max-width:760px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:1.05}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:16px}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,247,242,.92);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.site-header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1400px;margin:0 auto}
+.logo{font-weight:700;font-size:22px;letter-spacing:-.02em;color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:28px;font-size:13px;font-weight:500}
+.nav-right a{color:var(--soft);transition:color .2s}
+.nav-right a.active{color:var(--ink)}
+.nav-right a:hover{color:var(--ink)}
+.cart-pill{background:var(--ink);color:var(--cream);border-radius:100px;padding:8px 16px;font-size:12px;letter-spacing:.04em;font-weight:600}
+.page-hero{padding:100px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+.page-hero h1{font-size:clamp(48px,7vw,84px);max-width:14ch;margin-bottom:24px}
+.page-hero .lede{font-size:18px;color:var(--soft);max-width:480px;line-height:1.6}
+.founder-portrait{aspect-ratio:4/5;background:linear-gradient(135deg,var(--peach-soft),var(--blue-soft));border-radius:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--ink);text-align:center;padding:40px}
+.founder-portrait .names{font-family:'DM Serif Display',serif;font-size:20px;line-height:1.4}
+.founder-portrait .place{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-top:24px;font-weight:600}
+.section{padding:100px 0}
+.section-cream{background:var(--cream)}
+.section-white{background:white}
+.section-warm{background:var(--warm)}
+.section-ink{background:var(--ink);color:var(--cream)}
+.section-ink h2{color:white}
+.section-head{text-align:center;margin-bottom:60px}
+.section-head h2{font-size:clamp(36px,5vw,56px);max-width:18ch;margin:0 auto 16px}
+.section-head p{font-size:17px;color:var(--soft);max-width:560px;margin:0 auto;line-height:1.55}
+.section-ink .section-head p{color:rgba(250,247,242,.7)}
+.quote-block{max-width:760px;margin:0 auto;text-align:center}
+.quote-block blockquote{font-family:'DM Serif Display',serif;font-size:clamp(28px,3.4vw,42px);line-height:1.3;letter-spacing:-.015em;margin-bottom:32px}
+.quote-attrib{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.timeline{display:flex;flex-direction:column;gap:24px;max-width:880px;margin:0 auto}
+.tl-step{display:grid;grid-template-columns:140px 1fr;gap:32px;background:white;border-radius:16px;padding:28px 32px;box-shadow:var(--shadow);align-items:start}
+.tl-step.major{background:var(--ink);color:var(--cream)}
+.tl-step.major .tl-when{color:var(--peach)}
+.tl-step.major h4{color:white}
+.tl-step.major p{color:rgba(250,247,242,.75)}
+.tl-when{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:700;padding-top:6px}
+.tl-step h4{font-family:'DM Serif Display',serif;font-size:24px;letter-spacing:-.015em;margin-bottom:10px}
+.tl-step p{font-size:14.5px;line-height:1.6;color:var(--soft)}
+.supplier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.supplier-card{background:rgba(250,247,242,.06);border:1px solid rgba(250,247,242,.1);border-radius:16px;padding:32px 28px}
+.supplier-tag{display:inline-block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--peach);font-weight:700;margin-bottom:14px}
+.supplier-name{font-family:'DM Serif Display',serif;font-size:26px;letter-spacing:-.015em;margin-bottom:6px;color:white}
+.supplier-loc{font-size:12px;color:rgba(250,247,242,.55);margin-bottom:18px;letter-spacing:.04em}
+.supplier-body{font-size:14px;line-height:1.6;color:rgba(250,247,242,.75)}
+.supplier-supplies{margin-top:18px;padding-top:18px;border-top:1px solid rgba(250,247,242,.1);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--peach);font-weight:600}
+.thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.thesis-card{background:white;border-radius:16px;padding:32px 28px;box-shadow:var(--shadow)}
+.thesis-num{font-family:'DM Serif Display',serif;font-size:42px;color:var(--blue);line-height:1;margin-bottom:14px}
+.thesis-card h4{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:10px;letter-spacing:-.015em}
+.thesis-card p{font-size:14px;line-height:1.6;color:var(--soft)}
+.btn-ghost{display:inline-block;background:transparent;color:var(--ink);padding:14px 32px;border-radius:100px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border:1px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+.fda-disclaimer{background:var(--warm);padding:28px 24px;text-align:center;border-top:1px solid var(--line)}
+.fda-disclaimer p{max-width:720px;margin:0 auto;font-size:12px;color:var(--mute);line-height:1.6;font-style:italic}
+.site-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand{font-weight:700;font-size:28px;letter-spacing:-.02em;color:white;margin-bottom:12px}
+.footer-brand-tagline{font-family:'DM Serif Display',serif;font-style:italic;font-size:17px;color:rgba(255,255,255,.5);line-height:1.4;max-width:280px}
+.footer-col h5{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:16px}
+.footer-col a{display:block;padding:6px 0;color:rgba(255,255,255,.85);font-size:14px}
+.footer-col a:hover{color:white}
+.footer-base{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;font-size:12px;color:rgba(255,255,255,.45)}
+@media(max-width:880px){.hero-grid,.supplier-grid,.thesis-grid,.footer-grid{grid-template-columns:1fr}.tl-step{grid-template-columns:1fr;gap:8px;padding:24px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.nav-right{gap:16px;font-size:12px}.nav-right a:not(.cart-pill){display:none}}
+</style>
 </head>
-<body id="top">
+<body>
 
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a href="../" class="brand">Pheeew<span class="dot"></span></a>
-      <nav class="nav-links">
-        <a href="../shop/">Shop</a>
-        <a href="../science/">Science</a>
-        <a href="../story/" style="color: var(--ink);">Story</a>
-        <a href="../faq/">FAQ</a>
-      </nav>
-      <a href="../shop/" class="btn btn-primary btn-sm">Try it →</a>
-    </div>
-  </header>
+<header class="site-header">
+<div class="site-header-inner">
+<a href="../" class="logo">Pheeew</a>
+<div class="nav-right">
+<a href="../shop/">Shop</a>
+<a href="../science/">Science</a>
+<a href="../story/" class="active">Story</a>
+<a href="../faq/">FAQ</a>
+<a href="../shop/" class="cart-pill">Shop</a>
+</div>
+</div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-eyebrow"><span class="pill">Our story</span><span class="kicker">Founded 2025 · launching '26</span></div>
-        <h1>Three founders.<br />One stick.<br />A lot of iterations.</h1>
-        <p class="lede" style="max-width: 50ch;">Pheeew is the first product All Vital Organics has shipped — and the third we've started. The first two taught us what to leave out.</p>
-      </div>
-      <div>
-        <div class="founders-portrait" style="aspect-ratio: 4/5;">
-          <div style="display:grid; place-items: center; gap: 4px; padding: 24px; text-align: center;">
-            <div style="font-size: var(--t-13); letter-spacing: 0.18em; color: var(--clay); line-height: 1.6;">ALEX KIM · CEO<br />JASON KO · COO<br />DAWON KIM · CDO</div>
-            <div style="font-size: 10px; margin-top: 16px;">FOUNDER PORTRAIT · PLACEHOLDER</div>
-            <div style="font-size: 10px; color: var(--mute);">LA × Seoul</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="page-hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<span class="eyebrow">Our story</span>
+<h1>Three founders.<br>One stick.<br>Eight months.</h1>
+<p class="lede">Pheeew is the first product Pheeew, Inc. has shipped. We built it because no gut product on the shelf in the US or Korea passed our own honest-label test. So we made the version we wished existed.</p>
+</div>
+<div>
+<div class="founder-portrait">
+<div class="names">Alex Kim · CEO<br>Jason Ko · COO<br>Dawon Kim · CDO</div>
+<div class="place">LA × Seoul</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- ==================== FOUNDER QUOTE ==================== -->
-  <section class="section wrap fade-up">
-    <div style="max-width: 720px; margin: 0 auto; text-align: center;">
-      <span class="eyebrow" style="display: block; margin-bottom: 24px;">From the founders</span>
-      <blockquote style="font-size: clamp(28px, 3vw, 42px); line-height: 1.25; letter-spacing: -0.025em; color: var(--ink); margin: 0; text-wrap: pretty;">
-        "We built this between Los Angeles and Seoul because we couldn't find a daily gut product that wasn't either a sugary candy or a bro-science protocol. If it works, you'll feel it. If it doesn't, email us. We'll make it right."
-      </blockquote>
-      <div class="signed" style="margin-top: 32px; font-family: var(--mono); font-size: var(--t-11); letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute);">
-        — Alex Kim · CEO &nbsp;&nbsp;·&nbsp;&nbsp; Jason Ko · COO &nbsp;&nbsp;·&nbsp;&nbsp; Dawon Kim · CDO
-      </div>
-    </div>
-  </section>
+<section class="section section-cream">
+<div class="wrap-tight">
+<div class="quote-block">
+<span class="eyebrow">From the founders</span>
+<blockquote>"We tried every gut product on the shelf in two countries. The American ones were bricks of stevia. The Korean ones were three grams of fiber wearing a thirty-gram lab coat. We made the version we wished existed."</blockquote>
+<div class="quote-attrib">Alex Kim · CEO &nbsp;·&nbsp; Jason Ko · COO &nbsp;·&nbsp; Dawon Kim · CDO</div>
+</div>
+</div>
+</section>
 
-  <!-- ==================== TIMELINE ==================== -->
-  <section class="section wrap fade-up">
-    <div class="s-head">
-      <div>
-        <span class="eyebrow">The build, in chapters</span>
-        <h2>Eight months,<br />twelve formulas.</h2>
-      </div>
-      <p>We deleted ingredients more often than we added them. The version we're shipping has four. Here's how it got there.</p>
-    </div>
+<section class="section section-warm">
+<div class="wrap-tight">
+<div class="section-head">
+<span class="eyebrow">The build, in chapters</span>
+<h2>Eight months. Twelve formulas.</h2>
+<p>We deleted ingredients more often than we added them. The version shipping has three core ingredients. Here's how it got there.</p>
+</div>
 
-    <div class="timeline">
-      <div class="tl-step major">
-        <div class="tl-when">2025 · Q3</div>
-        <h4>The complaint</h4>
-        <p>Both of us bought gut products in two countries and didn't trust either of them. The American ones were bricks of stevia. The Korean ones were 3-gram fiber gummies wearing a 30-gram lab coat.</p>
-      </div>
-      <div class="tl-step">
-        <div class="tl-when">2025 · Q4</div>
-        <h4>First conversation with Daoom</h4>
-        <p>A GMP-certified Korean powder facility. We brought a brief: smallest possible formula, real fiber dose, named strain, no sweeteners.</p>
-      </div>
-      <div class="tl-step">
-        <div class="tl-when">2025 · Nov</div>
-        <h4>Formula v1.0 — too ambitious</h4>
-        <p>11 ingredients, 7 functional claims, multiple flavor variants. Looked great on a deck. Wouldn't have shipped.</p>
-      </div>
-      <div class="tl-step">
-        <div class="tl-when">2026 · Jan</div>
-        <h4>v2.0 — starting to delete</h4>
-        <p>Dropped flavor masking. Dropped two adaptogens we couldn't dose meaningfully in 5g. Down to 7 ingredients.</p>
-      </div>
-      <div class="tl-step">
-        <div class="tl-when">2026 · Feb</div>
-        <h4>v3.0 — strain locked</h4>
-        <p>Switched probiotic from a non-spore strain to <em>B. coagulans</em> SNZ 1969 (Sanzyme). Spore-form gives shelf stability without the cold chain.</p>
-      </div>
-      <div class="tl-step">
-        <div class="tl-when">2026 · Mar</div>
-        <h4>v3.5 — went unflavored</h4>
-        <p>The decision that changed the brand. Without flavoring, we could push the fiber dose to 14g — which actually crosses the MFDS thresholds for two functional claims.</p>
-      </div>
-      <div class="tl-step major">
-        <div class="tl-when">2026 · Apr</div>
-        <h4>v4.0 — locked</h4>
-        <p>Four ingredients: 12g Fibersol-2L, 2g XOS, 2 billion CFU SNZ 1969, trace silica. Daoom R&amp;D submitted. <a href="../science/" style="color: var(--clay);">Full formula →</a></p>
-      </div>
-      <div class="tl-step">
-        <div class="tl-when">2026 · Q3</div>
-        <h4>First sticks ship</h4>
-        <p>Founders' list opens at $29 trial pricing for the first 200 customers. Then standard ladder.</p>
-      </div>
-    </div>
-  </section>
+<div class="timeline">
+<div class="tl-step major">
+<div class="tl-when">2025 · Q3</div>
+<div>
+<h4>The complaint</h4>
+<p>Both of us bought gut products in two countries and didn't trust either. The American ones were dosed for marketing. The Korean ones were dosed for regulatory minimums. None of them were dosed for results.</p>
+</div>
+</div>
 
-  <!-- ==================== SOURCING MAP ==================== -->
-  <section class="section wrap fade-up">
-    <div class="s-head">
-      <div>
-        <span class="eyebrow">Sourcing &amp; manufacturing</span>
-        <h2>Made between<br />four cities.</h2>
-      </div>
-      <p>Strain from India. Fiber from the United States. Manufactured in Korea. Shipped from Los Angeles. The supply chain isn't a marketing line — it's where each ingredient is actually best.</p>
-    </div>
+<div class="tl-step">
+<div class="tl-when">2025 · Q4</div>
+<div>
+<h4>First conversations</h4>
+<p>We brought a brief to manufacturers in Korea, India, and the US: smallest possible formula, real fiber dose, named strain, no sweeteners. Every conversation started with someone explaining why our brief wasn't possible.</p>
+</div>
+</div>
 
-    <div class="map-wrap">
-      <!-- Simplified world map (continent silhouettes only, decorative) -->
-      <svg class="map-svg" viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- Americas -->
-        <path d="M120 80 L180 60 L210 100 L195 160 L210 220 L180 280 L150 320 L130 300 L110 260 L100 200 L120 140 Z"
-          fill="none" stroke="#8B4A2C" stroke-width="1" opacity="0.4"/>
-        <!-- Europe -->
-        <path d="M380 90 L450 80 L470 120 L440 160 L400 170 L380 140 Z"
-          fill="none" stroke="#8B4A2C" stroke-width="1" opacity="0.4"/>
-        <!-- Africa -->
-        <path d="M420 180 L470 175 L490 240 L460 320 L430 310 L410 250 Z"
-          fill="none" stroke="#8B4A2C" stroke-width="1" opacity="0.4"/>
-        <!-- Asia -->
-        <path d="M500 80 L700 90 L760 130 L750 200 L700 240 L640 230 L580 200 L520 180 L500 130 Z"
-          fill="none" stroke="#8B4A2C" stroke-width="1" opacity="0.4"/>
-        <!-- Australia -->
-        <path d="M700 280 L780 280 L790 310 L750 330 L700 320 Z"
-          fill="none" stroke="#8B4A2C" stroke-width="1" opacity="0.4"/>
-        <!-- equator line (subtle) -->
-        <line x1="60" y1="220" x2="820" y2="220" stroke="#8B4A2C" stroke-width="1" stroke-dasharray="4 8" opacity="0.15"/>
-      </svg>
+<div class="tl-step">
+<div class="tl-when">2025 · Nov</div>
+<div>
+<h4>Formula v1.0 — too ambitious</h4>
+<p>11 ingredients, 7 functional claims, multiple flavor variants. Looked great on a deck. Wouldn't have shipped a single SKU we believed in.</p>
+</div>
+</div>
 
-      <div class="map-pins">
-        <!-- Los Angeles · Americas, ~155x, ~145y -->
-        <div class="map-pin" style="left: 17%; top: 38%;">
-          <div class="dot"></div>
-          <div class="lbl">LA · HQ</div>
-        </div>
-        <!-- Decatur, IL · ADM Fibersol source ~190x, ~135y -->
-        <div class="map-pin" style="left: 22%; top: 35%;">
-          <div class="dot"></div>
-          <div class="lbl">ADM · Fibersol</div>
-        </div>
-        <!-- Hyderabad, India · Sanzyme strain source ~580x, ~205y -->
-        <div class="map-pin" style="left: 65%; top: 53%;">
-          <div class="dot"></div>
-          <div class="lbl">Sanzyme · SNZ 1969</div>
-        </div>
-        <!-- Korea · Daoom GMP manufacturing -->
-        <div class="map-pin" style="left: 80%; top: 36%;">
-          <div class="dot"></div>
-          <div class="lbl">Daoom · GMP</div>
-        </div>
-        <!-- Seoul · CDO base -->
-        <div class="map-pin" style="left: 76%; top: 32%;">
-          <div class="dot"></div>
-          <div class="lbl">Seoul · design</div>
-        </div>
-      </div>
-    </div>
+<div class="tl-step">
+<div class="tl-when">2026 · Jan</div>
+<div>
+<h4>v2.0 — starting to delete</h4>
+<p>Dropped flavor masking. Dropped two adaptogens we couldn't dose meaningfully. Down to seven ingredients.</p>
+</div>
+</div>
 
-    <div class="strain-grid" style="margin-top: 32px;">
-      <div class="strain-card">
-        <span class="strain-tag">Manufacturing</span>
-        <div class="strain-id">(주)다움 · Daoom</div>
-        <div class="strain-brand">CEO 김형서 · South Korea</div>
-        <p style="font-size: var(--t-13); color: var(--soft-ink); line-height: 1.5;">GMP-certified powder &amp; stick-pack facility. Korean stick-pack manufacturing has the deepest supply chain for our format.</p>
-        <div class="strain-supplier">Stick-pack production</div>
-      </div>
-      <div class="strain-card">
-        <span class="strain-tag">Probiotic strain</span>
-        <div class="strain-id">Sanzyme</div>
-        <div class="strain-brand">Hyderabad, India</div>
-        <p style="font-size: var(--t-13); color: var(--soft-ink); line-height: 1.5;"><em>B. coagulans</em> SNZ 1969 spore preparation. FDA GRAS GRN 597 + 864 covers this exact preparation.</p>
-        <div class="strain-supplier">SNZ 1969</div>
-      </div>
-      <div class="strain-card">
-        <span class="strain-tag">Fiber</span>
-        <div class="strain-id">ADM</div>
-        <div class="strain-brand">Decatur, Illinois</div>
-        <p style="font-size: var(--t-13); color: var(--soft-ink); line-height: 1.5;">Fibersol-2L soluble corn fiber. Non-GMO, the most extensively studied resistant maltodextrin in clinical literature.</p>
-        <div class="strain-supplier">Fibersol-2L</div>
-      </div>
-    </div>
-  </section>
+<div class="tl-step">
+<div class="tl-when">2026 · Feb</div>
+<div>
+<h4>v3.0 — strain locked</h4>
+<p>Switched probiotic from a vegetative-form strain to <em>Bacillus coagulans</em> SNZ 1969 from Sanzyme. Spore-form gives shelf stability without the cold chain.</p>
+</div>
+</div>
 
+<div class="tl-step">
+<div class="tl-when">2026 · Mar</div>
+<div>
+<h4>v3.5 — went unflavored, then re-flavored honestly</h4>
+<p>Stripped flavor entirely to test pure dose. Tasted like fiber. Re-introduced peach purée only — no stevia, no monk fruit, no sucralose. The peach carries the flavor on its own.</p>
+</div>
+</div>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <span class="brand">Pheeew<span class="dot"></span></span>
-          <p style="color: rgba(250,247,242,0.6); font-size: var(--t-13); max-width: 32ch;">Happy Gut, Happy Life. By All Vital Organics, between LA and Seoul.</p>
-        </div>
-        <div><h5>Shop</h5><ul>
-          <li><a href="../shop/">Gut + Energy</a></li>
-          <li><a href="../shop/">Subscribe &amp; save</a></li>
-        </ul></div>
-        <div><h5>Science</h5><ul>
-          <li><a href="../science/">Evidence map</a></li>
-          <li><a href="../science/#strain">Strain rigor</a></li>
-          <li><a href="../science/#citations">Citations</a></li>
-        </ul></div>
-        <div><h5>Company</h5><ul>
-          <li><a href="../story/">Story</a></li>
-          <li><a href="../faq/">FAQ</a></li>
-          <li><a href="mailto:hello@pheeew.com">Contact</a></li>
-        </ul></div>
-      </div>
-      <div class="footer-disclaimer">These statements have not been evaluated by the U.S. Food &amp; Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
-      <div class="footer-bottom"><span>© 2026 All Vital Organics, Inc.</span><span>Los Angeles · Seoul</span></div>
-    </div>
-  </footer>
+<div class="tl-step major">
+<div class="tl-when">2026 · Apr</div>
+<div>
+<h4>v4.0 — locked</h4>
+<p>Three core ingredients: 8g Fibersol-2L (ADM), 2g XOS, 1×10⁹ live spore cultures of <em>B. coagulans</em> SNZ 1969 (Sanzyme). Plus filtered water, peach purée, citric acid, natural peach flavor, ascorbic acid as preservative. R&amp;D submitted.</p>
+</div>
+</div>
 
-  <script>
-    const io = new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
-    document.querySelectorAll(".fade-up").forEach((el) => io.observe(el));
-  </script>
+<div class="tl-step">
+<div class="tl-when">2026 · Q3</div>
+<div>
+<h4>First sticks ship</h4>
+<p>Founders' list opens at $29 trial pricing for the first 200 customers. Then standard ladder. The sub-vs-one-time math says subscribe, but we're not making one-time customers feel bad about being one-time customers.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-ink">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow" style="color:var(--peach)">Where it's made</span>
+<h2>Three suppliers.<br>Three countries.</h2>
+<p>Every ingredient comes from a real manufacturer with a real address. No proprietary blends to hide a sourcing chain we'd be embarrassed by.</p>
+</div>
+
+<div class="supplier-grid">
+<div class="supplier-card">
+<span class="supplier-tag">Fiber base</span>
+<div class="supplier-name">ADM</div>
+<div class="supplier-loc">Decatur, Illinois · USA</div>
+<p class="supplier-body">Fibersol-2L is a soluble corn fiber (resistant maltodextrin) made by Archer Daniels Midland. Non-GMO, the most extensively studied resistant maltodextrin in clinical literature.</p>
+<div class="supplier-supplies">Supplies: Fibersol-2L · 8g</div>
+</div>
+
+<div class="supplier-card">
+<span class="supplier-tag">Probiotic strain</span>
+<div class="supplier-name">Sanzyme</div>
+<div class="supplier-loc">Hyderabad, India</div>
+<p class="supplier-body"><em>Bacillus coagulans</em> SNZ 1969 spore preparation. FDA GRAS GRN 597 + 864 cover this exact strain. Sanzyme is the original source — no licensee chain.</p>
+<div class="supplier-supplies">Supplies: SNZ 1969 · 1×10⁹ CFU</div>
+</div>
+
+<div class="supplier-card">
+<span class="supplier-tag">Manufacturing</span>
+<div class="supplier-name">TBD · co-packer</div>
+<div class="supplier-loc">Locked at production</div>
+<p class="supplier-body">Liquid stick pouch co-packer to be locked when 30–50mL liquid format is confirmed. Will be GMP-certified, FDA-registered, third-party audited. Country of origin will be on every box.</p>
+<div class="supplier-supplies">Supplies: stick pouch fill + box</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-cream">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">The thesis</span>
+<h2>Lean portfolio.<br>Heavy lifters.</h2>
+<p>Pheeew is the first brand from Pheeew, Inc. — a Delaware C-Corp founded by Alex Kim, Jason Ko, and Dawon Kim. The plan isn't to build twenty brands. It's to build a small number of brands that each earn their place.</p>
+</div>
+
+<div class="thesis-grid">
+<div class="thesis-card"><div class="thesis-num">3</div><h4>Anchor ingredients</h4><p>Every Pheeew product starts with Fibersol-2L, XOS, and SNZ 1969. New formulations add function-specific actives — never to fix the foundation, only to extend it.</p></div>
+<div class="thesis-card"><div class="thesis-num">1</div><h4>Hero SKU at launch</h4><p>Gut + Bloat ships first. Future formulations (Gut + Steady, others) follow only when the human-trial evidence justifies a new claim. We don't ship fiction.</p></div>
+<div class="thesis-card"><div class="thesis-num">0</div><h4>Filler ingredients</h4><p>No stevia. No monk fruit. No sucralose. No proprietary blends hiding under-doses. If it's on the label, it's there because the literature says it does work.</p></div>
+</div>
+
+<div style="text-align:center;margin-top:60px"><a href="../shop/" class="btn-ghost">See the product →</a></div>
+</div>
+</section>
+
+<div class="fda-disclaimer"><p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p></div>
+
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div><div class="footer-brand">Pheeew</div><div class="footer-brand-tagline">"Three ingredients. Real doses. Nothing else."</div></div>
+<div class="footer-col"><h5>Shop</h5><a href="../shop/">Gut + Bloat</a><a href="../shop/">Subscribe</a></div>
+<div class="footer-col"><h5>Brand</h5><a href="../science/">Science</a><a href="../story/">Story</a><a href="../faq/">FAQ</a></div>
+<div class="footer-col"><h5>Connect</h5><a href="mailto:hello@pheeew.com">Contact</a><a href="https://instagram.com/saypheeew">@saypheeew</a></div>
+<div class="footer-col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refunds</a></div>
+</div>
+<div class="footer-base">© 2026 Pheeew, Inc. · Los Angeles, CA · Distributed by Pheeew, Inc. · Made in USA</div>
+</div>
+</footer>
+
 </body>
 </html>
