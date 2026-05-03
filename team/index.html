@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Founder Scope · Pheeew, Inc.</title>
+<meta name="description" content="Internal work order — Alex Kim (CEO), Jason Ko (COO), Dawon Kim (CDO). Pre-launch scope of work, broken down by founder.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2657CD;--blue-deep:#1F4AA8;--blue-soft:#E2EAFA;--cream:#FAF7F2;--warm:#F5EFE5;--ink:#1C1A18;--soft:#4A453F;--mute:#8A847C;--peach:#E89B6F;--peach-soft:#FBE4D2;--peach-deep:#B85C2E;--green:#4A8E5A;--green-soft:#E8F5ED;--line:rgba(28,26,24,.10);--shadow:0 12px 40px rgba(28,26,24,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Libre Franklin',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px}
+.wrap-tight{max-width:880px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.05}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:14px}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,247,242,.94);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.site-header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1400px;margin:0 auto}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.025em;color:var(--ink)}
+.logo small{font-family:'Libre Franklin',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-left:10px}
+.nav-right{display:flex;align-items:center;gap:20px;font-size:12px;font-weight:500}
+.nav-right a{color:var(--soft)}
+.nav-right a:hover{color:var(--ink)}
+.nav-back{background:var(--ink);color:var(--cream);padding:8px 14px;border-radius:100px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+
+/* HERO */
+.hero{padding:64px 0 48px}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(48px,7vw,80px);max-width:18ch;margin-bottom:18px;line-height:1;letter-spacing:-.025em}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero-lede{font-size:16px;color:var(--soft);max-width:540px;line-height:1.6}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;background:white;border-radius:16px;padding:20px;border:1px solid var(--line)}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:36px;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.hero-stat-num em{font-style:normal;color:var(--peach-deep)}
+.hero-stat-lbl{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-top:6px;line-height:1.3}
+
+/* PRIORITY LEGEND */
+.legend{padding:16px 0 40px;border-bottom:1px solid var(--line)}
+.legend-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;font-size:11px;color:var(--mute);letter-spacing:.06em}
+.legend-row .lbl{letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-right:8px}
+.lpill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.lpill.p0{background:var(--peach-soft);color:var(--peach-deep)}
+.lpill.p1{background:var(--blue-soft);color:var(--blue)}
+.lpill.p2{background:var(--warm);color:var(--soft)}
+.lpill.done{background:var(--green-soft);color:var(--green)}
+
+/* PODCAST CALLOUT */
+.podcast{background:var(--ink);color:var(--cream);padding:60px 0;margin:48px 0;border-radius:24px}
+.podcast-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:0 48px}
+.podcast .eyebrow{color:var(--peach)}
+.podcast h2{font-size:clamp(36px,4.5vw,52px);color:white;line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+.podcast h2 em{font-style:italic;color:var(--peach)}
+.podcast p{font-size:15px;line-height:1.6;color:rgba(250,247,242,.78);margin-bottom:14px}
+.podcast p strong{color:white;font-weight:600}
+.podcast-roles{background:rgba(250,247,242,.06);border:1px solid rgba(250,247,242,.12);border-radius:16px;padding:24px}
+.podcast-role{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;padding:14px 0;border-bottom:1px solid rgba(250,247,242,.08);font-size:13px}
+.podcast-role:last-child{border-bottom:0}
+.podcast-role .who{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--peach);font-weight:800}
+.podcast-role .what{color:rgba(250,247,242,.85);line-height:1.55}
+.podcast-role .what strong{color:white;font-weight:600;display:block;margin-bottom:2px}
+
+/* FOUNDERS */
+.founders{padding:60px 0 80px}
+.founders-head{text-align:center;margin-bottom:48px}
+.founders-head h2{font-size:clamp(36px,5vw,56px);max-width:18ch;margin:0 auto 12px;line-height:1.05}
+.founders-head h2 em{font-style:italic;color:var(--blue)}
+.founders-head p{font-size:14.5px;color:var(--soft);max-width:560px;margin:0 auto}
+.founder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.founder-col{background:white;border-radius:20px;padding:28px 24px;border:1px solid var(--line)}
+.founder-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.founder-portrait{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:24px;color:white;flex-shrink:0}
+.founder-col:nth-child(1) .founder-portrait{background:linear-gradient(135deg,var(--ink),#3D362F)}
+.founder-col:nth-child(2) .founder-portrait{background:linear-gradient(135deg,var(--blue-deep),var(--blue))}
+.founder-col:nth-child(3) .founder-portrait{background:linear-gradient(135deg,var(--peach),var(--peach-deep))}
+.founder-name{font-family:'DM Serif Display',serif;font-size:24px;letter-spacing:-.015em;line-height:1}
+.founder-role{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-top:4px}
+.founder-bio{font-size:12px;color:var(--soft);line-height:1.5;margin-top:6px;font-style:italic}
+.cat{margin-bottom:24px}
+.cat:last-child{margin-bottom:0}
+.cat-name{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;margin-bottom:12px;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+.founder-col:nth-child(1) .cat-name{color:var(--ink)}
+.founder-col:nth-child(2) .cat-name{color:var(--blue)}
+.founder-col:nth-child(3) .cat-name{color:var(--peach-deep)}
+.task{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:start;padding:8px 0;font-size:13px;line-height:1.45;cursor:pointer;border-bottom:1px solid rgba(28,26,24,.04)}
+.task:last-child{border-bottom:0}
+.task input[type="checkbox"]{margin-top:3px;cursor:pointer;width:14px;height:14px;accent-color:var(--blue)}
+.task.done .task-text{text-decoration:line-through;color:var(--mute)}
+.task-text{color:var(--ink)}
+.task-text small{display:block;font-size:11px;color:var(--mute);margin-top:2px;font-style:italic;line-height:1.4}
+.task-pri{flex-shrink:0;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;padding:2px 7px;border-radius:100px;align-self:flex-start;margin-top:2px;line-height:1.4}
+.task-pri.p0{background:var(--peach-soft);color:var(--peach-deep)}
+.task-pri.p1{background:var(--blue-soft);color:var(--blue)}
+.task-pri.p2{background:var(--warm);color:var(--soft)}
+
+/* TOGETHER */
+.together{padding:60px 0;background:var(--warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.together-head{text-align:center;margin-bottom:36px}
+.together-head h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:8px;letter-spacing:-.02em}
+.together-head h2 em{font-style:italic;color:var(--blue)}
+.together-head p{font-size:14px;color:var(--soft)}
+.together-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:980px;margin:0 auto}
+.together-card{background:white;border-radius:14px;padding:24px;border:1px solid var(--line)}
+.together-card h3{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:8px;letter-spacing:-.015em}
+.together-card p{font-size:13px;color:var(--soft);line-height:1.55}
+.together-card .when{display:inline-block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:10px;background:var(--blue-soft);padding:3px 9px;border-radius:100px}
+
+/* PROGRESS BAR */
+.progress-section{padding:48px 0;text-align:center}
+.progress-bar{max-width:540px;margin:0 auto 14px;height:8px;background:rgba(28,26,24,.08);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--green));width:0%;transition:width .3s}
+.progress-text{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:700}
+
+/* FOOTER */
+.site-footer{background:var(--ink);color:rgba(255,255,255,.6);padding:32px 0;font-size:11px;letter-spacing:.04em;text-align:center}
+
+@media(max-width:1100px){
+.founder-grid{grid-template-columns:1fr;gap:18px}
+.podcast-grid{grid-template-columns:1fr;gap:32px}
+.together-grid{grid-template-columns:1fr}
+.hero-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+.podcast-grid{padding:0 24px}
+.podcast{padding:40px 0;margin:32px 0}
+.podcast-role{grid-template-columns:1fr;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="site-header-inner">
+<a href="../" class="logo">Pheeew<small>· Internal · Founder Scope</small></a>
+<div class="nav-right">
+<a href="../">Home</a>
+<a href="../shop/">Shop</a>
+<a href="../" class="nav-back">← Back to site</a>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<span class="eyebrow">Pre-launch · Q3 2026 ship</span>
+<h1>Founder Scope.<br><em>What each of us owns.</em></h1>
+<p class="hero-lede">Pheeew, Inc. is three people building a CPG brand on a stick. This is the working scope of work — broken out by founder, by category, by priority. Living document; check things off as they ship.</p>
+</div>
+<div class="hero-stats">
+<div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-lbl">Founders</div></div>
+<div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-lbl">Countries<br>(LA · Seoul)</div></div>
+<div class="hero-stat"><div class="hero-stat-num">1</div><div class="hero-stat-lbl">Stick<br>shipping</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="legend">
+<div class="legend-row">
+<span class="lbl">Priority</span>
+<span class="lpill p0">P0 · Blocker</span>
+<span class="lpill p1">P1 · Pre-launch</span>
+<span class="lpill p2">P2 · Post-launch</span>
+<span style="margin-left:24px;font-style:italic">Tip — click a row to mark complete; progress saves locally.</span>
+</div>
+</section>
+
+<!-- ============== DOWN THE HOLE PODCAST ============== -->
+<div class="wrap">
+<section class="podcast">
+<div class="podcast-grid">
+<div>
+<span class="eyebrow">Brand top-of-funnel</span>
+<h2>"Down the Hole."<br><em>The gut-talk podcast.</em></h2>
+<p>Long-form interviews with gastroenterologists, microbiome researchers, fermentation scientists, and founders who think about gut health for a living. Title nods to where the spore actually goes — and to the rabbit hole gut science is.</p>
+<p><strong>Why we're doing it:</strong> trust takes time and a single podcast appearance from a real expert outperforms ten polished ad creatives. The podcast is the credibility moat.</p>
+<p><strong>Cadence target:</strong> 1–2 episodes/month at launch. Each episode → 8–12 short clips Dawon distributes across IG/TikTok/X. Audio on Spotify, Apple, YouTube.</p>
+</div>
+<div class="podcast-roles">
+<div class="podcast-role">
+<span class="who">Dawon</span>
+<span class="what"><strong>Host + face</strong>On camera. Asks the questions, frames the conversation, drives the format.</span>
+</div>
+<div class="podcast-role">
+<span class="who">Alex</span>
+<span class="what"><strong>Producer + booker</strong>Books guests, writes question briefs, occasionally guests when topic is right.</span>
+</div>
+<div class="podcast-role">
+<span class="who">Jason</span>
+<span class="what"><strong>Ops + distribution</strong>Recording stack, scheduling, post-production vendor, distribution to platforms, clip pipeline.</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ============== FOUNDERS ============== -->
+<section class="founders">
+<div class="wrap">
+<div class="founders-head">
+<span class="eyebrow">Who owns what</span>
+<h2>The work,<br><em>broken out.</em></h2>
+<p>Three swim lanes. Cross-functional items at the bottom. P0 blockers ship first.</p>
+</div>
+
+<div class="founder-grid">
+
+<!-- ALEX -->
+<div class="founder-col">
+<div class="founder-head">
+<div class="founder-portrait">A</div>
+<div>
+<div class="founder-name">Alex Kim</div>
+<div class="founder-role">CEO · LA</div>
+<div class="founder-bio">Strategy, voice, fundraising, manufacturer relationships</div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-name">Strategy &amp; Fundraising</div>
+<label class="task"><input type="checkbox" data-id="a-fund-1"><span class="task-text">Lock fundraising path<small>Angel round structure, target raise ($500K–$1.2M), runway math</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="a-fund-2"><span class="task-text">Pitch deck content<small>10–14 slides; Dawon designs from outline</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="a-fund-3"><span class="task-text">Investor list + outreach<small>30 angels + 5 micro-funds; cold + warm intros</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="a-fund-4"><span class="task-text">Cap table maintained<small>With Jason; 35/33/32 split + 10% pool. 83(b) filed.</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="a-fund-5"><span class="task-text">Financial model<small>5-year forecast for investor decks</small></span><span class="task-pri p1">P1</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Brand Voice &amp; Content</div>
+<label class="task"><input type="checkbox" data-id="a-voice-1"><span class="task-text">Lock brand voice + tagline<small>Daily synbiotic fiber · "A good gut feeling." · ✓</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="a-voice-2"><span class="task-text">AVO blog / founder content<small>Drives Pheeew indirectly. 1 long post/week, anti-placebo angle</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="a-voice-3"><span class="task-text">Founder-led short-form scripts<small>5–7/week. Anti-placebo, supplement-skeptic angle</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="a-voice-4"><span class="task-text">Down the Hole · book first 6 guests<small>GI doc, microbiome PhD, fermentation chef, gut-health founder, etc.</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="a-voice-5"><span class="task-text">PR / press story arc<small>Launch story angle, journalist outreach list</small></span><span class="task-pri p2">P2</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Strategic Operations</div>
+<label class="task"><input type="checkbox" data-id="a-ops-1"><span class="task-text">Co-packer locked<small>Final selection, contract signed</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="a-ops-2"><span class="task-text">Sanzyme + ADM relationships<small>Probiotic + fiber supplier confirmations, MOQ math</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="a-ops-3"><span class="task-text">Launch date locked<small>Q3 2026 target; depends on co-packer + funding</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="a-ops-4"><span class="task-text">Korean bridge brand strategy<small>Separate from Pheeew. Bobsnu July renegotiation prep</small></span><span class="task-pri p2">P2</span></label>
+<label class="task"><input type="checkbox" data-id="a-ops-5"><span class="task-text">Doctor / scientist endorsement<small>One named, signed, willing to be quoted</small></span><span class="task-pri p2">P2</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Partnerships</div>
+<label class="task"><input type="checkbox" data-id="a-part-1"><span class="task-text">Affiliate program design<small>15% first + 5% recurring; recruit 50 creators in month 1</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="a-part-2"><span class="task-text">Cross-brand collabs<small>Identify 3 wellness brands for joint giveaways</small></span><span class="task-pri p2">P2</span></label>
+<label class="task"><input type="checkbox" data-id="a-part-3"><span class="task-text">Retail buyer outreach<small>Whole Foods, Erewhon — Phase 2, post month 4</small></span><span class="task-pri p2">P2</span></label>
+</div>
+</div>
+
+<!-- JASON -->
+<div class="founder-col">
+<div class="founder-head">
+<div class="founder-portrait">J</div>
+<div>
+<div class="founder-name">Jason Ko</div>
+<div class="founder-role">COO · LA</div>
+<div class="founder-bio">Operations, finance, legal, supply chain, tech stack</div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-name">Legal &amp; Entity</div>
+<label class="task"><input type="checkbox" data-id="j-legal-1"><span class="task-text">Pheeew, Inc. compliance<small>Annual filings, registered agent, DE C-corp standing</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-legal-2"><span class="task-text">Trademark filings<small>"Pheeew" wordmark; "A good gut feeling." tagline</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-legal-3"><span class="task-text">Privacy + Terms + Refund policies<small>Live in Shopify; reviewed by counsel before launch</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-legal-4"><span class="task-text">Product liability + GL insurance<small>$1M policy minimum before first ship</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-legal-5"><span class="task-text">Co-packer + supplier contracts<small>NDA, MSA, quality agreements signed</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-legal-6"><span class="task-text">FDA labeling compliance review<small>Supplement Facts panel, GRAS docs, allergen statement</small></span><span class="task-pri p0">P0</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Finance &amp; Banking</div>
+<label class="task"><input type="checkbox" data-id="j-fin-1"><span class="task-text">Business banking<small>Mercury or Brex; corporate card issued</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-fin-2"><span class="task-text">Accounting setup<small>QuickBooks Online; CPA monthly review</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-fin-3"><span class="task-text">Sales tax nexus by state<small>TaxJar or Avalara; collect from day 1 in qualifying states</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-fin-4"><span class="task-text">Monthly P&amp;L cadence<small>By the 15th of each month, shared with Alex + Dawon</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-fin-5"><span class="task-text">Investor data room<small>Dropbox or Notion; cap table, financials, contracts ready</small></span><span class="task-pri p1">P1</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Tech Stack &amp; Operations</div>
+<label class="task"><input type="checkbox" data-id="j-tech-1"><span class="task-text">Shopify store production-ready<small>Eurus theme · custom Pheeew sections · domain DNS</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-tech-2"><span class="task-text">Shopify Subscriptions wired<small>Selling plan group · attached to Core 30 + Committed 90 only</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-tech-3"><span class="task-text">Klaviyo flows live<small>Welcome (3-email), abandoned cart, post-purchase, win-back</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-tech-4"><span class="task-text">Reviews app (Loox)<small>Photo-review request 14d post-delivery; widget on PDP</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-tech-5"><span class="task-text">Customer support tooling<small>Gorgias or Front; macros for top 20 questions</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-tech-6"><span class="task-text">Analytics stack<small>GA4 + Shopify reports; Triple Whale once spend justifies</small></span><span class="task-pri p2">P2</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Supply Chain &amp; Fulfillment</div>
+<label class="task"><input type="checkbox" data-id="j-supply-1"><span class="task-text">3PL selected<small>ShipBob or ShipMonk; LA warehouse for west-coast speed</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-supply-2"><span class="task-text">First production run scheduled<small>40K MOQ; co-packer date locked; QA samples reviewed</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="j-supply-3"><span class="task-text">Inventory reorder thresholds<small>Trigger at 30% inventory; 8-week production lead time</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-supply-4"><span class="task-text">Shipping carrier rates<small>Negotiate with USPS, UPS, ShipStation account</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="j-supply-5"><span class="task-text">Lot tracking + recall protocol<small>Lot-level traceability per stick; recall SOP documented</small></span><span class="task-pri p1">P1</span></label>
+</div>
+</div>
+
+<!-- DAWON -->
+<div class="founder-col">
+<div class="founder-head">
+<div class="founder-portrait">D</div>
+<div>
+<div class="founder-name">Dawon Kim</div>
+<div class="founder-role">CDO · Seoul</div>
+<div class="founder-bio">Design, brand face, content production, social</div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-name">Brand &amp; Design System</div>
+<label class="task"><input type="checkbox" data-id="d-brand-1"><span class="task-text">Logo + wordmark final<small>Production-ready files; PMS + RGB + CMYK</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="d-brand-2"><span class="task-text">Packaging dieline locked<small>Stick pouch + box + ship case; co-packer specs</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="d-brand-3"><span class="task-text">Brand book v1<small>Color, type, voice, photo direction, do/don't</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-brand-4"><span class="task-text">Shopify section design refinement<small>Custom Pheeew sections beyond Eurus stock</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-brand-5"><span class="task-text">Pitch deck design<small>From Alex's content; 12–14 slides, Pheeew brand</small></span><span class="task-pri p1">P1</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Content (the FACE)</div>
+<label class="task"><input type="checkbox" data-id="d-content-1"><span class="task-text">@saypheeew · meme page cadence<small>5 posts/week minimum; ongoing, owned</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="d-content-2"><span class="task-text">TikTok + Reels weekly cadence<small>4–6 short videos/week; on camera; founder-led</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-content-3"><span class="task-text">Down the Hole · host on camera<small>1–2 episodes/month; 60–90 min long-form</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-content-4"><span class="task-text">Clip pipeline · DTH episodes → 8–12 shorts<small>Distributed across IG, TikTok, YouTube Shorts, X</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-content-5"><span class="task-text">Founders' List welcome content<small>Email + landing page hero photo + IG posts</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-content-6"><span class="task-text">UGC editing for ads<small>Top 20% of creator content → Meta + TikTok ads</small></span><span class="task-pri p2">P2</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Photography &amp; Video</div>
+<label class="task"><input type="checkbox" data-id="d-photo-1"><span class="task-text">Product photography shoot<small>Hero, lifestyle, ingredient macro, in-hand · 1 day shoot</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="d-photo-2"><span class="task-text">Hero photo for site<small>Replaces gradient placeholders across all 5 pages</small></span><span class="task-pri p0">P0</span></label>
+<label class="task"><input type="checkbox" data-id="d-photo-3"><span class="task-text">Founders portrait<small>Three-up + individuals; LA + Seoul shoot</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-photo-4"><span class="task-text">15s "drink it" video<small>For PDP; replaces 10th product image position</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-photo-5"><span class="task-text">Ad creative library<small>20+ Meta + TikTok variations; rotate weekly</small></span><span class="task-pri p2">P2</span></label>
+</div>
+
+<div class="cat">
+<div class="cat-name">Customer Experience Design</div>
+<label class="task"><input type="checkbox" data-id="d-cx-1"><span class="task-text">Klaviyo email templates designed<small>Welcome series, abandoned cart, post-purchase, founders' list</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-cx-2"><span class="task-text">Unboxing experience<small>Founder card, dosing tip card, refund-easy card</small></span><span class="task-pri p1">P1</span></label>
+<label class="task"><input type="checkbox" data-id="d-cx-3"><span class="task-text">Founders' List welcome PDF<small>"30 days with Pheeew" mini-guide; gated giveaway</small></span><span class="task-pri p2">P2</span></label>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ============== TOGETHER ============== -->
+<section class="together">
+<div class="wrap">
+<div class="together-head">
+<span class="eyebrow">Cross-functional</span>
+<h2>What we<br><em>do together.</em></h2>
+<p>Standing meetings, shared decisions, three-of-three sign-offs.</p>
+</div>
+<div class="together-grid">
+<div class="together-card">
+<span class="when">Mondays · weekly</span>
+<h3>Founders' sync</h3>
+<p>60 min. Numbers from Jason. Content from Dawon. Strategy from Alex. Decisions logged. Async between syncs.</p>
+</div>
+<div class="together-card">
+<span class="when">Quarterly</span>
+<h3>Brand + roadmap review</h3>
+<p>Where Pheeew is, where it's going, what next. SKU 2 (Gut + Steady) decisions. Hiring readiness review.</p>
+</div>
+<div class="together-card">
+<span class="when">Pre-launch · once</span>
+<h3>Launch readiness gate</h3>
+<p>All P0 items closed. Real product photography in. Klaviyo flows live. Reviews app installed. Insurance bound. Co-packer first run shipped.</p>
+</div>
+<div class="together-card">
+<span class="when">Live · always</span>
+<h3>Down the Hole</h3>
+<p>Dawon hosts. Alex produces. Jason runs ops + clips. Three-founder podcast operation; nobody owns it alone.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============== PROGRESS ============== -->
+<section class="progress-section">
+<div class="wrap-tight">
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="progress-text" id="progressText">0 of 0 items complete</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="wrap">© 2026 Pheeew, Inc. · Internal scope · Updated as we go · Saved locally to your browser</div>
+</footer>
+
+<script>
+const STORAGE='pheeew-team-scope-v1';
+let state={};
+try{const s=localStorage.getItem(STORAGE);if(s)state=JSON.parse(s)}catch(e){}
+
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){}}
+
+function update(){
+  const tasks=document.querySelectorAll('.task');
+  let done=0;
+  tasks.forEach(t=>{
+    const cb=t.querySelector('input');
+    const id=cb.dataset.id;
+    if(state[id]){cb.checked=true;t.classList.add('done');done++}
+    else{cb.checked=false;t.classList.remove('done')}
+  });
+  const total=tasks.length;
+  const pct=total?Math.round(done/total*100):0;
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressText').textContent=done+' of '+total+' items complete · '+pct+'%';
+}
+
+document.querySelectorAll('.task').forEach(t=>{
+  const cb=t.querySelector('input');
+  cb.addEventListener('change',()=>{
+    state[cb.dataset.id]=cb.checked;
+    save();
+    update();
+  });
+});
+
+update();
+</script>
+
+</body>
+</html>
