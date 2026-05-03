@@ -4,1528 +4,496 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pheeew · the daily synbiotic</title>
-<meta name="description" content="Pheeew is the daily synbiotic. Three core ingredients: 10g prebiotic fiber (Fibersol-2L + XOS) and 1 billion live spore cultures of Bacillus coagulans SNZ 1969. No filler, no proprietary blend.">
+<meta name="description" content="A daily synbiotic stick built around three ingredients that actually work, at doses that actually do something. Less bloat. More regularity. Cancel anytime.">
 <meta property="og:title" content="Pheeew · the daily synbiotic">
-<meta property="og:description" content="Three ingredients. Real doses. Nothing else.">
+<meta property="og:description" content="Three ingredients. Real doses. Less bloat, daily.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://allvitalorganics.github.io/pheeew-live/">
 <link rel="canonical" href="https://allvitalorganics.github.io/pheeew-live/">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"Organization","@id":"https://allvitalorganics.github.io/pheeew-live/#org","name":"Pheeew, Inc.","legalName":"Pheeew, Inc.","url":"https://allvitalorganics.github.io/pheeew-live/","logo":"https://allvitalorganics.github.io/pheeew-live/logo.png","foundingDate":"2025","founders":[{"@type":"Person","name":"Alex Kim"},{"@type":"Person","name":"Jason Ko"},{"@type":"Person","name":"Dawon Kim"}],"address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"},"sameAs":["https://instagram.com/saypheeew"]},
-{"@type":"WebSite","@id":"https://allvitalorganics.github.io/pheeew-live/#website","url":"https://allvitalorganics.github.io/pheeew-live/","name":"Pheeew","description":"The daily synbiotic. Three ingredients. Real doses. Nothing else.","publisher":{"@id":"https://allvitalorganics.github.io/pheeew-live/#org"}},
-{"@type":"Product","name":"Pheeew · Gut + Bloat","description":"A daily synbiotic stick combining 10g of prebiotic fiber (Fibersol-2L + XOS) with 1 billion live spore cultures of Bacillus coagulans SNZ 1969.","brand":{"@id":"https://allvitalorganics.github.io/pheeew-live/#org"},"category":"Dietary Supplement","url":"https://allvitalorganics.github.io/pheeew-live/shop/"}
-]}
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"#org","name":"Pheeew, Inc.","url":"https://allvitalorganics.github.io/pheeew-live/","foundingDate":"2025","founders":[{"@type":"Person","name":"Alex Kim"},{"@type":"Person","name":"Jason Ko"},{"@type":"Person","name":"Dawon Kim"}],"address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"}},
+{"@type":"WebSite","@id":"#website","url":"https://allvitalorganics.github.io/pheeew-live/","name":"Pheeew","publisher":{"@id":"#org"}},
+{"@type":"Product","name":"Pheeew · Gut + Bloat","description":"A daily synbiotic stick: 10g prebiotic fiber (Fibersol-2L + XOS) and 1 billion live spore cultures of Bacillus coagulans SNZ 1969.","brand":{"@id":"#org"},"category":"Dietary Supplement","url":"https://allvitalorganics.github.io/pheeew-live/shop/"}
+]}
+</script>
 <style>
-:root {
-  --blue: #2657CD;
-  --blue-deep: #1F4AA8;
-  --blue-soft: #E2EAFA;
-  --cream: #FAF7F2;
-  --warm: #F5EFE5;
-  --ink: #1C1A18;
-  --soft: #4A453F;
-  --mute: #8A847C;
-  --peach: #E89B6F;
-  --peach-soft: #FBE4D2;
-  --line: rgba(28, 26, 24, 0.10);
-  --shadow: 0 12px 40px rgba(28, 26, 24, 0.08);
+:root{
+  --blue:#2657CD; --blue-deep:#1F4AA8; --blue-soft:#E2EAFA;
+  --cream:#FAF7F2; --warm:#F5EFE5;
+  --ink:#1C1A18; --soft:#4A453F; --mute:#8A847C;
+  --peach:#E89B6F; --peach-soft:#FBE4D2;
+  --line:rgba(28,26,24,.10);
+  --shadow:0 12px 40px rgba(28,26,24,.08);
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Libre Franklin',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  font-size: 16px;
-  line-height: 1.6;
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.wrap-tight{max-width:760px;margin:0 auto;padding:0 32px}
 
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-.wrap-narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; }
-.wrap-tight { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.02}
 
-h1, h2, h3, h4 {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 1.05;
-}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:18px}
+.eyebrow.peach{color:var(--peach)}
 
-.eyebrow {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--blue);
-  margin-bottom: 16px;
-}
+/* image placement tags */
+.img-tag{position:absolute;top:14px;left:14px;background:rgba(28,26,24,.85);color:var(--cream);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:5px 9px;border-radius:4px;z-index:5;pointer-events:none;max-width:calc(100% - 28px)}
+.img-tag::before{content:"IMG · ";color:var(--peach)}
 
-.img-tag {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(28,26,24,0.85);
-  color: var(--cream);
-  font-size: 9.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 5px 9px;
-  border-radius: 4px;
-  z-index: 5;
-  pointer-events: none;
-  max-width: calc(100% - 24px);
-}
-.img-tag::before { content: "IMG · "; color: var(--peach); }
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,247,242,.92);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.site-header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1400px;margin:0 auto}
+.logo{font-weight:700;font-size:22px;letter-spacing:-.025em;color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:28px;font-size:13px;font-weight:500}
+.nav-right a{color:var(--soft);transition:color .2s}
+.nav-right a:hover{color:var(--ink)}
+.cart-pill{background:var(--ink);color:var(--cream);border-radius:100px;padding:8px 16px;font-size:12px;letter-spacing:.04em;font-weight:600}
 
-.help-strip {
-  background: var(--ink);
-  color: var(--cream);
-  padding: 12px 32px;
-  text-align: center;
-  font-size: 11px;
-  border-bottom: 2px solid var(--peach);
-}
-.help-strip strong { color: var(--peach); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 10px; margin-right: 8px; }
+/* ===== 1 · HERO ===== */
+.hero{padding:80px 0 100px;text-align:center}
+.hero-eyebrow{display:inline-block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--blue);background:var(--blue-soft);padding:7px 16px;border-radius:100px;margin-bottom:32px}
+.hero h1{font-size:clamp(64px,10vw,144px);max-width:14ch;margin:0 auto 24px;line-height:.95;letter-spacing:-.025em}
+.hero-sub{font-size:clamp(17px,1.7vw,21px);color:var(--soft);max-width:560px;margin:0 auto 44px;line-height:1.45}
+.btn-primary{display:inline-block;background:var(--ink);color:var(--cream);padding:20px 44px;border-radius:100px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;transition:all .2s}
+.btn-primary:hover{background:var(--blue);transform:translateY(-1px)}
+.btn-ghost{display:inline-block;background:transparent;color:var(--ink);padding:18px 40px;border-radius:100px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border:1.5px solid var(--ink);transition:all .2s}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+.hero-photo{margin-top:64px;max-width:680px;margin-left:auto;margin-right:auto;height:520px;background:linear-gradient(180deg,var(--peach-soft) 0%,var(--blue-soft) 100%);border-radius:32px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-stick{width:74px;height:380px;background:linear-gradient(180deg,var(--blue) 0%,var(--blue-deep) 100%);border-radius:16px;box-shadow:0 28px 80px rgba(38,87,205,.45);display:flex;align-items:center;justify-content:center;color:white;font-family:'DM Serif Display',serif;font-size:20px;writing-mode:vertical-rl;transform:rotate(180deg);padding:40px 0}
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(250, 247, 242, 0.92);
-  backdrop-filter: saturate(180%) blur(16px);
-  -webkit-backdrop-filter: saturate(180%) blur(16px);
-  border-bottom: 1px solid var(--line);
-}
-.site-header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 32px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.logo {
-  font-family: 'Libre Franklin', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  font-size: 13px;
-  font-weight: 500;
-}
-.nav-right a {
-  color: var(--soft);
-  transition: color 0.2s;
-}
-.nav-right a:hover { color: var(--ink); }
-.cart-pill {
-  background: var(--ink);
-  color: var(--cream);
-  border-radius: 100px;
-  padding: 8px 16px;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  font-weight: 600;
-}
+/* ===== 2 · RECOGNITION (the frustration) ===== */
+.recognition{background:var(--ink);color:var(--cream);padding:140px 0;text-align:center}
+.recognition .eyebrow{color:var(--peach)}
+.recognition h2{font-size:clamp(40px,6vw,72px);max-width:18ch;margin:0 auto 40px;color:white;line-height:1.05}
+.recognition .body{max-width:680px;margin:0 auto;font-size:18px;line-height:1.7;color:rgba(250,247,242,.85)}
+.recognition .body p{margin-bottom:20px}
+.recognition .body p:last-child{margin-bottom:0}
+.recognition .body em{font-style:italic;color:var(--peach)}
+.recognition .body strong{color:white;font-weight:600}
 
-.hero {
-  padding: 100px 0 60px;
-  text-align: center;
-  background: var(--cream);
-}
-.hero h1 {
-  font-size: clamp(56px, 9vw, 112px);
-  margin: 0 auto 24px;
-  max-width: 16ch;
-  color: var(--ink);
-}
-.hero-sub {
-  font-size: clamp(16px, 1.5vw, 18px);
-  color: var(--soft);
-  max-width: 460px;
-  margin: 0 auto 36px;
-  line-height: 1.6;
-}
-.btn-primary {
-  display: inline-block;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 18px 40px;
-  border-radius: 100px;
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-.btn-primary:hover { background: var(--blue); transform: translateY(-1px); }
+/* ===== 3 · REFRAME ===== */
+.reframe{padding:140px 0;text-align:center;background:var(--cream)}
+.reframe-line-1{font-family:'DM Serif Display',serif;font-size:clamp(28px,3.4vw,42px);line-height:1.2;color:var(--mute);max-width:24ch;margin:0 auto 8px;letter-spacing:-.015em}
+.reframe-line-2{font-family:'DM Serif Display',serif;font-size:clamp(40px,6vw,72px);line-height:1.05;color:var(--ink);max-width:20ch;margin:0 auto 32px;letter-spacing:-.02em}
+.reframe-line-2 em{font-style:italic;color:var(--blue)}
+.reframe-after{font-size:18px;color:var(--soft);max-width:560px;margin:32px auto 0;line-height:1.6}
 
-.btn-ghost {
-  display: inline-block;
-  background: transparent;
-  color: var(--ink);
-  padding: 16px 36px;
-  border-radius: 100px;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-  border: 1px solid var(--ink);
-  transition: all 0.2s;
-}
-.btn-ghost:hover { background: var(--ink); color: var(--cream); }
+/* ===== 4 · REVEAL (meet pheeew) ===== */
+.reveal{background:var(--blue);color:white;padding:120px 0;text-align:center;position:relative;overflow:hidden}
+.reveal h2{font-size:clamp(40px,6vw,72px);color:white;max-width:16ch;margin:0 auto 24px;line-height:1.05}
+.reveal-sub{font-size:18px;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 56px;line-height:1.6}
+.reveal-product{max-width:520px;margin:0 auto;height:380px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.15);border-radius:24px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.reveal-stick{width:60px;height:280px;background:linear-gradient(180deg,white 0%,rgba(255,255,255,.85) 100%);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;color:var(--blue);font-family:'DM Serif Display',serif;font-size:16px;writing-mode:vertical-rl;transform:rotate(180deg);padding:32px 0}
+.reveal-img-tag{background:rgba(0,0,0,.4);color:rgba(255,255,255,.9)}
 
-.hero-product {
-  margin-top: 56px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 460px;
-  background: linear-gradient(180deg, var(--peach-soft) 0%, var(--cream) 100%);
-  border-radius: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero-product-stick {
-  width: 64px;
-  height: 320px;
-  background: linear-gradient(180deg, var(--blue) 0%, var(--blue-deep) 100%);
-  border-radius: 14px;
-  box-shadow: 0 24px 60px rgba(38, 87, 205, 0.35);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  padding: 40px 0;
-  text-align: center;
-}
+/* ===== 5 · WALK-THROUGH (body story) ===== */
+.walk{padding:140px 0;background:var(--warm)}
+.walk-head{text-align:center;margin-bottom:80px}
+.walk-head h2{font-size:clamp(40px,6vw,72px);max-width:14ch;margin:0 auto 18px}
+.walk-head p{font-size:18px;color:var(--soft);max-width:520px;margin:0 auto;line-height:1.6}
+.walk-track{max-width:880px;margin:0 auto}
+.walk-step{display:grid;grid-template-columns:80px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid rgba(28,26,24,.12);align-items:start}
+.walk-step:last-child{border-bottom:0}
+.walk-num{font-family:'DM Serif Display',serif;font-size:48px;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.walk-step h3{font-family:'DM Serif Display',serif;font-size:28px;letter-spacing:-.015em;margin-bottom:10px}
+.walk-step p{font-size:17px;color:var(--soft);line-height:1.55;max-width:520px}
 
-.trust-row-section {
-  background: var(--cream);
-  padding: 0 0 60px;
-}
-.trust-row {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--mute);
-  font-weight: 600;
-  flex-wrap: wrap;
-}
-.trust-row span::before {
-  content: "·  ";
-  color: var(--blue);
-  font-weight: 800;
-}
+/* ===== 6 · THE MATH (proof, only now) ===== */
+.math{padding:140px 0;background:white;text-align:center}
+.math-head{margin-bottom:80px}
+.math-head h2{font-size:clamp(40px,6vw,72px);max-width:18ch;margin:0 auto 18px;line-height:1.02}
+.math-head p{font-size:18px;color:var(--soft);max-width:560px;margin:0 auto;line-height:1.55}
+.math-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto}
+.math-card{background:var(--cream);border-radius:24px;padding:48px 32px;text-align:left}
+.math-num{font-family:'DM Serif Display',serif;font-size:80px;color:var(--blue);line-height:1;margin-bottom:18px;letter-spacing:-.025em}
+.math-name{font-family:'DM Serif Display',serif;font-size:24px;letter-spacing:-.015em;margin-bottom:8px}
+.math-source{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:16px;display:block}
+.math-line{font-size:14.5px;line-height:1.55;color:var(--soft)}
+.math-line em{font-style:italic;color:var(--ink)}
 
-.promise {
-  text-align: center;
-  background: var(--cream);
-  padding: 100px 0 60px;
-}
-.promise h2 {
-  font-size: clamp(40px, 6vw, 72px);
-  max-width: 14ch;
-  margin: 0 auto 28px;
-}
-.promise-body {
-  font-size: 19px;
-  color: var(--soft);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.55;
-}
-.promise-body strong { color: var(--ink); font-weight: 600; }
+/* ===== 7 · OUTCOME (timeline) ===== */
+.outcome{padding:140px 0;background:var(--cream)}
+.outcome-head{text-align:center;margin-bottom:64px}
+.outcome-head h2{font-size:clamp(40px,6vw,72px);max-width:14ch;margin:0 auto 18px}
+.outcome-head p{font-size:17px;color:var(--soft);max-width:480px;margin:0 auto;line-height:1.55}
+.outcome-track{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:0 auto}
+.outcome-stage{background:white;border-radius:18px;padding:36px 28px;border:1px solid var(--line)}
+.outcome-when{font-family:'DM Serif Display',serif;font-size:42px;color:var(--blue);margin-bottom:6px;line-height:.95;letter-spacing:-.02em}
+.outcome-when small{font-family:'Libre Franklin',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:700;display:block;margin-bottom:6px}
+.outcome-stage h4{font-family:'DM Serif Display',serif;font-size:21px;margin:14px 0 10px;letter-spacing:-.015em}
+.outcome-stage p{font-size:14px;color:var(--soft);line-height:1.55}
 
-.three {
-  padding: 140px 0;
-  background: var(--cream);
-}
-.three-head {
-  text-align: center;
-  margin-bottom: 80px;
-}
-.three-head h2 {
-  font-size: clamp(48px, 7vw, 88px);
-  max-width: 16ch;
-  margin: 0 auto 20px;
-}
-.three-head p {
-  font-size: 17px;
-  color: var(--soft);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.55;
-}
-.three-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.three-card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-}
-.three-image {
-  height: 280px;
-  position: relative;
-  overflow: hidden;
-}
-.three-card:nth-child(1) .three-image {
-  background: linear-gradient(180deg, #F5EFE5 0%, #E8D5C0 100%);
-}
-.three-card:nth-child(2) .three-image {
-  background: linear-gradient(180deg, var(--peach-soft) 0%, var(--peach) 100%);
-}
-.three-card:nth-child(3) .three-image {
-  background: linear-gradient(180deg, var(--blue-soft) 0%, var(--blue) 100%);
-}
-.three-content {
-  padding: 32px 28px 36px;
-}
-.three-num {
-  font-family: 'DM Serif Display', serif;
-  font-size: 14px;
-  color: var(--mute);
-  margin-bottom: 8px;
-  font-feature-settings: 'tnum';
-}
-.three-name {
-  font-family: 'DM Serif Display', serif;
-  font-size: 28px;
-  letter-spacing: -0.015em;
-  margin-bottom: 10px;
-}
-.three-dose {
-  display: inline-block;
-  background: var(--cream);
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--blue);
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-.three-line {
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--soft);
-}
-.three-foot {
-  text-align: center;
-  margin-top: 56px;
-  font-family: 'DM Serif Display', serif;
-  font-style: italic;
-  font-size: 22px;
-  color: var(--ink);
-}
+/* ===== 8 · COMPARISON ===== */
+.compare{padding:140px 0;background:white}
+.compare-head{text-align:center;margin-bottom:60px}
+.compare-head h2{font-size:clamp(40px,6vw,64px);max-width:14ch;margin:0 auto 16px}
+.compare-head p{font-size:16px;color:var(--soft);max-width:520px;margin:0 auto}
+.compare-table{max-width:920px;margin:0 auto;background:var(--cream);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.compare-row{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;align-items:center;padding:18px 28px;border-bottom:1px solid var(--line);font-size:14px}
+.compare-row:last-child{border-bottom:0}
+.compare-row.head{background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.compare-row.head>div:nth-child(2){background:var(--blue);color:white;padding:18px 28px;margin:-18px -28px}
+.compare-row.pheeew{background:rgba(38,87,205,.04);font-weight:600}
+.compare-row.pheeew>div:nth-child(2){color:var(--blue)}
+.compare-row>div{text-align:center}
+.compare-row>div:first-child{text-align:left}
+.check{color:var(--blue);font-size:18px;font-weight:800}
+.cross{color:var(--mute);font-size:18px}
 
-.product-section {
-  padding: 100px 0;
-  background: white;
-}
-.product-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.product-image {
-  height: 560px;
-  background: linear-gradient(180deg, var(--peach-soft) 0%, var(--blue-soft) 100%);
-  border-radius: 20px;
-  position: sticky;
-  top: 100px;
-  overflow: hidden;
-}
-.product-info { padding-top: 12px; }
-.product-info .eyebrow { color: var(--peach); }
-.product-info h2 { font-size: 56px; margin-bottom: 24px; }
-.product-bullets {
-  list-style: none;
-  margin: 24px 0 32px;
-  padding: 0;
-  border-top: 1px solid var(--line);
-}
-.product-bullets li {
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 14.5px;
-  line-height: 1.55;
-}
-.bullet-mark {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  color: var(--blue);
-  line-height: 1;
-  min-width: 20px;
-}
-.purchase-toggle {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin: 0 0 14px;
-  padding: 4px;
-  background: var(--cream);
-  border-radius: 100px;
-}
-.toggle-option {
-  padding: 14px 20px;
-  text-align: center;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-radius: 100px;
-  color: var(--soft);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.toggle-option.active { background: var(--ink); color: var(--cream); }
-.savings-pill {
-  display: inline-block;
-  background: var(--peach);
-  color: white;
-  padding: 3px 10px;
-  border-radius: 100px;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-left: 6px;
-}
-.frequency-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  background: var(--cream);
-  border-radius: 100px;
-  margin-bottom: 18px;
-  font-size: 13px;
-  font-weight: 500;
-}
-.add-to-cart {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 22px 28px;
-  border-radius: 100px;
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-.add-to-cart:hover { background: var(--blue); }
-.trust-row-pdp {
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  margin-top: 18px;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mute);
-  font-weight: 500;
-}
+/* ===== 9 · FAQ ===== */
+.faq{padding:140px 0;background:var(--cream)}
+.faq-head{text-align:center;margin-bottom:56px}
+.faq-head h2{font-size:clamp(40px,6vw,64px);margin-bottom:14px}
+.faq-head p{font-size:15px;color:var(--soft)}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line);padding:28px 0}
+.faq-item:first-child{border-top:1px solid var(--line)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-family:'DM Serif Display',serif;font-size:24px;cursor:pointer;letter-spacing:-.015em;line-height:1.2}
+.faq-q:hover{color:var(--blue)}
+.faq-q-icon{font-size:24px;color:var(--blue);font-weight:300;flex-shrink:0;margin-left:14px}
+.faq-a{font-size:15px;line-height:1.7;color:var(--soft);margin-top:14px}
+.faq-foot{text-align:center;margin-top:48px}
 
-.how {
-  padding: 140px 0;
-  background: var(--warm);
-}
-.how-head {
-  text-align: center;
-  margin-bottom: 64px;
-}
-.how-head h2 {
-  font-size: clamp(40px, 6vw, 72px);
-  max-width: 14ch;
-  margin: 0 auto 16px;
-}
-.how-head p {
-  font-size: 16px;
-  color: var(--soft);
-  max-width: 480px;
-  margin: 0 auto;
-}
-.how-track {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.how-stage {
-  background: white;
-  border-radius: 18px;
-  padding: 32px 24px;
-  text-align: center;
-  position: relative;
-}
-.how-stage::after {
-  content: "→";
-  position: absolute;
-  right: -14px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 22px;
-  color: var(--blue);
-  font-weight: 300;
-  z-index: 2;
-}
-.how-stage:last-child::after { display: none; }
-.how-circle {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  margin: 0 auto 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-}
-.how-stage:nth-child(1) .how-circle { background: linear-gradient(135deg, #F5EFE5, #B89B7F); color: white; }
-.how-stage:nth-child(2) .how-circle { background: linear-gradient(135deg, var(--peach-soft), var(--peach)); color: white; }
-.how-stage:nth-child(3) .how-circle { background: linear-gradient(135deg, var(--blue-soft), var(--blue)); color: white; }
-.how-stage:nth-child(4) .how-circle { background: linear-gradient(135deg, var(--blue), var(--blue-deep)); color: white; }
-.how-stage h4 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-.how-eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--blue);
-  font-weight: 600;
-  margin-bottom: 6px;
-  display: block;
-}
-.how-stage p {
-  font-size: 13.5px;
-  color: var(--soft);
-  line-height: 1.5;
-}
-.how-link {
-  text-align: center;
-  margin-top: 56px;
-}
+/* ===== 10 · ASK (final CTA) ===== */
+.ask{background:var(--ink);color:white;padding:160px 0;text-align:center;position:relative;overflow:hidden}
+.ask::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(38,87,205,.18) 0%,transparent 70%);pointer-events:none}
+.ask-inner{position:relative;z-index:2}
+.ask h2{font-size:clamp(48px,8vw,96px);color:white;max-width:14ch;margin:0 auto 28px;line-height:.98;letter-spacing:-.025em}
+.ask p{font-size:18px;color:rgba(250,247,242,.7);max-width:480px;margin:0 auto 44px}
+.ask .btn-cta{display:inline-block;background:var(--peach);color:var(--ink);padding:22px 50px;border-radius:100px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;transition:all .2s}
+.ask .btn-cta:hover{background:white;transform:translateY(-2px)}
+.ask-trust{display:flex;justify-content:center;gap:32px;margin-top:36px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,247,242,.5);font-weight:600}
 
-.stats {
-  padding: 100px 0;
-  background: white;
-  text-align: center;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.stat-cell { padding: 32px 12px; }
-.stat-number {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(64px, 10vw, 112px);
-  color: var(--blue);
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--soft);
-  font-weight: 600;
-  line-height: 1.5;
-}
+/* ===== 11 · FOUNDER (small, end) ===== */
+.founder{background:var(--warm);padding:100px 0}
+.founder-grid{display:grid;grid-template-columns:1fr 2fr;gap:40px;max-width:880px;margin:0 auto;align-items:center}
+.founder-portrait{aspect-ratio:1;background:linear-gradient(135deg,var(--peach-soft),var(--blue-soft));border-radius:50%;width:160px;height:160px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:56px;color:var(--ink);position:relative;overflow:hidden}
+.founder-quote{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(18px,2vw,22px);line-height:1.45;color:var(--ink);margin-bottom:18px;letter-spacing:-.01em}
+.founder-attrib{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:700}
+.founder-attrib strong{color:var(--ink);display:block;margin-bottom:2px;font-weight:700}
+.founder-link{display:inline-block;margin-top:16px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:700}
 
-.compare {
-  padding: 120px 0;
-  background: var(--cream);
-}
-.compare-head {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.compare-head h2 {
-  font-size: clamp(40px, 6vw, 64px);
-  max-width: 16ch;
-  margin: 0 auto 14px;
-}
-.compare-head p {
-  font-size: 15px;
-  color: var(--soft);
-  max-width: 480px;
-  margin: 0 auto;
-}
-.compare-table {
-  max-width: 880px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.compare-row {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  align-items: center;
-  padding: 18px 28px;
-  border-bottom: 1px solid var(--line);
-  font-size: 14px;
-}
-.compare-row:last-child { border-bottom: 0; }
-.compare-row.head {
-  background: var(--ink);
-  color: var(--cream);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.compare-row.pheeew { background: var(--cream); font-weight: 500; }
-.compare-row > div { text-align: center; }
-.compare-row > div:first-child { text-align: left; }
-.check { color: var(--blue); font-size: 18px; font-weight: 800; }
-.cross { color: var(--mute); font-size: 18px; }
+/* ===== FDA + FOOTER ===== */
+.fda-disclaimer{background:var(--warm);padding:28px 24px;text-align:center;border-top:1px solid var(--line)}
+.fda-disclaimer p{max-width:720px;margin:0 auto;font-size:12px;color:var(--mute);line-height:1.6;font-style:italic}
 
-.line-section {
-  padding: 140px 0;
-  background: var(--ink);
-  color: var(--cream);
-}
-.line-head {
-  text-align: center;
-  margin-bottom: 64px;
-}
-.line-head .eyebrow { color: var(--peach); }
-.line-head h2 {
-  font-size: clamp(40px, 6vw, 72px);
-  max-width: 16ch;
-  margin: 0 auto 18px;
-  color: white;
-}
-.line-head p {
-  font-size: 16px;
-  color: rgba(250,247,242,0.7);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.55;
-}
-.line-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.line-card {
-  background: rgba(250,247,242,0.04);
-  border: 1px solid rgba(250,247,242,0.1);
-  border-radius: 18px;
-  padding: 32px 28px;
-  position: relative;
-}
-.line-card.now {
-  background: var(--cream);
-  color: var(--ink);
-  border-color: var(--cream);
-}
-.line-status {
-  font-size: 9.5px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 100px;
-  display: inline-block;
-  margin-bottom: 18px;
-}
-.line-card.now .line-status {
-  background: var(--ink);
-  color: var(--cream);
-}
-.line-card:not(.now) .line-status {
-  background: rgba(250,247,242,0.1);
-  color: rgba(250,247,242,0.6);
-}
-.line-name {
-  font-family: 'DM Serif Display', serif;
-  font-size: 32px;
-  letter-spacing: -0.015em;
-  margin-bottom: 10px;
-}
-.line-card.now .line-name { color: var(--ink); }
-.line-card:not(.now) .line-name { color: white; }
-.line-body {
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--soft);
-  margin-bottom: 0;
-}
-.line-card:not(.now) .line-body { color: rgba(250,247,242,0.55); }
+.site-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand{font-weight:700;font-size:28px;letter-spacing:-.025em;color:white;margin-bottom:12px}
+.footer-brand-tagline{font-family:'DM Serif Display',serif;font-style:italic;font-size:17px;color:rgba(255,255,255,.5);line-height:1.4;max-width:280px}
+.footer-col h5{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:16px}
+.footer-col a{display:block;padding:6px 0;color:rgba(255,255,255,.85);font-size:14px}
+.footer-col a:hover{color:white}
+.footer-base{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:16px}
 
-.timeline {
-  padding: 120px 0;
-  background: var(--cream);
-}
-.timeline-head {
-  text-align: center;
-  margin-bottom: 60px;
-}
-.timeline-head h2 {
-  font-size: clamp(40px, 6vw, 64px);
-  max-width: 16ch;
-  margin: 0 auto 14px;
-}
-.timeline-head p {
-  font-size: 15px;
-  color: var(--soft);
-  max-width: 480px;
-  margin: 0 auto;
-}
-.timeline-track {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.timeline-stage {
-  background: white;
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  border: 1px solid var(--line);
-}
-.timeline-when {
-  font-family: 'DM Serif Display', serif;
-  font-size: 36px;
-  color: var(--blue);
-  margin-bottom: 6px;
-  line-height: 1;
-}
-.timeline-when small {
-  font-family: 'Libre Franklin', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--soft);
-  font-weight: 600;
-  display: block;
-  margin-bottom: 4px;
-}
-.timeline-stage h4 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  margin: 14px 0 10px;
-}
-.timeline-stage p {
-  font-size: 13px;
-  color: var(--soft);
-  line-height: 1.5;
-}
-
-.bundles {
-  padding: 120px 0;
-  background: white;
-}
-.bundles-head {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.bundles-head h2 {
-  font-size: clamp(40px, 6vw, 64px);
-  max-width: 14ch;
-  margin: 0 auto 14px;
-}
-.bundles-head p {
-  font-size: 15px;
-  color: var(--soft);
-}
-.bundles-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 880px;
-  margin: 0 auto;
-}
-.bundle-card {
-  background: var(--cream);
-  border-radius: 20px;
-  padding: 36px 32px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.bundle-discount {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: var(--peach);
-  color: white;
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.bundle-image {
-  height: 220px;
-  background: linear-gradient(135deg, var(--blue-soft) 0%, var(--peach-soft) 100%);
-  border-radius: 14px;
-  margin-bottom: 24px;
-  position: relative;
-  overflow: hidden;
-}
-.bundle-name {
-  font-family: 'DM Serif Display', serif;
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-.bundle-meta {
-  font-size: 13px;
-  color: var(--soft);
-  margin-bottom: 18px;
-}
-.bundle-price {
-  font-family: 'DM Serif Display', serif;
-  font-size: 36px;
-  margin-bottom: 18px;
-}
-.bundle-price small {
-  font-family: 'Libre Franklin', sans-serif;
-  font-size: 14px;
-  color: var(--mute);
-  text-decoration: line-through;
-  margin-left: 6px;
-  font-weight: 500;
-}
-.bundle-cta {
-  display: inline-block;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 14px 32px;
-  border-radius: 100px;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-.bundle-cta:hover { background: var(--blue); }
-
-.faq {
-  padding: 140px 0;
-  background: var(--cream);
-}
-.faq-head {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.faq-head h2 {
-  font-size: clamp(40px, 6vw, 72px);
-  margin-bottom: 14px;
-}
-.faq-head p {
-  font-size: 15px;
-  color: var(--soft);
-}
-.faq-list {
-  max-width: 760px;
-  margin: 0 auto;
-}
-.faq-item {
-  border-bottom: 1px solid var(--line);
-  padding: 26px 0;
-}
-.faq-item:first-child { border-top: 1px solid var(--line); }
-.faq-q {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.faq-q:hover { color: var(--blue); }
-.faq-q-icon {
-  font-family: 'Libre Franklin', sans-serif;
-  font-size: 22px;
-  color: var(--blue);
-  font-weight: 300;
-}
-.faq-a {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--soft);
-  margin-top: 14px;
-  max-width: 640px;
-}
-.faq-foot {
-  text-align: center;
-  margin-top: 56px;
-}
-
-.newsletter {
-  background: var(--blue);
-  color: white;
-  padding: 80px 0;
-}
-.newsletter-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-.newsletter-text { flex: 1; }
-.newsletter-text h3 {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: white;
-}
-.newsletter-text p {
-  font-size: 14.5px;
-  color: rgba(255,255,255,0.75);
-  max-width: 380px;
-}
-.newsletter-form {
-  display: flex;
-  align-items: center;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 100px;
-  padding: 4px 4px 4px 24px;
-  min-width: 380px;
-}
-.newsletter-form input {
-  background: transparent;
-  border: 0;
-  outline: 0;
-  flex: 1;
-  color: white;
-  font-family: inherit;
-  font-size: 14px;
-  padding: 12px 0;
-}
-.newsletter-form input::placeholder { color: rgba(255,255,255,0.55); }
-.newsletter-submit {
-  background: white;
-  color: var(--blue);
-  padding: 12px 24px;
-  border-radius: 100px;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.site-footer {
-  background: var(--ink);
-  color: rgba(255,255,255,0.7);
-  padding: 80px 0 32px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 60px;
-}
-.footer-brand {
-  font-family: 'Libre Franklin', sans-serif;
-  font-weight: 700;
-  font-size: 28px;
-  letter-spacing: -0.02em;
-  color: white;
-  margin-bottom: 12px;
-}
-.footer-brand-tagline {
-  font-family: 'DM Serif Display', serif;
-  font-style: italic;
-  font-size: 17px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.4;
-  max-width: 280px;
-}
-.footer-col h5 {
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-.footer-col a {
-  display: block;
-  padding: 6px 0;
-  color: rgba(255,255,255,0.85);
-  font-size: 14px;
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: white; }
-.footer-base {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-}
-.footer-base-links { display: flex; gap: 24px; flex-wrap: wrap; }
-
-@media (max-width: 880px) {
-  .product-card,
-  .bundles-grid,
-  .three-grid,
-  .stats-grid,
-  .timeline-track,
-  .how-track,
-  .line-grid,
-  .footer-grid,
-  .newsletter-row {
-    grid-template-columns: 1fr;
-  }
-  .stats-grid, .timeline-track, .how-track, .line-grid { grid-template-columns: 1fr 1fr; }
-  .three-grid { grid-template-columns: 1fr; }
-  .compare-row { grid-template-columns: 1.4fr 1fr 1fr 1fr; padding: 14px 16px; font-size: 12px; }
-  .product-image { position: static; height: 380px; }
-  .newsletter-form { min-width: 0; width: 100%; }
-  .newsletter-row { flex-direction: column; align-items: flex-start; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .footer-grid > div:first-child { grid-column: 1 / -1; }
-  .how-stage::after { display: none; }
+@media(max-width:880px){
+.math-grid,.outcome-track,.footer-grid,.founder-grid{grid-template-columns:1fr}
+.outcome-track{grid-template-columns:1fr 1fr}
+.compare-row{grid-template-columns:1.5fr 1fr 1fr 1fr;padding:14px 16px;font-size:12px}
+.walk-step{grid-template-columns:60px 1fr;gap:20px}
+.walk-num{font-size:36px}
+.hero-photo{height:380px;margin-top:48px}
+.hero-stick{height:280px}
+.footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+.footer-grid>div:first-child{grid-column:1/-1}
+.nav-right{gap:16px;font-size:12px}
+.nav-right a:not(.cart-pill){display:none}
+.ask-trust{gap:18px;flex-wrap:wrap}
+.founder-portrait{width:120px;height:120px;font-size:42px}
 }
 </style>
 </head>
 <body>
 
-<div class="help-strip">
-  <strong>Reference mock</strong>
-  Anchored on the 3 ingredients · no review/publication content · all page links use Shopify URL formatting · remove this strip before publishing
-</div>
-
 <header class="site-header">
-  <div class="site-header-inner">
-    <a href="./" class="logo">Pheeew</a>
-    <div class="nav-right">
-      <a href="shop/">Shop</a>
-      <a href="science/">Science</a>
-      <a href="story/">Story</a>
-      <a href="faq/">FAQ</a>
-      <a href="shop/" class="cart-pill">Cart (0)</a>
-    </div>
-  </div>
+<div class="site-header-inner">
+<a href="/" class="logo">Pheeew</a>
+<div class="nav-right">
+<a href="shop/">Shop</a>
+<a href="science/">Science</a>
+<a href="story/">Story</a>
+<a href="faq/">FAQ</a>
+<a href="shop/" class="cart-pill">Shop</a>
+</div>
+</div>
 </header>
 
+<!-- ============== 1 · HERO ============== -->
 <section class="hero">
-  <div class="wrap">
-    <h1>Less bloat,<br>daily.</h1>
-    <p class="hero-sub">A daily synbiotic stick. Three real ingredients. Nothing else.</p>
-    <a href="shop/" class="btn-primary">Shop Gut + Bloat</a>
+<div class="wrap">
+<span class="hero-eyebrow">The daily synbiotic</span>
+<h1>Less bloat,<br>daily.</h1>
+<p class="hero-sub">A stick built around three ingredients that actually work — at doses that actually do something.</p>
+<a href="shop/" class="btn-primary">Shop Pheeew</a>
 
-    <div class="hero-product">
-      <div class="img-tag">Hero · stick + box, peach gradient backdrop, soft daylight · ~1400×1080</div>
-      <div class="hero-product-stick">Pheeew · Gut + Bloat</div>
-    </div>
-  </div>
+<div class="hero-photo">
+<div class="img-tag">Hero · stick + box, real-light photography on cream-to-peach gradient · ~1600×1200</div>
+<div class="hero-stick">Pheeew · Gut + Bloat</div>
+</div>
+</div>
 </section>
 
-<section class="trust-row-section">
-  <div class="wrap">
-    <div class="trust-row">
-      <span>Three ingredients</span>
-      <span>FDA GRAS strain</span>
-      <span>Spore-form probiotic</span>
-      <span>No proprietary blend</span>
-      <span>Made in USA</span>
-    </div>
-  </div>
+<!-- ============== 2 · RECOGNITION ============== -->
+<section class="recognition">
+<div class="wrap-tight">
+<span class="eyebrow">If you're here</span>
+<h2>You've tried things.<br>Most of them lied.</h2>
+<div class="body">
+<p>The capsules that promised <em>billions</em> — and quietly died in your stomach acid before they reached anything that mattered.</p>
+<p>The greens powders sweetened with three kinds of sugar, because you couldn't choke them down otherwise.</p>
+<p>The probiotic gummies that were ninety percent gelatin and ten percent <em>hope</em>.</p>
+<p style="margin-top:36px"><strong>Maybe you stopped trusting the category. We don't blame you.</strong></p>
+</div>
+</div>
 </section>
 
-<section class="promise">
-  <div class="wrap-narrow">
-    <span class="eyebrow">The premise</span>
-    <h2>Three ingredients.<br>Real doses.</h2>
-    <p class="promise-body">Most gut products are <strong>80% filler</strong>. Pheeew is 100% formula.</p>
-  </div>
+<!-- ============== 3 · REFRAME ============== -->
+<section class="reframe">
+<div class="wrap-tight">
+<p class="reframe-line-1">Here's what we noticed.</p>
+<h2 class="reframe-line-2">Most gut products aren't trying to fix your gut.<br>They're trying to make a <em>label</em> look impressive.</h2>
+<p class="reframe-after">Five ingredients at half-doses. Eight adaptogens at trace doses. A "proprietary blend" that's mostly cornstarch.<br><br>What if the right move was the opposite?</p>
+</div>
 </section>
 
-<section class="three">
-  <div class="wrap">
-    <div class="three-head">
-      <span class="eyebrow">The three</span>
-      <h2>Studied. Named. Dosed. Listed.</h2>
-      <p>Every Pheeew formula starts here — three ingredients doing real work, at clinically meaningful doses.</p>
-    </div>
+<!-- ============== 4 · REVEAL ============== -->
+<section class="reveal">
+<div class="wrap">
+<span class="eyebrow" style="color:rgba(255,255,255,.7)">Meet Pheeew</span>
+<h2>Three ingredients.<br>Full doses.<br>Every gram named.</h2>
+<p class="reveal-sub">One stick a day. Tear, drink, done. No fridge. No filler. No proprietary blend hiding what's actually in there.</p>
 
-    <div class="three-grid">
-      <div class="three-card">
-        <div class="three-image">
-          <div class="img-tag">Soluble corn fiber · ingredient hero, golden powder + warm cream BG · 600×560</div>
-        </div>
-        <div class="three-content">
-          <div class="three-num">01 · The prebiotic foundation</div>
-          <div class="three-name">Soluble corn fiber</div>
-          <span class="three-dose">Fibersol-2L · 8 g</span>
-          <p class="three-line">The most-studied resistant maltodextrin in the world. Feeds the bacteria already in your colon.</p>
-        </div>
-      </div>
+<div class="reveal-product">
+<div class="img-tag reveal-img-tag">Reveal · stick on dark/blue backdrop, single hero shot · 800×600</div>
+<div class="reveal-stick">Pheeew</div>
+</div>
 
-      <div class="three-card">
-        <div class="three-image">
-          <div class="img-tag">XOS · ingredient macro, fine pale crystal texture, peach BG · 600×560</div>
-        </div>
-        <div class="three-content">
-          <div class="three-num">02 · The selective fiber</div>
-          <div class="three-name">Xylo-oligosaccharide</div>
-          <span class="three-dose">XOS · 2 g</span>
-          <p class="three-line">A short-chain prebiotic that's bifidogenic at low dose. Selective fuel for the bacteria you want.</p>
-        </div>
-      </div>
-
-      <div class="three-card">
-        <div class="three-image">
-          <div class="img-tag">Spore-form · cellular illustration, clean blue gradient · 600×560</div>
-        </div>
-        <div class="three-content">
-          <div class="three-num">03 · The spore-form probiotic</div>
-          <div class="three-name"><em>B. coagulans</em><br>SNZ 1969</div>
-          <span class="three-dose">Spore-form · 1×10⁹ CFU</span>
-          <p class="three-line">Survives stomach acid in dormancy. Germinates where it matters. FDA GRAS at this dose.</p>
-        </div>
-      </div>
-    </div>
-
-    <p class="three-foot">"Read every line. Pronounce every word."</p>
-  </div>
+<div style="margin-top:48px"><a href="shop/" class="btn-ghost" style="color:white;border-color:white">See it →</a></div>
+</div>
 </section>
 
-<section class="product-section" id="shop">
-  <div class="wrap">
-    <div class="product-card">
-      <div class="product-image">
-        <div class="img-tag">Product hero · 14-stick box, soft cream-to-peach gradient, hard light · 800×1100</div>
-      </div>
+<!-- ============== 5 · WALK-THROUGH ============== -->
+<section class="walk">
+<div class="wrap">
+<div class="walk-head">
+<span class="eyebrow">Stick by stick</span>
+<h2>What actually happens.</h2>
+<p>The thing most gut products skip explaining: where the ingredients go, and what they do when they get there.</p>
+</div>
 
-      <div class="product-info">
-        <span class="eyebrow">First in the line</span>
-        <h2>Gut + Bloat</h2>
-        <p style="font-size: 17px; color: var(--soft); line-height: 1.55; margin-bottom: 8px;">A daily synbiotic stick anchored on the three. Built for less bloat, more regularity, and a gut that stops getting in the way.</p>
+<div class="walk-track">
 
-        <ul class="product-bullets">
-          <li>
-            <span class="bullet-mark">·</span>
-            <span><strong>10g of prebiotic fiber</strong> — Fibersol-2L (8g) + XOS (2g)</span>
-          </li>
-          <li>
-            <span class="bullet-mark">·</span>
-            <span><strong>1B live spore cultures</strong> — <em>B. coagulans</em> SNZ 1969 (spore-form)</span>
-          </li>
-          <li>
-            <span class="bullet-mark">·</span>
-            <span><strong>The whole label</strong> — every ingredient named, every gram listed</span>
-          </li>
-        </ul>
+<div class="walk-step">
+<div class="walk-num">01</div>
+<div>
+<h3>You drink one stick.</h3>
+<p>Cold water, coffee, or straight from the pouch. Same time each day if you can — your gut likes a rhythm.</p>
+</div>
+</div>
 
-        <div class="purchase-toggle">
-          <div class="toggle-option">One-time</div>
-          <div class="toggle-option active">Subscribe<span class="savings-pill">Save 18%</span></div>
-        </div>
+<div class="walk-step">
+<div class="walk-num">02</div>
+<div>
+<h3>The probiotic survives the stomach.</h3>
+<p>Most probiotics die at pH 1.5. Ours doesn't, because it's <em>spore-form</em> — sealed in a protective coat, dormant, acid-resistant. It just rides through.</p>
+</div>
+</div>
 
-        <div class="frequency-row">
-          <span>Deliver every month</span>
-          <span style="color: var(--mute); font-size: 16px;">›</span>
-        </div>
+<div class="walk-step">
+<div class="walk-num">03</div>
+<div>
+<h3>The probiotic wakes up where it should.</h3>
+<p>In the small intestine, bile and pancreatic enzymes signal it's safe. The spore germinates. The strain goes to work.</p>
+</div>
+</div>
 
-        <a href="#" class="add-to-cart">
-          <span>Add to cart</span>
-          <span style="font-feature-settings: 'tnum';">$59.00</span>
-        </a>
+<div class="walk-step">
+<div class="walk-num">04</div>
+<div>
+<h3>The fiber finally meets your gut.</h3>
+<p>Down in the colon, the fiber lands. Your existing microbes ferment it. They produce short-chain fatty acids — the actual fuel for the colon lining. The bloat softens.</p>
+</div>
+</div>
 
-        <div class="trust-row-pdp">
-          <span>· 60-day guarantee</span>
-          <span>· Ships in 24h</span>
-          <span>· Cancel anytime</span>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
 </section>
 
-<section class="how">
-  <div class="wrap">
-    <div class="how-head">
-      <span class="eyebrow">How it works</span>
-      <h2>Four stages.<br>Four jobs.</h2>
-      <p>Mouth to colon, with the science explained at every stop.</p>
-    </div>
+<!-- ============== 6 · THE MATH ============== -->
+<section class="math">
+<div class="wrap">
+<div class="math-head">
+<span class="eyebrow">The math</span>
+<h2>Now the numbers<br>actually mean something.</h2>
+<p>Three ingredients. Real names. Real sources. Real doses.</p>
+</div>
 
-    <div class="how-track">
-      <div class="how-stage">
-        <div class="how-circle">01</div>
-        <span class="how-eyebrow">Shelf</span>
-        <h4>Stable, dormant</h4>
-        <p>The spore stays in its protective coat. No fridge needed.</p>
-      </div>
-      <div class="how-stage">
-        <div class="how-circle">02</div>
-        <span class="how-eyebrow">Stomach</span>
-        <h4>Spore survives</h4>
-        <p>Most probiotics die at pH 1.5. This one stays asleep until it's safe.</p>
-      </div>
-      <div class="how-stage">
-        <div class="how-circle">03</div>
-        <span class="how-eyebrow">Small intestine</span>
-        <h4>Spore germinates</h4>
-        <p>Bile and enzymes signal the wake-up. The strain goes to work.</p>
-      </div>
-      <div class="how-stage">
-        <div class="how-circle">04</div>
-        <span class="how-eyebrow">Colon</span>
-        <h4>Fiber is fermented</h4>
-        <p>Fibersol-2L and XOS meet your microbes. SCFAs are produced.</p>
-      </div>
-    </div>
+<div class="math-grid">
 
-    <div class="how-link">
-      <a href="science/" class="btn-ghost">Read the science</a>
-    </div>
-  </div>
+<div class="math-card">
+<div class="math-num">8g</div>
+<div class="math-name">Soluble corn fiber</div>
+<span class="math-source">Fibersol-2L · ADM</span>
+<p class="math-line">The most-studied resistant maltodextrin in clinical literature. Feeds the bacteria already living in your colon.</p>
+</div>
+
+<div class="math-card">
+<div class="math-num">2g</div>
+<div class="math-name">XOS</div>
+<span class="math-source">Xylo-oligosaccharide</span>
+<p class="math-line">A short-chain prebiotic that's bifidogenic at low dose — selective fuel without the gas burden of a full inulin dose.</p>
+</div>
+
+<div class="math-card">
+<div class="math-num">1B</div>
+<div class="math-name"><em>B. coagulans</em><br>SNZ 1969</div>
+<span class="math-source">Sanzyme · Spore-form</span>
+<p class="math-line">The probiotic strain. FDA GRAS-affirmed. Stays dormant through stomach acid. Germinates where it counts.</p>
+</div>
+
+</div>
+</div>
 </section>
 
-<section class="stats">
-  <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat-cell">
-        <div class="stat-number">10g</div>
-        <div class="stat-label">Prebiotic fiber<br>per stick</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-number">1B</div>
-        <div class="stat-label">Live spore cultures<br>per stick</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Core ingredients<br>every formula</div>
-      </div>
-    </div>
-  </div>
+<!-- ============== 7 · OUTCOME ============== -->
+<section class="outcome">
+<div class="wrap">
+<div class="outcome-head">
+<span class="eyebrow">What you'll feel</span>
+<h2>Your first 90 days.</h2>
+<p>Real timeline. No overpromising. Your body decides the pace.</p>
+</div>
+
+<div class="outcome-track">
+<div class="outcome-stage"><div class="outcome-when"><small>Days</small>1–3</div><h4>Adjustment</h4><p>Some bloat as fiber intake jumps. Common, temporary. Halve the dose if intense.</p></div>
+<div class="outcome-stage"><div class="outcome-when"><small>Week</small>1</div><h4>Bloat softens</h4><p>The fiber and the spore are working in tandem. First signal usually shows here.</p></div>
+<div class="outcome-stage"><div class="outcome-when"><small>Weeks</small>2–4</div><h4>Rhythm steadies</h4><p>Bowel patterns become more predictable. Stool consistency improves.</p></div>
+<div class="outcome-stage"><div class="outcome-when"><small>Day</small>30+</div><h4>It's a ritual</h4><p>Microbiome shifts begin. The stick stops being something you're trying.</p></div>
+</div>
+</div>
 </section>
 
+<!-- ============== 8 · COMPARISON ============== -->
 <section class="compare">
-  <div class="wrap">
-    <div class="compare-head">
-      <span class="eyebrow">Honest comparison</span>
-      <h2>Pheeew vs. the gut shelf.</h2>
-      <p>Numbers from publicly published label specs. We're not the only good option — we're the most transparent.</p>
-    </div>
+<div class="wrap">
+<div class="compare-head">
+<span class="eyebrow">Side by side</span>
+<h2>How Pheeew compares.</h2>
+<p>Numbers from public label specs. We're not the only good option — we're the most transparent one.</p>
+</div>
 
-    <div class="compare-table">
-      <div class="compare-row head">
-        <div>Per serving</div>
-        <div>Pheeew</div>
-        <div>Typical bloat capsule</div>
-        <div>Functional soda</div>
-      </div>
-      <div class="compare-row pheeew">
-        <div>Prebiotic fiber</div>
-        <div>10 g</div>
-        <div>0 – 2 g</div>
-        <div>5 – 9 g</div>
-      </div>
-      <div class="compare-row pheeew">
-        <div>Probiotic strain identity</div>
-        <div>Named (SNZ 1969)</div>
-        <div>Often "proprietary"</div>
-        <div>None</div>
-      </div>
-      <div class="compare-row pheeew">
-        <div>Survives stomach acid</div>
-        <div><span class="check">✓</span></div>
-        <div><span class="cross">~</span></div>
-        <div>n/a</div>
-      </div>
-      <div class="compare-row pheeew">
-        <div>Refrigeration needed</div>
-        <div><span class="cross">✗</span></div>
-        <div>Often yes</div>
-        <div>Yes</div>
-      </div>
-      <div class="compare-row pheeew">
-        <div>Sweeteners</div>
-        <div>None</div>
-        <div>Usually none</div>
-        <div>Usually present</div>
-      </div>
-      <div class="compare-row pheeew">
-        <div>Daily ritual</div>
-        <div>One stick</div>
-        <div>2 – 4 capsules</div>
-        <div>One can</div>
-      </div>
-    </div>
-  </div>
+<div class="compare-table">
+<div class="compare-row head"><div>Per serving</div><div>Pheeew</div><div>Bloat capsule</div><div>Functional soda</div></div>
+<div class="compare-row pheeew"><div>Prebiotic fiber</div><div>10 g</div><div>0–2 g</div><div>5–9 g</div></div>
+<div class="compare-row pheeew"><div>Probiotic strain identity</div><div>Named (SNZ 1969)</div><div>Often "proprietary"</div><div>None</div></div>
+<div class="compare-row pheeew"><div>Survives stomach acid</div><div><span class="check">✓</span></div><div><span class="cross">~</span></div><div>n/a</div></div>
+<div class="compare-row pheeew"><div>Refrigeration needed</div><div><span class="cross">✗</span></div><div>Often yes</div><div>Yes</div></div>
+<div class="compare-row pheeew"><div>Sweeteners</div><div>None</div><div>Usually none</div><div>Usually present</div></div>
+<div class="compare-row pheeew"><div>Daily ritual</div><div>One stick</div><div>2–4 capsules</div><div>One can</div></div>
+</div>
+</div>
 </section>
 
-<section class="line-section">
-  <div class="wrap">
-    <div class="line-head">
-      <span class="eyebrow">The Pheeew line</span>
-      <h2>Three ingredients,<br>built upon.</h2>
-      <p>Every Pheeew formula starts with the three. Future SKUs add function-specific actives — never to fix the foundation, only to extend it.</p>
-    </div>
+<!-- ============== 9 · FAQ ============== -->
+<section class="faq">
+<div class="wrap-tight">
+<div class="faq-head">
+<span class="eyebrow">Honest answers</span>
+<h2>What people ask.</h2>
+</div>
 
-    <div class="line-grid">
-      <div class="line-card now">
-        <div class="line-status">Available now</div>
-        <div class="line-name">Gut + Bloat</div>
-        <p class="line-body">The first formulation. The three ingredients in their cleanest form, designed for daily bloat reduction and regularity.</p>
-      </div>
-      <div class="line-card">
-        <div class="line-status">In development</div>
-        <div class="line-name">Gut + Steady</div>
-        <p class="line-body">For the buyer interested in the GLP-1-adjacent pathway. The three plus actives backed by Fibersol's metabolic literature.</p>
-      </div>
-      <div class="line-card">
-        <div class="line-status">Future</div>
-        <div class="line-name">Gut + (next)</div>
-        <p class="line-body">More formulations are in research. Each one stays anchored on the three, with new function only when the human-trial evidence justifies it.</p>
-      </div>
-    </div>
-  </div>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-q"><span>Probiotic, prebiotic — what's the difference?</span><span class="faq-q-icon">−</span></div>
+<p class="faq-a">A probiotic is a live bacterium you're adding. A prebiotic is the fiber that feeds the bacteria already living in you. Pheeew is both — that's what "synbiotic" means. The fiber feeds the colony. The spore is the new arrival.</p>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span>Why "spore-form" matters.</span><span class="faq-q-icon">−</span></div>
+<p class="faq-a">Most probiotics die in stomach acid before they ever reach the gut. Spore-form Bacillus coagulans stays asleep through the stomach — sealed in its protective coat — then wakes up in the small intestine. That's the difference between a probiotic that survives and one that just looks impressive on a label.</p>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span>How long until I notice it?</span><span class="faq-q-icon">−</span></div>
+<p class="faq-a">Most patterns show in 3–7 days for bloat. Bowel rhythm benefits arrive around day 7–14. Microbiome composition changes take 30+ days. Your body decides the pace.</p>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span>Will I get bloated at first?</span><span class="faq-q-icon">−</span></div>
+<p class="faq-a">Sometimes, for 2–3 days, especially if your fiber baseline is low. Halve the dose for the first week if it's intense, then build up.</p>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span>Why three ingredients? Why not more?</span><span class="faq-q-icon">−</span></div>
+<p class="faq-a">Because every additional ingredient has to earn its weight. Three at full dose beats five at half-dose. Most synbiotics throw in extras to fill out a label — we'd rather you read every line and trust each one.</p>
+</div>
+</div>
+
+<div class="faq-foot"><a href="faq/" class="btn-ghost">All 22 questions →</a></div>
+</div>
 </section>
 
-<section class="timeline">
-  <div class="wrap">
-    <div class="timeline-head">
-      <span class="eyebrow">What to expect</span>
-      <h2>Your first 90 days, honestly.</h2>
-      <p>Real timeline, no overpromising.</p>
-    </div>
-
-    <div class="timeline-track">
-      <div class="timeline-stage">
-        <div class="timeline-when"><small>Days</small>1–3</div>
-        <h4>Adjustment</h4>
-        <p>Some bloat as fiber intake jumps. Common, temporary. If intense, halve the dose.</p>
-      </div>
-      <div class="timeline-stage">
-        <div class="timeline-when"><small>Week</small>1</div>
-        <h4>Bloat softens</h4>
-        <p>The fiber and the spore are working in tandem. First signal usually shows here.</p>
-      </div>
-      <div class="timeline-stage">
-        <div class="timeline-when"><small>Weeks</small>2–4</div>
-        <h4>Regularity steadies</h4>
-        <p>Bowel rhythm becomes more predictable. Stool consistency improves.</p>
-      </div>
-      <div class="timeline-stage">
-        <div class="timeline-when"><small>Day</small>30+</div>
-        <h4>It's a ritual</h4>
-        <p>Microbiome shifts begin. The stick stops being "something you're trying."</p>
-      </div>
-    </div>
-  </div>
+<!-- ============== 10 · ASK ============== -->
+<section class="ask">
+<div class="ask-inner">
+<div class="wrap">
+<h2>Less bloat,<br>daily.</h2>
+<p>One stick a day. Three ingredients. Real doses. Cancel anytime.</p>
+<a href="shop/" class="btn-cta">Shop Gut + Bloat</a>
+<div class="ask-trust">
+<span>· 60-day guarantee</span>
+<span>· Ships in 24h</span>
+<span>· Made in USA</span>
+</div>
+</div>
+</div>
 </section>
 
-<section class="bundles">
-  <div class="wrap">
-    <div class="bundles-head">
-      <span class="eyebrow">Stock up</span>
-      <h2>Two boxes, three boxes,<br>less work.</h2>
-      <p>Stock two-deep so the stick is never the reason the morning falls apart.</p>
-    </div>
-
-    <div class="bundles-grid">
-      <div class="bundle-card">
-        <div class="bundle-discount">Save 22%</div>
-        <div class="bundle-image"><div class="img-tag">Two boxes stacked, slight angle, peach + cream BG · 600×440</div></div>
-        <div class="bundle-name">Two boxes</div>
-        <div class="bundle-meta">28 sticks · ~$3.50 per stick</div>
-        <div class="bundle-price">$99 <small>$118</small></div>
-        <a href="shop/" class="bundle-cta">Add to cart</a>
-      </div>
-      <div class="bundle-card">
-        <div class="bundle-discount">Save 30%</div>
-        <div class="bundle-image"><div class="img-tag">Three boxes fan-stacked, blue + peach gradient · 600×440</div></div>
-        <div class="bundle-name">Three boxes</div>
-        <div class="bundle-meta">42 sticks · ~$3.30 per stick</div>
-        <div class="bundle-price">$139 <small>$177</small></div>
-        <a href="shop/" class="bundle-cta">Add to cart</a>
-      </div>
-    </div>
-  </div>
+<!-- ============== 11 · FOUNDER ============== -->
+<section class="founder">
+<div class="wrap">
+<div class="founder-grid">
+<div class="founder-portrait">A</div>
+<div>
+<span class="eyebrow">Built by</span>
+<p class="founder-quote">"We tried every gut product on the shelf in two countries. Most of them lied. So we built the version we wished existed."</p>
+<div class="founder-attrib">
+<strong>Alex Kim, Jason Ko, Dawon Kim</strong>
+Founders · Pheeew, Inc.
+</div>
+<a href="story/" class="founder-link">Read the story →</a>
+</div>
+</div>
+</div>
 </section>
 
-<section class="faq" id="faq">
-  <div class="wrap-tight">
-    <div class="faq-head">
-      <span class="eyebrow">Honest answers</span>
-      <h2>Frequently asked.</h2>
-    </div>
+<!-- FDA -->
+<div class="fda-disclaimer"><p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p></div>
 
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q"><span>Probiotic or prebiotic?</span><span class="faq-q-icon">−</span></div>
-        <p class="faq-a">Both. The fiber feeds the bacteria. The spore is the bacteria. Together they're a synbiotic.</p>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>Why spore-form?</span><span class="faq-q-icon">−</span></div>
-        <p class="faq-a">Most probiotics die in stomach acid. Spore-form survives because it stays dormant — protected by its coat — until the small intestine signals the wake-up.</p>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>How long until I notice it?</span><span class="faq-q-icon">−</span></div>
-        <p class="faq-a">Most patterns show in 3 to 7 days for bloat. Regularity benefits arrive around day 7 to 14. Microbiome shifts take 30+ days.</p>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>Will I get bloated at first?</span><span class="faq-q-icon">−</span></div>
-        <p class="faq-a">Sometimes, for 2–3 days, if your fiber baseline is low. Halve the dose for the first week if intense.</p>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>Why three? Why not more?</span><span class="faq-q-icon">−</span></div>
-        <p class="faq-a">Because every additional ingredient has to earn its weight. Most synbiotics throw in five things at half-doses to fill the label. We chose three at full dose.</p>
-      </div>
-    </div>
-
-    <div class="faq-foot">
-      <a href="faq/" class="btn-ghost">All questions →</a>
-    </div>
-  </div>
-</section>
-
-<section class="newsletter">
-  <div class="wrap">
-    <div class="newsletter-row">
-      <div class="newsletter-text">
-        <h3>Founders' list.</h3>
-        <p>First 200 sticks at $29 trial pricing. No spam.</p>
-      </div>
-      <form class="newsletter-form">
-        <input type="email" placeholder="you@example.com">
-        <button type="submit" class="newsletter-submit">Join</button>
-      </form>
-    </div>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">Pheeew</div>
-        <div class="footer-brand-tagline">"Three ingredients. Real doses. Nothing else."</div>
-      </div>
-      <div class="footer-col">
-        <h5>Shop</h5>
-        <a href="shop/">Gut + Bloat</a>
-        <a href="shop/">Two-box bundle</a>
-        <a href="shop/">Three-box bundle</a>
-        <a href="shop/">Subscribe</a>
-      </div>
-      <div class="footer-col">
-        <h5>Brand</h5>
-        <a href="science/">Science</a>
-        <a href="story/">Story</a>
-        <a href="faq/">FAQ</a>
-        <a href="#">Affiliate program</a>
-      </div>
-      <div class="footer-col">
-        <h5>Connect</h5>
-        <a href="mailto:hello@pheeew.com">Contact</a>
-        <a href="https://instagram.com/saypheeew">@saypheeew</a>
-        <a href="mailto:hello@pheeew.com">hello@pheeew.com</a>
-        <a href="#newsletter">Founders' list</a>
-      </div>
-      <div class="footer-col">
-        <h5>Legal</h5>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Refunds</a>
-        <a href="#">Shipping</a>
-      </div>
-    </div>
-
-    <div class="footer-base">
-      <div>© 2026 Pheeew, Inc. · Los Angeles, CA · Distributed by Pheeew, Inc. · Made in USA</div>
-      <div class="footer-base-links">
-        <a href="science/">FDA disclaimer</a>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="footer-grid">
+<div><div class="footer-brand">Pheeew</div><div class="footer-brand-tagline">"Three ingredients. Real doses. Nothing else."</div></div>
+<div class="footer-col"><h5>Shop</h5><a href="shop/">Gut + Bloat</a><a href="shop/">Subscribe</a></div>
+<div class="footer-col"><h5>Brand</h5><a href="science/">Science</a><a href="story/">Story</a><a href="faq/">FAQ</a></div>
+<div class="footer-col"><h5>Connect</h5><a href="mailto:hello@pheeew.com">Contact</a><a href="https://instagram.com/saypheeew">@saypheeew</a></div>
+<div class="footer-col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refunds</a></div>
+</div>
+<div class="footer-base"><div>© 2026 Pheeew, Inc. · Los Angeles, CA · Distributed by Pheeew, Inc. · Made in USA</div></div>
+</div>
 </footer>
 
 <script>
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => {
-    const a = q.parentElement.querySelector('.faq-a');
-    const icon = q.querySelector('.faq-q-icon');
-    if (a.style.display === 'none') {
-      a.style.display = 'block';
-      icon.textContent = '−';
-    } else {
-      a.style.display = 'none';
-      icon.textContent = '+';
-    }
-  });
-});
-document.querySelectorAll('.toggle-option').forEach(t => {
-  t.addEventListener('click', () => {
-    document.querySelectorAll('.toggle-option').forEach(x => x.classList.remove('active'));
-    t.classList.add('active');
-  });
-});
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{
+  const a=q.parentElement.querySelector('.faq-a');const i=q.querySelector('.faq-q-icon');
+  if(a.style.display==='none'){a.style.display='block';i.textContent='−'}
+  else{a.style.display='none';i.textContent='+'}
+}));
 </script>
 
 </body>
