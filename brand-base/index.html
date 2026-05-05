@@ -373,11 +373,41 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 .eyebrow-with-sticker{display:inline-flex;align-items:center;gap:10px}
 
+/* NAMING ARCHITECTURE — 3-layer stack */
+.naming-stack{background:white;border:2px solid var(--ink);border-radius:16px;padding:36px 40px;max-width:580px;margin:36px 0;box-shadow:0 10px 32px rgba(28,26,24,.1);transform:rotate(-.6deg)}
+.naming-row{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:baseline;padding:16px 0;border-bottom:1px dashed var(--line)}
+.naming-row:last-child{border-bottom:0}
+.naming-label{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:800;color:var(--mute)}
+.naming-value{font-family:'Inter',sans-serif;font-size:36px;font-weight:800;letter-spacing:-.025em;color:var(--ink);line-height:1}
+.naming-value.brand{font-size:52px;letter-spacing:-.03em}
+.naming-value.function{font-family:'Special Elite',monospace;font-size:22px;letter-spacing:.06em;color:var(--brick);font-weight:400}
+.naming-value.flavor{font-family:'Caveat Brush',cursive;font-size:36px;color:var(--cobalt);font-weight:400;letter-spacing:.005em}
+
+/* NAMING LANES — beverage vs supplement vs us */
+.naming-lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:48px 0 24px}
+.naming-lane{padding:26px 22px;border-radius:14px;background:white;border:1px solid var(--line);box-shadow:0 6px 18px rgba(28,26,24,.06)}
+.naming-lane.beverage{border-top:4px solid var(--brick);transform:rotate(-1.4deg)}
+.naming-lane.supplement{border-top:4px solid var(--mute);transform:rotate(.8deg)}
+.naming-lane.us{border-top:4px solid var(--cobalt);background:var(--cobalt);color:white;transform:rotate(-.5deg) scale(1.04);box-shadow:0 14px 36px rgba(31,63,168,.28)}
+.naming-lane-tag{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:800;color:var(--mute);margin-bottom:14px}
+.naming-lane.us .naming-lane-tag{color:var(--peach)}
+.naming-lane-name{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:22px;line-height:1.15;color:var(--ink);letter-spacing:-.005em;margin-bottom:14px;min-height:60px}
+.naming-lane.us .naming-lane-name{color:white}
+.naming-lane-cap{font-size:12.5px;color:var(--soft);line-height:1.55}
+.naming-lane.us .naming-lane-cap{color:rgba(255,255,255,.78)}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
   .lanes{grid-template-columns:1fr;gap:32px}
   .lane{transform:none !important}
   .lane.us{transform:none !important}
+  .naming-lanes{grid-template-columns:1fr;gap:24px}
+  .naming-lane,.naming-lane.us{transform:none !important}
+  .naming-stack{transform:none !important;padding:28px 26px}
+  .naming-row{grid-template-columns:74px 1fr;gap:14px}
+  .naming-value.brand{font-size:36px}
+  .naming-value.function{font-size:18px}
+  .naming-value.flavor{font-size:28px}
   .rule-grid,.lex-grid,.anti-grid,.test-grid{grid-template-columns:1fr}
   .kill-list{grid-template-columns:1fr}
   .signers{grid-template-columns:1fr}
@@ -762,13 +792,50 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 </div>
 
 <div class="section-body">
-<p><strong>SKU naming.</strong> Format: Pheeew · [Fruit name] OR Pheeew · [Mood word]. <strong style="color:var(--brick)">Not</strong> "Gut + Bloat" (clinical, symptom-pricing). <strong style="color:var(--brick)">Not</strong> "Wild Berries Synbiotic Stick" (mechanism on front, banished).</p>
+<p><strong>SKU naming — three-layer architecture.</strong> Brand · Function · Flavor. Each layer does separate work. Drop the function and we read as Olipop (beverage pricing, $2–3/can). Drop the flavor and we read as AG1 (works, but kills variant strategy). All three together = supplement category, premium pricing, owned identity.</p>
+</div>
+
+<!-- Architecture stack -->
+<div class="naming-stack">
+  <div class="naming-row">
+    <span class="naming-label">Brand</span>
+    <span class="naming-value brand">PHEEEW</span>
+  </div>
+  <div class="naming-row">
+    <span class="naming-label">Function</span>
+    <span class="naming-value function">GUT + BLOAT</span>
+  </div>
+  <div class="naming-row">
+    <span class="naming-label">Flavor</span>
+    <span class="naming-value flavor">sunrise berries</span>
+  </div>
 </div>
 
 <div class="pq terracotta">
-<div class="pq-text">Pheeew · <span class="accent">Sunrise Berries</span><br>Pheeew · <span class="accent">Mojave Mango</span><br>Pheeew · <span class="accent">Cold Water Pear</span><br>Pheeew · <span class="accent">Bay Window Ginger</span></div>
-<div class="pq-cite">Each flavor name = one geographic + sensory pairing. The name evokes a moment, not an ingredient.</div>
+<div class="pq-text">Pheeew · <span class="accent">Gut + Bloat</span> · Sunrise Berries<br>Pheeew · <span class="accent">Gut + Bloat</span> · Mojave Mango<br>Pheeew · <span class="accent">Gut + Bloat</span> · Cold Water Pear<br>Pheeew · <span class="accent">Gut + Bloat</span> · Bay Window Ginger</div>
+<div class="pq-cite">Current flagship line = Gut + Bloat. Future lines extend the function layer (Period, Travel, Pro), not the flavor layer.</div>
 </div>
+
+<!-- Lane comparison -->
+<div class="naming-lanes">
+<div class="naming-lane beverage">
+<div class="naming-lane-tag">Beverage architecture</div>
+<div class="naming-lane-name">Olipop · Strawberry Vanilla</div>
+<div class="naming-lane-cap"><strong style="color:var(--brick)">$2–3 / can.</strong> Function hidden in tagline. Pricing capped by soda category.</div>
+</div>
+<div class="naming-lane supplement">
+<div class="naming-lane-tag">Supplement architecture</div>
+<div class="naming-lane-name">LMNT · Recharge · Citrus Salt</div>
+<div class="naming-lane-cap"><strong style="color:var(--ink)">$1.50–2 / serve.</strong> Function descriptor in the SKU. Premium tier.</div>
+</div>
+<div class="naming-lane us">
+<div class="naming-lane-tag">Our architecture</div>
+<div class="naming-lane-name">Pheeew · Gut + Bloat · Sunrise Berries</div>
+<div class="naming-lane-cap"><strong style="color:white">$1.97 / serve · $59/mo sub.</strong> Function visible. Variant flavor secondary. Supplement-tier pricing.</div>
+</div>
+</div>
+
+<p style="margin-top:32px;font-size:14.5px;color:var(--soft);max-width:760px"><strong style="color:var(--ink)">The "+" is intentional.</strong> In Studio Mojave context — Playfair italic, cobalt accents, Caveat Brush flavor mark — "Gut + Bloat" reads as a confident apartamento-coded function descriptor, not a Bloom-aisle pharma label. Same words, different room. The typography does the work.</p>
 
 <div class="photo photo-mini tilt-r" style="margin-top:40px">
   <img src="img/mb-08-billboard.jpg" alt="Hand-painted desert billboard reading 'LIVIN EXTR' — vernacular signage reference for retail-launch ritual phrasing." loading="lazy">
@@ -863,7 +930,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <div class="anti-block-head">✗ We are NOT</div>
 <div class="anti-row"><strong>AG1 / Athletic Greens</strong><span>We do one thing. They do "everything in one." We refuse the kitchen-sink approach.</span></div>
 <div class="anti-row"><strong>Bloom / Lemme Greens</strong><span>We don't put "synbiotic" / "greens" on the front. We refuse front-of-pack mechanism marketing.</span></div>
-<div class="anti-row"><strong>Olipop / Poppi</strong><span>We don't pretend gut health is a treat. Our product is small. Not pleasure. Relief.</span></div>
+<div class="anti-row"><strong>Olipop / Poppi</strong><span>We don't pretend gut health is a treat. Our product is small. Not pleasure. Relief. <strong style="color:var(--brick)">Architecturally:</strong> they use Brand · Flavor (beverage). We use Brand · Function · Flavor (supplement).</span></div>
 <div class="anti-row"><strong>Liquid IV / LMNT</strong><span>We don't sell hydration or performance. We sell the body's daily lock-and-release cycle.</span></div>
 <div class="anti-row"><strong>Goop / Moon Juice</strong><span>We don't sell rituals or aesthetics-of-wellness. We sell going.</span></div>
 <div class="anti-row"><strong>Seed / Pendulum</strong><span>We don't lecture. No "the science says…" hero copy.</span></div>
@@ -901,7 +968,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <tr><th>Surface</th><th>Voice</th><th>Visual</th><th>The one rule</th></tr>
 </thead>
 <tbody>
-<tr><td>Front of pack</td><td>One word</td><td>Logotype + fruit world</td><td>No mechanism words</td></tr>
+<tr><td>Front of pack</td><td>3-line stack: Pheeew · GUT + BLOAT · flavor</td><td>Logotype + function mono mark + flavor italic</td><td>Function descriptor visible — never flavor-only</td></tr>
 <tr><td>Back of pack</td><td>One handwritten line + dose facts</td><td>Cream + grayscale</td><td>"Distributed by Pheeew, Inc." — never AVO</td></tr>
 <tr><td>Outer box</td><td>Dawon-quote + 5-word version</td><td>Solid fruit color</td><td>Story scales down, never up</td></tr>
 <tr><td>Homepage hero</td><td>3–8 words</td><td>Cream, hero photo, peach light</td><td>"The desert ends here." (or variant)</td></tr>
@@ -950,7 +1017,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <div class="kill-list-item"><strong>"Synbiotic" / "clinical" / "doctor-formulated"</strong> on the front of any pack.</div>
 <div class="kill-list-item"><strong>Merch line</strong> that's just the logo on a tee.</div>
 <div class="kill-list-item"><strong>Trend-jacking content campaign</strong> (challenges, dances, audios).</div>
-<div class="kill-list-item"><strong>Renaming SKU after a symptom</strong> ("Gut + Bloat") instead of a moment.</div>
+<div class="kill-list-item"><strong>Flavor-only SKU naming</strong> ("Pheeew · Sunrise Berries"). Drops us into Olipop/Poppi beverage pricing tier. Function descriptor (Gut + Bloat) must stay visible on every SKU.</div>
 <div class="kill-list-item"><strong>Hiring stylists</strong> who've worked on Bloom, AG1, Lemme, Goop, or Daily Harvest.</div>
 <div class="kill-list-item"><strong>Putting "All Vital Organics"</strong> anywhere customer-facing.</div>
 <div class="kill-list-item"><strong>TikTok Shop launch</strong> before organic content engine works.</div>
