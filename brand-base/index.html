@@ -309,6 +309,70 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .site-footer{background:var(--cream);color:var(--mute);padding:44px 0;font-size:11px;letter-spacing:.16em;text-align:center;text-transform:uppercase;font-weight:600;border-top:1px solid var(--line)}
 .site-footer .stamp{display:inline-block;background:var(--brick);color:var(--cream);padding:5px 11px;font-weight:800;letter-spacing:.2em;border-radius:3px;margin-left:8px;transform:rotate(-2deg)}
 
+/* DARK-ON-DARK FIX — bump specificity over .section-head h2 */
+.section-oxblood .section-head h2{color:var(--cream)}
+.section-oxblood .section-head .eyebrow{color:var(--peach)}
+.section-oxblood .section-body p{color:rgba(250,247,242,.78)}
+.section-oxblood .section-body p strong{color:white}
+.section-oxblood .section-body em{color:var(--peach);font-style:italic}
+.section-oxblood .section-marker svg path{fill:rgba(250,247,242,.04);stroke:rgba(250,247,242,.4)}
+.section-oxblood .section-marker .section-num-text{color:var(--peach)}
+
+/* PHOTO BLOCKS — postcard mode */
+.photo{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(28,26,24,.18);background:var(--ink)}
+.photo img{display:block;width:100%;height:auto}
+.photo-cap{position:absolute;left:18px;bottom:18px;background:var(--cream);padding:8px 14px;border-radius:100px;font-family:'Caveat',cursive;font-weight:700;font-size:18px;color:var(--cobalt);box-shadow:0 4px 14px rgba(28,26,24,.18)}
+
+.photo-hero{margin:60px 0 0;transform:rotate(-1.4deg);max-width:1180px}
+.photo-hero .photo-cap{font-size:24px;left:24px;bottom:24px}
+
+.photo-side{margin:32px 0;max-width:860px}
+.photo-side.tilt-l{transform:rotate(-1.6deg)}
+.photo-side.tilt-r{transform:rotate(1.4deg)}
+
+.photo-mini{max-width:380px;margin:32px 0;display:inline-block}
+.photo-mini.tilt-l{transform:rotate(-2.6deg)}
+.photo-mini.tilt-r{transform:rotate(2.4deg)}
+
+.photo-row{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:start;margin:32px 0}
+.photo-row .photo{transform:rotate(-1deg)}
+.photo-row .photo + .photo{transform:rotate(1.4deg)}
+
+/* LETTERBOARD — Kill List moment */
+.letterboard{
+  display:flex;flex-wrap:wrap;gap:8px 12px;font-family:'Special Elite','Courier New',monospace;
+  letter-spacing:.05em;font-size:clamp(22px,3.4vw,42px);font-weight:400;line-height:1;
+  font-style:normal !important;font-family:'Special Elite',monospace !important;
+  margin-top:6px;
+}
+.letterboard span{
+  background:rgba(250,247,242,.06);border:1px solid rgba(250,247,242,.22);
+  padding:8px 16px;border-radius:3px;color:var(--cream);
+}
+.letterboard span.no{
+  background:var(--peach);color:var(--oxblood);font-weight:700;border-color:var(--peach);
+  letter-spacing:.18em;padding-left:22px;padding-right:22px;
+}
+.letterboard span.miss{background:rgba(250,247,242,.02);border-style:dashed;color:rgba(250,247,242,.4)}
+.letterboard-meta{font-family:'Caveat',cursive;font-weight:600;color:var(--peach);font-size:22px;margin-top:18px;display:inline-block;transform:rotate(-1.5deg)}
+
+/* STICKERS — hand-drawn cobalt accents */
+.sticker{display:inline-block;color:var(--cobalt);vertical-align:middle}
+.sticker svg{width:100%;height:100%;display:block}
+.sticker-sm{width:32px;height:32px}
+.sticker-md{width:54px;height:54px}
+.sticker-lg{width:86px;height:86px}
+.sticker.brick{color:var(--brick)}
+.sticker.peach{color:var(--peach)}
+.sticker.cream{color:var(--cream)}
+.sticker.terracotta{color:var(--terracotta)}
+.sticker.float-tr{position:absolute;top:24px;right:24px;transform:rotate(12deg)}
+.sticker.float-tl{position:absolute;top:24px;left:24px;transform:rotate(-14deg)}
+.sticker.float-bl{position:absolute;bottom:32px;left:32px;transform:rotate(-8deg)}
+.sticker.float-br{position:absolute;bottom:32px;right:32px;transform:rotate(8deg)}
+
+.eyebrow-with-sticker{display:inline-flex;align-items:center;gap:10px}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
   .lanes{grid-template-columns:1fr;gap:32px}
@@ -356,6 +420,32 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     <symbol id="bean5" viewBox="0 0 200 100" preserveAspectRatio="none">
       <path d="M22,52 C16,18 70,8 116,18 C148,24 168,12 184,38 C198,62 178,86 138,86 C108,86 76,94 48,84 C28,78 26,72 22,52 Z"/>
     </symbol>
+    <!-- Hand-drawn cobalt stickers, oasis kit -->
+    <symbol id="sticker-cactus" viewBox="0 0 100 100">
+      <path d="M48,95 L48,45 Q48,38 42,38 Q36,38 36,46 L36,62 M48,45 Q48,32 56,32 Q64,32 64,42 L64,58 M48,95 L48,18 Q48,12 52,12 Q56,12 56,20 L56,32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="28" y1="96" x2="72" y2="96" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="sticker-yucca" viewBox="0 0 100 100">
+      <path d="M50,95 L50,55 M50,55 L32,72 M50,55 L68,72 M50,50 L25,68 M50,50 L75,68 M50,45 L35,30 M50,45 L65,30 M50,40 L42,18 M50,40 L58,18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="sticker-oasis" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="55" rx="38" ry="20" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="M20,55 Q30,50 40,55 Q50,60 60,55 Q70,50 80,55" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M25,68 Q35,64 45,68 Q55,72 65,68 Q75,64 80,68" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+      <circle cx="80" cy="22" r="6" fill="currentColor"/>
+    </symbol>
+    <symbol id="sticker-palm" viewBox="0 0 100 100">
+      <path d="M50,95 L50,52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M50,52 Q30,40 16,30 M50,52 Q70,40 84,30 M50,52 Q34,28 26,12 M50,52 Q66,28 74,12 M50,52 Q50,28 50,8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="50" cy="52" r="4" fill="currentColor"/>
+    </symbol>
+    <symbol id="sticker-pouch" viewBox="0 0 100 100">
+      <path d="M32,12 L68,12 L68,88 Q68,93 63,93 L37,93 Q32,93 32,88 Z" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <rect x="38" y="22" width="24" height="3.5" fill="currentColor"/>
+      <line x1="42" y1="42" x2="58" y2="42" stroke="currentColor" stroke-width="2"/>
+      <line x1="42" y1="52" x2="55" y2="52" stroke="currentColor" stroke-width="2"/>
+      <line x1="42" y1="62" x2="58" y2="62" stroke="currentColor" stroke-width="2"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -400,6 +490,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <span><strong>Version</strong>v1 · pre-lock</span>
 <span><strong>Owners</strong>Alex · Jason · Dawon</span>
 <span><strong>Status</strong>Awaiting founder sign-off</span>
+</div>
+
+<div class="photo photo-hero">
+  <img src="img/oasis-hero.jpg" alt="The brand's core image — a porcelain toilet floating mid-air over a real desert oasis, palm trees, sand dunes, blue water." loading="lazy">
+  <div class="photo-cap">— oasis in the desert.</div>
+  <span class="sticker sticker-md float-tr cream"><svg><use href="#sticker-palm"/></svg></span>
 </div>
 </div>
 </section>
@@ -609,6 +705,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <p><strong>The loud voices.</strong> Cobalt <span style="color:var(--cobalt);font-weight:700">#1F3FA8</span> (Stüssy script blue) and brick-red <span style="color:var(--brick);font-weight:700">#9A2A1F</span> (Ralph / Saints / Campari) carry emphasis. Sage and terracotta are photo-pulled. Pure black is reserved — warm near-black or oxblood for the loud bands.</p>
 </div>
 
+<div class="photo photo-side tilt-l">
+  <img src="img/mb-17-adobe.jpg" alt="Curved adobe modernism reference — Eames-chair-in-desert-house mood — the architectural backdrop Pheeew lives inside." loading="lazy">
+  <div class="photo-cap">— curved adobe, not glass-box.</div>
+  <span class="sticker sticker-md float-br cream"><svg><use href="#sticker-yucca"/></svg></span>
+</div>
+
 <h3 style="font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:36px;letter-spacing:-.015em;margin:56px 0 14px;color:var(--ink)">The fruit worlds</h3>
 <p style="font-size:14.5px;color:var(--soft);margin-bottom:24px">Each fruit is a world, not a swatch. SKUs inherit a world.</p>
 <div class="fruits">
@@ -668,7 +770,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <div class="pq-cite">Each flavor name = one geographic + sensory pairing. The name evokes a moment, not an ingredient.</div>
 </div>
 
-<h3 style="font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:44px;letter-spacing:-.02em;margin:64px 0 14px;color:var(--ink)">"We found new oasis"</h3>
+<div class="photo photo-mini tilt-r" style="margin-top:40px">
+  <img src="img/mb-08-billboard.jpg" alt="Hand-painted desert billboard reading 'LIVIN EXTR' — vernacular signage reference for retail-launch ritual phrasing." loading="lazy">
+  <div class="photo-cap" style="font-size:16px">— vernacular signage.</div>
+</div>
+
+<h3 style="font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:44px;letter-spacing:-.02em;margin:48px 0 14px;color:var(--ink)">"We found new oasis"</h3>
 <p style="font-size:15.5px;color:var(--soft);max-width:760px">Every retail launch ever uses the same phrase. It's not just ad copy — it's the standing brand ritual. Postcards on a desk.</p>
 
 <div class="oasis-grid">
@@ -819,8 +926,18 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <div class="section-head">
 <div class="section-marker"><svg><use href="#bean5"/></svg><span class="section-num-text">09</span></div>
 <div class="section-head-text">
-<span class="eyebrow" style="color:var(--peach)">The Kill List</span>
-<h2>If anyone proposes any of these,<br><span style="color:var(--peach);font-style:italic">the answer is no without discussion.</span></h2>
+<span class="eyebrow eyebrow-with-sticker">The Kill List <span class="sticker sticker-sm peach"><svg><use href="#sticker-cactus"/></svg></span></span>
+<div class="letterboard">
+  <span>IF</span>
+  <span>ANYONE</span>
+  <span>PROPOSES</span>
+  <span>ANY</span>
+  <span>OF</span>
+  <span>THESE</span>
+  <span class="miss">—</span>
+  <span class="no">NO</span>
+</div>
+<div class="letterboard-meta">— without discussion. Reference before any agency engagement.</div>
 </div>
 </div>
 <div class="kill-list">
@@ -888,6 +1005,11 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <div class="test"><div class="test-eyebrow">Question 3</div><div class="test-q">Does it live in the <span class="accent">Oasis / Desert / Road / Water</span> lexicon?</div><div class="test-explainer">Or does it contradict the metaphor.</div></div>
 <div class="test"><div class="test-eyebrow">Question 4</div><div class="test-q">Is it <span class="accent">Catalyst-mode</span> or <span class="accent">Helper-mode?</span></div><div class="test-explainer">If neither, what is it — and is that allowed.</div></div>
 <div class="test"><div class="test-eyebrow">Question 5</div><div class="test-q">Does it inherit our <span class="accent-brick">cool-girl unbotheredness</span> — or does it perform?</div><div class="test-explainer">Performance breaks the brand. Confidence builds it.</div></div>
+</div>
+
+<div class="photo photo-mini tilt-l" style="margin:48px 0 0">
+  <img src="img/mb-22-marker.jpg" alt="A handwritten marker note on cream paper — the brand's voice posture: dry, declarative, unbothered." loading="lazy">
+  <div class="photo-cap" style="font-size:16px">— marker on paper.</div>
 </div>
 </div>
 </section>
