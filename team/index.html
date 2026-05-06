@@ -81,13 +81,28 @@ h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-
 .founders-head h2{font-size:clamp(36px,5vw,56px);max-width:18ch;margin:0 auto 12px;line-height:1.05}
 .founders-head h2 em{font-style:italic;color:var(--blue)}
 .founders-head p{font-size:14.5px;color:var(--soft);max-width:560px;margin:0 auto}
-.founder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.founder-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1300px){.founder-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
 .founder-col{background:white;border-radius:20px;padding:28px 24px;border:1px solid var(--line)}
 .founder-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .founder-portrait{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:24px;color:white;flex-shrink:0}
 .founder-col[data-founder="alex"] .founder-portrait{background:linear-gradient(135deg,var(--ink),#3D362F)}
 .founder-col[data-founder="jason"] .founder-portrait{background:linear-gradient(135deg,var(--blue-deep),var(--blue))}
+.founder-col[data-founder="justin"] .founder-portrait{background:linear-gradient(135deg,#5A1813,#9A2A1F)}
 .founder-col[data-founder="dawon"] .founder-portrait{background:linear-gradient(135deg,var(--peach),var(--peach-deep))}
+/* R&R framework block per founder */
+.founder-rr{margin:0 0 22px;padding:16px 0;border-bottom:2px solid var(--line);background:rgba(28,26,24,.02);border-radius:10px;padding:14px 16px}
+.founder-rr-head{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:800;color:var(--mute);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.founder-rr-head .scope{font-style:italic;font-weight:600;letter-spacing:.04em;text-transform:none;color:var(--ink);font-size:11px}
+.founder-rr ul{list-style:none;margin:0;padding:0}
+.founder-rr li{padding:5px 0 5px 14px;font-size:11.5px;line-height:1.45;color:var(--soft);position:relative}
+.founder-rr li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1.5px;background:var(--blue);border-radius:1px}
+.founder-col[data-founder="alex"] .founder-rr li::before{background:var(--ink)}
+.founder-col[data-founder="justin"] .founder-rr li::before{background:#9A2A1F}
+.founder-col[data-founder="dawon"] .founder-rr li::before{background:var(--peach-deep)}
+/* Collaboration principle banner */
+.collab-principle{background:#1C1A18;color:#FAF7F2;padding:24px 28px;border-radius:14px;margin-bottom:32px;font-size:13.5px;line-height:1.55;font-style:italic;border-left:4px solid var(--peach)}
+.collab-principle strong{color:white;font-style:normal;font-weight:700;display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:8px;color:var(--peach)}
 .founder-name{font-family:'DM Serif Display',serif;font-size:24px;letter-spacing:-.015em;line-height:1}
 .founder-role{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-top:4px}
 .founder-bio{font-size:12px;color:var(--soft);line-height:1.5;margin-top:6px;font-style:italic}
@@ -237,7 +252,7 @@ h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-
 <p class="hero-lede">Pheeew, Inc. is three people building a CPG brand on a stick. This is the working scope of work — broken out by founder, by category, by priority. Synced across all three of us; check things off, edit, add.</p>
 </div>
 <div class="hero-stats">
-<div class="hero-stat"><div class="hero-stat-num" id="statFounders">3</div><div class="hero-stat-lbl">Founders</div></div>
+<div class="hero-stat"><div class="hero-stat-num" id="statFounders">4</div><div class="hero-stat-lbl">Founders</div></div>
 <div class="hero-stat"><div class="hero-stat-num" id="statCountries">2</div><div class="hero-stat-lbl">Countries<br>(LA · Seoul)</div></div>
 <div class="hero-stat"><div class="hero-stat-num" id="statTasks">—</div><div class="hero-stat-lbl">Tasks<br>tracked</div></div>
 </div>
@@ -290,7 +305,11 @@ h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-
 <div class="founders-head">
 <span class="eyebrow">Who owns what</span>
 <h2>The work,<br><em>broken out.</em></h2>
-<p>Three swim lanes. P0 blockers ship first. Hover any row to edit, change priority, or delete. Add tasks and categories anytime.</p>
+<p>Four founders. Each owns a permanent R&amp;R framework (role-based, open-ended) plus current-state task lists (project-specific, editable). Hover any row to edit, change priority, or delete. Add tasks and categories anytime.</p>
+</div>
+<div class="collab-principle">
+<strong>Collaboration principle</strong>
+"Roles &amp; responsibilities define ownership, not boundaries. In the bootstrap phase (Months 1–24), every founder is expected to step into another founder's domain when help is needed. CEO Alex assists proactively across all domains as a baseline; the rest assist as needed when called. R&amp;R is the framework for accountability — it is not a limit on contribution. No founder hides behind their lane while another struggles."
 </div>
 <div class="founder-grid" id="founderGrid"></div>
 </div>
@@ -513,6 +532,72 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+// Role-based, open-ended R&R framework per founder (NOT project-specific)
+const RR_FRAMEWORK = {
+  alex: {
+    scope: 'CEO · safety net',
+    items: [
+      'Strategy · vision · brand voice · category positioning',
+      'Fundraising · cap table · governance · corporate decisions',
+      'External face for investors and press · interviews · long-form thought leadership',
+      'Vendor relationships (manufacturer + suppliers · Korean ↔ US bridge)',
+      'Hiring decisions · org evolution',
+      '<strong>Founder safety net</strong> — proactively assists every domain when help is needed'
+    ]
+  },
+  jason: {
+    scope: 'COO · back of house',
+    items: [
+      'Operations · finance · accounting · cash flow · tax filings',
+      'Legal · compliance · IP · contracts · board minutes',
+      'Supply chain · manufacturer inventory planning · reorder cadence',
+      '3PL relationships · fulfillment · shipping logistics',
+      'Tech stack · ecommerce platform · email · subscriptions · analytics · infrastructure',
+      'Insurance · banking · sales tax nexus · state filings',
+      'Co-ops with Justin on growth-side ops as needed'
+    ]
+  },
+  justin: {
+    scope: 'CGO · front of house',
+    items: [
+      'Partnerships · brand collabs · cross-promotion outreach',
+      'Influencer / creator sourcing + relationship management',
+      'Retail buyer outreach (long-game) · channel sales',
+      'Investor sourcing for future capital rounds',
+      'Marketing campaigns · paid + organic strategy · acquisition funnel',
+      'Biz dev pipeline · new opportunity intake',
+      'Co-ops with Jason on shipping · logistics · finance for growth-related expense budgets'
+    ]
+  },
+  dawon: {
+    scope: 'CBO · brand owner',
+    items: [
+      'Brand identity stewardship · visual + voice + tone + experience',
+      'Design system maintenance · brand book · packaging dieline',
+      'Photography direction · photo asset library',
+      'Content production · brand-owned social channels',
+      'Long-form content host + on-camera face for consumer-side comms',
+      'Customer experience design · unboxing · packaging inserts · email design system',
+      'Partnership creative when collabs land',
+      'Brand consistency oversight · anything customer-facing gets CBO sign-off'
+    ]
+  }
+};
+
+function renderRR(slug) {
+  const rr = RR_FRAMEWORK[slug];
+  if (!rr) return '';
+  return `
+    <div class="founder-rr">
+      <div class="founder-rr-head">
+        <span>Role &amp; Responsibilities</span>
+        <span class="scope">${rr.scope}</span>
+      </div>
+      <ul>${rr.items.map(i => `<li>${i}</li>`).join('')}</ul>
+    </div>
+  `;
+}
+
 function render() {
   grid.innerHTML = state.founders.map(f => {
     const cats = state.categories.filter(c => c.founder_slug === f.slug);
@@ -526,6 +611,7 @@ function render() {
             <div class="founder-bio">${escapeHtml(f.bio || '')}</div>
           </div>
         </div>
+        ${renderRR(f.slug)}
         ${cats.map(renderCategory).join('')}
         <button class="btn-add-cat" data-action="add-cat" data-founder="${escapeHtml(f.slug)}">+ Add category</button>
       </div>
