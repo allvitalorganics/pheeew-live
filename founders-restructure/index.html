@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Founder Restructure · Justin Joining · Pheeew, Inc.</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600;700&family=Caveat+Brush&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF7F2; --sand:#EDE3D2; --warm:#F5EFE5; --warm-deep:#E8DDC9;
+  --ink:#1C1A18; --soft:#4A453F; --mute:#8A847C;
+  --line:rgba(28,26,24,.10); --line-strong:rgba(28,26,24,.18);
+  --cobalt:#1F3FA8; --brick:#9A2A1F; --oxblood:#4A1813;
+  --peach:#E89B6F; --peach-soft:#FBE4D2;
+  --green:#4A8E5A; --sage:#7C8A5E;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:140px}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--cream);color:var(--ink);font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.editorial-i{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:900;line-height:.95;letter-spacing:-.02em}
+.brushy{font-family:'Caveat Brush',cursive;font-weight:400;line-height:1;letter-spacing:.005em}
+.handwritten{font-family:'Caveat',cursive;font-weight:600;line-height:1.1}
+.mono{font-family:'Special Elite','Courier New',monospace;letter-spacing:.04em}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+/* GATE */
+.app-gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--cream);z-index:300;padding:24px}
+.app-gate-box{max-width:380px;width:100%;text-align:center}
+.app-gate-box .editorial-i{font-size:80px;color:var(--ink);line-height:.9}
+.app-gate-box .brushy{font-size:22px;color:var(--cobalt);margin:8px 0 32px;display:block;transform:rotate(-2deg)}
+.app-gate-box label{display:block;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:10px}
+.app-gate-box input{width:100%;background:white;border:1.5px solid var(--line);border-radius:14px;padding:18px 20px;font:inherit;font-size:16px;color:var(--ink);text-align:center;letter-spacing:.04em}
+.app-gate-box input:focus{outline:0;border-color:var(--cobalt)}
+.app-gate-box button{margin-top:14px;width:100%;background:var(--ink);color:var(--cream);padding:18px;border-radius:100px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:800}
+.app-gate-box button:hover{background:var(--cobalt)}
+.app-gate-error{font-size:12px;color:var(--brick);margin-top:14px;font-weight:600}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(250,247,242,.96);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.site-header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;max-width:1400px;margin:0 auto;gap:20px}
+.logo{font-weight:700;font-size:18px;letter-spacing:-.025em;color:var(--ink);display:flex;align-items:center;gap:10px}
+.logo-mark{width:22px;height:22px;border-radius:50%;background:var(--ink);position:relative}
+.logo-mark::after{content:"";position:absolute;bottom:5px;left:50%;transform:translateX(-50%) rotate(-10deg);width:5px;height:4px;background:var(--brick);border-radius:0 0 4px 4px}
+.logo small{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-left:2px}
+.cross-nav{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.cross-nav a{color:var(--soft);padding:6px 0;border-bottom:1.5px solid transparent}
+.cross-nav a:hover{color:var(--cobalt);border-bottom-color:var(--cobalt)}
+.cross-nav .nav-back{background:var(--ink);color:var(--cream);padding:8px 14px;border-radius:100px;letter-spacing:.16em;font-weight:700}
+.cross-nav .nav-back:hover{background:var(--cobalt);border:0}
+
+/* SECTION NAV */
+.section-nav{position:sticky;top:54px;z-index:99;background:var(--ink);border-bottom:3px solid var(--peach);padding:12px 0}
+.section-nav-inner{display:flex;gap:6px;max-width:1400px;margin:0 auto;padding:0 24px;overflow-x:auto;scrollbar-width:none}
+.section-nav-inner::-webkit-scrollbar{display:none}
+.section-btn{flex-shrink:0;padding:10px 16px;border-radius:100px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(250,247,242,.65);transition:all .15s;white-space:nowrap}
+.section-btn:hover{color:white;background:rgba(250,247,242,.08)}
+.section-btn.active{color:var(--ink);background:var(--peach)}
+
+/* HERO */
+.hero{padding:64px 0 48px;background:var(--cream)}
+.hero-eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--cobalt);font-weight:800;margin-bottom:18px;display:inline-block}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:900;font-size:clamp(48px,8vw,108px);line-height:.92;letter-spacing:-.025em;margin-bottom:18px}
+.hero h1 .accent{color:var(--brick)}
+.hero-sub{font-size:18px;color:var(--soft);max-width:760px;line-height:1.5;margin-bottom:24px}
+.hero-sub strong{color:var(--ink);font-weight:600}
+
+/* PROGRESS BAR */
+.progress-card{background:var(--ink);color:var(--cream);padding:32px 36px;border-radius:18px;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.progress-text .label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--peach);font-weight:800;margin-bottom:8px}
+.progress-text .num{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:54px;color:white;line-height:1;letter-spacing:-.02em}
+.progress-text .num small{font-size:24px;color:rgba(250,247,242,.6)}
+.progress-text .meta{font-size:13px;color:rgba(250,247,242,.7);margin-top:8px}
+.progress-bar-track{background:rgba(250,247,242,.12);height:8px;border-radius:100px;overflow:hidden}
+.progress-bar-fill{height:100%;background:var(--peach);transition:width .3s}
+
+/* CAP TABLE STRIP */
+.cap-strip{padding:48px 0;background:var(--sand);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.cap-table-block{background:white;border:1px solid var(--line);border-radius:14px;padding:24px 28px;overflow-x:auto}
+.cap-table-block h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:24px;letter-spacing:-.01em;margin-bottom:14px}
+.cap-table-block h3 .small{font-size:14px;color:var(--mute);font-style:normal;font-weight:400;letter-spacing:0;margin-left:8px}
+.cap-row{display:grid;grid-template-columns:1.4fr .8fr .8fr 1.4fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:13.5px;align-items:baseline}
+.cap-row.head{border-top:0;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:800;padding-bottom:8px}
+.cap-row.total{border-top:2px solid var(--ink);margin-top:6px;font-weight:600}
+.cap-row .name{font-weight:600;color:var(--ink)}
+.cap-row .pct{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:24px;color:var(--ink);letter-spacing:-.01em}
+.cap-row .shares{font-family:'Special Elite',monospace;font-size:13px;color:var(--brick);letter-spacing:.02em}
+.cap-row .delta{font-size:12px;color:var(--soft)}
+.cap-row .delta.new{color:var(--green);font-weight:600}
+.cap-row .delta.refresh{color:var(--cobalt);font-weight:600}
+
+/* PHASE SECTION */
+.phase{padding:56px 0;border-top:1px solid var(--line)}
+.phase.alt{background:var(--warm)}
+.phase.deep{background:var(--warm-deep)}
+.phase-head{display:flex;align-items:flex-start;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+.phase-num{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:48px;line-height:1;color:var(--mute);letter-spacing:-.02em;flex-shrink:0;min-width:60px}
+.phase-head-text{flex:1;min-width:280px}
+.phase-head .eyebrow{font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;font-weight:800;color:var(--cobalt);margin-bottom:8px;display:block}
+.phase-head h2{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:900;font-size:clamp(28px,3.6vw,44px);letter-spacing:-.02em;line-height:1;color:var(--ink);margin-bottom:10px}
+.phase-head h2 .accent{color:var(--brick)}
+.phase-head .lede{font-size:14.5px;color:var(--soft);max-width:680px;line-height:1.55}
+.phase-head .day-pill{display:inline-block;background:var(--ink);color:var(--cream);padding:5px 13px;border-radius:100px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;margin-top:8px}
+
+/* STEPS */
+.step{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden;transition:border-color .15s}
+.phase.alt .step,.phase.deep .step{background:var(--cream)}
+.step.done{border-color:var(--green);background:rgba(74,142,90,.04)}
+.step-head{display:grid;grid-template-columns:48px 1fr auto;gap:18px;align-items:center;padding:20px 24px;cursor:pointer}
+.step-head:hover{background:rgba(28,26,24,.02)}
+.step-check{width:28px;height:28px;border:2px solid var(--mute);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;flex-shrink:0}
+.step.done .step-check{background:var(--green);border-color:var(--green);color:white}
+.step.done .step-check::after{content:"✓";font-weight:800;font-size:14px}
+.step-meta{flex:1}
+.step-tag{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.06em;color:var(--cobalt);font-weight:700;margin-bottom:4px}
+.step.done .step-tag{color:var(--green)}
+.step-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:18px;letter-spacing:-.005em;line-height:1.2;color:var(--ink)}
+.step.done .step-title{text-decoration:line-through;text-decoration-color:rgba(74,142,90,.5)}
+.step-actions{display:flex;gap:8px;flex-shrink:0}
+.step-action{padding:8px 14px;border-radius:100px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;background:var(--ink);color:var(--cream);transition:background .15s}
+.step-action:hover{background:var(--cobalt)}
+.step-action.outline{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.step-action.outline:hover{background:var(--ink);color:var(--cream)}
+.step-body{padding:0 24px 24px 90px;display:none}
+.step.expanded .step-body{display:block}
+.step-body p{font-size:13.5px;line-height:1.55;color:var(--soft);margin-bottom:12px}
+.step-body p strong{color:var(--ink);font-weight:600}
+
+/* COPY BLOCKS */
+.copy-block{background:var(--ink);color:var(--cream);border-radius:12px;padding:24px 26px;margin:14px 0;position:relative;font-family:'Special Elite',monospace;font-size:13px;line-height:1.65;white-space:pre-wrap;word-wrap:break-word;letter-spacing:.01em;cursor:pointer;transition:all .15s}
+.copy-block:hover{background:var(--cobalt)}
+.copy-block::after{content:"click to copy";position:absolute;top:12px;right:14px;background:var(--peach);color:var(--ink);font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;padding:4px 9px;border-radius:100px;font-family:'Inter',sans-serif}
+.copy-block.copied::after{content:"copied"}
+.copy-block .meta-line{color:var(--peach);font-weight:700;letter-spacing:.04em;display:block;margin-bottom:8px}
+.copy-block.email{font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.6}
+
+.doc-block{background:var(--cream);border:1px solid var(--line);border-left:4px solid var(--brick);border-radius:0 12px 12px 0;padding:20px 24px;margin:14px 0}
+.phase.alt .doc-block,.phase.deep .doc-block{background:white}
+.doc-block-tag{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.06em;color:var(--brick);font-weight:700;margin-bottom:6px}
+.doc-block-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:18px;letter-spacing:-.005em;color:var(--ink);margin-bottom:8px}
+.doc-block-meta{font-size:12.5px;color:var(--soft);line-height:1.55}
+.doc-block-meta strong{color:var(--ink);font-weight:600}
+
+.callout{background:var(--peach-soft);border-left:4px solid var(--peach);border-radius:0 12px 12px 0;padding:18px 22px;margin:14px 0}
+.callout-tag{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:800;color:var(--brick);margin-bottom:6px;display:block}
+.callout-text{font-size:13px;color:var(--ink);line-height:1.55}
+.callout-text strong{font-weight:700}
+
+/* FOOTER */
+.site-footer{background:var(--cream);color:var(--mute);padding:36px 0;font-size:11px;letter-spacing:.14em;text-align:center;text-transform:uppercase;font-weight:600;border-top:1px solid var(--line)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .progress-card{grid-template-columns:1fr;gap:20px;padding:24px 26px}
+  .cap-row{grid-template-columns:1fr 1fr;gap:8px}
+  .cap-row .name{grid-column:1/-1}
+  .step-head{grid-template-columns:36px 1fr;gap:14px}
+  .step-actions{grid-column:1/-1;margin-top:8px;justify-content:flex-start}
+  .step-body{padding:0 20px 20px 64px}
+}
+@media(max-width:640px){
+  .wrap{padding:0 22px}
+  .site-header-inner{padding:12px 22px;gap:8px;flex-wrap:wrap}
+  .cross-nav{font-size:10px;width:100%;order:3}
+  .section-nav-inner{padding:0 16px}
+  .section-btn{padding:8px 12px;font-size:10px}
+  .hero{padding:40px 0 28px}
+  .phase{padding:40px 0}
+  .phase-num{font-size:34px;min-width:0}
+  .progress-card{padding:20px 22px}
+  .progress-text .num{font-size:42px}
+  .step-head{padding:16px 18px}
+  .step-body{padding:0 16px 16px 18px}
+  .copy-block{font-size:12px;padding:18px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="appGate" class="app-gate" style="display:none">
+<div class="app-gate-box">
+<div class="editorial-i">Pheeew</div>
+<span class="brushy">founder restructure</span>
+<label for="gateInput">Passcode</label>
+<input id="gateInput" type="password" autocomplete="off">
+<button id="gateSubmit">Enter</button>
+<div id="gateError" class="app-gate-error" style="display:none"></div>
+</div>
+</div>
+
+<div id="app" style="display:none">
+
+<header class="site-header">
+<div class="site-header-inner">
+<a href="../" class="logo"><span class="logo-mark"></span>Pheeew<small>· Founder Restructure</small></a>
+<nav class="cross-nav">
+<a href="../launch-plan/">Launch Plan</a>
+<a href="../brand-base/">Brand Kit</a>
+<a href="../team/">Team</a>
+<a href="#" id="signOut">Sign out</a>
+<a href="../" class="nav-back">← back</a>
+</nav>
+</div>
+</header>
+
+<nav class="section-nav">
+<div class="section-nav-inner">
+<button class="section-btn active" data-target="overview">Overview</button>
+<button class="section-btn" data-target="phase1">P1 · Align</button>
+<button class="section-btn" data-target="phase2">P2 · Offer</button>
+<button class="section-btn" data-target="phase3">P3 · Accept</button>
+<button class="section-btn" data-target="phase4">P4 · Corporate</button>
+<button class="section-btn" data-target="phase5">P5 · Sign</button>
+<button class="section-btn" data-target="phase6">P6 · Wire</button>
+<button class="section-btn" data-target="phase7">P7 · 83(b)</button>
+<button class="section-btn" data-target="phase8">P8 · Close</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="overview">
+<div class="wrap">
+<span class="hero-eyebrow">Founder Restructure · v1 · 2026.05.07</span>
+<h1>Justin joins.<br><span class="accent">10 days. No attorney.</span></h1>
+<p class="hero-sub">Step-by-step workflow for adding Justin Kim as 4th co-founder via the issue-more-shares path. Every email templated. Every document checklisted. <strong>No attorney engagement; templates inherit from prior restructure.</strong> Tap any email/document body to copy.</p>
+
+<div class="progress-card">
+<div class="progress-text">
+<div class="label">Onboarding progress</div>
+<div class="num"><span id="doneCount">0</span><small> / <span id="totalCount">42</span> steps</small></div>
+<div class="meta" id="progressMeta">Phase 1 · Pre-offer alignment · awaiting Email 1 send</div>
+</div>
+<div>
+<div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+<p style="font-size:12px;color:rgba(250,247,242,.65);margin-top:14px;line-height:1.5">Tap any step circle to mark complete. Progress saves to your browser. Master doc with full templates: <a href="#" style="color:var(--peach);text-decoration:underline">Pheeew_Justin_Onboarding_Master.md</a> in /Deliverables.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CAP TABLE STRIP -->
+<section class="cap-strip">
+<div class="wrap">
+<div class="cap-table-block">
+<h3>Cap Table v2 — target<span class="small">whole numbers · all >20% · hierarchy by founding-order + capital</span></h3>
+<div class="cap-row head"><span>Stockholder</span><span>%</span><span>Shares</span><span>Δ from v1</span></div>
+<div class="cap-row"><span class="name">Alex Kim · CEO</span><span class="pct">24%</span><span class="shares">3,291,428</span><span class="delta refresh">+141,428 refresh</span></div>
+<div class="cap-row"><span class="name">Jason Ko · COO</span><span class="pct">23%</span><span class="shares">3,154,286</span><span class="delta refresh">+184,286 refresh</span></div>
+<div class="cap-row"><span class="name">Justin Kim · CGO</span><span class="pct">22%</span><span class="shares">3,017,143</span><span class="delta new">+3,017,143 NEW</span></div>
+<div class="cap-row"><span class="name">Dawon Kim · CBO</span><span class="pct">21%</span><span class="shares">2,880,000</span><span class="delta">unchanged</span></div>
+<div class="cap-row"><span class="name">Equity Pool</span><span class="pct">10%</span><span class="shares">1,371,429</span><span class="delta refresh">+371,429 top-up</span></div>
+<div class="cap-row total"><span class="name"><strong>Total fully diluted</strong></span><span class="pct">100%</span><span class="shares"><strong>13,714,286</strong></span><span class="delta">was 10,000,000</span></div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 1 -->
+<section class="phase" id="phase1">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">01</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 1 · Pre-offer alignment</span>
+<h2>Align <span class="accent">Jason &amp; Dawon</span> first.</h2>
+<p class="lede">Document the existing 3-founder agreement on Justin joining BEFORE sending him the formal offer. Creates the paper trail. Critical for Dawon — she takes the biggest dilution (−7.8pp).</p>
+<span class="day-pill">Day 1 · ~30 minutes</span>
+</div>
+</div>
+
+<div class="step" data-step-id="s1">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 1 · Alex → Jason + Dawon</div>
+<div class="step-title">Internal alignment email · "4th Founder Decision — Justin Kim"</div>
+</div>
+<div class="step-actions"><button class="step-action" data-toggle>Show body</button></div>
+</div>
+<div class="step-body">
+<p><strong>Send to:</strong> jason@pheeew.com, dawon@pheeew.com<br><strong>Save to:</strong> <span class="mono">02_Equity_Restructure/2026-05_Justin_Joining/_Communications/</span></p>
+<div class="copy-block email" data-copy="Subject: Pheeew · 4th Founder Decision — Justin Kim · Cap Table v2
+
+Jason, Dawon —
+
+Confirming our verbal alignment on the 4-founder restructure. Sending this for the record before I send the offer to Justin tomorrow.
+
+PROPOSAL — Justin Kim joins as 4th co-founder
+
+EQUITY (whole numbers, all >20%, hierarchy by founding-order + capital):
+- Alex     24%  (refresh grant +141,428 shares)
+- Jason    23%  (refresh grant +184,286 shares)
+- Justin   22%  (new grant 3,017,143 shares — Justin's first stock issuance)
+- Dawon    21%  (no change · 2,880,000 shares — DILUTION ONLY, no new shares issued to her)
+- Pool     10%  (top up from 1M to ~1.37M)
+- TOTAL    13,714,286 shares fully diluted
+
+CAPITAL — Justin contributes $30,000 to Pheeew Inc:
+- ~$6,820 stock purchase price (3,017,143 × $0.00226/share, same FMV as original founders)
+- ~$23,180 Additional Paid-in Capital (APIC)
+- Total founder capital: $50K · NO SAFE round · full bootstrap
+
+ROLE — Chief Growth Officer (CGO) · 4-year vest · 1-year cliff
+- Front-of-house: partnerships, influencer/creator sourcing, retail buyer outreach, investor sourcing, marketing campaigns, biz dev
+- Co-ops with Jason on shipping/logistics/finance for growth-related expense budgets
+
+DAWON SPECIFIC — 83(b) IMPACT
+Your existing 83(b) is UNCHANGED. Your share count (2,880,000), vesting schedule, and FMV at original grant ($0.00226) are not modified. The restructure dilutes your percentage from 28.8% to 21% via the math of new shares being issued — not by modifying your grant. CAA-filed ITIN paperwork stays untouched. No refile required.
+
+(Alex and Jason DO each need to file new 83(b)s for their refresh increments — small share counts, low tax impact at ~$320 / ~$416 income recognized respectively.)
+
+ROLES UPDATED FOR ALL 4 (per the R&R framework live at pheeew-live/team/):
+- Alex   — CEO · safety net (proactive across all domains)
+- Jason  — COO · back of house (ops/finance/legal/supply chain/tech)
+- Justin — CGO · front of house (partnerships/marketing/biz dev)
+- Dawon  — CBO · brand owner (PROMOTED from CDO)
+
+DAWON CBO PROMOTION
+You're now Chief Brand Officer (was CDO). Reflects that you own the full brand — voice + design + content + customer experience — not just visual design.
+
+If anything above doesn't match what we discussed, reply before EOD today. If aligned, I'll send Justin the formal offer tomorrow morning and copy you both.
+
+— Alex">Subject: Pheeew · 4th Founder Decision — Justin Kim · Cap Table v2
+
+Jason, Dawon —
+
+Confirming our verbal alignment on the 4-founder restructure. Sending this for the record before I send the offer to Justin tomorrow.
+
+[full body — click to copy entire email]</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s2">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">REPLY · from Jason</div>
+<div class="step-title">Save Jason's "aligned" reply (any positive confirmation)</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s3">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">REPLY · from Dawon</div>
+<div class="step-title">Save Dawon's "aligned" reply (any positive confirmation)</div>
+</div>
+</div>
+</div>
+
+<div class="callout">
+<span class="callout-tag">why this email matters</span>
+<div class="callout-text"><strong>Dawon takes the biggest dilution (−7.8pp).</strong> Her reply confirming alignment is the paper-trail protection. Without this email, you're vulnerable to "I never agreed" claims later.</div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 2 -->
+<section class="phase alt" id="phase2">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">02</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 2 · Justin offer</span>
+<h2>Send Justin <span class="accent">the structured offer.</span></h2>
+<p class="lede">Formal written offer with all locked terms. BCC Jason and Dawon for the record.</p>
+<span class="day-pill">Day 1-2 · 10 minutes</span>
+</div>
+</div>
+
+<div class="step" data-step-id="s4">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 2 · Alex → Justin (BCC Jason + Dawon)</div>
+<div class="step-title">Formal founder offer · "Pheeew · Founder Offer · Justin Kim"</div>
+</div>
+<div class="step-actions"><button class="step-action" data-toggle>Show body</button></div>
+</div>
+<div class="step-body">
+<div class="copy-block email" data-copy="Subject: Pheeew · Founder Offer · Justin Kim
+
+Justin —
+
+Confirmed with Jason and Dawon. Here's the structural offer for joining Pheeew, Inc. as the 4th co-founder.
+
+ENTITY: Pheeew, Inc. · Delaware C-Corporation · EIN 41-5111005
+BACKGROUND: Pre-launch DTC daily synbiotic for gut + bloat. Manufacturer locked at 좋은영농 (Naju, Korea). 40K MOQ at ₩1,150 EXW. Ships Q4 2026. US DTC subscription · $79/mo Core sub · 4-channel pricing strategy.
+
+YOUR EQUITY · 22% (3,017,143 shares of Common Stock)
+PRICE: $0.00226 per share · same FMV as original founders
+TOTAL STOCK PURCHASE PRICE: $6,818.74 (paid as part of the $30K below)
+
+YOUR ROLE · Chief Growth Officer (CGO) · Los Angeles
+- Partnerships · brand collabs · cross-promotion outreach
+- Influencer / creator sourcing + relationship management
+- Retail buyer outreach (long-game · Phase 3)
+- Investor sourcing for future capital rounds
+- Marketing campaigns · paid + organic strategy · acquisition funnel
+- Biz dev pipeline · new opportunity intake
+- Co-ops with Jason on shipping · logistics · finance for growth-related expense budgets
+- D2C acquisition funnel optimization
+
+YOUR CAPITAL CONTRIBUTION · $30,000 USD
+- ~$6,819 = stock purchase price (3,017,143 × $0.00226)
+- ~$23,181 = Additional Paid-in Capital (APIC) · counts as equity contribution above par on Pheeew's balance sheet
+- Wire to Pheeew Inc Mercury account at signing (instructions to follow)
+
+VESTING · 4 years · 1-year cliff
+- Cliff: 754,286 shares (25%) vest on the 1-year anniversary of grant date
+- Remaining 75% vests monthly over the following 36 months
+- Same vesting mechanics as Alex, Jason, Dawon
+
+83(b) ELECTION · file within 30 days of grant date
+- Required for tax purposes. Without it, you'd be taxed on vesting at FMV (which is much higher than today's $0.00226)
+- I'll send you the pre-filled 83(b) form to sign + the IRS mailing procedure. Total recognized income at grant: ~$6,819 (stock purchase price). Effective tax: $0 if QSBS-eligible (which it is, as a Delaware C-Corp under $50M assets).
+
+UPDATED CAP TABLE (whole numbers, all >20%, hierarchy by founding-order + capital):
+
+  Alex        24%   3,291,428 shares  (refresh +141,428)
+  Jason       23%   3,154,286 shares  (refresh +184,286)
+  Justin      22%   3,017,143 shares  (your new grant)
+  Dawon       21%   2,880,000 shares  (unchanged)
+  Pool        10%   1,371,429 shares  (top up by 371,429)
+  TOTAL              13,714,286 shares fully diluted
+
+CAPITAL PLAN · NO SAFE ROUND · BOOTSTRAP TO LAUNCH
+- Alex   $6,750 (already paid for original stock)
+- Jason  $6,750 (already paid for original stock)
+- Dawon  $6,500 (already paid for original stock)
+- Justin $30,000 (at signing — covers stock purchase + APIC)
+- TOTAL  $50,000 founder capital
+- Plus Founders' List pre-orders ($25-35K target) → $75-85K total bootstrap
+- No external SAFE round. Series Seed conversation in 2027 if growth holds.
+
+R&R FRAMEWORK — see live document
+The role-based, open-ended R&R for all 4 founders is documented at:
+https://allvitalorganics.github.io/pheeew-live/team/
+Passcode: pheeew-team-2026
+
+This page also has the Collaboration Principle the 4 of us are agreeing to: roles define ownership, not boundaries. In the bootstrap phase, every founder steps into another's domain when help is needed. CEO Alex assists proactively across all domains as a baseline.
+
+NEXT STEPS IF YOU ACCEPT
+1. Reply with 'Accepted' by EOD tomorrow.
+2. I'll engage the corporate workflow this week — board resolution + stockholder consent + Delaware Certificate of Amendment + your RSPA + your 83(b) draft + updated Founders' Agreement.
+3. You sign + wire $30K within 5 days of receiving documents.
+4. We file your 83(b) by USPS Certified Mail within 30 days of grant.
+5. We update the cap table v2 and you're a founder.
+
+I want to be transparent: we are NOT engaging an attorney. Pheeew has been entirely self-managed corporate-wise since incorporation. All templates exist from previous restructures (when Jason and Dawon joined as co-founders). I'll execute Justin's onboarding using the same templates with strict adherence to Delaware corporate law and IRS 83(b) timing. If at any step you'd prefer outside counsel review, I'll pause and engage one — your call.
+
+If Yes, reply 'Accepted.' If you have questions or want to renegotiate anything, reply with what you'd like to discuss.
+
+— Alex
+Alex Kim
+CEO, Pheeew, Inc.
+alex@pheeew.com">Subject: Pheeew · Founder Offer · Justin Kim
+
+Justin —
+
+Confirmed with Jason and Dawon. Here's the structural offer for joining Pheeew, Inc. as the 4th co-founder.
+
+[full body — click to copy entire email · 700+ words covering equity, role, capital, vesting, 83(b), cap table, capital plan, next steps]</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 3 -->
+<section class="phase" id="phase3">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">03</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 3 · Justin's response</span>
+<h2>"Accepted." <span class="accent">Or counter.</span></h2>
+<p class="lede">Save Justin's reply. If counter-proposal, document and circle back to Phase 1 with Jason + Dawon for re-alignment.</p>
+<span class="day-pill">Day 2 · awaiting reply</span>
+</div>
+</div>
+
+<div class="step" data-step-id="s5">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 3 · Justin → Alex</div>
+<div class="step-title">Receive and save Justin's "Accepted" reply</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 4 -->
+<section class="phase alt" id="phase4">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">04</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 4 · Corporate documents</span>
+<h2>Board res · Stockholder consent · <span class="accent">Delaware filing.</span></h2>
+<p class="lede">3 corporate-level documents. Board Resolution (Alex signs), Stockholder Consent (all 3 sign), Certificate of Amendment (filed with Delaware to authorize more shares).</p>
+<span class="day-pill">Day 2-4 · ~$200 DE filing fee</span>
+</div>
+</div>
+
+<div class="step" data-step-id="s6">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 4 · Alex → All 4</div>
+<div class="step-title">Pipeline kickoff email · "Corporate Documents Pipeline"</div>
+</div>
+<div class="step-actions"><button class="step-action outline" data-toggle>Show summary</button></div>
+</div>
+<div class="step-body">
+<p>Sets expectations for all 12 documents coming across Days 2-7. Specifies folder structure for filing each signed PDF.</p>
+<p>Full template in <strong>Pheeew_Justin_Onboarding_Master.md</strong> · Email 4.</p>
+</div>
+</div>
+
+<div class="step" data-step-id="s7">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D1 · Board Resolution</div>
+<div class="step-title">Written Consent of Sole Director · Alex signs</div>
+</div>
+</div>
+<div class="step-body">
+<div class="doc-block">
+<div class="doc-block-tag">Pheeew_Board-Resolution_Justin-Joining_2026-05-XX.docx</div>
+<div class="doc-block-title">Board authorizes: COI amendment · refresh grants · Justin grant · pool top-up · Justin as CGO · Dawon CBO title change · Co-Founder Agreement v3 · receipt of $30K</div>
+<div class="doc-block-meta"><strong>Signers:</strong> Alex (sole director). One signature.<br><strong>Save to:</strong> <span class="mono">02_Equity_Restructure/2026-05_Justin_Joining/_Signed/</span></div>
+</div>
+<p>Full 11-resolution template in master doc · Document D1.</p>
+</div>
+</div>
+
+<div class="step" data-step-id="s8">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D2 · Stockholder Written Consent</div>
+<div class="step-title">All 3 current stockholders (Alex, Jason, Dawon) sign approval</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s9">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D3 · Certificate of Amendment</div>
+<div class="step-title">Authorize 10M → 14M shares · Delaware filing</div>
+</div>
+</div>
+<div class="step-body">
+<div class="doc-block">
+<div class="doc-block-tag">Pheeew_Certificate-of-Amendment_2026-05-XX.pdf</div>
+<div class="doc-block-title">Increases authorized Common Stock from 10,000,000 → 14,000,000 shares</div>
+<div class="doc-block-meta"><strong>Signers:</strong> Alex as CEO · <strong>Filing fee:</strong> ~$200 (Delaware Division of Corporations)<br><strong>How to file:</strong> Delaware portal at <span class="mono">corp.delaware.gov</span> OR Stripe Atlas dashboard (recommended — Atlas already has Pheeew on file, charges ~$50-100 service fee on top of DE fee)</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s10">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 5 · Delaware filing</div>
+<div class="step-title">Submit D3 to Delaware portal · receive Stamped Filed Copy</div>
+</div>
+</div>
+</div>
+
+<div class="callout">
+<span class="callout-tag">timing</span>
+<div class="callout-text"><strong>Delaware turnaround: 1-3 business days for the Stamped Filed Copy.</strong> Don't proceed to Phase 5 until you have the stamped copy in hand. The new shares can't be issued until the COI authorizes them.</div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 5 -->
+<section class="phase deep" id="phase5">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">05</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 5 · Stockholder docs + signatures</span>
+<h2>RSPAs · CIIAA · Stock certs · <span class="accent">Founders' Agreement v3.</span></h2>
+<p class="lede">8 documents drafted using existing templates. All signed within 48 hours of receipt.</p>
+<span class="day-pill">Day 4-5 · template-driven</span>
+</div>
+</div>
+
+<div class="step" data-step-id="s11">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D4 · Justin's RSPA</div>
+<div class="step-title">Pheeew_RSPA_Justin-Kim_v1.docx · 3,017,143 shares · $6,818.74</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s12">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D5 · Alex Refresh RSPA</div>
+<div class="step-title">141,428 incremental shares · $319.63 · same FMV</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s13">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D6 · Jason Refresh RSPA</div>
+<div class="step-title">184,286 incremental shares · $416.49 · same FMV</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s14">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D7 · Justin's CIIAA</div>
+<div class="step-title">Use Atlas template · standard IP/invention assignment</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s15">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D8 · Co-Founder Agreement v3</div>
+<div class="step-title">All 4 founders sign · adds Justin · adds Collaboration Principle · updates cap table v2</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s16">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 6 · Alex → Justin</div>
+<div class="step-title">RSPA + 83(b) + CIIAA packet for Justin's signature</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s17">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D11 · Stock Cert · Justin (CS-004)</div>
+<div class="step-title">Alex signs as CEO + Secretary · 3,017,143 shares</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s18">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D12a · Alex Refresh Cert (CS-001-R-A)</div>
+<div class="step-title">141,428 incremental shares · supplemental cert</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s19">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D12b · Jason Refresh Cert (CS-003-A)</div>
+<div class="step-title">184,286 incremental shares · supplemental cert</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 6 -->
+<section class="phase" id="phase6">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">06</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 6 · Wire</span>
+<h2>$30K wire · <span class="accent">capital contribution receipt.</span></h2>
+<p class="lede">Justin wires $30K to Pheeew Mercury account. Receipt drafted, countersigned by Jason (officer-other-than-stockholder pattern).</p>
+<span class="day-pill">Day 5-6 · same-day domestic wire</span>
+</div>
+</div>
+
+<div class="step" data-step-id="s20">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 7 · Alex → Justin</div>
+<div class="step-title">Mercury wire instructions · $30,000.00 · standard memo line</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s21">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 8 · Justin → Alex</div>
+<div class="step-title">Wire confirmation + screenshot saved</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s22">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D13 · Capital Contribution Receipt</div>
+<div class="step-title">Justin_Kim_RSPA_Payment_Completion_2026-05-XX.md · Justin + Jason countersign</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s23">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 9 · Alex → Justin + Jason</div>
+<div class="step-title">Receipt acknowledgment with countersign instructions</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 7 -->
+<section class="phase alt" id="phase7">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">07</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 7 · 83(b) elections — TIME CRITICAL</span>
+<h2>3 envelopes. <span class="accent">USPS Certified Mail.</span></h2>
+<p class="lede">Justin + Alex + Jason each file new 83(b) within 30 days of grant. Mail via USPS Certified Mail with Return Receipt. Dawon's existing 83(b) UNCHANGED.</p>
+<span class="day-pill">Day 6-7 · 30-day clock CRITICAL</span>
+</div>
+</div>
+
+<div class="callout" style="background:rgba(154,42,31,.08);border-color:var(--brick)">
+<span class="callout-tag" style="color:var(--brick)">deadline</span>
+<div class="callout-text"><strong>Mail all 3 envelopes within 30 days of grant date.</strong> Missing this deadline = forfeited 83(b) election = stock taxed at vesting at MUCH higher FMV. Aim to mail within 5-10 days of signing the RSPAs. Don't sit on this.</div>
+</div>
+
+<div class="step" data-step-id="s24">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D9 · Alex's 83(b) (refresh)</div>
+<div class="step-title">141,428 shares · $319.63 FMV · $0 income inclusion</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s25">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D10 · Jason's 83(b) (refresh)</div>
+<div class="step-title">184,286 shares · $416.49 FMV · $0 income inclusion</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s26">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D14 · Justin's 83(b) (new grant)</div>
+<div class="step-title">3,017,143 shares · $6,818.74 FMV · $0 income inclusion</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s27">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 10 · Alex → Alex+Jason+Justin</div>
+<div class="step-title">Mailing instructions · USPS Certified Mail with Return Receipt · Fresno IRS center</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s28">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">MAILING · Justin</div>
+<div class="step-title">Postmark + tracking number saved</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s29">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">MAILING · Alex (refresh)</div>
+<div class="step-title">Postmark + tracking number saved</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s30">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">MAILING · Jason (refresh)</div>
+<div class="step-title">Postmark + tracking number saved</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PHASE 8 -->
+<section class="phase deep" id="phase8">
+<div class="wrap">
+<div class="phase-head">
+<div class="phase-num">08</div>
+<div class="phase-head-text">
+<span class="eyebrow">Phase 8 · Closing + records</span>
+<h2>Cap table v2 · <span class="accent">Records index updated.</span></h2>
+<p class="lede">Final state of all records. Update master folders. Send closing summary to all 4. Watch list for IRS Return Receipts (4-6 week wait).</p>
+<span class="day-pill">Day 7-10 · then 4-6 week IRS wait</span>
+</div>
+</div>
+
+<div class="step" data-step-id="s31">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">DOC D15 · Cap Table v2</div>
+<div class="step-title">Pheeew_CapTable_v2_20260514.html + .pdf · all 4 founders + pool</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s32">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">RECORDS · Index v2</div>
+<div class="step-title">00_Index/Records_Index.html → updated to v2</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s33">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">EMAIL 11 · Alex → All 4</div>
+<div class="step-title">Closing summary · "Welcome aboard, Justin. Let's run."</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s34">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">RECORDS · folder hygiene</div>
+<div class="step-title">All emails saved as .eml · all signed PDFs filed · supporting wire screenshots filed</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s35">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">WAIT · IRS Return Receipts</div>
+<div class="step-title">Justin's green card arrives (4-6 weeks) · save scan</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s36">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">WAIT · IRS Return Receipts</div>
+<div class="step-title">Alex's green card arrives · save scan</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s37">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">WAIT · IRS Return Receipts</div>
+<div class="step-title">Jason's green card arrives · save scan</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s38">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">FINAL · /team/ live page</div>
+<div class="step-title">Reflects 4 founders + R&R + collab principle (already pushed 5/6)</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s39">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">FINAL · /investors/ deck update</div>
+<div class="step-title">Update cap table section to v2 · founder team to 4</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s40">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">FINAL · /launch-plan/ team update</div>
+<div class="step-title">Update founder count and capital plan section</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s41">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">FINAL · /brand-base/ updates</div>
+<div class="step-title">If Justin is on any visible founder lists, add him</div>
+</div>
+</div>
+</div>
+
+<div class="step" data-step-id="s42">
+<div class="step-head">
+<div class="step-check"></div>
+<div class="step-meta">
+<div class="step-tag">CELEBRATE</div>
+<div class="step-title">Pour 4 sticks. Drink. Pheeew.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="wrap">© 2026 Pheeew, Inc. · Founder Restructure v1 · 2026·05·07 · Internal · noindex</div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  const STORAGE_KEY = 'pheeew-restructure-auth';
+  const PROGRESS_KEY = 'pheeew-restructure-progress';
+  const PASSCODE = 'pheeew-team-2026';
+  const gate = document.getElementById('appGate');
+  const app = document.getElementById('app');
+
+  function show(){
+    gate.style.display='none';
+    app.style.display='block';
+    initSteps();
+    initNav();
+    initCopy();
+    updateProgress();
+  }
+
+  function getProgress(){
+    try{return JSON.parse(localStorage.getItem(PROGRESS_KEY)||'{}')}catch{return{}}
+  }
+  function setProgress(p){
+    try{localStorage.setItem(PROGRESS_KEY,JSON.stringify(p))}catch{}
+  }
+
+  function initSteps(){
+    const progress=getProgress();
+    document.querySelectorAll('.step').forEach(step=>{
+      const id=step.dataset.stepId;
+      if(progress[id])step.classList.add('done');
+      const check=step.querySelector('.step-check');
+      check.addEventListener('click',e=>{
+        e.stopPropagation();
+        step.classList.toggle('done');
+        const p=getProgress();
+        if(step.classList.contains('done'))p[id]=true;else delete p[id];
+        setProgress(p);
+        updateProgress();
+      });
+      const head=step.querySelector('.step-head');
+      const body=step.querySelector('.step-body');
+      if(body){
+        const toggle=step.querySelector('[data-toggle]');
+        if(toggle)toggle.addEventListener('click',e=>{
+          e.stopPropagation();
+          step.classList.toggle('expanded');
+        });
+      }
+    });
+  }
+
+  function updateProgress(){
+    const progress=getProgress();
+    const total=document.querySelectorAll('.step').length;
+    const done=Object.keys(progress).filter(k=>progress[k]).length;
+    document.getElementById('doneCount').textContent=done;
+    document.getElementById('totalCount').textContent=total;
+    document.getElementById('progressFill').style.width=(done/total*100)+'%';
+    let phaseMeta='Phase 1 · Pre-offer alignment · awaiting Email 1 send';
+    if(done>=42)phaseMeta='Complete · Justin onboarded · cap table v2 locked';
+    else if(done>=33)phaseMeta='Phase 8 · Closing · IRS receipts pending';
+    else if(done>=23)phaseMeta='Phase 7 · 83(b) mailings — TIME CRITICAL';
+    else if(done>=19)phaseMeta='Phase 6 · Wire received · receipt pending';
+    else if(done>=10)phaseMeta='Phase 5 · Stockholder documents · signing in progress';
+    else if(done>=5)phaseMeta='Phase 4 · Corporate documents · Delaware filing';
+    else if(done>=4)phaseMeta='Phase 3 · Awaiting Justin response';
+    else if(done>=3)phaseMeta='Phase 2 · Justin offer sent';
+    else if(done>=1)phaseMeta='Phase 1 · Internal alignment in progress';
+    document.getElementById('progressMeta').textContent=phaseMeta;
+  }
+
+  function initNav(){
+    const buttons=document.querySelectorAll('.section-btn');
+    const sections=Array.from(document.querySelectorAll('section[id]'));
+    buttons.forEach(btn=>btn.addEventListener('click',()=>{
+      const t=document.getElementById(btn.dataset.target);
+      if(t)window.scrollTo({top:t.offsetTop-130,behavior:'smooth'});
+    }));
+    function highlight(){
+      const sc=window.scrollY+200;
+      let active=sections[0];
+      for(const s of sections)if(s.offsetTop<=sc)active=s;
+      buttons.forEach(b=>b.classList.toggle('active',b.dataset.target===active.id));
+    }
+    window.addEventListener('scroll',highlight,{passive:true});
+    highlight();
+  }
+
+  function initCopy(){
+    document.querySelectorAll('[data-copy]').forEach(el=>{
+      el.addEventListener('click',async e=>{
+        e.stopPropagation();
+        try{
+          await navigator.clipboard.writeText(el.dataset.copy);
+          el.classList.add('copied');
+          setTimeout(()=>el.classList.remove('copied'),1500);
+        }catch{}
+      });
+    });
+  }
+
+  if(sessionStorage.getItem(STORAGE_KEY)==='ok')show();
+  else{
+    gate.style.display='flex';
+    setTimeout(()=>document.getElementById('gateInput').focus(),50);
+  }
+
+  function tryGate(){
+    const v=document.getElementById('gateInput').value.trim();
+    const err=document.getElementById('gateError');
+    if(v===PASSCODE){
+      sessionStorage.setItem(STORAGE_KEY,'ok');
+      err.style.display='none';
+      show();
+    }else{
+      err.textContent='Wrong passcode';
+      err.style.display='block';
+      document.getElementById('gateInput').value='';
+      document.getElementById('gateInput').focus();
+    }
+  }
+  document.getElementById('gateSubmit').addEventListener('click',tryGate);
+  document.getElementById('gateInput').addEventListener('keydown',e=>{if(e.key==='Enter')tryGate()});
+  document.getElementById('signOut').addEventListener('click',e=>{
+    e.preventDefault();
+    sessionStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+})();
+</script>
+
+</body>
+</html>
