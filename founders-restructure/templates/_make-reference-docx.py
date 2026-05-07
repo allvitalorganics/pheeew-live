@@ -67,10 +67,10 @@ def set_paragraph(style, alignment=None, space_before=0, space_after=8,
     pf.keep_with_next = keep_with_next
     pf.keep_together = keep_lines
 
-# Normal (body)
+# Normal (body) — LEFT-ALIGNED (justified caused word-spacing gaps and broken flow)
 normal = styles['Normal']
 set_font(normal, "Times New Roman", 11)
-set_paragraph(normal, WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=8, line_spacing=1.25)
+set_paragraph(normal, WD_ALIGN_PARAGRAPH.LEFT, space_after=10, line_spacing=1.3)
 
 # Title (H1) — centered, large, bold serif
 h1 = styles['Heading 1']
@@ -102,11 +102,11 @@ set_paragraph(bq, WD_ALIGN_PARAGRAPH.LEFT, space_before=8, space_after=8,
 bq.paragraph_format.left_indent = Inches(0.4)
 bq.paragraph_format.right_indent = Inches(0.4)
 
-# List paragraph
+# List paragraph — LEFT-ALIGNED, slightly tighter spacing
 try:
     lp = styles['List Paragraph']
     set_font(lp, "Times New Roman", 11)
-    set_paragraph(lp, WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=4, line_spacing=1.25)
+    set_paragraph(lp, WD_ALIGN_PARAGRAPH.LEFT, space_after=4, line_spacing=1.25)
 except KeyError:
     pass
 
