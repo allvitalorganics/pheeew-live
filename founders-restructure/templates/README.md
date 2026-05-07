@@ -2,19 +2,41 @@
 
 This folder contains every email and document template needed for Justin Kim's onboarding as 4th co-founder of Pheeew, Inc.
 
+## File formats present
+
+Each template ships in TWO formats:
+- **`.pdf`** — print-ready, Pheeew-branded, attach directly to email
+- **`.md`** — source Markdown, edit blanks (`[DATE]`, `[SIGNATURE]`, etc.) before re-rendering
+
+The live tracker at `/founders-restructure/` links to the **`.pdf`** versions by default.
+
 ## How to use these files
 
 **Emails** (E01-E11)
-- Open in any text editor or paste the body into Gmail/your email client
-- Replace `[BRACKETS]` with the actual values
+- Open the `.pdf` to read the formatted version
+- For sending: open the `.md`, copy/paste body into Gmail or your email client, replace `[BRACKETS]`
 - Save sent emails to `_Communications/` for the paper trail
 
 **Documents** (D01-D15)
-- Open in Microsoft Word, Google Docs, or Pages — they handle Markdown cleanly
-- Or convert via Pandoc: `pandoc D01_Board-Resolution.md -o D01_Board-Resolution.docx`
-- Replace `[DATE]`, `[SIGNATURE]`, etc. with actual values
-- Sign + scan to PDF
+- Open the `.pdf` for review, sharing, or as the attached template
+- For editing the blanks before signing: open the `.md` in any text editor, fill in `[DATE]`, `[SIGNATURE]`, party-specific data, then re-render to PDF (see "Regenerating PDFs" below)
+- Sign the final PDF (DocuSign, HelloSign, or print-and-wet-sign + scan)
 - Save signed PDFs to `_Signed/` (for corporate documents) or proper folder per Records Index
+
+## Regenerating PDFs after editing
+
+After filling blanks in any `.md` file, regenerate the matching `.pdf`:
+
+```bash
+cd /tmp/pheeew-live/founders-restructure/templates
+./_build-pdfs.sh           # rebuilds ALL 27
+# or single-file:
+pandoc D04_RSPA_Justin-Kim.md --from gfm --to html5 --standalone -o _tmp.html
+weasyprint _tmp.html D04_RSPA_Justin-Kim.pdf --stylesheet _pdf-style.css
+rm _tmp.html
+```
+
+Requires `pandoc` and `weasyprint` (install: `brew install pandoc weasyprint`).
 
 ## Folder destinations after signing
 

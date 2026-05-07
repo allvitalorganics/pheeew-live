@@ -1,0 +1,175 @@
+/* PDF stylesheet for Pheeew founder-restructure templates */
+
+@page {
+  size: Letter;
+  margin: 0.85in 0.9in 0.95in 0.9in;
+  @bottom-left {
+    content: "Pheeew, Inc. · Founder Restructure 2026";
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8pt;
+    color: #888;
+  }
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8pt;
+    color: #888;
+  }
+}
+
+* { box-sizing: border-box; }
+
+/* Hide pandoc's auto-injected filename title — we want the real H1 from the .md */
+header#title-block-header { display: none; }
+
+body {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  color: #1c1a18;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 18pt;
+  font-weight: 700;
+  color: #1c1a18;
+  margin: 0 0 6pt 0;
+  border-bottom: 2px solid #1c1a18;
+  padding-bottom: 8pt;
+  letter-spacing: -0.005em;
+}
+
+h2 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 13.5pt;
+  font-weight: 700;
+  color: #2952b8;
+  margin: 18pt 0 8pt 0;
+  border-bottom: 1px solid #d8d2c8;
+  padding-bottom: 4pt;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #1c1a18;
+  margin: 14pt 0 6pt 0;
+  page-break-after: avoid;
+}
+
+p {
+  margin: 0 0 8pt 0;
+  text-align: left;
+  orphans: 2;
+  widows: 2;
+}
+
+ul, ol {
+  margin: 4pt 0 8pt 0;
+  padding-left: 22pt;
+}
+
+li {
+  margin-bottom: 3pt;
+  line-height: 1.45;
+}
+
+strong, b {
+  font-weight: 700;
+  color: #1c1a18;
+}
+
+em, i { font-style: italic; }
+
+hr {
+  border: none;
+  border-top: 1px solid #d8d2c8;
+  margin: 14pt 0;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 9pt;
+  background: #f3eee5;
+  padding: 1pt 4pt;
+  border-radius: 2pt;
+  color: #8b3e1d;
+}
+
+pre {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 9pt;
+  background: #f3eee5;
+  padding: 8pt 10pt;
+  border-radius: 4pt;
+  border-left: 3pt solid #2952b8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 8pt 0;
+  page-break-inside: avoid;
+}
+
+blockquote {
+  border-left: 3pt solid #c79858;
+  background: #faf6ed;
+  margin: 10pt 0;
+  padding: 8pt 14pt;
+  font-style: italic;
+  color: #4a4439;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10pt 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+
+table th {
+  background: #1c1a18;
+  color: #faf6ed;
+  text-align: left;
+  padding: 6pt 8pt;
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 0.02em;
+}
+
+table td {
+  padding: 5pt 8pt;
+  border-bottom: 1px solid #e8e2d4;
+  vertical-align: top;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tr:nth-child(even) td {
+  background: #faf6ed;
+}
+
+/* Strong emphasis on first column for label/value tables */
+table td:first-child strong {
+  color: #2952b8;
+}
+
+a {
+  color: #2952b8;
+  text-decoration: none;
+}
+
+/* Signature lines (rendered from \_\_\_\_\_) */
+p:has(> code) { font-size: 10pt; }
+
+/* Avoid orphan headings */
+h1, h2, h3 { page-break-after: avoid; }
+
+/* Keep heading + first paragraph together */
+h2 + p, h3 + p { page-break-before: avoid; }
