@@ -33,3 +33,8 @@ After sending the wire, please reply to this email with a screenshot of your out
 Pheeew, Inc.
 EIN 41-5111005
 hello@pheeew.com
+
+---
+
+**CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION**
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.

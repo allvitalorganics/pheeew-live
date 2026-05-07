@@ -49,3 +49,8 @@ This document is internal procedural guidance for filing the **Certificate of Am
 ## ARTICLE 4. OPTIONAL OUTSIDE REVIEW
 
 4.1 If outside paralegal or attorney review of D01, D02, and D03 is desired prior to filing (Stripe Atlas legal or Clerky typically charges $200–$300 for a one-pass procedural review), it should occur **before** filing the Certificate of Amendment with the Delaware Secretary of State, since post-filing reversal requires a separate corrective Certificate of Amendment.
+
+---
+
+**CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION**
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.

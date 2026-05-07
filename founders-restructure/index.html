@@ -39,15 +39,19 @@ body{min-height:100vh}
 .signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
 .signout:hover{color:var(--ink);border-color:var(--ink)}
 
+/* CONFIDENTIAL BANNER */
+.confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
+.confidential-banner-inner{max-width:920px;margin:0 auto;padding:0 32px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
+
 /* HERO */
-.hero{padding:48px 0 28px}
-.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:46px;letter-spacing:-.02em;line-height:1.05;color:var(--ink);margin-bottom:14px}
+.hero{padding:36px 0 24px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:42px;letter-spacing:-.02em;line-height:1.05;color:var(--ink);margin-bottom:14px}
 .hero h1 .accent{font-style:italic;color:var(--cobalt)}
-.hero .lede{font-size:16px;color:var(--soft);max-width:640px;line-height:1.5}
+.hero .lede{font-size:15px;color:var(--soft);max-width:640px;line-height:1.5}
 
 /* PROGRESS */
-.progress-strip{margin:24px 0 36px;padding:18px 22px;background:white;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;gap:18px}
-.progress-strip .num{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:32px;color:var(--cobalt);line-height:1}
+.progress-strip{margin:24px 0 28px;padding:18px 22px;background:white;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;gap:18px}
+.progress-strip .num{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:30px;color:var(--cobalt);line-height:1}
 .progress-strip .label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
 .progress-strip .bar{flex:1;height:6px;background:var(--line);border-radius:100px;overflow:hidden}
 .progress-strip .bar-fill{height:100%;background:var(--cobalt);transition:width .3s}
@@ -55,10 +59,10 @@ body{min-height:100vh}
 /* SECTION HEADERS */
 .section-heading{margin:48px 0 18px}
 .section-heading .eyebrow{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);font-weight:700;margin-bottom:6px}
-.section-heading h2{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:28px;letter-spacing:-.01em;color:var(--ink)}
+.section-heading h2{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:26px;letter-spacing:-.01em;color:var(--ink)}
 
 /* EMAIL CARDS */
-.email{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden;transition:all .15s}
+.email{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:22px;overflow:hidden;transition:all .15s}
 .email.sent{opacity:.55;background:var(--peach-soft)}
 .email.sent .email-head h3{text-decoration:line-through;text-decoration-color:rgba(74,142,90,.5)}
 
@@ -67,18 +71,19 @@ body{min-height:100vh}
 .email.sent .email-num{background:var(--green)}
 .email-meta{flex:1;min-width:0}
 .email-tag{font-family:'Special Elite',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin-bottom:4px}
-.email-head h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:20px;letter-spacing:-.005em;color:var(--ink);line-height:1.2}
-.mark-sent{flex-shrink:0;padding:8px 14px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:100px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .15s;font-family:inherit}
+.email-head h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:19px;letter-spacing:-.005em;color:var(--ink);line-height:1.2}
+.mark-sent{flex-shrink:0;padding:8px 14px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:100px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .15s;font-family:inherit;white-space:nowrap}
 .mark-sent:hover{background:var(--ink);color:var(--cream)}
 .email.sent .mark-sent{background:var(--green);color:white;border-color:var(--green)}
 
 .email-body-wrap{padding:20px 26px}
 
-.email-fields{display:grid;grid-template-columns:80px 1fr;gap:6px 14px;font-size:13.5px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.email-fields{display:grid;grid-template-columns:80px 1fr;gap:6px 14px;font-size:13.5px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px dashed var(--line)}
 .email-fields .k{font-family:'Special Elite',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:700;padding-top:4px}
 .email-fields .v{color:var(--ink);font-weight:500;padding-top:4px}
 .email-fields .v.subject{font-weight:600;cursor:pointer;background:var(--peach-soft);padding:4px 10px;border-radius:6px;display:inline-block;transition:background .15s}
 .email-fields .v.subject:hover{background:var(--peach)}
+.email-fields code{font-family:'Special Elite',monospace;font-size:11.5px;background:var(--cream);padding:1px 6px;border-radius:4px}
 
 .attach{margin:14px 0 18px}
 .attach-label{font-family:'Special Elite',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brick);font-weight:700;margin-bottom:8px}
@@ -91,10 +96,12 @@ body{min-height:100vh}
 .body-label{font-family:'Special Elite',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:10px}
 .body-label .copy-hint{background:var(--ink);color:var(--cream);padding:3px 9px;border-radius:100px;font-size:9px;letter-spacing:.16em}
 
-.email-body{background:var(--ink);color:var(--cream);border-radius:10px;padding:22px 24px;font-family:'Inter',sans-serif;font-size:13px;line-height:1.65;white-space:pre-wrap;word-wrap:break-word;cursor:pointer;position:relative;transition:background .15s}
-.email-body:hover{background:var(--cobalt)}
-.email-body::after{content:'click to copy';position:absolute;top:12px;right:14px;background:var(--peach);color:var(--ink);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;padding:4px 9px;border-radius:100px}
+.email-body{background:var(--ink);color:var(--cream);border-radius:10px;padding:24px 26px;font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;white-space:pre-wrap;word-wrap:break-word;cursor:pointer;position:relative;transition:background .15s}
+.email-body:hover{background:#2a2724}
+.email-body::after{content:'click to copy entire email';position:absolute;top:12px;right:14px;background:var(--peach);color:var(--ink);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;padding:4px 9px;border-radius:100px}
 .email-body.copied::after{content:'copied'}
+.email-body .confidential-footer{display:block;margin-top:18px;padding-top:14px;border-top:1px solid #444;color:#d4ad81;font-size:11.5px;line-height:1.55;font-family:'Special Elite',monospace}
+.email-body .confidential-footer strong{color:var(--peach);font-weight:700;letter-spacing:.06em}
 
 /* INTERNAL DOCS LIST */
 .internal-docs{background:white;border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:24px}
@@ -117,7 +124,7 @@ body{min-height:100vh}
 /* RESPONSIVE */
 @media(max-width:680px){
   .wrap{padding:0 22px}
-  .hero h1{font-size:34px}
+  .hero h1{font-size:32px}
   .email-head{flex-direction:column;gap:14px}
   .mark-sent{align-self:flex-start}
   .email-fields{grid-template-columns:64px 1fr}
@@ -150,12 +157,14 @@ body{min-height:100vh}
 </div>
 </header>
 
+<div class="confidential-banner"><div class="confidential-banner-inner">Confidential — Internal Pheeew, Inc. corporate communication. Do not distribute.</div></div>
+
 <div class="wrap">
 
 <!-- HERO -->
 <section class="hero">
 <h1>Send <span class="accent">11 emails.</span> One per row, in order.</h1>
-<p class="lede">Each card has the full email body (click to copy), the recipients, and any files to attach. After all 11 are sent, the internal corporate documents below are signed and filed.</p>
+<p class="lede">Each card has the full email body, the recipients, and any files to attach. Click the dark email body to copy the entire text. Click any attachment to download the Word file. After all 11 are sent, the small set of remaining internal corporate documents is signed and filed.</p>
 </section>
 
 <!-- PROGRESS -->
@@ -172,14 +181,12 @@ body{min-height:100vh}
 <strong>Time-critical:</strong> The three Section 83(b) elections (D09, D10, D14) must be postmarked via USPS Certified Mail with Return Receipt within <strong>30 days of grant date</strong>. No extensions. Aim to mail at least 5 business days before deadline.
 </div>
 
-<!-- ─── EMAILS ──────────────────────────────────────────────── -->
-
 <div class="section-heading">
 <div class="eyebrow">Step 1 of 2</div>
 <h2>11 emails to send.</h2>
 </div>
 
-<!-- EMAIL 1 -->
+<!-- ─── EMAIL 1 ──────────────────────────────────────────── -->
 <article class="email" data-email="1">
 <div class="email-head">
 <div class="email-num">1</div>
@@ -196,17 +203,17 @@ body{min-height:100vh}
 <div class="k">Subject</div><div class="v subject" data-copy="Pheeew, Inc. — 4-Founder Restructure — Cap Table v2">Pheeew, Inc. — 4-Founder Restructure — Cap Table v2</div>
 </div>
 <div class="attach"><div class="attach-label">Attachments</div><div class="attach-list"><span class="attach-empty">(none — body-only email)</span></div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="Jason, Dawon —
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">Jason, Dawon —
 
-Confirming our verbal alignment on the four-Founder restructure. Sending this for the record before I send the formal offer to my brother Junhyuk Kim (&quot;Justin&quot;) tomorrow.
+Confirming our verbal alignment on the four-Founder restructure. Sending this for the record before I send the formal offer to my brother Junhyuk Kim ("Justin") tomorrow.
 
-Proposal — Junhyuk Kim (&quot;Justin&quot;) joins as fourth Founder of Pheeew, Inc.
+Proposal — Junhyuk Kim ("Justin") joins as fourth Founder of Pheeew, Inc.
 
 1. Equity (whole-number splits, all >20%, hierarchy by founding-order and capital):
-   - Seungjoon Kim (&quot;Alex&quot;)  24%   refresh grant: +141,428 shares
+   - Seungjoon Kim ("Alex")  24%   refresh grant: +141,428 shares
    - Jason Ko                23%   refresh grant: +184,286 shares
-   - Junhyuk Kim (&quot;Justin&quot;) 22%   new grant: 3,017,143 shares
+   - Junhyuk Kim ("Justin") 22%   new grant: 3,017,143 shares
    - Dawon Kim               21%   no new shares; dilution only (existing 2,880,000)
    - Equity Incentive Pool   10%   top-up to 1,371,429 (reserved, unallocated)
    - Total fully diluted:   100%   13,714,286 shares
@@ -223,7 +230,7 @@ Proposal — Junhyuk Kim (&quot;Justin&quot;) joins as fourth Founder of Pheeew,
 
 (I and Jason each need to file new 83(b) elections for our refresh increments — small share counts, low tax impact: ~$320 and ~$417 of FMV recognized respectively, which equals the price paid, so $0 income inclusion.)
 
-5. Roles updated for all four (per the R&amp;R Framework):
+5. Roles updated for all four (per the R&R Framework):
    - Seungjoon Kim   CEO + Secretary   Strategy, vision, fundraising, governance; founder safety net
    - Jason Ko        COO               Operations, finance, legal, supply chain, tech stack
    - Junhyuk Kim     CGO               Partnerships, creator outreach, retail, investor sourcing, marketing
@@ -233,25 +240,17 @@ Proposal — Junhyuk Kim (&quot;Justin&quot;) joins as fourth Founder of Pheeew,
 
 If anything above does not match what we discussed, reply before EOD today. If aligned, I will send Junhyuk the formal offer tomorrow morning and copy you both.
 
-— Seungjoon (&quot;Alex&quot;)
-
-Pheeew, Inc.
-1111b South Governors Ave STE 98188, Dover, DE 19904
-EIN 41-5111005">Jason, Dawon —
-
-Confirming our verbal alignment on the four-Founder restructure. Sending this for the record before I send the formal offer to my brother Junhyuk Kim ("Justin") tomorrow.
-
-[full body in copy buffer · click to copy entire email]
-
 — Seungjoon ("Alex")
 
 Pheeew, Inc.
 1111b South Governors Ave STE 98188, Dover, DE 19904
-EIN 41-5111005</div>
+EIN 41-5111005
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- EMAIL 2 -->
+<!-- ─── EMAIL 2 ──────────────────────────────────────────── -->
 <article class="email" data-email="2">
 <div class="email-head">
 <div class="email-num">2</div>
@@ -269,36 +268,50 @@ EIN 41-5111005</div>
 <div class="k">Subject</div><div class="v subject" data-copy="Pheeew, Inc. — Founder Offer — Junhyuk Kim">Pheeew, Inc. — Founder Offer — Junhyuk Kim</div>
 </div>
 <div class="attach"><div class="attach-label">Attachments</div><div class="attach-list"><a class="attach-item" href="templates/E02_Justin-Offer.docx" download><span class="arrow">↓</span>E02_Justin-Offer.docx</a></div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="Junhyuk —
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">Junhyuk —
 
 Confirmed alignment with Jason and Dawon. Here is the structural offer for joining Pheeew, Inc. as the fourth co-Founder.
 
 1. Issuer. Pheeew, Inc., a Delaware C-Corporation. EIN 41-5111005. Principal office: 1111b South Governors Ave STE 98188, Dover, DE 19904. Incorporated March 24, 2026.
 
-2. Your equity — 22% of fully-diluted Common Stock. 3,017,143 shares × $0.00226 per share = $6,818.74 aggregate purchase price. Stock Certificate CS-004.
+2. Your equity — 22% of fully-diluted Common Stock.
+   - Number of shares: 3,017,143
+   - Class: Common Stock, par value $0.0001
+   - Purchase price per share: $0.00226 (same FMV used in current 83(b) elections)
+   - Aggregate purchase price: $6,818.74
+   - Stock Certificate: CS-004
 
-3. Your capital contribution — $30,000.00 USD. Allocated: $6,818.74 stock purchase price + $23,181.26 voluntary Additional Paid-in Capital (no additional shares for this portion). Wired to Pheeew's Mercury Bank operating account at signing. Wire instructions to follow in Email 7.
+3. Your capital contribution — $30,000.00 USD. Allocated as follows:
+   - Stock Purchase Price (3,017,143 × $0.00226):      $6,818.74
+   - Voluntary Additional Paid-in Capital (no add'l):   $23,181.26
+   - Total:                                              $30,000.00
 
-4. Your role — Chief Growth Officer (CGO). Front-of-house: partnerships and brand collaborations; influencer/creator sourcing; retail buyer outreach (long-game); investor sourcing for future capital rounds; marketing campaigns; business development pipeline; co-ordinates with Jason on operations for growth-related expense budgets.
+   Wired to Pheeew, Inc.'s Mercury Bank operating account at signing. Wire instructions to follow in Email 7.
 
-5. Vesting — 4-year, 1-year cliff. 25% (754,286 shares) vests on the one-year anniversary of grant date. Remaining 75% vests in equal monthly installments over the following 36 months. 100% vested on the four-year anniversary, subject to your continuous service to the Company. Same mechanics applied to all Founders.
+4. Your role — Chief Growth Officer (CGO). Front-of-house: partnerships and brand collaborations; influencer/creator sourcing and relationships; retail buyer outreach (long-game); investor sourcing for future capital rounds; marketing campaigns (paid and organic); business development pipeline; co-ordinates with Jason on operations for growth-related expense budgets.
 
-6. 83(b) election — file within 30 days of grant date. Required for tax purposes. I will send you the prepared 83(b) Election (D14) for your signature. Because fair market value equals purchase price ($6,818.74 = $6,818.74), the amount included in your 2026 gross income is $0.00. Mail by USPS Certified Mail with Return Receipt; copy to Pheeew within 5 business days of mailing. No extensions; missing the 30-day deadline invalidates the election.
+5. Vesting — 4-year, 1-year cliff.
+   - 25% (754,286 shares) vests on the one-year anniversary of the grant date (the "Cliff Date").
+   - The remaining 75% vests in equal monthly installments over the following 36 months.
+   - 100% vested on the four-year anniversary of the grant date, subject to your continuous service to the Company.
+   - Same mechanics applied to all Founders.
+
+6. 83(b) Election — file within 30 days of grant date. Required for tax purposes. I will send you the prepared 83(b) Election (Document D14) for your signature. Because the fair market value equals the purchase price ($6,818.74 = $6,818.74), the amount included in your 2026 gross income is $0.00. Mail by USPS Certified Mail with Return Receipt; copy to Pheeew within 5 business days of mailing. No extensions; missing the 30-day deadline invalidates the election and would expose you to ordinary-income tax on the FMV at each future vesting milestone.
 
 7. Updated capitalization (post-restructure):
-   - Seungjoon Kim (&quot;Alex&quot;)   3,291,428 shares   24.00% fully diluted
+   - Seungjoon Kim ("Alex")   3,291,428 shares   24.00% fully diluted
    - Jason Ko                 3,154,286 shares   23.00%
-   - Junhyuk Kim (&quot;Justin&quot;)   3,017,143 shares   22.00%
+   - Junhyuk Kim ("Justin")   3,017,143 shares   22.00%
    - Dawon Kim                2,880,000 shares   21.00%
    - Equity Incentive Pool    1,371,429 shares   10.00%
    - Total fully diluted     13,714,286 shares  100.00%
 
-8. Capital plan — bootstrap; no SAFE round at this time. Founders contribute a combined $50,736.12 in cash. No external SAFE or priced round. Series Seed conversation deferred to 2027 conditional on traction.
+8. Capital plan — bootstrap; no SAFE round at this time. Founders contribute a combined $50,736.12 in cash. No external SAFE or priced round at this time. Series Seed conversation deferred to 2027 conditional on traction.
 
-9. R&amp;R Framework. Role-based and open-ended; documented at the Company's internal team page (passcode-gated; access shared on acceptance). Collaboration Principle: roles define ownership, not boundaries. In the bootstrap phase, every Founder steps into another's domain when help is needed. CEO assists proactively across all domains as a baseline.
+9. R&R Framework. Role-based and open-ended; documented at the Company's internal team page. Passcode-gated; I will share access with you upon acceptance. Collaboration Principle: roles define ownership, not boundaries. In the bootstrap phase, every Founder steps into another's domain when help is needed. CEO assists proactively across all domains as a baseline.
 
-10. Documents you will sign at execution (forthcoming in Email 6):
+10. Documents you will sign at execution (forthcoming in subsequent emails):
     D04 — Restricted Stock Purchase Agreement (RSPA)
     D07 — Confidential Information and Invention Assignment Agreement (CIIAA)
     D08 — Amended and Restated Co-Founder Agreement (v3)
@@ -306,26 +319,22 @@ Confirmed alignment with Jason and Dawon. Here is the structural offer for joini
     D11 — Stock Certificate CS-004 (issued by Company; original mailed to you)
     D13 — Capital Contribution Receipt (countersigned by you upon wire receipt)
 
-11. Counsel. Pheeew has been managed corporately without outside counsel since incorporation, using Stripe Atlas templates and the precedent established in our prior restructures. All documents are derived from canonical Pheeew templates already on file. If at any step you would prefer outside counsel review at your own cost, say so and I will pause the workflow.
+11. Counsel. Pheeew has been managed corporately without outside counsel since incorporation, using Stripe Atlas templates and the precedent established in our prior restructures. All documents are derived from canonical Pheeew templates already on file. If at any step you would prefer outside counsel review the documents at your own cost, say so and I will pause the workflow until that review is complete.
 
-12. Action requested. Reply &quot;Accepted&quot; by EOD tomorrow if these terms are acceptable. If you have questions or wish to discuss any term, reply with the specific point.
+12. Action requested. Reply "Accepted" by EOD tomorrow if these terms are acceptable. If you have questions or wish to discuss any term, reply with the specific point.
 
-— Seungjoon (&quot;Alex&quot;)
+— Seungjoon ("Alex")
 
 Pheeew, Inc.
 1111b South Governors Ave STE 98188, Dover, DE 19904
 EIN 41-5111005
-hello@pheeew.com">Junhyuk —
-
-Confirmed alignment with Jason and Dawon. Here is the structural offer for joining Pheeew, Inc. as the fourth co-Founder.
-
-[full structured offer · 12 sections · click to copy entire email]
-
-— Seungjoon ("Alex")</div>
+hello@pheeew.com
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- EMAIL 3 -->
+<!-- ─── EMAIL 3 ──────────────────────────────────────────── -->
 <article class="email" data-email="3">
 <div class="email-head">
 <div class="email-num">3</div>
@@ -341,18 +350,18 @@ Confirmed alignment with Jason and Dawon. Here is the structural offer for joini
 <div class="k">To</div><div class="v">hello@pheeew.com (Seungjoon Kim)</div>
 <div class="k">Action</div><div class="v">Save the reply (.eml) to <code>02_Equity_Restructure/2026-05_Justin_Joining/_Communications/E03_Junhyuk-Acceptance.eml</code></div>
 </div>
-<div class="attach"><div class="attach-label">Expected reply format</div><div class="attach-list"><a class="attach-item" href="templates/E03_Justin-Acceptance_PLACEHOLDER.docx" download><span class="arrow">↓</span>E03_Justin-Acceptance_PLACEHOLDER.docx</a></div></div>
+<div class="attach"><div class="attach-label">Expected reply format (reference)</div><div class="attach-list"><a class="attach-item" href="templates/E03_Justin-Acceptance_PLACEHOLDER.docx" download><span class="arrow">↓</span>E03_Justin-Acceptance_PLACEHOLDER.docx</a></div></div>
 <div class="callout">If Junhyuk counters with different terms, document the counter, re-align with Jason and Dawon (return to Email 1), and re-circulate before proceeding to Email 4.</div>
 </div>
 </article>
 
-<!-- EMAIL 4 -->
+<!-- ─── EMAIL 4 (THE BIG SIGNING EMAIL) ──────────────────── -->
 <article class="email" data-email="4">
 <div class="email-head">
 <div class="email-num">4</div>
 <div class="email-meta">
-<div class="email-tag">Pipeline kickoff to all four Founders</div>
-<h3>"Pheeew, Inc. — Junhyuk Onboarding — Corporate Documents Pipeline"</h3>
+<div class="email-tag">Pipeline kickoff + first signing round · D01, D02, D06, D08 attached for signature</div>
+<h3>"Pheeew, Inc. — Junhyuk Onboarding — Corporate Documents Pipeline (First Signing Round Attached)"</h3>
 </div>
 <button class="mark-sent" data-mark>Mark sent</button>
 </div>
@@ -360,54 +369,72 @@ Confirmed alignment with Jason and Dawon. Here is the structural offer for joini
 <div class="email-fields">
 <div class="k">From</div><div class="v">hello@pheeew.com (Seungjoon Kim)</div>
 <div class="k">To</div><div class="v">Jason Ko; Dawon Kim; Junhyuk Kim ("Justin")</div>
-<div class="k">Subject</div><div class="v subject" data-copy="Pheeew, Inc. — Junhyuk Onboarding — Corporate Documents Pipeline">Pheeew, Inc. — Junhyuk Onboarding — Corporate Documents Pipeline</div>
+<div class="k">Subject</div><div class="v subject" data-copy="Pheeew, Inc. — Junhyuk Onboarding — Corporate Documents Pipeline (First Signing Round Attached)">Pheeew, Inc. — Junhyuk Onboarding — Corporate Documents Pipeline (First Signing Round Attached)</div>
 </div>
-<div class="attach"><div class="attach-label">Attachments</div><div class="attach-list"><a class="attach-item" href="templates/E04_Pipeline-Kickoff.docx" download><span class="arrow">↓</span>E04_Pipeline-Kickoff.docx</a></div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="All —
+<div class="attach"><div class="attach-label">Attach all four files (signing round)</div><div class="attach-list">
+<a class="attach-item" href="templates/D01_Board-Resolution.docx" download><span class="arrow">↓</span>D01_Board-Resolution.docx</a>
+<a class="attach-item" href="templates/D02_Stockholder-Written-Consent.docx" download><span class="arrow">↓</span>D02_Stockholder-Written-Consent.docx</a>
+<a class="attach-item" href="templates/D06_RSPA-Refresh_Jason-Ko.docx" download><span class="arrow">↓</span>D06_RSPA-Refresh_Jason-Ko.docx</a>
+<a class="attach-item" href="templates/D08_Co-Founder-Agreement-v3.docx" download><span class="arrow">↓</span>D08_Co-Founder-Agreement-v3.docx</a>
+</div></div>
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">All —
 
-Junhyuk has accepted. Below is the corporate document pipeline for the four-Founder restructure. Each document will be sent for signature in the order listed. Please respond promptly to keep the 30-day Section 83(b) clocks tight.
+Junhyuk has accepted. Below is the full corporate-document pipeline for the four-Founder restructure. Four documents are attached for the first signing round — please review and execute as set forth in the Action Required section.
 
-Documents in execution order (Day 1 through Day 7):
+ATTACHED FOR SIGNATURE (THIS EMAIL):
 
 D01 — Written Consent of the Sole Director (authorizes COI amendment, refresh grants, Junhyuk's grant, equity pool top-up, officer appointments). Signer: Seungjoon, as Sole Director.
 
-D02 — Written Consent of Stockholders (approves COI amendment + share issuances; ratifies self-transaction under DGCL § 144). Signers: Seungjoon, Jason, Dawon.
-
-D03 — Certificate of Amendment to Certificate of Incorporation (10,000,000 → 14,000,000 shares of Common Stock authorized). Filed via Delaware Division of Corporations. Signer: Seungjoon, as authorized officer.
-
-D04 — Restricted Stock Purchase Agreement, Junhyuk Kim (3,017,143 shares × $0.00226 = $6,818.74; voluntary APIC $23,181.26; total cash $30,000.00). Signers: Junhyuk; Seungjoon as CEO.
-
-D05 — Restricted Stock Purchase Agreement (Refresh Grant), Seungjoon Kim (141,428 shares × $0.00226 = $319.63). Signers: Seungjoon (both as Purchaser and as CEO; ratified by D02).
+D02 — Written Consent of Stockholders (approves COI amendment + share issuances; ratifies self-transaction under DGCL § 144). Signers: Seungjoon, Jason, Dawon (all three pre-restructure stockholders).
 
 D06 — Restricted Stock Purchase Agreement (Refresh Grant), Jason Ko (184,286 shares × $0.00226 = $416.49). Signers: Jason; Seungjoon as CEO.
 
-D07 — Confidential Information and Invention Assignment Agreement, Junhyuk Kim. Signers: Junhyuk; Seungjoon as CEO.
-
 D08 — Amended and Restated Co-Founder Agreement (v3) — admits Junhyuk; updates Dawon to CBO; reflects Cap Table v2. Signers: all four Founders.
 
-D09, D10, D14 — Section 83(b) Elections (Seungjoon refresh, Jason refresh, Junhyuk new). Mailed to IRS by USPS Certified Mail with Return Receipt within 30 days of grant date. Signed by each respective taxpayer.
+ACTION REQUIRED:
 
-D11, D12a, D12b — Stock Certificates (CS-004 to Junhyuk; CS-001-R-A to Seungjoon; CS-003-A to Jason). Signed by Seungjoon as CEO and Secretary.
+— Jason: Sign D02 (as stockholder), D06 (as Purchaser of refresh shares), and D08 (as Founder).
+— Dawon: Sign D02 (as stockholder) and D08 (as Founder).
+— Junhyuk: Sign D08 (as Founder). Your individual onboarding documents (RSPA, 83(b), CIIAA) will follow in a subsequent email after the Certificate of Amendment is filed with Delaware.
+— Seungjoon: Will pre-sign D01 (as Sole Director), D02 (as stockholder), and D08 (as company side and as Founder) before circulating.
 
-D13 — Capital Contribution Receipt for Junhyuk's $30,000 wire (allocates $6,818.74 to Purchase Price + $23,181.26 to APIC). Signed by Seungjoon for the Company; countersigned by Junhyuk.
+Sign electronically (Preview on Mac, Adobe Fill & Sign on iOS, DocuSign, or HelloSign) or print, sign, and scan back as PDF. Return executed copies to me at hello@pheeew.com.
 
-D15 — Capitalization Table v2 (final record of all share holdings).
+DOCUMENTS TO FOLLOW IN SUBSEQUENT EMAILS (informational):
 
-I will send each document as a separate email with the file attached. Sign electronically (Preview on Mac, Adobe Fill &amp; Sign, DocuSign, or HelloSign) or print, sign, and scan back as PDF.
+D03 — Certificate of Amendment to Certificate of Incorporation (10,000,000 → 14,000,000 shares of Common Stock authorized). Filed with Delaware Secretary of State by Seungjoon, after D01 and D02 are executed.
 
-— Seungjoon (&quot;Alex&quot;)
+D04 — Restricted Stock Purchase Agreement, Junhyuk (3,017,143 × $0.00226 = $6,818.74; voluntary APIC $23,181.26; total cash $30,000.00). Sent to Junhyuk after Delaware filing.
+
+D05 — Restricted Stock Purchase Agreement (Refresh Grant), Seungjoon (141,428 × $0.00226 = $319.63). Self-signed by Seungjoon, ratified by D02.
+
+D07 — CIIAA, Junhyuk. With D04 and D14, sent to Junhyuk.
+
+D09 / D10 / D14 — Section 83(b) Elections (Seungjoon refresh / Jason refresh / Junhyuk new). Mailed to IRS by USPS Certified Mail with Return Receipt within thirty (30) days of grant date. Each signed by the respective taxpayer.
+
+D11 / D12a / D12b — Stock Certificates (CS-004 to Junhyuk; CS-001-R-A to Seungjoon; CS-003-A to Jason). Issued by Seungjoon as CEO, after RSPAs are executed.
+
+D13 — Capital Contribution Receipt (Junhyuk's $30,000 wire). After Mercury credit.
+
+D15 — Capitalization Table v2 (final record). At closing.
+
+TIMING:
+
+The 30-day Section 83(b) clocks start running from each Purchaser's RSPA Effective Date. Please return signed D02, D06, and D08 within seventy-two (72) hours so the Delaware filing and individual onboarding can proceed without compressing the 83(b) windows.
+
+— Seungjoon ("Alex")
 
 Pheeew, Inc.
-EIN 41-5111005">All —
-
-Junhyuk has accepted. Below is the corporate document pipeline for the four-Founder restructure. [13 documents listed in execution order · click to copy entire email]
-
-— Seungjoon ("Alex")</div>
+1111b South Governors Ave STE 98188, Dover, DE 19904
+EIN 41-5111005
+hello@pheeew.com
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- EMAIL 5 (DELAWARE FILING — internal procedure, not outgoing email) -->
+<!-- ─── EMAIL 5 (DELAWARE FILING) ────────────────────────── -->
 <article class="email" data-email="5">
 <div class="email-head">
 <div class="email-num">5</div>
@@ -423,12 +450,15 @@ Junhyuk has accepted. Below is the corporate document pipeline for the four-Foun
 <div class="k">Fee</div><div class="v">~$194 base + $80 expedited 24hr (verify current fees)</div>
 <div class="k">Output</div><div class="v">Stamped Filed Copy → save to <code>02_Equity_Restructure/2026-05_Justin_Joining/_DE_Filing/</code></div>
 </div>
-<div class="attach"><div class="attach-label">Files</div><div class="attach-list"><a class="attach-item" href="templates/D03_Certificate-of-Amendment.docx" download><span class="arrow">↓</span>D03_Certificate-of-Amendment.docx</a><a class="attach-item" href="templates/E05_DE-Filing-Notes.docx" download><span class="arrow">↓</span>E05_DE-Filing-Notes.docx (procedure)</a></div></div>
-<div class="callout"><strong>Sequence dependency:</strong> Do NOT execute D04, D05, D06 (RSPAs) or issue stock certificates until the Stamped Filed Copy is received. The new shares cannot lawfully be issued until 14,000,000 shares are authorized.</div>
+<div class="attach"><div class="attach-label">Files</div><div class="attach-list">
+<a class="attach-item" href="templates/D03_Certificate-of-Amendment.docx" download><span class="arrow">↓</span>D03_Certificate-of-Amendment.docx</a>
+<a class="attach-item" href="templates/E05_DE-Filing-Notes.docx" download><span class="arrow">↓</span>E05_DE-Filing-Notes.docx (procedure)</a>
+</div></div>
+<div class="callout"><strong>Sequence dependency:</strong> Do NOT execute D04, D05, or D06 (RSPAs) or issue stock certificates until the Stamped Filed Copy is received. The new shares cannot lawfully be issued until 14,000,000 shares are authorized.</div>
 </div>
 </article>
 
-<!-- EMAIL 6 -->
+<!-- ─── EMAIL 6 ──────────────────────────────────────────── -->
 <article class="email" data-email="6">
 <div class="email-head">
 <div class="email-num">6</div>
@@ -449,8 +479,8 @@ Junhyuk has accepted. Below is the corporate document pipeline for the four-Foun
 <a class="attach-item" href="templates/D14_83b_Justin-Kim.docx" download><span class="arrow">↓</span>D14_83b_Justin-Kim.docx</a>
 <a class="attach-item" href="templates/D07_CIIAA_Justin-Kim_INSTRUCTIONS.docx" download><span class="arrow">↓</span>D07_CIIAA_Justin-Kim_INSTRUCTIONS.docx</a>
 </div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="Junhyuk —
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">Junhyuk —
 
 Three documents are attached for your signature:
 
@@ -458,32 +488,24 @@ D04 — Restricted Stock Purchase Agreement (3,017,143 shares × $0.00226 = $6,8
 
 D14 — Section 83(b) Election (IRS). Sign and date. You mail to the IRS by USPS Certified Mail with Return Receipt within thirty (30) days of the RSPA Effective Date. Email 10 will provide step-by-step mailing instructions.
 
-D07 — Confidential Information and Invention Assignment Agreement (CIIAA). Sign on the signature page; review and complete Schedule A (Prior Inventions / Excluded IP) — mark &quot;None&quot; if you have no prior inventions or pre-existing IP to exclude.
+D07 — Confidential Information and Invention Assignment Agreement (CIIAA). Sign on the signature page; review and complete Schedule A (Prior Inventions / Excluded IP) — mark "None" if you have no prior inventions or pre-existing IP to exclude.
 
 Please sign and return all three today (or by EOD tomorrow). I will countersign on the Company's behalf where applicable and return fully-executed copies to you within 24 hours, together with Stock Certificate No. CS-004 representing your 3,017,143 shares.
 
 Mercury Bank wire instructions for your $30,000.00 capital contribution will follow in the next email.
 
-— Seungjoon (&quot;Alex&quot;)
+— Seungjoon ("Alex")
 
 Pheeew, Inc.
 1111b South Governors Ave STE 98188, Dover, DE 19904
 EIN 41-5111005
-hello@pheeew.com">Junhyuk —
-
-Three documents are attached for your signature:
-
-D04 — Restricted Stock Purchase Agreement
-D14 — Section 83(b) Election
-D07 — Confidential Information and Invention Assignment Agreement
-
-[full body · click to copy]
-
-— Seungjoon ("Alex")</div>
+hello@pheeew.com
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- EMAIL 7 -->
+<!-- ─── EMAIL 7 ──────────────────────────────────────────── -->
 <article class="email" data-email="7">
 <div class="email-head">
 <div class="email-num">7</div>
@@ -500,8 +522,8 @@ D07 — Confidential Information and Invention Assignment Agreement
 <div class="k">Subject</div><div class="v subject" data-copy="Pheeew, Inc. — Capital Contribution Wire Instructions ($30,000.00)">Pheeew, Inc. — Capital Contribution Wire Instructions ($30,000.00)</div>
 </div>
 <div class="attach"><div class="attach-label">Attachments</div><div class="attach-list"><a class="attach-item" href="templates/E07_Wire-Instructions.docx" download><span class="arrow">↓</span>E07_Wire-Instructions.docx</a></div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="Junhyuk —
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">Junhyuk —
 
 Wire instructions for your $30,000.00 capital contribution to Pheeew, Inc. are below. Please send the wire after executing the RSPA (D04).
 
@@ -519,19 +541,17 @@ After sending the wire, please reply with a screenshot of your outgoing wire con
    Voluntary Additional Paid-in Capital:          $23,181.26
    Total:                                         $30,000.00
 
-— Seungjoon (&quot;Alex&quot;)
+— Seungjoon ("Alex")
 
 Pheeew, Inc.
 EIN 41-5111005
-hello@pheeew.com">Junhyuk —
-
-Wire instructions for your $30,000.00 capital contribution to Pheeew, Inc. are below. [full body with Mercury wire details and allocation breakdown · click to copy]
-
-— Seungjoon ("Alex")</div>
+hello@pheeew.com
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- EMAIL 8 -->
+<!-- ─── EMAIL 8 ──────────────────────────────────────────── -->
 <article class="email" data-email="8">
 <div class="email-head">
 <div class="email-num">8</div>
@@ -545,14 +565,14 @@ Wire instructions for your $30,000.00 capital contribution to Pheeew, Inc. are b
 <div class="email-fields">
 <div class="k">From</div><div class="v">Junhyuk Kim ("Justin")</div>
 <div class="k">To</div><div class="v">hello@pheeew.com (Seungjoon Kim)</div>
-<div class="k">Action</div><div class="v">Save the reply + wire confirmation screenshot to <code>_Communications/E08_Junhyuk-Wire-Confirmation.eml</code> · verify Mercury credit before proceeding</div>
+<div class="k">Action</div><div class="v">Save reply + wire confirmation screenshot to <code>_Communications/E08_Junhyuk-Wire-Confirmation.eml</code> · verify Mercury credit before proceeding</div>
 </div>
-<div class="attach"><div class="attach-label">Expected reply format</div><div class="attach-list"><a class="attach-item" href="templates/E08_Justin-Wire-Confirmation_PLACEHOLDER.docx" download><span class="arrow">↓</span>E08_Justin-Wire-Confirmation_PLACEHOLDER.docx</a></div></div>
+<div class="attach"><div class="attach-label">Expected reply format (reference)</div><div class="attach-list"><a class="attach-item" href="templates/E08_Justin-Wire-Confirmation_PLACEHOLDER.docx" download><span class="arrow">↓</span>E08_Justin-Wire-Confirmation_PLACEHOLDER.docx</a></div></div>
 <div class="callout">Domestic wires typically settle same business day. International wires may take 1–3 business days. Verify Mercury shows the incoming credit before sending Email 9.</div>
 </div>
 </article>
 
-<!-- EMAIL 9 -->
+<!-- ─── EMAIL 9 ──────────────────────────────────────────── -->
 <article class="email" data-email="9">
 <div class="email-head">
 <div class="email-num">9</div>
@@ -569,8 +589,8 @@ Wire instructions for your $30,000.00 capital contribution to Pheeew, Inc. are b
 <div class="k">Subject</div><div class="v subject" data-copy="Pheeew, Inc. — Capital Contribution of $30,000.00 Received — Countersignature Required">Pheeew, Inc. — Capital Contribution of $30,000.00 Received — Countersignature Required</div>
 </div>
 <div class="attach"><div class="attach-label">Attach (signed by Seungjoon as CEO)</div><div class="attach-list"><a class="attach-item" href="templates/D13_Capital-Contribution-Receipt_Justin.docx" download><span class="arrow">↓</span>D13_Capital-Contribution-Receipt_Justin.docx</a></div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="Junhyuk, Jason —
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">Junhyuk, Jason —
 
 Pheeew, Inc. confirms receipt of Junhyuk Kim's capital contribution.
 
@@ -582,9 +602,9 @@ Pheeew, Inc. confirms receipt of Junhyuk Kim's capital contribution.
 
 The Receipt for Capital Contribution (D13) is attached for execution:
 
-— The Company side has been signed by Seungjoon Kim, as President, Chief Executive Officer &amp; Sole Director.
+— The Company side has been signed by Seungjoon Kim, as President, Chief Executive Officer & Sole Director.
 — Jason: please review the form and confirm by reply that the figures and allocation match what is recorded in the Mercury ledger and the Company's books. (No additional countersignature is required from you under the form; this confirmation is solely for back-office reconciliation purposes as COO.)
-— Junhyuk: please countersign on the &quot;Contributor (Acknowledgment)&quot; line and return the executed PDF.
+— Junhyuk: please countersign on the "Contributor (Acknowledgment)" line and return the executed PDF.
 
 After both signatures and Jason's reconciliation confirmation, the executed Receipt will be filed to:
 
@@ -592,21 +612,17 @@ After both signatures and Jason's reconciliation confirmation, the executed Rece
 
 together with the supporting wire screenshots (outgoing from Junhyuk's sending bank, incoming to Pheeew's Mercury account).
 
-— Seungjoon (&quot;Alex&quot;)
+— Seungjoon ("Alex")
 
 Pheeew, Inc.
 EIN 41-5111005
-hello@pheeew.com">Junhyuk, Jason —
-
-Pheeew, Inc. confirms receipt of Junhyuk Kim's capital contribution.
-
-[receipt allocation table + countersign instructions for Jason and Junhyuk · click to copy entire email]
-
-— Seungjoon ("Alex")</div>
+hello@pheeew.com
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- EMAIL 10 -->
+<!-- ─── EMAIL 10 ─────────────────────────────────────────── -->
 <article class="email" data-email="10">
 <div class="email-head">
 <div class="email-num">10</div>
@@ -627,8 +643,8 @@ Pheeew, Inc. confirms receipt of Junhyuk Kim's capital contribution.
 <a class="attach-item" href="templates/D09_83b_Alex-Kim_Refresh.docx" download><span class="arrow">↓</span>D09_83b_Alex-Kim_Refresh.docx</a>
 <a class="attach-item" href="templates/D10_83b_Jason-Ko_Refresh.docx" download><span class="arrow">↓</span>D10_83b_Jason-Ko_Refresh.docx</a>
 </div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="All —
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">All —
 
 Three signed Section 83(b) Elections are now ready to mail. Each must be postmarked via USPS Certified Mail with Return Receipt within thirty (30) days of the applicable grant date. Late filing is irreversible: the election becomes invalid and the recipient is taxed on the fair market value at each future vesting milestone.
 
@@ -662,19 +678,17 @@ Email scanned copies of the receipts to me for the corporate file.
 
 This is the most time-critical legal step in the onboarding. Aim to mail at least five (5) business days before the deadline as a buffer against postal delays. Furnish a copy of each executed election to Pheeew, Inc. within five (5) business days of mailing, in accordance with Section 6 of the applicable RSPA.
 
-— Seungjoon (&quot;Alex&quot;)
+— Seungjoon ("Alex")
 
 Pheeew, Inc.
 EIN 41-5111005
-hello@pheeew.com">All —
-
-Three signed Section 83(b) Elections are now ready to mail. [full mailing instructions, IRS Service Center address, what to include in each envelope, USPS Certified Mail procedure · click to copy entire email]
-
-— Seungjoon ("Alex")</div>
+hello@pheeew.com
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- EMAIL 11 -->
+<!-- ─── EMAIL 11 ─────────────────────────────────────────── -->
 <article class="email" data-email="11">
 <div class="email-head">
 <div class="email-num">11</div>
@@ -694,8 +708,8 @@ Three signed Section 83(b) Elections are now ready to mail. [full mailing instru
 <a class="attach-item" href="templates/D15_CapTable-v2.docx" download><span class="arrow">↓</span>D15_CapTable-v2.docx</a>
 <a class="attach-item" href="templates/D08_Co-Founder-Agreement-v3.docx" download><span class="arrow">↓</span>D08_Co-Founder-Agreement-v3.docx</a>
 </div></div>
-<div class="body-label">Email body <span class="copy-hint">click to copy</span></div>
-<div class="email-body" data-copy="All —
+<div class="body-label">Email body <span class="copy-hint">click to copy entire email</span></div>
+<div class="email-body">All —
 
 The four-Founder restructure of Pheeew, Inc. is complete. The updated Capitalization Table (v2) is attached.
 
@@ -716,81 +730,41 @@ Pending:
 
 Welcome to the Company, Junhyuk.
 
-— Seungjoon (&quot;Alex&quot;)
+— Seungjoon ("Alex")
 
 Pheeew, Inc.
 EIN 41-5111005
-hello@pheeew.com">All —
-
-The four-Founder restructure of Pheeew, Inc. is complete. The updated Capitalization Table (v2) is attached.
-
-[full closing summary · completed steps · pending receipts · welcome aboard · click to copy entire email]
-
-— Seungjoon ("Alex")</div>
+hello@pheeew.com
+<span class="confidential-footer"><strong>CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION</strong>
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.</span></div>
 </div>
 </article>
 
-<!-- ─── INTERNAL DOCS ─────────────────────────────────────────── -->
+<!-- ─── INTERNAL DOCS (only the ones not delivered via email) ─── -->
 
 <div class="section-heading">
 <div class="eyebrow">Step 2 of 2</div>
 <h2>Internal documents — sign and file (no email).</h2>
 </div>
 
-<div class="callout">These documents are signed and filed internally as part of the corporate restructure. They are not attached to any outgoing email — Junhyuk receives the final signed copies as part of the closing summary (Email 11).</div>
+<div class="callout">These four documents are signed and filed by Seungjoon internally. They are not attached to any outgoing email — Seungjoon executes each in his role as CEO/Sole Director and files the signed copies in the corporate records. The originals of the stock certificates are physically mailed to Junhyuk and Jason after signing.</div>
 
 <div class="internal-docs">
-
-<div class="internal-doc">
-<div class="internal-doc-id">D01</div>
-<div class="internal-doc-text">
-<div class="internal-doc-title">Written Consent of the Sole Director</div>
-<div class="internal-doc-action">Signer: Seungjoon Kim, as Sole Director · file to <code>_Signed/</code></div>
-</div>
-<a class="attach-item" href="templates/D01_Board-Resolution.docx" download><span class="arrow">↓</span>Word</a>
-</div>
-
-<div class="internal-doc">
-<div class="internal-doc-id">D02</div>
-<div class="internal-doc-text">
-<div class="internal-doc-title">Written Consent of Stockholders</div>
-<div class="internal-doc-action">Signers: Seungjoon Kim, Jason Ko, Dawon Kim (all three pre-restructure stockholders) · file to <code>_Signed/</code></div>
-</div>
-<a class="attach-item" href="templates/D02_Stockholder-Written-Consent.docx" download><span class="arrow">↓</span>Word</a>
-</div>
 
 <div class="internal-doc">
 <div class="internal-doc-id">D05</div>
 <div class="internal-doc-text">
 <div class="internal-doc-title">Restricted Stock Purchase Agreement (Refresh) — Seungjoon Kim</div>
-<div class="internal-doc-action">Signers: Seungjoon Kim (both as Purchaser and as CEO; ratified by D02 §144) · file to <code>03_RSPAs/_Justin/</code></div>
+<div class="internal-doc-action">Self-signed by Seungjoon (both as Purchaser and as CEO). Ratified by D02 §144 stockholder consent. File to <code>03_RSPAs/_Justin/</code></div>
 </div>
 <a class="attach-item" href="templates/D05_RSPA-Refresh_Alex-Kim.docx" download><span class="arrow">↓</span>Word</a>
-</div>
-
-<div class="internal-doc">
-<div class="internal-doc-id">D06</div>
-<div class="internal-doc-text">
-<div class="internal-doc-title">Restricted Stock Purchase Agreement (Refresh) — Jason Ko</div>
-<div class="internal-doc-action">Signers: Jason Ko; Seungjoon Kim as CEO · file to <code>03_RSPAs/_Justin/</code></div>
-</div>
-<a class="attach-item" href="templates/D06_RSPA-Refresh_Jason-Ko.docx" download><span class="arrow">↓</span>Word</a>
-</div>
-
-<div class="internal-doc">
-<div class="internal-doc-id">D08</div>
-<div class="internal-doc-text">
-<div class="internal-doc-title">Amended and Restated Co-Founder Agreement (v3)</div>
-<div class="internal-doc-action">Signers: all four Founders · file to <code>_Signed/</code> · attached to Email 11</div>
-</div>
-<a class="attach-item" href="templates/D08_Co-Founder-Agreement-v3.docx" download><span class="arrow">↓</span>Word</a>
 </div>
 
 <div class="internal-doc">
 <div class="internal-doc-id">D11</div>
 <div class="internal-doc-text">
 <div class="internal-doc-title">Stock Certificate CS-004 — Junhyuk Kim (3,017,143 shares)</div>
-<div class="internal-doc-action">Signer: Seungjoon Kim, as President &amp; CEO and as Secretary (Sole Director) · original mailed to Junhyuk · copy filed to <code>04_Stock_Certificates/</code></div>
+<div class="internal-doc-action">Seungjoon signs as President & CEO and as Secretary (Sole Director). Original mailed to Junhyuk via USPS Certified. Copy filed to <code>04_Stock_Certificates/</code></div>
 </div>
 <a class="attach-item" href="templates/D11_StockCert_CS-004_Justin-Kim.docx" download><span class="arrow">↓</span>Word</a>
 </div>
@@ -799,7 +773,7 @@ The four-Founder restructure of Pheeew, Inc. is complete. The updated Capitaliza
 <div class="internal-doc-id">D12a</div>
 <div class="internal-doc-text">
 <div class="internal-doc-title">Stock Certificate CS-001-R-A — Seungjoon Kim refresh (141,428 shares)</div>
-<div class="internal-doc-action">Signer: Seungjoon Kim · file to <code>04_Stock_Certificates/</code></div>
+<div class="internal-doc-action">Seungjoon signs both sides (as CEO and as holder). File to <code>04_Stock_Certificates/</code></div>
 </div>
 <a class="attach-item" href="templates/D12a_StockCert_CS-001-R-A_Alex-Refresh.docx" download><span class="arrow">↓</span>Word</a>
 </div>
@@ -808,25 +782,18 @@ The four-Founder restructure of Pheeew, Inc. is complete. The updated Capitaliza
 <div class="internal-doc-id">D12b</div>
 <div class="internal-doc-text">
 <div class="internal-doc-title">Stock Certificate CS-003-A — Jason Ko refresh (184,286 shares)</div>
-<div class="internal-doc-action">Signer: Seungjoon Kim · original mailed to Jason · copy filed to <code>04_Stock_Certificates/</code></div>
+<div class="internal-doc-action">Seungjoon signs as CEO. Original mailed to Jason. Copy filed to <code>04_Stock_Certificates/</code></div>
 </div>
 <a class="attach-item" href="templates/D12b_StockCert_CS-003-A_Jason-Refresh.docx" download><span class="arrow">↓</span>Word</a>
-</div>
-
-<div class="internal-doc">
-<div class="internal-doc-id">D15</div>
-<div class="internal-doc-text">
-<div class="internal-doc-title">Capitalization Table v2</div>
-<div class="internal-doc-action">No signatures · internal record · attached to Email 11 · supersedes v1 · file to <code>07_Cap_Table/</code></div>
-</div>
-<a class="attach-item" href="templates/D15_CapTable-v2.docx" download><span class="arrow">↓</span>Word</a>
 </div>
 
 </div>
 
 <footer class="site-footer">
 Pheeew, Inc. · Delaware C-Corporation · EIN 41-5111005<br>
-1111b South Governors Ave STE 98188, Dover, DE 19904
+1111b South Governors Ave STE 98188, Dover, DE 19904<br>
+<br>
+<span style="color:var(--brick)">Confidential — internal corporate records · do not distribute</span>
 </footer>
 
 </div><!-- /wrap -->
@@ -861,18 +828,19 @@ Pheeew, Inc. · Delaware C-Corporation · EIN 41-5111005<br>
       const id = card.dataset.email;
       if (progress[id]) card.classList.add('sent');
       const btn = card.querySelector('[data-mark]');
-      if (btn) btn.addEventListener('click', e => {
-        e.stopPropagation();
-        card.classList.toggle('sent');
-        const p = getProgress();
-        if (card.classList.contains('sent')) p[id] = true;
-        else delete p[id];
-        setProgress(p);
-        updateProgress();
-        btn.textContent = card.classList.contains('sent') ? 'Sent ✓' : 'Mark sent';
-      });
-      // initial button text
-      if (card.classList.contains('sent') && btn) btn.textContent = 'Sent ✓';
+      if (btn) {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          card.classList.toggle('sent');
+          const p = getProgress();
+          if (card.classList.contains('sent')) p[id] = true;
+          else delete p[id];
+          setProgress(p);
+          updateProgress();
+          btn.textContent = card.classList.contains('sent') ? 'Sent ✓' : 'Mark sent';
+        });
+        if (card.classList.contains('sent')) btn.textContent = 'Sent ✓';
+      }
     });
   }
 
@@ -885,11 +853,24 @@ Pheeew, Inc. · Delaware C-Corporation · EIN 41-5111005<br>
   }
 
   function initCopy(){
-    document.querySelectorAll('[data-copy]').forEach(el => {
+    // Subject lines: copy from data-copy attribute
+    document.querySelectorAll('.subject[data-copy]').forEach(el => {
       el.addEventListener('click', async e => {
         e.stopPropagation();
         try {
           await navigator.clipboard.writeText(el.dataset.copy);
+          el.classList.add('copied');
+          setTimeout(() => el.classList.remove('copied'), 1500);
+        } catch {}
+      });
+    });
+    // Email bodies: copy textContent (preserves the full body including confidentiality footer)
+    document.querySelectorAll('.email-body').forEach(el => {
+      el.addEventListener('click', async e => {
+        e.stopPropagation();
+        try {
+          // textContent gives us the rendered text without HTML tags but with spaces preserved
+          await navigator.clipboard.writeText(el.textContent.trim());
           el.classList.add('copied');
           setTimeout(() => el.classList.remove('copied'), 1500);
         } catch {}

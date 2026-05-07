@@ -54,3 +54,8 @@ If anything above does not match what we discussed, reply before EOD today. If a
 Pheeew, Inc.
 1111b South Governors Ave STE 98188, Dover, DE 19904
 EIN 41-5111005
+
+---
+
+**CONFIDENTIAL — INTERNAL CORPORATE COMMUNICATION**
+This email and all attachments contain proprietary, non-public information of Pheeew, Inc. — including the Company's capitalization, governance arrangements, and personnel matters. The contents are intended solely for the named recipient(s). Any review, copying, disclosure, or distribution by any other person is strictly prohibited. If you have received this in error, please notify the sender immediately and delete all copies from your system.
