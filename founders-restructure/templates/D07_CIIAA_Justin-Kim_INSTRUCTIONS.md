@@ -1,41 +1,64 @@
-# D07 · CIIAA · Justin Kim — Instructions
+# D07 · CIIAA · JUNHYUK KIM — PREPARATION INSTRUCTIONS
 
-The Confidential Information & Invention Assignment Agreement (CIIAA) does NOT need a new template — Pheeew already has the standard form on file from Jason and Dawon's onboarding.
+## PHEEEW, INC.
 
-## Source template
+*A Delaware Corporation*
 
-Use one of the existing CIIAAs as the source:
-- `05_CIIAAs/Pheeew_CIIAA_Jason-Ko.pdf` (recommended — most recent format)
-- `05_CIIAAs/Pheeew_CIIAA_Dawon-Kim.pdf` (also valid)
+---
 
-These were generated from the standard Stripe Atlas CIIAA boilerplate. The template is identical for all founders — only name, address, date, and prior inventions list differ.
+This document is an internal instruction sheet for the Company's officer (Seungjoon Kim, CEO) to prepare a Confidential Information and Invention Assignment Agreement ("**CIIAA**") for Junhyuk Kim. **It is not itself a legal instrument and must not be distributed to Junhyuk.**
 
-## Steps to prepare Justin's CIIAA
+---
 
-1. Open `05_CIIAAs/Pheeew_CIIAA_Jason-Ko.pdf` in Preview (Mac) or any PDF editor
-2. Save as: `Pheeew_CIIAA_Justin-Kim.pdf`
-3. Edit fields:
-   - **Employee Name:** Jason Ko → **Justin Kim**
-   - **Address:** Jason's address → Justin's address
-   - **Effective Date:** Jason's date → today's date
-   - **Position:** COO → **CGO (Chief Growth Officer)**
-   - **Prior Inventions / Excluded IP:** Jason's list → Justin's list (Justin lists any pre-existing inventions or IP he wants to keep separate from Pheeew's IP — typically blank for first-time founders)
+## ARTICLE 1. SOURCE TEMPLATE
 
-4. Send to Justin for signature (attach to E06)
-5. Justin signs on the last page
-6. Alex countersigns on Pheeew's behalf
+1.1 **Recommended Template — Atlas Long-Form (Alex's CIIAA).** Pheeew, Inc. holds two CIIAA templates on file:
 
-## Save signed copy
+- **Atlas long-form (18 pages)** — `05_CIIAAs/CIIAA_Seungjoon-Kim_Atlas.pdf`. Includes state-by-state Exhibit A jurisdictional addendums, including a California Labor Code § 2870 carve-out for prior inventions developed without Company resources. **This is the legally safer template for any California-based founder or employee.**
+- **Internal short-form (4 pages)** — `05_CIIAAs/Pheeew_CIIAA_Jason-Ko.pdf` and `Pheeew_CIIAA_Dawon-Kim.pdf`. ARTICLE 1. / 1.1 convention. Adequate for non-California or remote founders, but lacks the § 2870 carve-out.
 
-Final filename: `Pheeew_CIIAA_Justin-Kim_signed.pdf`
-Save to: `05_CIIAAs/`
+1.2 **Recommendation.** If Junhyuk's primary place of work will be California, use the **Atlas long-form** template. If he is based elsewhere (e.g., New York, Korea, Texas), the short-form template is sufficient.
 
-## What this document does
+---
 
-The CIIAA assigns to Pheeew, Inc. all IP that Justin creates during his service to the Company. This is critical for raise-readiness — investors require that all founders have signed CIIAAs so the company owns its IP unambiguously.
+## ARTICLE 2. FIELDS TO MODIFY
 
-Without this, Justin could claim ownership of work product later and a future investor would balk during diligence.
+2.1 **Editable fields in either template:**
 
-## When to send
+| Field | Value |
+|---|---|
+| Employee / Founder Name | Junhyuk Kim |
+| Working Name (if applicable, parenthetical) | Junhyuk Kim ("Justin") |
+| Address | (collect from Junhyuk; insert California address with proper punctuation: e.g., `[Street], [City], CA [ZIP]`) |
+| Effective Date | [DATE — same as RSPA Effective Date] |
+| Position | Chief Growth Officer (CGO) |
+| Prior Inventions / Excluded IP (Schedule A or Exhibit) | Junhyuk's pre-existing inventions / IP, OR mark as "**None**" if Junhyuk confirms there are none. **Do not leave bracketed placeholder text in the signed PDF — fill or mark "None".** |
+| Company-Side Signatory | Seungjoon Kim, President, Chief Executive Officer & Sole Director |
 
-After Email 6 (Justin's packet). Bundle with D04 (RSPA) and D14 (83b) so Justin signs all 3 in one sitting.
+---
+
+## ARTICLE 3. PROCESS
+
+3.1 **Steps:**
+
+1. Open the source CIIAA PDF in Preview (Mac) or Adobe Acrobat Pro.
+2. "Save As" with new filename: `Pheeew_CIIAA_Junhyuk-Kim.pdf`.
+3. Update the fields listed in Section 2.1 above.
+4. Confirm Junhyuk's primary place of work and select the appropriate state Exhibit (if using Atlas long-form).
+5. Send to Junhyuk via E06 (Justin Packet email).
+6. Junhyuk signs on the signature page. The Company (via Seungjoon Kim, CEO) countersigns.
+7. Save the fully-executed copy to `05_CIIAAs/Pheeew_CIIAA_Junhyuk-Kim_signed.pdf`.
+
+---
+
+## ARTICLE 4. PURPOSE OF DOCUMENT
+
+4.1 **What the CIIAA does.** The CIIAA assigns to Pheeew, Inc. all intellectual property that Junhyuk creates during, or in connection with, his service to the Company. This includes brand work, content, partnership materials, sales collateral, growth playbooks, marketing assets, and any inventions, improvements, or original works of authorship generated in the scope of his duties as Chief Growth Officer.
+
+4.2 **Why it matters.** Investors require executed CIIAAs from all founders during diligence. Without a CIIAA, Junhyuk could later claim individual ownership of work product created for the Company, which would be a material defect in the Company's IP chain of title and would block any future financing.
+
+---
+
+## ARTICLE 5. TIMING
+
+5.1 The CIIAA should be executed contemporaneously with the RSPA (D04) and 83(b) Election (D14). Bundle all three documents for Junhyuk's signature in a single email (E06 — Justin Packet).

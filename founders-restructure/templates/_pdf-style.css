@@ -1,175 +1,202 @@
-/* PDF stylesheet for Pheeew founder-restructure templates */
+/* PDF stylesheet for Pheeew, Inc. corporate templates
+   Matches the established style of existing signed legal documents
+   (Pheeew_RSPA_Dawon-Kim_v3_Clean.pdf, Pheeew_StockCertificate_*.pdf, etc.):
+   - Times New Roman / Times serif body
+   - Black-on-white only; muted ochre/gold accent (#9A7A3A) used sparingly
+   - 1-inch margins, justified body with hyphenation
+   - ARTICLE / 1.1 section convention
+   - Light-grey table headers, thin borders (NOT dark-row tables)
+   - No page footers (legal-doc convention) */
 
 @page {
   size: Letter;
-  margin: 0.85in 0.9in 0.95in 0.9in;
-  @bottom-left {
-    content: "Pheeew, Inc. · Founder Restructure 2026";
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 8pt;
-    color: #888;
-  }
-  @bottom-right {
-    content: "Page " counter(page) " of " counter(pages);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 8pt;
-    color: #888;
-  }
+  margin: 1in;
 }
 
 * { box-sizing: border-box; }
 
-/* Hide pandoc's auto-injected filename title — we want the real H1 from the .md */
+/* Hide pandoc's auto-injected filename title */
 header#title-block-header { display: none; }
 
 body {
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  font-size: 10.5pt;
-  line-height: 1.5;
-  color: #1c1a18;
+  font-family: "Times New Roman", "Liberation Serif", Times, serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  color: #000;
   margin: 0;
   padding: 0;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
+/* ─── DOCUMENT TITLE BLOCK ─────────────────────────────────────────────
+   First H1 in each .md = the document title (e.g., "RESTRICTED STOCK
+   PURCHASE AGREEMENT"). Centered, all caps, bold, large serif. */
 h1 {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 18pt;
   font-weight: 700;
-  color: #1c1a18;
-  margin: 0 0 6pt 0;
-  border-bottom: 2px solid #1c1a18;
-  padding-bottom: 8pt;
-  letter-spacing: -0.005em;
-}
-
-h2 {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 13.5pt;
-  font-weight: 700;
-  color: #2952b8;
-  margin: 18pt 0 8pt 0;
-  border-bottom: 1px solid #d8d2c8;
-  padding-bottom: 4pt;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #000;
+  margin: 0 0 8pt 0;
   page-break-after: avoid;
 }
 
-h3 {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 11.5pt;
+/* H2 immediately under H1 = entity name "PHEEEW, INC." block */
+h1 + h2,
+h2.entity {
+  font-size: 13pt;
   font-weight: 700;
-  color: #1c1a18;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 4pt 0;
+  border: none;
+  color: #000;
+}
+
+/* Standard H2 = ARTICLE heading */
+h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #000;
+  border-bottom: 0.5pt solid #888;
+  padding-bottom: 4pt;
+  margin: 22pt 0 12pt 0;
+  page-break-after: avoid;
+  text-align: left;
+}
+
+/* H3 = section sub-heading */
+h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: #000;
   margin: 14pt 0 6pt 0;
   page-break-after: avoid;
+  text-align: left;
 }
 
+/* Body paragraphs */
 p {
   margin: 0 0 8pt 0;
-  text-align: left;
-  orphans: 2;
-  widows: 2;
+  text-align: justify;
+  orphans: 3;
+  widows: 3;
 }
 
+/* Lists */
 ul, ol {
   margin: 4pt 0 8pt 0;
   padding-left: 22pt;
 }
 
 li {
-  margin-bottom: 3pt;
+  margin-bottom: 4pt;
   line-height: 1.45;
+  text-align: justify;
 }
 
 strong, b {
   font-weight: 700;
-  color: #1c1a18;
+  color: #000;
 }
 
 em, i { font-style: italic; }
 
+/* Horizontal rules — used sparingly between major sections */
 hr {
   border: none;
-  border-top: 1px solid #d8d2c8;
-  margin: 14pt 0;
+  border-top: 0.5pt solid #888;
+  margin: 18pt 0;
 }
 
+/* Inline code (used for cert numbers, EINs, etc.) */
 code {
-  font-family: 'Menlo', 'Courier New', monospace;
-  font-size: 9pt;
-  background: #f3eee5;
-  padding: 1pt 4pt;
-  border-radius: 2pt;
-  color: #8b3e1d;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  color: #000;
+  background: transparent;
+  padding: 0;
 }
 
+/* Block code — NEVER used in legal docs; if it appears, render as plain monospace */
 pre {
-  font-family: 'Menlo', 'Courier New', monospace;
-  font-size: 9pt;
-  background: #f3eee5;
+  font-family: "Courier New", monospace;
+  font-size: 10pt;
+  background: #f5f5f5;
   padding: 8pt 10pt;
-  border-radius: 4pt;
-  border-left: 3pt solid #2952b8;
+  border-left: 2pt solid #9A7A3A;
   white-space: pre-wrap;
   word-wrap: break-word;
   margin: 8pt 0;
   page-break-inside: avoid;
+  text-align: left;
+  hyphens: none;
 }
 
+/* Block quotes — use the muted ochre accent (the only Pheeew accent color) */
 blockquote {
-  border-left: 3pt solid #c79858;
-  background: #faf6ed;
-  margin: 10pt 0;
-  padding: 8pt 14pt;
+  border-left: 2pt solid #9A7A3A;
+  background: #FBF6EA;
+  margin: 12pt 0;
+  padding: 10pt 14pt;
   font-style: italic;
-  color: #4a4439;
+  color: #000;
+  page-break-inside: avoid;
 }
 
+/* Tables — Schedule A / cap-table style: light-grey header, thin grey borders */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 10pt 0;
-  font-size: 9.5pt;
+  margin: 12pt 0;
+  font-size: 10.5pt;
   page-break-inside: avoid;
 }
 
 table th {
-  background: #1c1a18;
-  color: #faf6ed;
+  background: #EFEFEF;
+  color: #000;
   text-align: left;
   padding: 6pt 8pt;
   font-weight: 700;
-  font-size: 9pt;
+  font-size: 10pt;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 0.5pt solid #C8C8C8;
+  vertical-align: bottom;
 }
 
 table td {
-  padding: 5pt 8pt;
-  border-bottom: 1px solid #e8e2d4;
+  padding: 6pt 8pt;
+  border: 0.5pt solid #D8D8D8;
   vertical-align: top;
+  color: #000;
+  text-align: left;
+  hyphens: none;
 }
 
-table tr:last-child td {
-  border-bottom: none;
-}
+/* Right-align numeric cells (heuristic — cells whose first char is $ or digit) */
+table td.num,
+table th.num { text-align: right; }
 
-table tr:nth-child(even) td {
-  background: #faf6ed;
-}
-
-/* Strong emphasis on first column for label/value tables */
-table td:first-child strong {
-  color: #2952b8;
-}
-
+/* Links — keep underlined-blue for digital reference, but in print legal docs we want black */
 a {
-  color: #2952b8;
-  text-decoration: none;
+  color: #000;
+  text-decoration: underline;
 }
 
-/* Signature lines (rendered from \_\_\_\_\_) */
-p:has(> code) { font-size: 10pt; }
-
-/* Avoid orphan headings */
+/* Headings should not break from following paragraph/table */
 h1, h2, h3 { page-break-after: avoid; }
+h2 + p, h3 + p, h2 + table, h3 + table { page-break-before: avoid; }
 
-/* Keep heading + first paragraph together */
-h2 + p, h3 + p { page-break-before: avoid; }
+/* Avoid orphan/widow lines */
+p, li { orphans: 3; widows: 3; }

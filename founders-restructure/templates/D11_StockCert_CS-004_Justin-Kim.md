@@ -1,96 +1,71 @@
-# STOCK CERTIFICATE — CS-004
+# STOCK CERTIFICATE
 
-**THIS CERTIFIES THAT** the person named below is the registered holder of the number of shares of the capital stock of Pheeew, Inc., a Delaware corporation, set forth below, transferable only on the books of the Corporation by the holder hereof in person or by duly authorized attorney upon surrender of this Certificate properly endorsed.
+## PHEEEW, INC.
 
----
-
-## Corporation
-
-**PHEEEW, INC.**
-A Delaware Corporation
-Authorized Shares: 14,000,000 shares of Common Stock, $0.0001 par value
-EIN: 41-5111005
-State of Incorporation: Delaware
-Date of Incorporation: March 24, 2026
+*Incorporated Under the Laws of the State of Delaware*
 
 ---
 
-## Certificate Details
+**Certificate Number:** CS-004
+**Number of Shares:** 3,017,143
+
+---
+
+**THIS CERTIFIES THAT JUNHYUK KIM** is the registered holder of **Three Million Seventeen Thousand One Hundred Forty-Three (3,017,143)** shares of fully paid and non-assessable Common Stock of **Pheeew, Inc.**, a Delaware corporation, par value $0.0001 per share, transferable only on the books of the Corporation by the holder hereof in person or by duly authorized attorney upon surrender of this Certificate properly endorsed.
+
+---
+
+## CERTIFICATE PARTICULARS
 
 | Field | Value |
 |---|---|
-| **Certificate Number** | CS-004 |
-| **Holder of Record** | Justin Kim |
-| **Number of Shares** | 3,017,143 |
-| **Class** | Common Stock |
-| **Par Value** | $0.0001 per share |
-| **Issuance Date** | [DATE — must match RSPA effective date] |
-| **Purchase Price** | $0.00226 per share |
-| **Aggregate Consideration** | $6,818.74 (par value) + $23,181.26 (additional paid-in capital) = **$30,000.00 total cash contribution** |
-| **Restrictions** | Subject to vesting under the Restricted Stock Purchase Agreement dated [DATE]. 4-year vest, 1-year cliff. Repurchase Option in favor of Pheeew, Inc. Subject to Co-Founder Agreement v3 ROFR/drag-along/tag-along provisions. |
+| Certificate Number | CS-004 |
+| Holder of Record | Junhyuk Kim |
+| Class | Common Stock |
+| Par Value | $0.0001 per share |
+| Number of Shares | 3,017,143 |
+| Issuance Date | [DATE — same as RSPA Effective Date] |
+| Aggregate Purchase Price | $6,818.74 |
+| Vesting | 4-year vest, 1-year cliff, monthly thereafter (per RSPA) |
 
 ---
 
-## Legend
+## RESTRICTIVE LEGEND
 
-THE SECURITIES REPRESENTED BY THIS CERTIFICATE HAVE NOT BEEN REGISTERED UNDER THE SECURITIES ACT OF 1933, AS AMENDED, OR ANY STATE SECURITIES LAWS. THESE SECURITIES MAY NOT BE SOLD, TRANSFERRED, ASSIGNED, PLEDGED, OR HYPOTHECATED EXCEPT PURSUANT TO AN EFFECTIVE REGISTRATION STATEMENT UNDER THE SECURITIES ACT AND APPLICABLE STATE SECURITIES LAWS, OR PURSUANT TO AN EXEMPTION FROM REGISTRATION.
-
-THE SHARES REPRESENTED BY THIS CERTIFICATE ARE SUBJECT TO A REPURCHASE OPTION AND VESTING RESTRICTIONS AS SET FORTH IN A RESTRICTED STOCK PURCHASE AGREEMENT BY AND BETWEEN THE CORPORATION AND THE HOLDER, A COPY OF WHICH IS ON FILE AT THE PRINCIPAL OFFICE OF THE CORPORATION.
-
-THE SHARES REPRESENTED BY THIS CERTIFICATE ARE ALSO SUBJECT TO A RIGHT OF FIRST REFUSAL, DRAG-ALONG, AND TAG-ALONG OBLIGATIONS AS SET FORTH IN THE CO-FOUNDER AGREEMENT (V3) BY AND AMONG THE CORPORATION AND ITS FOUNDERS.
+THE SHARES REPRESENTED BY THIS CERTIFICATE HAVE NOT BEEN REGISTERED UNDER THE SECURITIES ACT OF 1933, AS AMENDED, AND MAY NOT BE SOLD OR TRANSFERRED EXCEPT PURSUANT TO AN EFFECTIVE REGISTRATION STATEMENT OR AN EXEMPTION FROM REGISTRATION. THESE SHARES ARE ALSO SUBJECT TO A RESTRICTED STOCK PURCHASE AGREEMENT BETWEEN THE CORPORATION AND THE HOLDER DATED [DATE], INCLUDING VESTING AND REPURCHASE PROVISIONS, AND ARE SUBJECT TO THE RIGHT-OF-FIRST-REFUSAL, DRAG-ALONG, AND TAG-ALONG PROVISIONS OF THE AMENDED AND RESTATED CO-FOUNDER AGREEMENT (V3) AMONG THE CORPORATION AND ITS FOUNDERS. COPIES OF SUCH AGREEMENTS ARE ON FILE AT THE PRINCIPAL OFFICE OF THE CORPORATION.
 
 ---
 
-## Issuance Authority
+## ISSUANCE AUTHORITY
 
 This Certificate is issued pursuant to:
-- Board Resolution dated [DATE] (Resolution No. 6 — Issuance of New Common Stock to Justin Kim)
-- Stockholder Written Consent dated [DATE]
-- Restricted Stock Purchase Agreement dated [DATE]
-- Certificate of Amendment to Certificate of Incorporation filed with the Delaware Secretary of State on [DATE], increasing authorized capital from 10,000,000 to 14,000,000 shares of Common Stock
+
+- The Written Consent of the Sole Director dated [DATE] (Article 2 — New Stock Issuance to Junhyuk Kim);
+- The Written Consent of Stockholders dated [DATE] (Article 3 — Approval of New Stock Issuance to Junhyuk Kim);
+- The Restricted Stock Purchase Agreement dated [DATE] between the Corporation and Junhyuk Kim; and
+- The Certificate of Amendment to the Certificate of Incorporation filed with the Delaware Secretary of State on [DATE], increasing the authorized capital from 10,000,000 to 14,000,000 shares of Common Stock.
 
 ---
 
-**IN WITNESS WHEREOF**, the Corporation has caused this Certificate to be signed by its duly authorized officer as of the Issuance Date.
+**IN WITNESS WHEREOF**, the said Corporation has caused this Certificate to be signed by its duly authorized officers as of the Issuance Date.
 
 \
 \
-**PHEEEW, INC.**
 
-By: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+PHEEEW, INC.
 
-**Seungjoon (Alex) Kim**
-Chief Executive Officer + Secretary
-
-Date: \_\_\_\_\_\_\_\_\_\_\_\_\_
-
----
-
-## Acknowledgment of Receipt (Optional)
-
-I, Justin Kim, hereby acknowledge receipt of the original of this Stock Certificate CS-004 representing 3,017,143 shares of Common Stock of Pheeew, Inc.
+\
+\
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**Justin Kim**
+**Seungjoon Kim**
+*President & Chief Executive Officer*
 
-Date: \_\_\_\_\_\_\_\_\_\_\_\_\_
+\
+\
 
----
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-## Filing Instructions
-
-1. Print 2 copies (1 original for Justin, 1 for corporate records)
-2. Alex signs both as CEO + Secretary
-3. Justin signs the Acknowledgment of Receipt on the corporate-records copy
-4. Mail original to Justin (USPS Certified) or hand-deliver
-5. Save signed PDF to: `04_Stock_Certificates/CS-004_Justin-Kim_signed.pdf`
-6. Update stock ledger entry in `04_Stock_Certificates/_Stock_Ledger.md` (or equivalent)
-
-## Cross-references
-
-- Issued pursuant to D04 (RSPA — Justin Kim)
-- Authorized by D01 (Board Resolution) Resolution No. 6
-- Approved by D02 (Stockholder Written Consent)
-- Enabled by D03 (Certificate of Amendment increasing authorized shares)
-- Reflected in D15 (Cap Table v2)
+**Seungjoon Kim**
+*Secretary (Sole Director)*

@@ -1,25 +1,28 @@
-From: Alex Kim <alex@pheeew.com>
-To: Justin Kim
-Subject: Pheeew · Your founder packet · sign + return today
+# EMAIL 6 — JUNHYUK FOUNDER PACKET (RSPA + 83(b) + CIIAA)
 
-Justin —
+**From:** Seungjoon Kim ("Alex") <hello@pheeew.com>
+**To:** Junhyuk Kim ("Justin") <[Justin's email]>
+**Subject:** Pheeew, Inc. — Your Founder Packet — Sign and Return
 
-Three documents attached, all ready for your signature:
+---
 
-1. D04_Justin-Kim_RSPA.docx — Your Restricted Stock Purchase Agreement
-   for 3,017,143 shares at $0.00226/share. Sign on the last page.
+Junhyuk —
 
-2. D14_83b_Justin-Kim.docx — Your IRS Section 83(b) election. Sign
-   and date. I'll handle the IRS mailing logistics. Mail deadline:
-   30 days from your RSPA signing date (so don't sit on this).
+Three documents are attached for your signature:
 
-3. D07_CIIAA_Justin-Kim.pdf — Standard IP/invention assignment agreement.
-   Sign on the last page.
+| Attachment | Document | Action |
+|---|---|---|
+| D04 | Restricted Stock Purchase Agreement (3,017,143 shares × $0.00226 = $6,818.74; voluntary APIC $23,181.26; total cash $30,000.00) | Sign on the signature page; complete the address and SSN fields in Schedule A |
+| D14 | Section 83(b) Election (IRS) | Sign and date. **You** mail to the IRS by USPS Certified Mail with Return Receipt within thirty (30) days of the RSPA Effective Date; Email 10 will provide step-by-step mailing instructions. |
+| D07 | Confidential Information and Invention Assignment Agreement (CIIAA) | Sign on the signature page; review and complete Schedule A (Prior Inventions / Excluded IP) — mark "**None**" if you have no prior inventions or pre-existing IP to exclude |
 
-Sign all 3 and return today (or tomorrow at the latest). I'll
-countersign on Pheeew's behalf and send back fully executed copies
-within 24 hours.
+Please sign and return all three today (or by EOD tomorrow). I will countersign on the Company's behalf where applicable and return fully-executed copies to you within 24 hours, together with Stock Certificate No. CS-004 representing your 3,017,143 shares.
 
-Wire instructions in the next email.
+Mercury Bank wire instructions for your $30,000.00 capital contribution will follow in the next email.
 
-— Alex
+— Seungjoon ("Alex")
+
+Pheeew, Inc.
+1111b South Governors Ave STE 98188, Dover, DE 19904
+EIN 41-5111005
+hello@pheeew.com

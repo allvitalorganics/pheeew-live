@@ -1,43 +1,51 @@
-# Phase 4 · Step 4 · Delaware Filing — Procedural Notes
+# PROCEDURAL NOTES — DELAWARE FILING (D03)
 
-This is NOT an email — it's a portal filing. No "Email 5" goes to Delaware. These are the notes for filing D03 (Certificate of Amendment) with the Delaware Division of Corporations.
+## PHEEEW, INC.
 
-## Two filing paths
+*A Delaware Corporation*
 
-### Path A · Direct via Delaware portal
-1. Visit https://corp.delaware.gov/
-2. Log in to the corporation account (created at incorporation by Stripe Atlas)
-3. Navigate to "File a Document" → "Certificate of Amendment"
-4. Upload the signed PDF (D03_Certificate-of-Amendment.pdf)
-5. Pay the filing fee (~$200, payable by credit card)
-6. Receive the **Stamped Filed Copy** by email within 1-3 business days
-7. Save the stamped copy as `Pheeew_Certificate-of-Amendment_DE-Filed_2026-05-XX.pdf` in `_DE_Filing/`
+---
 
-### Path B · Stripe Atlas (RECOMMENDED if Pheeew was incorporated via Atlas)
-1. Log in to Stripe Atlas dashboard
-2. Navigate to Documents → Amendments
-3. Select "Amend Certificate of Incorporation"
-4. Upload signed D03 PDF
-5. Atlas service fee: ~$50-100 on top of the $200 DE filing fee
-6. Atlas handles the portal submission, returns the Stamped Filed Copy via dashboard
-7. Faster + safer than direct portal navigation
+This document is internal procedural guidance for filing the **Certificate of Amendment to the Certificate of Incorporation (D03)** with the Delaware Division of Corporations. It is not an outgoing email and is not part of any executed legal instrument.
 
-**Recommended: Path B (Atlas).** Atlas already has Pheeew on file, knows your corporate identifiers, and handles the agent-of-process forwarding. Worth the $50-100 service fee.
+---
 
-## What you'll receive
+## ARTICLE 1. FILING PATHS
 
-- Email confirmation from Delaware (or Atlas) within 1-3 business days
-- Attachment: Certificate of Amendment with Delaware Secretary of State filing stamp + filed date
+### 1.1 Path A — Stripe Atlas Dashboard (Recommended)
 
-## Save the stamped copy
+1. Log in to the Stripe Atlas dashboard for Pheeew, Inc.
+2. Navigate to **Documents → Amendments → Amend Certificate of Incorporation**.
+3. Upload the signed PDF (`D03_Certificate-of-Amendment_signed.pdf`).
+4. Atlas service fee: approximately $50–$100, in addition to the Delaware filing fee.
+5. Atlas handles portal submission and returns the Stamped Filed Copy via the dashboard.
+6. Recommended because Atlas already holds Pheeew's corporate identifiers and handles agent-of-process coordination.
 
-Save to: `02_Equity_Restructure/2026-05_Justin_Joining/_DE_Filing/`
-Filename: `Pheeew_Certificate-of-Amendment_DE-Filed_2026-05-XX.pdf`
+### 1.2 Path B — Direct via Delaware Division of Corporations
 
-## DON'T proceed to Phase 5 until this lands
+1. Visit `https://corp.delaware.gov/`.
+2. Log in to the corporation account (created at incorporation).
+3. Navigate to **File a Document → Certificate of Amendment**.
+4. Upload the signed PDF.
+5. Pay the filing fee (approximately $194 base + $80 expedited 24-hour processing). Confirm current fee schedule before filing.
+6. Receive the Stamped Filed Copy by email within 1–3 business days.
 
-The new shares (Justin's 3,017,143, Alex's refresh 141,428, Jason's refresh 184,286, pool top-up 371,429) cannot be issued until the Certificate of Incorporation authorizes 14,000,000 shares. That happens only when the Stamped Filed Copy is received.
+---
 
-## Optional · Atlas legal review before filing
+## ARTICLE 2. RECEIPT AND FILING
 
-If you want the $200-300 paralegal review (Stripe Atlas legal or Clerky), do it BEFORE filing. They'll flag any procedural issues with D01, D02, D03 in one pass. After the Certificate of Amendment is filed, you can't easily un-file it.
+2.1 **Stamped Filed Copy.** Save to `Pheeew_Master_Corporate_Records/02_Equity_Restructure/2026-05_Justin_Joining/_DE_Filing/Pheeew_Certificate-of-Amendment_DE-Filed_[YYYY-MM-DD].pdf`.
+
+2.2 **Notification.** Notify all four Founders by email upon receipt of the Stamped Filed Copy, with the filed copy attached.
+
+---
+
+## ARTICLE 3. SEQUENCE DEPENDENCY (DO NOT SKIP)
+
+3.1 The new share issuances contemplated under D04, D05, D06, and the Equity Incentive Pool top-up cannot lawfully be made until the Certificate of Incorporation authorizes 14,000,000 shares. The amendment becomes effective upon filing with the Delaware Secretary of State. **Do not execute the RSPAs (D04 / D05 / D06) or issue Stock Certificates (D11 / D12a / D12b) until the Stamped Filed Copy is received.**
+
+---
+
+## ARTICLE 4. OPTIONAL OUTSIDE REVIEW
+
+4.1 If outside paralegal or attorney review of D01, D02, and D03 is desired prior to filing (Stripe Atlas legal or Clerky typically charges $200–$300 for a one-pass procedural review), it should occur **before** filing the Certificate of Amendment with the Delaware Secretary of State, since post-filing reversal requires a separate corrective Certificate of Amendment.

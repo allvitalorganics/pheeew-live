@@ -1,107 +1,135 @@
-# WRITTEN CONSENT OF SOLE DIRECTOR
+# WRITTEN CONSENT OF THE SOLE DIRECTOR
+
 ## PHEEEW, INC.
 
-The undersigned, being the sole director of Pheeew, Inc., a Delaware corporation (the "**Company**"), in lieu of holding a meeting, hereby takes the following actions and adopts the following resolutions effective as of **[DATE]**:
+*A Delaware Corporation*
 
 ---
 
-## 1. Admission of Justin Kim as Co-Founder
-
-**WHEREAS**, the Company desires to admit Justin Kim as a co-founder and Chief Growth Officer; and
-
-**WHEREAS**, Justin Kim has agreed to contribute Thirty Thousand Dollars ($30,000.00) to the Company as paid-in capital in exchange for the issuance of restricted shares of the Company's Common Stock at the original founder fair market value of $0.00226 per share;
-
-**NOW, THEREFORE, BE IT RESOLVED**, that the Company hereby admits Justin Kim as a co-founder.
+The undersigned, being the sole member of the Board of Directors of **Pheeew, Inc.**, a Delaware corporation (the "**Company**"), acting by written consent in lieu of a meeting pursuant to Section 141(f) of the Delaware General Corporation Law and the Bylaws of the Company, hereby adopts the following resolutions as of **[DATE]** (the "**Effective Date**"):
 
 ---
 
-## 2. Amendment to Certificate of Incorporation
+## RECITALS
 
-**RESOLVED**, that the Company shall amend its Certificate of Incorporation to increase the authorized Common Stock from ten million (10,000,000) shares to fourteen million (14,000,000) shares, par value $0.0001 per share. The Certificate of Amendment in substantially the form attached hereto as **Exhibit A** is hereby approved and the Company's officers are authorized to execute and file the same with the Delaware Secretary of State.
+WHEREAS, the Company desires to admit Junhyuk Kim ("**Justin**") as a fourth Founder of the Company in connection with his capital contribution of Thirty Thousand Dollars ($30,000.00) and his appointment as Chief Growth Officer;
 
----
+WHEREAS, the Company's currently authorized capital of Ten Million (10,000,000) shares of Common Stock is insufficient to accommodate the new issuance to Justin together with the supplemental refresh grants to existing Founders contemplated herein, and an amendment to the Certificate of Incorporation is therefore required to increase the authorized capital;
 
-## 3. Issuance of Shares — Justin Kim
+WHEREAS, the Company desires to issue supplemental refresh grants to Seungjoon Kim ("**Alex**") and Jason Ko ("**Jason**") to achieve a clean four-Founder capitalization of 24% / 23% / 22% / 21% (issued, with Dawon Kim ("**Dawon**") at 21% by dilution rather than reissuance), with a 10% reserved equity incentive pool;
 
-**RESOLVED**, that the Company hereby authorizes the issuance and sale of three million seventeen thousand one hundred forty-three (3,017,143) shares of Common Stock to Justin Kim at a price of $0.00226 per share, for an aggregate purchase price of $6,818.74, pursuant to a Restricted Stock Purchase Agreement in substantially the form attached hereto as **Exhibit B** (the "**Justin RSPA**"), with vesting provisions as set forth therein (4-year vest, 1-year cliff).
+WHEREAS, the Company desires to amend and restate the Co-Founder Agreement (v2) to reflect the four-Founder capitalization, updated officer titles, and operational principles among the Founders;
 
----
-
-## 4. Refresh Grants — Alex Kim and Jason Ko
-
-**RESOLVED**, that the Company hereby authorizes the issuance and sale to Seungjoon (Alex) Kim of an additional one hundred forty-one thousand four hundred twenty-eight (141,428) shares of Common Stock at $0.00226 per share, for an aggregate purchase price of $319.63;
-
-**RESOLVED FURTHER**, that the Company hereby authorizes the issuance and sale to Jason Ko of an additional one hundred eighty-four thousand two hundred eighty-six (184,286) shares of Common Stock at $0.00226 per share, for an aggregate purchase price of $416.49;
-
-**RESOLVED FURTHER**, that each refresh grant shall be subject to the same 4-year vesting schedule with 1-year cliff applicable to the original grants, with the vesting commencement date for the refresh shares being the date of issuance of the refresh grant (and not the original grant date), pursuant to Restricted Stock Purchase Agreements in substantially the form attached hereto as **Exhibits C and D** respectively.
+NOW, THEREFORE, BE IT RESOLVED:
 
 ---
 
-## 5. Option Pool Top-Up
+## ARTICLE 1. AMENDMENT OF CERTIFICATE OF INCORPORATION
 
-**RESOLVED**, that the Company shall increase its reserve of Common Stock under the Equity Incentive Plan from one million (1,000,000) shares to one million three hundred seventy-one thousand four hundred twenty-nine (1,371,429) shares, representing 10% of fully-diluted Common Stock following the issuances authorized hereunder.
+1.1 **Amendment Approved.** The Sole Director hereby approves and adopts the Certificate of Amendment to the Certificate of Incorporation of the Company in the form attached hereto as **Exhibit A**, increasing the authorized capital of the Company from Ten Million (10,000,000) shares of Common Stock to Fourteen Million (14,000,000) shares of Common Stock, par value $0.0001 per share.
 
----
+1.2 **Recommendation to Stockholders.** The Sole Director hereby recommends that the stockholders of the Company approve the Certificate of Amendment by written consent in lieu of a meeting pursuant to Section 228 of the Delaware General Corporation Law.
 
-## 6. Election of Justin Kim as Chief Growth Officer
-
-**RESOLVED**, that Justin Kim is hereby elected to serve as the Chief Growth Officer of the Company, effective as of the date of execution of his Restricted Stock Purchase Agreement.
+1.3 **Filing Authorization.** The officers of the Company are hereby authorized and directed to file the Certificate of Amendment with the Delaware Secretary of State and to pay the associated filing fees from the Company's funds.
 
 ---
 
-## 7. Dawon Kim Title Change
+## ARTICLE 2. NEW STOCK ISSUANCE TO JUNHYUK KIM
 
-**RESOLVED**, that the title of Dawon Kim is hereby changed from Chief Design Officer to Chief Brand Officer, effective as of the date hereof.
+2.1 **Issuance Approved.** Subject to the effectiveness of the Certificate of Amendment, the Company shall issue and sell to Junhyuk Kim Three Million Seventeen Thousand One Hundred Forty-Three (3,017,143) shares of Common Stock at a purchase price of $0.00226 per share, for an aggregate purchase price of Six Thousand Eight Hundred Eighteen Dollars and Seventy-Four Cents ($6,818.74), pursuant to a Restricted Stock Purchase Agreement substantially in the form attached as **Exhibit B**.
 
----
-
-## 8. Amendment of Co-Founder Agreement
-
-**RESOLVED**, that the Company hereby authorizes the entry into the Amended and Restated Co-Founder Agreement (v3), substantially in the form attached hereto as **Exhibit E**, by and among the Company, Seungjoon (Alex) Kim, Jason Ko, Dawon Kim, and Justin Kim.
+2.2 **Stock Certificate.** The Company shall issue Stock Certificate No. CS-004 to Junhyuk Kim representing the foregoing shares.
 
 ---
 
-## 9. Receipt of Capital Contribution
+## ARTICLE 3. REFRESH STOCK ISSUANCE TO SEUNGJOON KIM
 
-**RESOLVED**, that the Company is authorized to accept Justin Kim's wire transfer of Thirty Thousand Dollars ($30,000.00) to the Company's Mercury operating account as payment of (i) the $6,818.74 purchase price for his shares of Common Stock and (ii) $23,181.26 of Additional Paid-In Capital, both to be reflected in the Company's stockholders' equity ledger.
+3.1 **Issuance Approved.** Subject to the effectiveness of the Certificate of Amendment, the Company shall issue and sell to Seungjoon Kim One Hundred Forty-One Thousand Four Hundred Twenty-Eight (141,428) additional shares of Common Stock at a purchase price of $0.00226 per share, for an aggregate purchase price of Three Hundred Nineteen Dollars and Sixty-Three Cents ($319.63), pursuant to a Restricted Stock Purchase Agreement (Refresh Grant) substantially in the form attached as **Exhibit C**.
 
----
+3.2 **Self-Transaction Disclosure.** The Sole Director acknowledges that this issuance constitutes a transaction between the Company and a director of the Company. The transaction has been (or will be) ratified by the written consent of all stockholders of the Company entitled to vote thereon, satisfying the requirements of Section 144 of the Delaware General Corporation Law.
 
-## 10. CIIAA Execution
-
-**RESOLVED**, that the Company hereby authorizes the entry into a Confidential Information and Invention Assignment Agreement with Justin Kim in the standard Stripe Atlas form previously used for existing co-founders.
+3.3 **Stock Certificate.** The Company shall issue Stock Certificate No. CS-001-R-A to Seungjoon Kim representing the foregoing shares.
 
 ---
 
-## 11. Officers' Authority
+## ARTICLE 4. REFRESH STOCK ISSUANCE TO JASON KO
 
-**RESOLVED**, that the officers of the Company are, and each of them hereby is, authorized to take any and all such actions, to execute and deliver any and all such documents, and to do all such other things as such officer or officers shall deem necessary or appropriate to carry out the intent and purposes of the foregoing resolutions.
+4.1 **Issuance Approved.** Subject to the effectiveness of the Certificate of Amendment, the Company shall issue and sell to Jason Ko One Hundred Eighty-Four Thousand Two Hundred Eighty-Six (184,286) additional shares of Common Stock at a purchase price of $0.00226 per share, for an aggregate purchase price of Four Hundred Sixteen Dollars and Forty-Nine Cents ($416.49), pursuant to a Restricted Stock Purchase Agreement (Refresh Grant) substantially in the form attached as **Exhibit D**.
+
+4.2 **Stock Certificate.** The Company shall issue Stock Certificate No. CS-003-A to Jason Ko representing the foregoing shares.
 
 ---
 
-**IN WITNESS WHEREOF**, the undersigned has executed this Written Consent as of the date first written above.
+## ARTICLE 5. EQUITY INCENTIVE POOL
+
+5.1 **Reservation.** The Company hereby reserves One Million Three Hundred Seventy-One Thousand Four Hundred Twenty-Nine (1,371,429) shares of Common Stock for issuance under a future equity incentive plan, representing approximately ten percent (10%) of the Company's fully-diluted capitalization following the foregoing issuances.
+
+5.2 **Plan Adoption Deferred.** A formal equity incentive plan document shall be adopted by separate Board action prior to the first grant from the Pool. No grants from the Pool are authorized by this consent.
+
+---
+
+## ARTICLE 6. CO-FOUNDER AGREEMENT (V3)
+
+6.1 **Approval.** The Sole Director hereby approves the Amended and Restated Co-Founder Agreement (v3) substantially in the form attached as **Exhibit E**, which (a) admits Junhyuk Kim as a fourth Founder, (b) reflects the updated capitalization, (c) updates Dawon Kim's title to Chief Brand Officer, and (d) memorializes the operational principles among the Founders.
+
+---
+
+## ARTICLE 7. OFFICER APPOINTMENTS AND TITLE CHANGES
+
+7.1 **Junhyuk Kim — Chief Growth Officer.** Junhyuk Kim is hereby appointed as Chief Growth Officer of the Company, effective as of the Effective Date.
+
+7.2 **Dawon Kim — Title Change to Chief Brand Officer.** The title of Dawon Kim is hereby changed from Chief Design Officer to Chief Brand Officer, effective as of the Effective Date.
+
+7.3 **Continuing Officers.** The other officers of the Company shall continue to serve in their existing capacities: Seungjoon Kim as President, Chief Executive Officer, Secretary, and Sole Director; and Jason Ko as Chief Operating Officer.
+
+---
+
+## ARTICLE 8. ACCEPTANCE OF JUSTIN'S CAPITAL CONTRIBUTION
+
+8.1 **Acceptance.** The Company hereby accepts the cash contribution of Thirty Thousand Dollars ($30,000.00) from Junhyuk Kim, allocable as follows: (a) Six Thousand Eight Hundred Eighteen Dollars and Seventy-Four Cents ($6,818.74) as the Purchase Price for 3,017,143 shares of Common Stock under Article 2 hereof; and (b) Twenty-Three Thousand One Hundred Eighty-One Dollars and Twenty-Six Cents ($23,181.26) as a voluntary capital contribution to be recorded as Additional Paid-in Capital.
+
+8.2 **Use of Proceeds.** The funds may be applied by the officers in the ordinary course of the Company's business without further Board action.
+
+---
+
+## ARTICLE 9. CIIAA EXECUTION
+
+9.1 **Authorization.** The officers are authorized to enter into a Confidential Information and Invention Assignment Agreement with Junhyuk Kim substantially in the form previously approved for use with employees and founders.
+
+---
+
+## ARTICLE 10. CAP TABLE UPDATE
+
+10.1 **Authorization.** The officers are authorized and directed to update the Company's stock ledger and capitalization records to reflect the foregoing issuances, and to circulate an updated Capitalization Table (v2) to the Founders following the closing of the foregoing transactions.
+
+---
+
+## ARTICLE 11. GENERAL AUTHORITY
+
+11.1 **Officer Authority.** The officers of the Company are hereby authorized and directed to take all actions and execute all documents necessary or desirable to carry out the foregoing resolutions, including without limitation the execution of stock certificates, RSPAs, the Co-Founder Agreement (v3), and ancillary agreements and filings.
+
+11.2 **Ratification.** All actions previously taken by the officers in furtherance of the foregoing resolutions are hereby ratified and approved.
+
+---
+
+**IN WITNESS WHEREOF**, the undersigned has executed this Written Consent of the Sole Director as of the Effective Date.
 
 \
 \
+
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**Seungjoon (Alex) Kim**
-Sole Director, Pheeew, Inc.
+**Seungjoon Kim**
+*Sole Director*
 
 Date: \_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
-## Exhibits Attached
+**Exhibits:**
 
-- Exhibit A: Certificate of Amendment to Certificate of Incorporation (D03)
-- Exhibit B: Restricted Stock Purchase Agreement — Justin Kim (D04)
-- Exhibit C: Restricted Stock Purchase Agreement (Refresh) — Seungjoon (Alex) Kim (D05)
-- Exhibit D: Restricted Stock Purchase Agreement (Refresh) — Jason Ko (D06)
-- Exhibit E: Amended and Restated Co-Founder Agreement v3 (D08)
-
----
-
-## Filing Instructions
-
-Save signed PDF to: `02_Equity_Restructure/2026-05_Justin_Joining/_Signed/D01_Board-Resolution_signed.pdf`
+- Exhibit A — Certificate of Amendment to Certificate of Incorporation
+- Exhibit B — Restricted Stock Purchase Agreement (Junhyuk Kim)
+- Exhibit C — Restricted Stock Purchase Agreement (Refresh Grant — Seungjoon Kim)
+- Exhibit D — Restricted Stock Purchase Agreement (Refresh Grant — Jason Ko)
+- Exhibit E — Amended and Restated Co-Founder Agreement (v3)

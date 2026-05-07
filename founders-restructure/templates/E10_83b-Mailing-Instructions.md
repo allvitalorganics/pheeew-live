@@ -1,46 +1,52 @@
-From: Alex Kim <alex@pheeew.com>
-To: Alex Kim, Jason Ko, Justin Kim
-Subject: Pheeew · 83(b) elections — MAIL THIS WEEK · time-critical
+# EMAIL 10 — SECTION 83(b) ELECTION MAILING INSTRUCTIONS
 
-Alex, Jason, Justin —
+**From:** Seungjoon Kim ("Alex") <hello@pheeew.com>
+**To:** Seungjoon Kim ("Alex") <hello@pheeew.com>; Jason Ko <[Jason's email]>; Junhyuk Kim ("Justin") <[Justin's email]>
+**Subject:** Pheeew, Inc. — Section 83(b) Elections — Mail This Week (Time-Critical)
 
-Three signed 83(b) elections ready to mail. Per IRS rules, each must be postmarked via USPS Certified Mail with Return Receipt within 30 days of the grant date.
+---
 
-GRANT DATES (the 30-day clock starts from):
-- Justin: [RSPA signing date]
-- Alex (refresh): [RSPA signing date]
-- Jason (refresh): [RSPA signing date]
+All —
 
-MAIL TO (verify current address on irs.gov before mailing):
+Three signed Section 83(b) Elections are now ready to mail. Each must be postmarked via **USPS Certified Mail with Return Receipt** within thirty (30) days of the applicable grant date. Late filing is irreversible: the election becomes invalid and the recipient is taxed on the fair market value at each future vesting milestone (rather than at the current FMV which equals price paid).
 
-For California residents (Alex, Jason — and Justin if LA-resident):
-   Department of the Treasury
-   Internal Revenue Service Center
-   Fresno, CA 93888-0002
+| Taxpayer | Document | Grant Date | Postmark Deadline |
+|---|---|---|---|
+| Junhyuk Kim ("Justin") | D14 | [RSPA Effective Date] | [Effective Date + 30 days] |
+| Seungjoon Kim ("Alex") (refresh) | D09 | [Refresh RSPA Effective Date] | [Effective Date + 30 days] |
+| Jason Ko (refresh) | D10 | [Refresh RSPA Effective Date] | [Effective Date + 30 days] |
 
-For other states: confirm correct IRS Service Center per IRS.gov/file
-(most states have a different service center — verify before mailing)
+**Mailing address.** For Taxpayers filing federal individual income tax returns from California:
 
-WHAT TO INCLUDE IN EACH ENVELOPE:
-1. Original signed 83(b) election (D09 / D10 / D14)
-2. A copy of the 83(b) for the IRS to date-stamp and return to you
-3. A self-addressed stamped envelope (SASE) for the IRS return copy
-4. (Optional) Cover letter requesting confirmation
+> Department of the Treasury
+> Internal Revenue Service Center
+> Fresno, CA 93888-0002
 
-POSTAGE:
-- USPS Certified Mail with Return Receipt (~$8 per envelope)
-- Total: ~$24 for all 3 mailings
-- Or use Lob.com (online USPS service) for digital tracking
+For other states, confirm the correct IRS Service Center at `irs.gov/filing/where-to-file-paper-tax-returns-with-or-without-a-payment` before mailing. The Service Center varies by the state in which the Taxpayer files his federal individual income tax return.
 
-ACTION:
-- Justin: file your own 83(b). Mail it from your local USPS by [DEADLINE DATE]. Keep the Certified Mail receipt + Return Receipt green card.
-- Alex + Jason: same process for your refresh increments.
+**What to include in each envelope:**
 
-After mailing, scan the Certified Mail receipt + Return Receipt and save in:
-   06_83b_Elections/_Round-2/_Proof_of_Filing/
+1. The original signed Section 83(b) Election (D09 / D10 / D14).
+2. One (1) photocopy of the signed election.
+3. A self-addressed stamped envelope, so the IRS can date-stamp the photocopy and return it to the Taxpayer as proof of timely filing.
 
-Email me the scans.
+**Postage.** USPS Certified Mail with Return Receipt is approximately $8.00 per envelope. The Taxpayer must retain (a) the green Certified Mail receipt obtained at mailing, and (b) the green Return Receipt card that arrives 4–6 weeks after mailing.
 
-THIS IS THE MOST IMPORTANT LEGAL STEP. Missing the deadline = forfeited election = taxed on vesting at much higher FMV, not at $0.00226. Don't mail close to the deadline. Aim to mail at least 5 days before.
+**Action items:**
 
-— Alex
+- **Junhyuk:** File your own 83(b) election. Mail from any USPS location by [DEADLINE]. Save the Certified Mail receipt and Return Receipt card.
+- **Seungjoon and Jason:** Same process for your respective refresh-grant elections.
+
+After mailing, scan the receipts and save to:
+
+`Pheeew_Master_Corporate_Records/06_83b_Elections/_Round-2/_Proof_of_Filing/`
+
+Email scanned copies of the receipts to me for the corporate file.
+
+**This is the most time-critical legal step in the onboarding. Aim to mail at least five (5) business days before the deadline as a buffer against postal delays.** Furnish a copy of each executed election to Pheeew, Inc. within five (5) business days of mailing, in accordance with Section 6 of the applicable RSPA.
+
+— Seungjoon ("Alex")
+
+Pheeew, Inc.
+EIN 41-5111005
+hello@pheeew.com

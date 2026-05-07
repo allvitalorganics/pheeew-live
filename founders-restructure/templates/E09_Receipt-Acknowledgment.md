@@ -1,22 +1,37 @@
-From: Alex Kim <alex@pheeew.com>
-To: Justin Kim, Jason Ko
-Subject: Pheeew · $30K capital contribution received · countersign needed
+# EMAIL 9 — CAPITAL CONTRIBUTION RECEIPT
 
-Justin, Jason —
+**From:** Seungjoon Kim ("Alex") <hello@pheeew.com>
+**To:** Junhyuk Kim ("Justin") <[Justin's email]>; Jason Ko <[Jason's email]>
+**Subject:** Pheeew, Inc. — Capital Contribution of $30,000.00 Received — Countersignature Required
 
-Pheeew confirms receipt of Justin's $30,000 wire.
+---
 
-Mercury credit:    $30,000.00 (verified [DATE])
-Stock purchase:    $6,818.74 (3,017,143 shares × $0.00226)
-APIC:              $23,181.26
-Total received:    $30,000.00 ✓
+Junhyuk, Jason —
 
-Receipt memo attached (D13_Capital-Contribution-Receipt_Justin.md) for Jason to countersign on Pheeew's behalf (per the standard "officer other than Stockholder" pattern we use for founder self-transactions).
+Pheeew, Inc. confirms receipt of Junhyuk Kim's capital contribution.
 
-Justin — please countersign on the Stockholder line and return.
+| Field | Value |
+|---|---|
+| Date credited (Mercury Bank) | [DATE] |
+| Amount received | $30,000.00 USD |
+| Allocation to Stock Purchase Price (3,017,143 × $0.00226) | $6,818.74 |
+| Allocation to Additional Paid-in Capital | $23,181.26 |
+| Mercury Transaction ID | [Pull from Mercury dashboard] |
 
-After both signatures, I'll save the final PDF to:
-08_Capital_Contributions/Justin_Kim_RSPA_Payment_Completion_2026-05-XX.md
-+ supporting wire screenshots (outgoing from Justin's bank, incoming to Pheeew's Mercury).
+The Receipt for Capital Contribution (D13) is attached to this email for execution:
 
-— Alex
+- The Company side has been signed by Seungjoon Kim, as President, Chief Executive Officer & Sole Director.
+- Jason — please review the form and confirm by reply that the figures and allocation match what is recorded in the Mercury ledger and the Company's books. (No additional countersignature is required from you under the form; this confirmation is solely for back-office reconciliation purposes as COO.)
+- Junhyuk — please countersign on the "Contributor (Acknowledgment)" line and return the executed PDF.
+
+After both signatures and Jason's reconciliation confirmation, the executed Receipt will be filed to:
+
+`Pheeew_Master_Corporate_Records/08_Capital_Contributions/Junhyuk-Kim_Capital-Contribution-Receipt_signed.pdf`
+
+together with the supporting wire screenshots (outgoing from Junhyuk's sending bank, incoming to Pheeew's Mercury account).
+
+— Seungjoon ("Alex")
+
+Pheeew, Inc.
+EIN 41-5111005
+hello@pheeew.com

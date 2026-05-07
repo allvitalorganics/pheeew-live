@@ -1,80 +1,102 @@
-# SECTION 83(b) ELECTION — JASON KO (REFRESH GRANT)
+# SECTION 83(b) ELECTION — REFRESH GRANT
 
-**Election to Include in Gross Income in Year of Transfer of Restricted Property under Section 83(b) of the Internal Revenue Code**
-
-The undersigned hereby elects, pursuant to Section 83(b) of the Internal Revenue Code of 1986, as amended, to include in gross income for the taxable year specified below the excess (if any) of the fair market value of the property described below over the amount paid therefor.
+## Election to Include in Gross Income in Year of Transfer of Property Pursuant to Section 83(b) of the Internal Revenue Code
 
 ---
 
-## 1. Taxpayer Information
+**Department of the Treasury**
+**Internal Revenue Service Center**
+[Service Center mailing address — see Mailing Instructions, infra]
 
-**Name:** Jason Ko
-**Address:** [Jason's residential address]
-**Taxpayer Identification Number (SSN):** [SSN to be filled in by Jason]
-**Taxable Year:** 2026
+---
 
-## 2. Description of Property
+Dear Sir or Madam:
 
-**Number of shares:** 184,286 shares of Common Stock (the "**Refresh Shares**")
-**Issuer:** Pheeew, Inc.
-**Date of transfer:** [DATE — must match RSPA effective date]
+The undersigned hereby makes an election pursuant to Section 83(b) of the Internal Revenue Code of 1986, as amended (the "**Code**"), with respect to the property described below. The following information is submitted as required by Treasury Regulation § 1.83-2(e):
 
-## 3. Restrictions
+---
 
-The Refresh Shares are subject to a Repurchase Option held by Pheeew, Inc. at the original Refresh Purchase Price of $0.00226 per share, exercisable for a period of ninety (90) days following termination of continuous service.
+## ARTICLE 1. TAXPAYER INFORMATION
 
-The Refresh Shares vest over four (4) years from the date of grant, with twenty-five percent (25%) vesting on the one-year anniversary of grant and the remainder vesting in equal monthly installments over the following thirty-six (36) months.
+| Field | Value |
+|---|---|
+| Name of Taxpayer | Jason Ko |
+| Address | [Jason's residential address — Street, City, State, ZIP] |
+| Taxpayer Identification Number (SSN) | [SSN to be filled in by Jason] |
+| Taxable Year for Which Election Is Made | Calendar year 2026 |
 
-## 4. Fair Market Value at Transfer
+---
 
-**Per share:** $0.00226
-**Aggregate FMV:** $416.49
+## ARTICLE 2. DESCRIPTION OF PROPERTY WITH RESPECT TO WHICH THE ELECTION IS BEING MADE
 
-## 5. Amount Paid for Property
+184,286 additional shares of Common Stock of **Pheeew, Inc.**, a Delaware corporation (the "**Company**"), par value $0.0001 per share, evidenced by Stock Certificate No. CS-003-A (the "**Refresh Shares**"). The Refresh Shares are supplemental to and do not replace the 2,970,000 shares previously issued to the Taxpayer evidenced by Stock Certificate No. CS-003, for which a separate Section 83(b) election was timely filed in April 2026.
 
-**Per share:** $0.00226
-**Aggregate amount paid:** $416.49
+---
 
-## 6. Amount to be Included in Gross Income
+## ARTICLE 3. DATE OF TRANSFER AND TAXABLE YEAR
 
-**$0.00** (Fair market value equals amount paid; no excess to include.)
+| Field | Value |
+|---|---|
+| Date of Transfer | [DATE — must match Refresh RSPA Effective Date] |
+| Taxable Year | 2026 |
 
-## 7. Copy of Election Furnished
+---
 
-The undersigned has furnished a copy of this election to the person for whom the services were performed (Pheeew, Inc.).
+## ARTICLE 4. NATURE OF RESTRICTIONS
 
-## 8. Issuer Information (Optional)
+The Refresh Shares are subject to a Repurchase Option held by the Company at the original Purchase Price of $0.00226 per share, exercisable for a period of ninety (90) days following termination of the Taxpayer's continuous service to the Company.
 
-**Issuer:** Pheeew, Inc.
-**EIN:** 41-5111005
-**Address:** 1111b South Governors Ave STE 98188, Dover, DE 19904
+The Refresh Shares vest over four (4) years from the Date of Transfer, with twenty-five percent (25%) vesting on the one (1) year anniversary of the Date of Transfer, and the remainder vesting in equal monthly installments over the following thirty-six (36) months.
+
+---
+
+## ARTICLE 5. FAIR MARKET VALUE AT TIME OF TRANSFER (DETERMINED WITHOUT REGARD TO RESTRICTIONS OTHER THAN RESTRICTIONS THAT BY THEIR TERMS WILL NEVER LAPSE)
+
+| Field | Value |
+|---|---|
+| Fair Market Value Per Share | $0.00226 |
+| Aggregate Fair Market Value | $416.49 |
+
+---
+
+## ARTICLE 6. AMOUNT PAID FOR THE PROPERTY
+
+| Field | Value |
+|---|---|
+| Purchase Price Per Share | $0.00226 |
+| Aggregate Purchase Price | $416.49 |
+
+---
+
+## ARTICLE 7. AMOUNT TO BE INCLUDED IN GROSS INCOME
+
+The amount to be included in gross income as a result of this election is **$0.00**, being the excess (if any) of the aggregate fair market value of the Refresh Shares ($416.49) over the aggregate amount paid therefor ($416.49).
+
+---
+
+## ARTICLE 8. COPY FURNISHED TO ISSUER
+
+A copy of this election has been furnished to the person for whom the services were performed, namely **Pheeew, Inc.** (Issuer EIN: 41-5111005; Principal Office: 1111b South Governors Ave STE 98188, Dover, DE 19904), in accordance with Treasury Regulation § 1.83-2(d).
 
 ---
 
 \
 \
+
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**Jason Ko**
+**Jason Ko**, *Taxpayer*
 
 Date: \_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
-## Mailing Instructions
+## MAILING INSTRUCTIONS (NOT PART OF THE FILING)
 
-Same as D09:
-- USPS Certified Mail with Return Receipt
-- Mail to IRS Service Center (Fresno, CA 93888-0002 if California resident; verify on irs.gov)
-- Mail postmark deadline: 30 days from grant date
+Mail via USPS Certified Mail with Return Receipt to the IRS Service Center for the state of the Taxpayer's federal individual income tax return. For California residents: **Department of the Treasury, Internal Revenue Service Center, Fresno, CA 93888-0002**.
 
-## Save proof of filing
+**Postmark deadline: thirty (30) days from the Date of Transfer.** No extensions.
 
-Save to: `06_83b_Elections/_Round-2/`
-- `83b_Jason-Ko_Refresh_signed.pdf`
-- `_Proof_of_Filing/Jason-Refresh_USPS_Certified_Receipt.pdf`
-- `_Proof_of_Filing/Jason-Refresh_USPS_Return_Receipt.pdf`
+After mailing, save proof of filing to `06_83b_Elections/_Round-2/_Proof_of_Filing/Jason-Ko-Refresh_USPS_Certified_Receipt.pdf` and `..._USPS_Return_Receipt.pdf`.
 
-## Furnish copy to Pheeew
-
-Email a copy of the signed election to Pheeew within 5 business days of mailing.
+Furnish a copy of the executed election to Pheeew, Inc. within five (5) business days of mailing.

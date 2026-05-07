@@ -1,44 +1,56 @@
-From: Alex Kim <alex@pheeew.com>
-To: Jason Ko <jason@pheeew.com>, Dawon Kim <dawon@pheeew.com>
-Subject: Pheeew · 4th Founder Decision — Justin Kim · Cap Table v2
+# EMAIL 1 — INTERNAL ALIGNMENT
+
+**From:** Seungjoon Kim ("Alex") <hello@pheeew.com>
+**To:** Jason Ko <[Jason's email]>; Dawon Kim <[Dawon's email]>
+**Subject:** Pheeew, Inc. — 4-Founder Restructure — Cap Table v2
+
+---
 
 Jason, Dawon —
 
-Confirming our verbal alignment on the 4-founder restructure. Sending this for the record before I send the offer to Justin tomorrow.
+Confirming our verbal alignment on the four-Founder restructure. Sending this for the record before I send the formal offer to my brother Junhyuk Kim ("Justin") tomorrow.
 
-PROPOSAL — Justin Kim joins as 4th co-founder
+**Proposal — Junhyuk Kim ("Justin") joins as fourth Founder of Pheeew, Inc.**
 
-EQUITY (whole numbers, all >20%, hierarchy by founding-order + capital):
-- Alex     24%  (refresh grant +141,428 shares)
-- Jason    23%  (refresh grant +184,286 shares)
-- Justin   22%  (new grant 3,017,143 shares — Justin's first stock issuance)
-- Dawon    21%  (no change · 2,880,000 shares — DILUTION ONLY, no new shares issued to her)
-- Pool     10%  (top up from 1M to ~1.37M)
-- TOTAL    13,714,286 shares fully diluted
+**1. Equity (whole-number splits, all >20%, hierarchy by founding-order and capital):**
 
-CAPITAL — Justin contributes $30,000 to Pheeew Inc:
-- ~$6,820 stock purchase price (3,017,143 × $0.00226/share, same FMV as original founders)
-- ~$23,180 Additional Paid-in Capital (APIC)
-- Total founder capital: $50K · NO SAFE round · full bootstrap
+| Founder | Issued % | Method |
+|---|---|---|
+| Seungjoon Kim ("Alex") | 24% | Refresh grant: +141,428 shares |
+| Jason Ko | 23% | Refresh grant: +184,286 shares |
+| Junhyuk Kim ("Justin") | 22% | New grant: 3,017,143 shares |
+| Dawon Kim | 21% | No new shares; dilution only (existing 2,880,000) |
+| Equity Incentive Pool | 10% | Top-up to 1,371,429 (reserved, unallocated) |
+| **Total fully diluted** | **100%** | **13,714,286 shares** |
 
-ROLE — Chief Growth Officer (CGO) · 4-year vest · 1-year cliff
-- Front-of-house: partnerships, influencer/creator sourcing, retail buyer outreach, investor sourcing, marketing campaigns, biz dev
-- Co-ops with Jason on shipping/logistics/finance for growth-related expense budgets
+**2. Capital — Junhyuk contributes $30,000.00 to Pheeew, Inc.:**
 
-DAWON SPECIFIC — 83(b) IMPACT
-Your existing 83(b) is UNCHANGED. Your share count (2,880,000), vesting schedule, and FMV at original grant ($0.00226) are not modified. The restructure dilutes your percentage from 28.8% to 21% via the math of new shares being issued — not by modifying your grant. CAA-filed ITIN paperwork stays untouched. No refile required.
+- $6,818.74 stock purchase price (3,017,143 shares × $0.00226 per share — same FMV used in our existing 83(b) elections);
+- $23,181.26 voluntary Additional Paid-in Capital (no additional shares issued for this portion);
+- Total founder capital contributed to date: $50,736.12.
+- No SAFE round; full bootstrap.
 
-(Alex and Jason DO each need to file new 83(b)s for their refresh increments — small share counts, low tax impact at ~$320 / ~$416 income recognized respectively.)
+**3. Role — Chief Growth Officer (CGO).** Four-year vest, one-year cliff. Front-of-house: partnerships, creator/influencer sourcing, retail buyer outreach, investor sourcing, marketing, and business development. Co-ordinates with Jason on operations for growth-related expense budgets.
 
-ROLES UPDATED FOR ALL 4 (per the R&R framework live at pheeew-live/team/):
-- Alex   — CEO · safety net (proactive across all domains)
-- Jason  — COO · back of house (ops/finance/legal/supply chain/tech)
-- Justin — CGO · front of house (partnerships/marketing/biz dev)
-- Dawon  — CBO · brand owner (PROMOTED from CDO)
+**4. Dawon — 83(b) impact (none).** Your existing 83(b) election is unchanged. Your share count (2,880,000), vesting schedule, and FMV at original grant ($0.00226) are not modified. The restructure dilutes your fully-diluted percentage from 28.8% to 21% via the math of new shares being issued — not by modifying your grant. Your CAA-filed ITIN paperwork stays untouched. No re-filing required.
 
-DAWON CBO PROMOTION
-You're now Chief Brand Officer (was CDO). Reflects that you own the full brand — voice + design + content + customer experience — not just visual design.
+(I and Jason each need to file new 83(b) elections for our refresh increments — small share counts, low tax impact: ~$320 and ~$417 of FMV recognized respectively, which equals the price paid, so $0 income inclusion.)
 
-If anything above doesn't match what we discussed, reply before EOD today. If aligned, I'll send Justin the formal offer tomorrow morning and copy you both.
+**5. Roles updated for all four (per the R&R Framework):**
 
-— Alex
+| Founder | Title | Scope |
+|---|---|---|
+| Seungjoon Kim | CEO + Secretary | Strategy, vision, fundraising, governance; founder safety net |
+| Jason Ko | COO | Operations, finance, legal, supply chain, tech stack |
+| Junhyuk Kim | CGO | Partnerships, creator outreach, retail, investor sourcing, marketing |
+| Dawon Kim | CBO | Brand identity, voice, design system, content, customer experience |
+
+**6. Dawon — title change to Chief Brand Officer (was CDO).** Reflects that you own the full brand — voice, design, content, customer experience — not visual design alone.
+
+If anything above does not match what we discussed, reply before EOD today. If aligned, I will send Junhyuk the formal offer tomorrow morning and copy you both.
+
+— Seungjoon ("Alex")
+
+Pheeew, Inc.
+1111b South Governors Ave STE 98188, Dover, DE 19904
+EIN 41-5111005
