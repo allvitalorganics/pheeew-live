@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Founder Equity & Cap Tables — The Full Picture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Caveat+Brush&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ed; --ink:#1c1a18; --soft:#4a4439; --mute:#8a7e6c;
+  --line:#d8d2c8; --cobalt:#2952b8; --brick:#8b3e1d; --peach:#e8b88d;
+  --peach-soft:#fbeed8; --green:#4a8e5a; --gold:#9a7a3a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{min-height:100vh}
+.wrap{max-width:880px;margin:0 auto;padding:0 36px}
+
+/* GATE */
+.app-gate{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:100}
+.app-gate-box{background:white;border:1px solid var(--line);border-radius:16px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 12px 40px rgba(28,26,24,.06)}
+.editorial-i{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;font-weight:700;color:var(--ink);text-align:center;letter-spacing:-.02em}
+.brushy{font-family:'Caveat Brush',cursive;font-size:18px;color:var(--brick);text-align:center;display:block;margin:6px 0 24px}
+.app-gate input{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:.04em;background:var(--cream);color:var(--ink)}
+.app-gate input:focus{outline:none;border-color:var(--cobalt)}
+.app-gate button{width:100%;margin-top:12px;padding:14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer}
+.app-gate button:hover{background:var(--cobalt)}
+.gate-error{font-size:12px;color:var(--brick);margin-top:10px;text-align:center;display:none}
+
+/* HEADER */
+.site-header{position:sticky;top:0;background:rgba(250,246,237,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);z-index:50}
+.site-header-inner{max-width:880px;margin:0 auto;padding:14px 36px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.brand .lettermark{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink);letter-spacing:-.01em}
+.brand .pad{font-family:'Caveat Brush',cursive;font-size:13px;color:var(--brick);white-space:nowrap}
+.signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px;flex-shrink:0}
+.signout:hover{color:var(--ink);border-color:var(--ink)}
+
+.confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
+.confidential-banner-inner{max-width:880px;margin:0 auto;padding:0 36px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
+
+/* HERO */
+.hero{padding:56px 0 32px}
+.hero .eyebrow{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);font-weight:700;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:54px;letter-spacing:-.02em;line-height:1.02;color:var(--ink);margin-bottom:16px}
+.hero h1 .accent{font-style:italic;color:var(--cobalt)}
+.hero .lede{font-size:17px;color:var(--soft);max-width:660px;line-height:1.5}
+
+/* DISCLAIMER */
+.disclaimer{margin:32px 0 48px;padding:20px 24px;background:white;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 14px 14px 0}
+.disclaimer .label{font-family:'Special Elite',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+.disclaimer p{font-size:14px;color:var(--soft);line-height:1.55}
+.disclaimer p strong{color:var(--ink);font-weight:600}
+
+/* TOC */
+.toc{margin-bottom:64px;padding:24px 28px;background:white;border:1px solid var(--line);border-radius:14px}
+.toc-title{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);font-weight:700;margin-bottom:14px}
+.toc ol{list-style:none;counter-reset:toc;padding:0}
+.toc ol li{counter-increment:toc;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--ink)}
+.toc ol li:last-child{border-bottom:none}
+.toc ol li::before{content:counter(toc, decimal-leading-zero) ' · ';font-family:'Special Elite',monospace;font-size:11px;color:var(--mute);letter-spacing:.06em}
+.toc ol li a{color:var(--ink);text-decoration:none;font-weight:500}
+.toc ol li a:hover{color:var(--cobalt);text-decoration:underline}
+
+/* SECTIONS */
+section.chapter{margin-bottom:72px;scroll-margin-top:80px}
+.chapter-head{margin-bottom:28px;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.chapter-head .eyebrow{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin-bottom:8px}
+.chapter-head h2{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:36px;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.chapter-head .sub{margin-top:8px;font-size:15px;color:var(--soft);font-style:italic}
+
+.chapter h3{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;letter-spacing:-.005em;color:var(--ink);margin:36px 0 14px}
+.chapter h4{font-family:'Inter',sans-serif;font-weight:700;font-size:14px;color:var(--brick);margin:24px 0 10px;letter-spacing:.04em;text-transform:uppercase}
+.chapter p{margin-bottom:14px;color:var(--ink);line-height:1.7}
+.chapter p strong{color:var(--ink);font-weight:700}
+.chapter ul,.chapter ol{margin:0 0 18px 22px;line-height:1.7}
+.chapter ul li,.chapter ol li{margin-bottom:6px}
+.chapter ul li strong,.chapter ol li strong{font-weight:700;color:var(--ink)}
+
+/* CALLOUTS */
+.callout{padding:18px 22px;background:var(--peach-soft);border-left:4px solid var(--peach);border-radius:0 12px 12px 0;margin:22px 0;font-size:14.5px;color:var(--ink);line-height:1.6}
+.callout strong{color:var(--brick);font-weight:700}
+.callout .label{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);font-weight:700;margin-bottom:6px;display:block}
+.callout-blue{background:#eaf0ff;border-left-color:var(--cobalt)}
+.callout-blue strong{color:var(--cobalt)}
+.callout-blue .label{color:var(--cobalt)}
+.callout-green{background:#eaf6ec;border-left-color:var(--green)}
+.callout-green strong{color:var(--green)}
+.callout-green .label{color:var(--green)}
+.callout-warn{background:#fdf2f2;border-left-color:var(--brick)}
+.callout-warn strong{color:var(--brick)}
+.callout-warn .label{color:var(--brick)}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:18px 0 24px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:white;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+table th{text-align:left;padding:10px 14px;background:var(--ink);color:var(--cream);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+table th.num{text-align:right}
+table td{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--ink);vertical-align:top}
+table td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Special Elite',monospace;font-size:12.5px}
+table tr:last-child td{border-bottom:none}
+table tr.total td{font-weight:700;background:var(--peach-soft);border-top:2px solid var(--ink)}
+table tr.highlight td{background:#eaf0ff}
+
+/* CASE STUDY CARD */
+.case{background:white;border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+.case-name{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:18px;color:var(--ink);margin-bottom:4px}
+.case-tag{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin-bottom:8px}
+.case p{font-size:13.5px;line-height:1.55;margin-bottom:8px;color:var(--soft)}
+.case p strong{color:var(--ink)}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+@media(max-width:680px){.case-grid{grid-template-columns:1fr}}
+
+/* COMPARISON */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media(max-width:680px){.compare{grid-template-columns:1fr}}
+.compare .col{padding:20px 22px;border:1px solid var(--line);border-radius:12px;background:white}
+.compare .col h4{margin-top:0;color:var(--ink);font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:18px;text-transform:none;letter-spacing:0}
+.compare .col-a{border-left:4px solid var(--cobalt)}
+.compare .col-b{border-left:4px solid var(--gold)}
+
+/* PULL QUOTE */
+.pull-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--ink);padding:24px 28px;border-left:3px solid var(--brick);background:#fdf2f2;margin:28px 0;border-radius:0 14px 14px 0}
+.pull-quote .author{display:block;margin-top:10px;font-style:normal;font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700}
+
+/* FOOTER */
+.site-footer{padding:48px 0 64px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);text-align:center;font-weight:600;border-top:1px solid var(--line);margin-top:32px}
+.site-footer .accent{color:var(--brick)}
+
+/* RESPONSIVE */
+@media(max-width:680px){
+  .wrap{padding:0 22px}
+  .hero h1{font-size:38px}
+  .chapter-head h2{font-size:28px}
+  .chapter h3{font-size:19px}
+  .pull-quote{font-size:18px;padding:20px 22px}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="appGate" class="app-gate" style="display:none">
+<div class="app-gate-box">
+<div class="editorial-i">Pheeew</div>
+<span class="brushy">founder equity guide</span>
+<input id="gateInput" type="password" placeholder="passcode" autocomplete="off">
+<button id="gateSubmit">enter</button>
+<div class="gate-error" id="gateError"></div>
+</div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none">
+
+<header class="site-header">
+<div class="site-header-inner">
+<div class="brand">
+<span class="lettermark">Pheeew</span>
+<span class="pad">founder equity guide</span>
+</div>
+<a href="#" class="signout" id="signOut">sign out</a>
+</div>
+</header>
+
+<div class="confidential-banner"><div class="confidential-banner-inner">Confidential — internal reference document — do not distribute</div></div>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+<div class="eyebrow">Information Guide · For Context Only</div>
+<h1>Founder Equity & <span class="accent">Cap Tables.</span><br>The full picture.</h1>
+<p class="lede">A neutral reference on how cap tables work, how dilution moves through funding rounds, the two competing schools of founder equity philosophy, and the governance instruments that protect founder control. Generic examples throughout. Not Pheeew-specific advice.</p>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+<div class="label">⚠ How to read this guide</div>
+<p>This document explains the <strong>landscape</strong> of founder equity decisions — the math, the philosophies, the trade-offs, the precedents. It is intentionally <strong>not</strong> prescriptive about what Pheeew should do. The Pheeew structure decision involves specific locks (existing RSPAs, ITIN constraints, locked cash contributions) that this guide does not address.</p>
+<p>Read this to <strong>understand the full angle</strong>. Then bring that understanding back to the specific Pheeew conversation, where the actual decision lives.</p>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+<div class="toc-title">Contents</div>
+<ol>
+<li><a href="#ch1">How cap tables actually work</a></li>
+<li><a href="#ch2">How dilution moves through rounds</a></li>
+<li><a href="#ch3">The two schools — concentrated vs equal</a></li>
+<li><a href="#ch4">Voting mechanisms (the often-missing layer)</a></li>
+<li><a href="#ch5">A walk-through: 4 founders, 3 rounds, two structures</a></li>
+<li><a href="#ch6">Real-world case studies</a></li>
+<li><a href="#ch7">Investor protective provisions</a></li>
+<li><a href="#ch8">Common founder mistakes</a></li>
+<li><a href="#ch9">A decision framework</a></li>
+</ol>
+</nav>
+
+<!-- ─── CHAPTER 1 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch1">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 1</div>
+<h2>How cap tables actually work.</h2>
+<p class="sub">Authorized · issued · outstanding · fully diluted. The four numbers everyone confuses.</p>
+</div>
+
+<p>A capitalization table ("cap table") is the official record of who owns what % of a company. The complexity comes from four different "share counts," each measuring something different:</p>
+
+<h3>The four share counts</h3>
+
+<ul>
+<li><strong>Authorized shares</strong> — the maximum number of shares the company is legally allowed to issue, set by the Certificate of Incorporation. Increasing this requires a Certificate of Amendment filing with the state.</li>
+<li><strong>Issued shares</strong> — shares that have been actually granted to someone (founders, employees, investors). Always less than or equal to authorized.</li>
+<li><strong>Outstanding shares</strong> — issued shares currently held by a stockholder (i.e., not repurchased and held in treasury). Often equal to issued for early-stage startups.</li>
+<li><strong>Fully diluted shares</strong> — outstanding shares + shares reserved for future issuance (the equity incentive pool, options promised but not granted, convertible securities). This is the number used to calculate "real" ownership %.</li>
+</ul>
+
+<div class="callout callout-blue">
+<span class="label">Why fully diluted matters</span>
+<strong>Investors and acquirers always look at fully diluted ownership</strong>, not "outstanding." If you tell a VC you own 30% but you've reserved 10% for an unfilled option pool, your real fully-diluted % is closer to 27%. Sophisticated readers will compute fully diluted automatically.
+</div>
+
+<h3>Common Stock vs Preferred Stock</h3>
+
+<p>At the founder stage, every share is <strong>Common Stock</strong> — typically with par value $0.0001 per share (a tiny, formal value). When VCs invest at Series Seed or later, they usually receive <strong>Preferred Stock</strong>, which has additional rights:</p>
+
+<ul>
+<li>Liquidation preference (gets paid first in a sale or wind-down)</li>
+<li>Anti-dilution protection (their % protected if a future round is at a lower valuation)</li>
+<li>Veto rights on major decisions</li>
+<li>Information rights and board representation</li>
+</ul>
+
+<p>Founders staying on Common — and investors holding Preferred — is the standard structure throughout the early VC-funded life of a startup.</p>
+
+<h3>The Equity Incentive Pool</h3>
+
+<p>Most cap tables reserve <strong>10–20%</strong> of fully diluted shares for future employees, advisors, and consultants. This is the "option pool." It's authorized but unissued — held in reserve until grants are made.</p>
+
+<p>VCs often require the option pool to be <strong>topped up before the round closes</strong> (at the founders' expense, dilution-wise). This is called the "option pool shuffle" and is a common point of negotiation at Series A.</p>
+
+<h3>A simple example cap table</h3>
+
+<div class="tbl-wrap">
+<table>
+<tr><th>Holder</th><th class="num">Shares</th><th class="num">Fully Diluted %</th></tr>
+<tr><td>Founder A</td><td class="num">3,000,000</td><td class="num">30%</td></tr>
+<tr><td>Founder B</td><td class="num">3,000,000</td><td class="num">30%</td></tr>
+<tr><td>Founder C</td><td class="num">3,000,000</td><td class="num">30%</td></tr>
+<tr><td>Equity Incentive Pool (reserved)</td><td class="num">1,000,000</td><td class="num">10%</td></tr>
+<tr class="total"><td>Total Fully Diluted</td><td class="num">10,000,000</td><td class="num">100%</td></tr>
+</table>
+</div>
+
+<p>This is a 3-founder equal-split company with a 10% pool. We'll use this as the baseline as we walk through dilution next.</p>
+</section>
+
+<!-- ─── CHAPTER 2 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch2">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 2</div>
+<h2>How dilution moves through rounds.</h2>
+<p class="sub">Pre-money + new money = post-money. Everyone dilutes proportionally. The math is unforgiving.</p>
+</div>
+
+<h3>The fundamental equation</h3>
+
+<p>When new investors put money in, the company issues new shares. New shares dilute existing shareholders' percentages, even though their share counts don't change.</p>
+
+<div class="callout callout-blue">
+<strong>Core formula:</strong> Post-money valuation = Pre-money valuation + new investment<br>
+New investor's % = (new investment) ÷ (post-money valuation)<br>
+Existing holder's new % = (existing holder's old %) × (1 − new investor's %)
+</div>
+
+<h3>Worked example — first round</h3>
+
+<p>Take the 3-founder cap table above. The company raises a $1M Seed round at $5M post-money.</p>
+
+<ul>
+<li>Pre-money = $4M (because $5M post − $1M new = $4M pre)</li>
+<li>New investor buys 20% of post-money ($1M ÷ $5M = 20%)</li>
+<li>Everyone else dilutes by a factor of 0.80 (= 1 − 20%)</li>
+</ul>
+
+<div class="tbl-wrap">
+<table>
+<tr><th>Holder</th><th class="num">Pre-Seed %</th><th class="num">Post-Seed %</th></tr>
+<tr><td>Founder A</td><td class="num">30%</td><td class="num">24.0%</td></tr>
+<tr><td>Founder B</td><td class="num">30%</td><td class="num">24.0%</td></tr>
+<tr><td>Founder C</td><td class="num">30%</td><td class="num">24.0%</td></tr>
+<tr><td>Pool</td><td class="num">10%</td><td class="num">8.0%</td></tr>
+<tr><td>Seed Investor</td><td class="num">—</td><td class="num">20.0%</td></tr>
+<tr class="total"><td>Total</td><td class="num">100%</td><td class="num">100%</td></tr>
+</table>
+</div>
+
+<h3>The compounding effect</h3>
+
+<p>Now run a Series A at $20M post-money, raising $5M.</p>
+
+<ul>
+<li>Series A investor's % = 5/20 = 25%</li>
+<li>Everyone else dilutes by 0.75</li>
+</ul>
+
+<div class="tbl-wrap">
+<table>
+<tr><th>Holder</th><th class="num">Post-Seed</th><th class="num">Post-Series A</th></tr>
+<tr><td>Founder A</td><td class="num">24.0%</td><td class="num">18.0%</td></tr>
+<tr><td>Founder B</td><td class="num">24.0%</td><td class="num">18.0%</td></tr>
+<tr><td>Founder C</td><td class="num">24.0%</td><td class="num">18.0%</td></tr>
+<tr><td>Pool</td><td class="num">8.0%</td><td class="num">6.0%</td></tr>
+<tr><td>Seed Investor</td><td class="num">20.0%</td><td class="num">15.0%</td></tr>
+<tr><td>Series A Investor</td><td class="num">—</td><td class="num">25.0%</td></tr>
+<tr class="total"><td>Total</td><td class="num">100%</td><td class="num">100%</td></tr>
+</table>
+</div>
+
+<p>Each founder went from 30% → 18% across two rounds — a 40% relative drop. By Series B/C, founders typically end up at <strong>5–15% each</strong>. This is normal. This is also why founders care a lot about the starting %.</p>
+
+<div class="callout callout-warn">
+<span class="label">The proportional rule</span>
+Dilution is <strong>always proportional</strong>. There is no standard mechanism by which "only the majority founder dilutes." When new shares are issued, they dilute every existing holder by the same percentage factor. What feels different — that a 75% founder bears more <strong>absolute</strong> dilution (60pp drop) than a 5% founder (4pp drop) — is just because the bigger holder has more to lose. Both diluted by the same proportional factor.
+</div>
+
+<h3>What founders actually optimize for</h3>
+
+<p>Three things matter through dilution rounds:</p>
+
+<ol>
+<li><strong>Starting %</strong> — higher start = higher end, all else equal.</li>
+<li><strong>Number of rounds</strong> — fewer rounds = less dilution. Some founders aim for "go big or go home" structures with one or two large rounds rather than many small ones.</li>
+<li><strong>Voting structures</strong> — if equity is dilutive, voting power can be preserved through dual-class stock, voting agreements, board control. This is where the next chapter lives.</li>
+</ol>
+</section>
+
+<!-- ─── CHAPTER 3 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch3">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 3</div>
+<h2>The two schools.</h2>
+<p class="sub">Concentrated founder vs equal split. Both work. Both have famous examples. The trade-offs are real.</p>
+</div>
+
+<p>There is a long-running, never-resolved debate among VCs and founders about whether companies should be founded with one dominant founder or with near-equal co-founder splits. Both structures have produced enormous successes and enormous failures. The right answer depends on the team and the business.</p>
+
+<div class="compare">
+<div class="col col-a">
+<h4>School 1 — Concentrated Founder (60–90%)</h4>
+<p><strong>Thesis:</strong> One founder is clearly the lead. They take 60–90% at incorporation; co-founders take small (5–10%) starting positions, knowing their stakes will dilute toward 1–5% by Series B.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Founder retains majority through multiple dilution rounds</li>
+<li>Decision-making is fast and unambiguous</li>
+<li>VCs know exactly who they're betting on</li>
+<li>Clean alignment between equity and operational authority</li>
+<li>Founder is heavily financially aligned with outcome</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Co-founders feel more like early employees than partners</li>
+<li>Less collaborative governance</li>
+<li>Risk of co-founder departure if they don't feel ownership</li>
+<li>Doesn't reflect equal contribution if multiple founders are equally important</li>
+</ul>
+<p><strong>VC advocates:</strong> Many top early-stage VCs (a16z, Founders Fund) lean toward this. Paul Graham of YC has written that "<em>uneven equity splits are usually fine if they reflect uneven contributions and uneven risk.</em>"</p>
+</div>
+
+<div class="col col-b">
+<h4>School 2 — Equal Split (~25–33% each)</h4>
+<p><strong>Thesis:</strong> Co-founders are equal partners with complementary skills. Each takes a roughly equal share at incorporation, reflecting equal commitment and risk.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Reflects genuine partnership when multiple founders are equally critical</li>
+<li>Reduces ego friction at founding stage</li>
+<li>Stronger collective ownership and decision-making culture</li>
+<li>Easier to attract and retain co-founders with strong individual talent</li>
+<li>Aligns with how the work is actually distributed in many startups</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>By Series A or B, no founder has voting majority</li>
+<li>Governance can become complex when founders disagree</li>
+<li>VCs at later rounds may push for governance restructure</li>
+<li>Without dual-class voting, founder team can lose control of the company they built</li>
+</ul>
+<p><strong>VC advocates:</strong> Many partner-led firms (Benchmark, Sequoia in some cases) accept equal splits when team chemistry is strong. <em>YC's standard advice has shifted: "equal splits are fine if you build governance to match."</em></p>
+</div>
+</div>
+
+<h3>The key insight: both schools converge through governance</h3>
+
+<p>Most successful "equal split" companies eventually adopt <strong>dual-class voting stock</strong>, a voting trust, or board-control mechanisms to preserve founder authority through dilution. Most "concentrated founder" companies eventually issue option pools and grants to dilute the founder toward more balanced economic ownership. Both paths converge in the middle — the difference is which lever (cap table or governance) does the work.</p>
+
+<div class="pull-quote">
+"The way you split equity at founding is much less important than what you do with governance afterward. Both equal and concentrated structures can succeed; both can fail. What kills companies is misalignment between economic ownership and decision-making authority."
+<span class="author">— Common founder-stage VC framing</span>
+</div>
+</section>
+
+<!-- ─── CHAPTER 4 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch4">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 4</div>
+<h2>Voting mechanisms.</h2>
+<p class="sub">The often-missing layer. Equity ≠ voting power, and the difference is where founder control actually lives.</p>
+</div>
+
+<p>Equity ownership and voting power look like the same thing in a normal cap table — each share is one vote. But corporate law allows them to be separated through several well-tested instruments. Understanding these is critical because <strong>voting structure is what actually determines who controls the company through dilution</strong>.</p>
+
+<h3>Layer 1 — Sole Director / Board Composition</h3>
+
+<p>Operational control flows through the Board of Directors, not through stockholder votes. The Board approves:</p>
+
+<ul>
+<li>Officer hiring and firing (CEO, CFO, etc.)</li>
+<li>Annual budgets and strategic plans</li>
+<li>Material contracts and partnerships</li>
+<li>Stock option grants</li>
+<li>Day-to-day operational decisions</li>
+</ul>
+
+<p>If a founder is the <strong>Sole Director</strong> (only board member), they have complete operational authority regardless of cap table. As VCs invest, they typically require board seats — a Series A might bring a 3-person board (1 founder + 1 investor + 1 independent), Series B a 5-person, etc. <strong>Maintaining founder control of the board through rounds is one of the most important governance fights.</strong></p>
+
+<p>Stockholder votes (which require equity-based voting) are reserved for major corporate actions — sale of the company, charter amendments, IPO, dissolution.</p>
+
+<h3>Layer 2 — Voting Agreement / Founder Proxy</h3>
+
+<p>A contract among founders where some grant voting rights on their shares to one designated founder. The designated founder votes everyone's shares as a unit on stockholder matters.</p>
+
+<p><strong>Pros:</strong> Easy to draft; cheap; standard.<br><strong>Cons:</strong> Generally revocable under Delaware law (only "irrevocable proxies coupled with an interest" — like attached to a security pledge — are truly binding). VCs at Series A often require termination as a closing condition.</p>
+
+<p><strong>Typical drafting:</strong> "Until the next priced round, OR for 5 years, whichever later, [Founder A] shall have an irrevocable proxy to vote the shares of [Founders B, C, D] on all stockholder matters."</p>
+
+<h3>Layer 3 — Voting Trust</h3>
+
+<p>Founders transfer their shares to a Voting Trust. One person (typically the lead founder) serves as trustee. The trustee votes the shares as a unit. Beneficial ownership stays with the original founders, but voting authority transfers.</p>
+
+<p><strong>Pros:</strong> Legally robust under Delaware law; survives Series A by design; clearer separation of voting from beneficial ownership.<br><strong>Cons:</strong> More complex paperwork; requires actual trust instrument; founders may resist transferring shares to a trust.</p>
+
+<h3>Layer 4 — Class B Super-Voting Stock (Dual-Class)</h3>
+
+<p>The strongest mechanism. The company authorizes <strong>two classes of common stock</strong>:</p>
+
+<ul>
+<li><strong>Class A Common</strong> — 1 vote per share. Issued to investors, employees, the public at IPO.</li>
+<li><strong>Class B Common</strong> — 10 votes per share (or sometimes 20+). Issued only to founders. Often converts to Class A on transfer or sunset event.</li>
+</ul>
+
+<p>A founder with 25% economic ownership in Class B can have <strong>~70% voting power</strong> through dilution rounds because each share counts for ten times the voting weight.</p>
+
+<div class="callout callout-green">
+<span class="label">Companies using dual-class stock</span>
+<strong>Google · Facebook (Meta) · Snap · Lyft · Stripe · Coinbase · Pinterest · Zoom · Robinhood · Asana · Roblox · Doordash · Airbnb</strong> — all use dual-class structures. Approximately 25% of US tech IPOs in recent years have been dual-class. The trend has grown, not shrunk, despite some institutional resistance.
+</div>
+
+<p><strong>Pros:</strong> Founder control survives every dilution round; gold standard for founder-led companies; institutional VCs increasingly accept it.<br><strong>Cons:</strong> Some VCs (and most public-market index funds) push back; cap table is more complex; governance reforms have targeted dual-class structures (with mixed results).<br><strong>Sunset:</strong> Common terms include 7–15 year sunset, conversion at IPO, or conversion if founder leaves the company.</p>
+
+<h3>Layer 5 — Drag-Along + Tag-Along + ROFR (the Co-Founder Agreement)</h3>
+
+<p>Even without voting concentration, founders can agree contractually to certain coordinated behaviors:</p>
+
+<ul>
+<li><strong>Drag-along</strong> — if 75%+ of founders approve a sale, all founders are required to sell on the same terms. Prevents one holdout from blocking a sale the majority wants.</li>
+<li><strong>Tag-along</strong> — if any founder sells, others can sell pro-rata on the same terms. Prevents one founder from cashing out alone.</li>
+<li><strong>ROFR (Right of First Refusal)</strong> — the company has first option to buy back shares if a founder wants to sell to a third party. Keeps the cap table closed.</li>
+<li><strong>Vesting + Repurchase Rights</strong> — unvested shares are subject to repurchase if the founder leaves. Protects against "leaver with 25% of the company who never finished vesting."</li>
+</ul>
+
+<p>These don't change <em>voting power</em>, but they change <em>what founders can do with their shares</em> — which is often what matters in practice.</p>
+</section>
+
+<!-- ─── CHAPTER 5 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch5">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 5</div>
+<h2>A walk-through.</h2>
+<p class="sub">Four founders. Three rounds. Two structures. Watch what actually happens to voting power.</p>
+</div>
+
+<p>Take a hypothetical company with four founders. We'll model it under both schools — equal split and concentrated — and track founder control through Seed, Series A, and Series B rounds.</p>
+
+<h3>Structure A — Equal split (4 × 22.5% + 10% pool)</h3>
+
+<div class="tbl-wrap">
+<table>
+<tr><th>Holder</th><th class="num">Founding</th><th class="num">After Seed (20%)</th><th class="num">After Series A (25%)</th><th class="num">After Series B (25%)</th></tr>
+<tr><td>Founder A (lead)</td><td class="num">22.5%</td><td class="num">18.0%</td><td class="num">13.5%</td><td class="num">10.1%</td></tr>
+<tr><td>Founder B</td><td class="num">22.5%</td><td class="num">18.0%</td><td class="num">13.5%</td><td class="num">10.1%</td></tr>
+<tr><td>Founder C</td><td class="num">22.5%</td><td class="num">18.0%</td><td class="num">13.5%</td><td class="num">10.1%</td></tr>
+<tr><td>Founder D</td><td class="num">22.5%</td><td class="num">18.0%</td><td class="num">13.5%</td><td class="num">10.1%</td></tr>
+<tr><td>Pool</td><td class="num">10.0%</td><td class="num">8.0%</td><td class="num">6.0%</td><td class="num">4.5%</td></tr>
+<tr><td>Seed Investor</td><td class="num">—</td><td class="num">20.0%</td><td class="num">15.0%</td><td class="num">11.3%</td></tr>
+<tr><td>Series A Investor</td><td class="num">—</td><td class="num">—</td><td class="num">25.0%</td><td class="num">18.8%</td></tr>
+<tr><td>Series B Investor</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">25.0%</td></tr>
+<tr class="total"><td>Total</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td></tr>
+</table>
+</div>
+
+<p><strong>What this means for Founder A's voting majority:</strong></p>
+
+<ul>
+<li>At founding: needs 1 of 3 co-founders to side with her → easy (each at 22.5%, A + 1 = 45%, plus rallying any other for 67%+)</li>
+<li>After Seed: needs 2 of 3 co-founders → A (18%) + B (18%) + C (18%) = 54%</li>
+<li>After Series A: needs <strong>all 3 co-founders unanimous</strong> → A + B + C + D = 54%</li>
+<li>After Series B: even all 4 founders together is only 40.4% — they need an investor on their side</li>
+</ul>
+
+<h3>Structure B — Concentrated (75% + 5%×3 + 10% pool)</h3>
+
+<div class="tbl-wrap">
+<table>
+<tr><th>Holder</th><th class="num">Founding</th><th class="num">After Seed (20%)</th><th class="num">After Series A (25%)</th><th class="num">After Series B (25%)</th></tr>
+<tr><td>Founder A (lead)</td><td class="num">75.0%</td><td class="num">60.0%</td><td class="num">45.0%</td><td class="num">33.8%</td></tr>
+<tr><td>Founder B</td><td class="num">5.0%</td><td class="num">4.0%</td><td class="num">3.0%</td><td class="num">2.3%</td></tr>
+<tr><td>Founder C</td><td class="num">5.0%</td><td class="num">4.0%</td><td class="num">3.0%</td><td class="num">2.3%</td></tr>
+<tr><td>Founder D</td><td class="num">5.0%</td><td class="num">4.0%</td><td class="num">3.0%</td><td class="num">2.3%</td></tr>
+<tr><td>Pool</td><td class="num">10.0%</td><td class="num">8.0%</td><td class="num">6.0%</td><td class="num">4.5%</td></tr>
+<tr><td>Seed Investor</td><td class="num">—</td><td class="num">20.0%</td><td class="num">15.0%</td><td class="num">11.3%</td></tr>
+<tr><td>Series A Investor</td><td class="num">—</td><td class="num">—</td><td class="num">25.0%</td><td class="num">18.8%</td></tr>
+<tr><td>Series B Investor</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">25.0%</td></tr>
+<tr class="total"><td>Total</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td><td class="num">100%</td></tr>
+</table>
+</div>
+
+<p><strong>What this means for Founder A's voting majority:</strong></p>
+
+<ul>
+<li>At founding: 75% — full majority, no rallying needed</li>
+<li>After Seed: 60% — still majority alone</li>
+<li>After Series A: 45% — needs 1 co-founder to combine to 48%, OR 1 small investor block</li>
+<li>After Series B: 33.8% — needs co-founder OR investor combinations</li>
+</ul>
+
+<h3>Structure C — Equal split + dual-class voting stock (Class B 10:1)</h3>
+
+<p>Same equal split as Structure A, but Founder A's shares are Class B with 10× voting power.</p>
+
+<div class="tbl-wrap">
+<table>
+<tr><th>Holder</th><th class="num">Economic %</th><th class="num">Voting %</th></tr>
+<tr><td>Founder A (Class B, 10:1)</td><td class="num">10.1%</td><td class="num">52.7%</td></tr>
+<tr><td>Founders B + C + D (Class A)</td><td class="num">30.3%</td><td class="num">15.8%</td></tr>
+<tr><td>Pool (Class A)</td><td class="num">4.5%</td><td class="num">2.3%</td></tr>
+<tr><td>All Investors (Class A)</td><td class="num">55.1%</td><td class="num">29.2%</td></tr>
+<tr class="total"><td>Total</td><td class="num">100%</td><td class="num">100%</td></tr>
+</table>
+</div>
+
+<p><em>Numbers shown are post-Series B. Class B voting power calculation: 10.1% economic × 10 votes = 101 voting units. Class A holders: 89.9% × 1 = 89.9 voting units. Total voting units = 191. Class B = 101/191 = 52.9% (rounds to 52.7% with full math).</em></p>
+
+<p><strong>Founder A retains majority voting through every round despite holding only 10% economic ownership.</strong> This is why Google, Facebook, Snap, Stripe and many others use dual-class.</p>
+
+<h3>What the comparison shows</h3>
+
+<ul>
+<li>In <strong>Structure A</strong> (equal split, no dual-class), Founder A loses voting majority at Series A and depends on co-founder coordination thereafter.</li>
+<li>In <strong>Structure B</strong> (concentrated), Founder A retains majority through Seed only. By Series B she also depends on coordination.</li>
+<li>In <strong>Structure C</strong> (equal economic + dual-class voting), Founder A retains <strong>permanent majority voting</strong> through every round — even with just 10% economic ownership.</li>
+</ul>
+
+<p>The lesson: concentrated equity at founding is one tool. Dual-class voting is a different and often stronger tool for the same problem. They aren't mutually exclusive — companies sometimes use both.</p>
+</section>
+
+<!-- ─── CHAPTER 6 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch6">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 6</div>
+<h2>Real-world case studies.</h2>
+<p class="sub">Companies that used each strategy and what happened.</p>
+</div>
+
+<div class="case-grid">
+
+<div class="case">
+<div class="case-tag">Concentrated · Successful</div>
+<div class="case-name">Facebook (Meta)</div>
+<p>Mark Zuckerberg started with concentrated equity (~65% in early years). At IPO held ~28% economic. Used <strong>dual-class</strong> voting (Class B 10:1) to retain majority voting power. Still controls Meta despite multiple secondary sales. <strong>Lesson:</strong> concentrated start + dual-class = full long-term control.</p>
+</div>
+
+<div class="case">
+<div class="case-tag">Equal Split · Successful</div>
+<div class="case-name">Google</div>
+<p>Larry Page and Sergey Brin started near-equal (50/50 effectively). At IPO held ~16% each. Used <strong>dual-class</strong> Class B voting from IPO onward (10:1) to retain combined majority voting. Together still control Alphabet. <strong>Lesson:</strong> equal split + dual-class = co-founder control.</p>
+</div>
+
+<div class="case">
+<div class="case-tag">Equal Split · Successful</div>
+<div class="case-name">Stripe</div>
+<p>Patrick and John Collison founded near-equal as brothers. Maintained tight co-founder control through multiple late rounds at $50B+ valuations. Used voting structures to keep board composition founder-favorable. <strong>Lesson:</strong> deeply aligned co-founders can run equal-split companies for decades without dual-class issues.</p>
+</div>
+
+<div class="case">
+<div class="case-tag">Equal Split · Successful</div>
+<div class="case-name">Snap</div>
+<p>Evan Spiegel and Bobby Murphy. At IPO created a notable structure: <strong>Class A common is non-voting</strong>; only Class B (founders) and Class C (super-voting Spiegel) vote. Investors who bought public shares cannot vote. Controversial but legally binding. <strong>Lesson:</strong> dual-class can be pushed even further into "founder-only voting" if founders insist.</p>
+</div>
+
+<div class="case">
+<div class="case-tag">Concentrated · Successful</div>
+<div class="case-name">WhatsApp</div>
+<p>Jan Koum (~45%) and Brian Acton (~20%) plus Sequoia. Concentrated founder. Sold to Facebook for $19B in 2014 — Koum personally got ~$6.8B. Co-founder Acton got ~$3B. <strong>Lesson:</strong> concentrated structure delivered massive payouts proportional to economic ownership.</p>
+</div>
+
+<div class="case">
+<div class="case-tag">Equal Split · Mixed</div>
+<div class="case-name">Apple</div>
+<p>Jobs and Wozniak each held ~45%. Wayne held 10% but sold for $800 in 1976. Without dual-class voting, Jobs was <strong>fired in 1985</strong> by his own board after his economic stake had diluted to ~11%. Returned in 1997 to lead the company. <strong>Lesson:</strong> equal split without governance protection can lead to founder ouster.</p>
+</div>
+
+<div class="case">
+<div class="case-tag">Concentrated · Mixed</div>
+<div class="case-name">Uber</div>
+<p>Travis Kalanick had concentrated voting via Class B (10:1) for years. In 2017, after governance crisis, the board <strong>removed his Class B sunset earlier than scheduled</strong> and forced his resignation. Kept his economic stake but lost voting control. <strong>Lesson:</strong> even dual-class voting structures can be unwound under board pressure.</p>
+</div>
+
+<div class="case">
+<div class="case-tag">Equal Split · Mixed</div>
+<div class="case-name">Twitter (early)</div>
+<p>Four co-founders at near-equal initial splits. Multiple early ousters and re-organizations. Jack Dorsey returned twice as CEO. Eventually sold to Elon Musk in 2022 for $44B. <strong>Lesson:</strong> equal-split without unified vision creates governance instability.</p>
+</div>
+
+</div>
+
+<div class="callout callout-blue">
+<span class="label">Pattern recognition</span>
+The companies that <strong>succeed long-term with founder control</strong> almost universally use <strong>dual-class voting stock</strong> regardless of starting equity split. The split at founding matters less than the voting structure built around it. The few founders who maintain control through rounds <em>without</em> dual-class are exceptional — usually because their co-founder team stays unanimously aligned for decades (Stripe, Atlassian, etc.).
+</div>
+</section>
+
+<!-- ─── CHAPTER 7 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch7">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 7</div>
+<h2>Investor protective provisions.</h2>
+<p class="sub">What VCs negotiate at Series A — and why it matters more than founder voting %.</p>
+</div>
+
+<p>Even with founder voting majority, <strong>institutional investors typically require protective provisions</strong> at Series A that constrain what founders can do. These are <em>separate from voting %</em> and apply by virtue of the Preferred Stock terms.</p>
+
+<h3>Standard Series A protective provisions</h3>
+
+<ul>
+<li><strong>Right to elect Board seat(s)</strong> — typically 1 seat at Series A, 2 at Series B, etc. Even with voting majority, founders can't unilaterally remove investor board seats.</li>
+<li><strong>Veto on major decisions</strong> — sale of company, IPO, charter amendments, taking on debt above a threshold, related-party transactions, increase in option pool. Founders need investor approval for these regardless of stockholder voting.</li>
+<li><strong>Anti-dilution protection</strong> — if a future round prices below the Series A price (a "down round"), Series A investors get more shares to maintain their value. Common types: weighted average (standard) and full ratchet (aggressive).</li>
+<li><strong>Liquidation preference</strong> — at sale or wind-down, Series A investors get their money back first (1× non-participating is standard) before founders see anything.</li>
+<li><strong>Information rights</strong> — quarterly financial statements, annual budget, audited financials.</li>
+<li><strong>Pre-emptive rights</strong> — investors can buy their pro-rata share in future rounds to maintain their %.</li>
+<li><strong>Drag-along</strong> — investors can force founders to participate in a sale they (and the board) approve.</li>
+</ul>
+
+<h3>What this means for "founder control"</h3>
+
+<p>A founder with 60% voting power post-Series A might still need investor approval to:</p>
+
+<ul>
+<li>Sell the company</li>
+<li>Take a follow-on round at lower valuation</li>
+<li>Issue a large founder bonus</li>
+<li>Hire a CFO above a comp threshold</li>
+<li>Sign a multi-year contract above a threshold</li>
+</ul>
+
+<p>This is why the "founder retains control" question is more nuanced than just voting %. Real founder control = voting majority + board control + minimal investor veto rights. Each layer requires its own negotiation.</p>
+
+<div class="callout callout-warn">
+<span class="label">The "majority voting" myth</span>
+A founder with 51% voting can be effectively constrained by Series A protective provisions to the point that <strong>they functionally don't have control</strong>. The protective provisions list is where most of the actual decision-making power lives at most VC-funded startups, not the cap table.
+</div>
+
+<h3>Negotiating away protective provisions</h3>
+
+<p>Founders with strong leverage at Series A (multiple term sheets, hot market, traction) can sometimes negotiate:</p>
+
+<ul>
+<li>Smaller protective provision list</li>
+<li>Higher veto thresholds (e.g., 2/3 of preferred holders, not majority)</li>
+<li>Sunset on protective provisions after later rounds</li>
+<li>Founder veto on certain matters in exchange</li>
+</ul>
+
+<p>This is why traction at Series A matters: it gives founders leverage to keep their authority intact through dilution.</p>
+</section>
+
+<!-- ─── CHAPTER 8 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch8">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 8</div>
+<h2>Common founder mistakes.</h2>
+<p class="sub">Patterns that have killed companies. Worth knowing whether you're going equal or concentrated.</p>
+</div>
+
+<h3>1. Equal split with no governance instrument</h3>
+
+<p>Four founders at 25% each, no Voting Agreement, no dual-class, no Sole Director arrangement. By Series B, founders are at 10% each, no one has voting majority, and disputes paralyze decision-making. This was the original Twitter pattern.</p>
+
+<h4>Fix:</h4>
+<p>Always pair equal-split structures with at least <strong>one</strong> governance lever — Voting Agreement, Voting Trust, Class B, or unified board control.</p>
+
+<h3>2. No founder vesting</h3>
+
+<p>Founder takes 25% at incorporation, leaves 6 months later, keeps the entire 25%. The company spends years recruiting around a "ghost founder" with a quarter of the cap table.</p>
+
+<h4>Fix:</h4>
+<p>4-year vesting with 1-year cliff is the standard. Unvested shares are subject to repurchase at the original purchase price if the founder leaves. Add good-leaver / bad-leaver distinctions to handle different departure scenarios.</p>
+
+<h3>3. Pool too small at Series A</h3>
+
+<p>Founders enter Series A with a 10% option pool that's mostly granted out. VCs require the pool to be topped up to 15% before the round closes — and the top-up is dilutive to founders, not investors. Founders effectively dilute themselves an extra 5pp.</p>
+
+<h4>Fix:</h4>
+<p>Manage pool reservations carefully. Don't burn pool early on cheap grants. Plan to top-up before Series A, ideally negotiating it as post-money pool.</p>
+
+<h3>4. Concentrated founder, no co-founder vesting</h3>
+
+<p>Founder A takes 80%; Founders B/C each take 5%. Two years in, A wants to remove B for performance. Even with vesting, A needs to be careful about how the cap table looks if B leaves with a small unvested stake — the optics for new investors matter.</p>
+
+<h4>Fix:</h4>
+<p>Even concentrated cap tables benefit from vesting on all founder shares. And the lead founder should expect to do equity refreshes for retained co-founders over time, especially before Series A.</p>
+
+<h3>5. Voting Agreement that expires too early</h3>
+
+<p>Founders sign a Voting Agreement that expires "at the next priced round." Series A closes. Voting Agreement terminates. Now founders can't coordinate stockholder votes against new investor interests.</p>
+
+<h4>Fix:</h4>
+<p>Draft Voting Agreement to expire at "Series B close OR 5 years, whichever later" so it survives at least one round. Or convert to dual-class at Series A as part of the round terms.</p>
+
+<h3>6. Founder takes too much equity, can't recruit co-founders later</h3>
+
+<p>Lead founder takes 90% at incorporation thinking they'll recruit co-founders later "with whatever's left." Two years in, they realize the 10% remaining isn't enough to attract serious co-founders, and the lead founder has to dilute their own stake — at higher company valuations — to bring in talent.</p>
+
+<h4>Fix:</h4>
+<p>Reserve enough equity at incorporation for co-founders and key early hires. The pool should typically be 10-20% even at Day 1.</p>
+
+<h3>7. No clarity between founders on roles → equity disputes</h3>
+
+<p>Founders agree on equity but not on roles or decision rights. Six months later, two founders are doing 80% of the work and the third is uninvolved — but everyone has equal equity and no one wants to be the one to bring it up.</p>
+
+<h4>Fix:</h4>
+<p>Co-Founder Agreement at incorporation should clarify roles, time commitment, decision rights, and what happens if a founder underperforms (vesting acceleration toward removal? equity buyback? performance milestones?).</p>
+</section>
+
+<!-- ─── CHAPTER 9 ─────────────────────────────────────────── -->
+<section class="chapter" id="ch9">
+<div class="chapter-head">
+<div class="eyebrow">Chapter 9</div>
+<h2>A decision framework.</h2>
+<p class="sub">Questions to ask before locking a structure. None of them have universal right answers.</p>
+</div>
+
+<h3>1. How important is unilateral founder decision-making?</h3>
+
+<ul>
+<li>If <strong>extreme:</strong> dual-class voting + concentrated equity + Sole Director</li>
+<li>If <strong>important but team-oriented:</strong> equal economic split + Voting Agreement + Sole Director</li>
+<li>If <strong>collaborative culture preferred:</strong> equal split, no voting concentration, board with clear charter</li>
+</ul>
+
+<h3>2. How aligned are the co-founders right now? In 5 years?</h3>
+
+<ul>
+<li>If <strong>deeply aligned (Collison brothers, Page/Brin):</strong> equal split works without voting concentration</li>
+<li>If <strong>complementary but with potential for divergence:</strong> equal split + Voting Agreement as safety</li>
+<li>If <strong>uncertain or recent partnership:</strong> concentrated structure with vesting protection</li>
+</ul>
+
+<h3>3. How much capital will the company raise over its lifetime?</h3>
+
+<ul>
+<li>If <strong>capital-light (lifestyle / DTC / SaaS with low burn):</strong> founders can stay at 30-50% combined for years; equal split is fine</li>
+<li>If <strong>capital-heavy (deep tech / hardware / consumer at scale):</strong> founders will dilute aggressively; need governance protection from Day 1</li>
+</ul>
+
+<h3>4. What's the exit timeline and exit type?</h3>
+
+<ul>
+<li>If <strong>fast acquisition (3-5 years):</strong> dilution will be moderate; less urgency on governance</li>
+<li>If <strong>long-term independent / IPO (10+ years):</strong> dilution will be heavy; dual-class is critical for founder control at IPO</li>
+<li>If <strong>category-defining build (Stripe / Notion / DeepMind):</strong> need governance to survive 4-6 dilution rounds</li>
+</ul>
+
+<h3>5. Will VCs accept your governance structure?</h3>
+
+<ul>
+<li>Some institutional VCs <strong>refuse</strong> dual-class — particularly later-stage growth investors</li>
+<li>Most early-stage VCs accept dual-class for founder-led consumer / brand companies</li>
+<li>Korean and Asian VCs are <strong>more accepting</strong> of dual-class than US institutional</li>
+<li>Public market investors / index funds are increasingly hostile — affects IPO timing</li>
+</ul>
+
+<h3>6. How important is "the cap table tells a clean story" optically?</h3>
+
+<ul>
+<li>If <strong>VC narrative is critical:</strong> concentrated founder reads as "captain in control"</li>
+<li>If <strong>brand authenticity is critical:</strong> equal split reads as "real partnership"</li>
+<li>If <strong>investor sophistication is high:</strong> they'll read the full governance package — structure matters less than mechanics</li>
+</ul>
+
+<h3>7. What's the cost of being wrong?</h3>
+
+<ul>
+<li>Concentrated equity: cost is co-founder departure or resentment</li>
+<li>Equal split: cost is governance gridlock or founder ouster at later stage</li>
+<li>Dual-class: cost is some VC pushback and added cap-table complexity</li>
+<li>No structure: cost is everything above, all at once</li>
+</ul>
+
+<div class="pull-quote">
+"The structure you pick at Day 1 isn't the most important decision. The most important decision is whether you build the governance to match it. A 25% / 25% / 25% / 25% cap table can be either a successful brand-led company (Stripe) or a paralyzed mess (early Twitter). The difference isn't the cap table — it's what's around the cap table."
+<span class="author">— Synthesized founder-stage operator wisdom</span>
+</div>
+
+<h3>The one thing every successful founder structure has</h3>
+
+<p>Whether concentrated or equal, dual-class or single-class, every successful founder structure has <strong>one thing in common:</strong></p>
+
+<p style="font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--cobalt);text-align:center;padding:24px 0;line-height:1.3">
+Co-founder alignment + clear roles + governance instruments<br>that match the chosen equity structure.
+</p>
+
+<p>Equity is just numbers on a page. The real work is in the alignment, the agreement on roles, the governance instruments that protect the company through its evolution, and the trust between the people who signed the founder docs.</p>
+
+<p>Use this guide as context. Take that context back into the conversation about your specific company's structure. Make a thoughtful decision. Document it. Build the governance to match. And then — the only thing that actually matters — execute together.</p>
+</section>
+
+</div><!-- /wrap -->
+
+<footer class="site-footer">
+<span class="accent">Pheeew, Inc.</span> · Internal Founder Equity Reference Guide · Confidential<br>
+For discussion only. Not legal, financial, or tax advice. Consult qualified counsel for actual decisions.
+</footer>
+
+</div><!-- /app -->
+
+<script>
+(function(){
+  const STORAGE_KEY = 'pheeew-equity-guide-auth';
+  const PASSCODE = 'pheeew-team-2026';
+  const gate = document.getElementById('appGate');
+  const app = document.getElementById('app');
+
+  function show(){
+    gate.style.display = 'none';
+    app.style.display = 'block';
+    initSmooth();
+  }
+
+  function initSmooth(){
+    document.querySelectorAll('.toc a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  if (sessionStorage.getItem(STORAGE_KEY) === 'ok') show();
+  else {
+    gate.style.display = 'flex';
+    setTimeout(() => document.getElementById('gateInput').focus(), 50);
+  }
+
+  function tryGate(){
+    const v = document.getElementById('gateInput').value.trim();
+    const err = document.getElementById('gateError');
+    if (v === PASSCODE) {
+      sessionStorage.setItem(STORAGE_KEY, 'ok');
+      err.style.display = 'none';
+      show();
+    } else {
+      err.textContent = 'Wrong passcode';
+      err.style.display = 'block';
+      document.getElementById('gateInput').value = '';
+      document.getElementById('gateInput').focus();
+    }
+  }
+  document.getElementById('gateSubmit').addEventListener('click', tryGate);
+  document.getElementById('gateInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryGate(); });
+  document.getElementById('signOut').addEventListener('click', e => {
+    e.preventDefault();
+    sessionStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+})();
+</script>
+
+</body>
+</html>
