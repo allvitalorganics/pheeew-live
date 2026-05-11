@@ -210,8 +210,8 @@ We're adding Justin as the 4th founder. Alex keeps the biggest slice as captain.
 <h2>Why this restructure.</h2>
 </div>
 
-<h3>What changed since April</h3>
-<p>Pheeew was incorporated in March 2026 with Alex (CEO). In April 2026, Jason (COO) and Dawon (CBO/CDO) joined as co-founders, splitting equity roughly 31.5% / 29.7% / 28.8% (with 10% reserved pool).</p>
+<h3>What changed since January</h3>
+<p>Alex began work on Pheeew in January 2026, with Dawon's early help on foundation, due diligence, and small initial investments. Pheeew, Inc. was legally incorporated as a Delaware C-Corporation on March 24, 2026 with Alex as sole founder/CEO. In April 2026, Jason (COO) joined and Dawon (CBO/CDO) formally became a co-founder via the Co-Founder Agreement v2, with the three of them splitting equity roughly 31.5% / 29.7% / 28.8% (with 10% reserved pool).</p>
 
 <p>Justin (Alex's brother) has offered to join as the fourth co-founder. He brings:</p>
 <ol>
@@ -794,7 +794,7 @@ The pool is like a stash of pre-allocated slices waiting to be assigned. When KP
 <p>Alex receiving 40% reflects multiple structural factors beyond simply "being the founder":</p>
 
 <ol>
-<li><strong>Founder tenure + risk</strong>: Alex started Pheeew in March 2026 — before the company existed. Longest founder risk, financial exposure, legal responsibility, opportunity cost.</li>
+<li><strong>Founder tenure + risk</strong>: Alex began work on Pheeew in January 2026 (with Dawon's early help on foundation and due diligence). Pheeew formally incorporated March 24, 2026 with Alex as sole founder/CEO. He's been carrying the longest founder risk — financial, legal, reputational, opportunity cost. Jason joined in April; Justin joins now in May.</li>
 <li><strong>CEO operational burden</strong>: Going forward — fundraising, strategic vision, founder relationships, vendor negotiations, financial accountability.</li>
 <li><strong>VC fundability</strong>: Justin's VC mentors flagged that 4-way equal splits are red flags. Clear founder majority makes Pheeew more fundable.</li>
 <li><strong>Decision velocity</strong>: One clear leader can move fast. Consensus governance among 4 equals is slower.</li>
@@ -831,7 +831,174 @@ Alex starts with more equity because he started the company first, carries the m
 </div>
 </div>
 
-<h3>Q4. Eventually VCs will own more than founders combined. How do we maintain control?</h3>
+<h3>Q4. Why use the gift mechanism for Alex's refresh — why not just give Alex shares as compensation?</h3>
+
+<p>We considered three paths for Alex's refresh shares. Each works legally, but they have different tax and complexity profiles:</p>
+
+<p><strong>Path A (current proposal) — Gift mechanism.</strong> Justin and Jason each gift Alex a small amount (under $19,000 each, under the federal annual gift exclusion). Alex uses the gifted money to buy refresh shares from Pheeew at FMV ($0.00226/share).</p>
+<ul>
+<li>Tax on Alex: <strong>$0</strong> (gifts aren't income to recipient)</li>
+<li>Tax on Justin: <strong>$0</strong> (under $19K exclusion, no Form 709)</li>
+<li>Tax on Jason: <strong>$0</strong> (under $19K exclusion, no Form 709)</li>
+<li>Paperwork: 1-2 gift letters, 10 minutes each, no notary, no IRS filing</li>
+<li>Risk: very low (well-established legal mechanism)</li>
+</ul>
+
+<p><strong>Path B — Compensation mechanism.</strong> Alex receives refresh shares directly from Pheeew as compensation for services rendered. He pays nothing (or par value).</p>
+<ul>
+<li>Tax on Alex: <strong>~$5,500 – $8,000 of personal income tax</strong> (the spread between FMV $0.00226 and what he paid is treated as ordinary compensation income, $18,916 of taxable income at his marginal rate)</li>
+<li>Tax on Justin/Jason: $0</li>
+<li>Paperwork: Pheeew needs to issue Alex a W-2 showing the compensation income; payroll setup required</li>
+<li>Risk: medium (409A audit risk if IRS challenges the FMV); company books a comp expense it can't currently use as deduction (pre-revenue)</li>
+</ul>
+
+<p><strong>Path C — Alex pays his own cash.</strong> Alex pulls $18,916 from his personal account and pays Pheeew directly for the refresh shares.</p>
+<ul>
+<li>Tax on Alex: $0</li>
+<li>Paperwork: minimal</li>
+<li>Catch: Alex doesn't want to put in more cash (locked principle)</li>
+</ul>
+
+<h4>Why we picked Path A</h4>
+
+<div class="tbl-wrap"><table>
+<tr><th>Path</th><th class="num">Tax cost</th><th>Paperwork</th></tr>
+<tr><td>A (gift) — current</td><td class="num"><strong>$0 total</strong></td><td>1-2 simple gift letters</td></tr>
+<tr><td>B (comp)</td><td class="num"><strong>$5,500-$8,000 to Alex personally</strong></td><td>W-2 + payroll setup + 409A risk</td></tr>
+<tr><td>C (own cash)</td><td class="num">$0</td><td>None, but Alex doesn't want to</td></tr>
+</table></div>
+
+<p><strong>Path A is genuinely the lowest-friction option.</strong> The "extra work" of gift letters is 10 minutes each — far less work than setting up payroll or absorbing $5-8K of personal tax for Alex.</p>
+
+<p><strong>If gift letters feel socially awkward for Jason:</strong> We can consolidate the gift onto Justin alone (the brother-to-brother transfer feels most natural). Justin's $30K becomes: $18,916 gift to Alex + $11,084 his own stock + APIC. Jason then just contributes to Pheeew directly with no gift dynamics. One letter only, between siblings.</p>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+We could just hand Alex more shares without any cash changing hands — but the IRS treats that as "compensation" and Alex would owe ~$5-8K in personal income tax. The gift route (Justin/Jason each give Alex less than $19K) is 100% tax-free for everyone, requires 1-2 simple letters (10 minutes to write), and avoids setting up Pheeew payroll. It's the least-friction path even though "gift" sounds like extra work.
+</div>
+</div>
+
+<h3>Q5. How do stocks get "registered" or proven? How does anyone know our stock price? How does paper become money? Can we adjust as we like internally?</h3>
+
+<p>Great fundamental question. Let me address each part.</p>
+
+<h4>Where stocks are "registered" for a private company like Pheeew:</h4>
+
+<ol>
+<li><strong>Internal stock ledger</strong> — the authoritative record. Pheeew maintains this in <code>Pheeew_Master_Corporate_Records/04_Stock_Certificates/</code> and the Cap Table v2. Alex as Secretary signs off on every issuance. <strong>Single source of truth.</strong></li>
+<li><strong>State of incorporation</strong> — Delaware has Pheeew in their corporate registry, but only knows the total <em>authorized</em> shares (currently 10M, becoming 30M with the Cert of Amendment). Delaware doesn't track who owns what.</li>
+<li><strong>IRS</strong> — has Pheeew's EIN; receives annual tax returns (Form 1120) showing capital structure changes.</li>
+<li><strong>Stripe Atlas dashboard</strong> — administrative platform, doesn't automatically track ongoing equity transactions. We update our own records.</li>
+<li><strong>Mercury Bank</strong> — knows about capital contributions (sees wires) but not about share ownership.</li>
+</ol>
+
+<p>There is <strong>no public "stock price"</strong> for Pheeew. There won't be one until a liquidity event.</p>
+
+<h4>Why is this different from public companies?</h4>
+
+<p>Public companies file with the SEC (10-K, 10-Q, 8-K) and trade on stock exchanges. Their prices update second-to-second based on real-time trading.</p>
+
+<p>Private companies have <strong>no continuously traded price</strong>. The "value per share" exists only at transaction moments:</p>
+<ul>
+<li>Founder grants → FMV at grant date (set by the company, audit-defensible)</li>
+<li>Investor purchases → price negotiated at funding rounds</li>
+<li>Secondary sales → price negotiated between private parties</li>
+</ul>
+
+<p>Between these transactions, there's no "price" because no one is buying or selling.</p>
+
+<h4>Why would someone buy our stock?</h4>
+
+<ol>
+<li><strong>Belief in growth + future liquidity event.</strong> Angel investors, VCs, strategic investors buy expecting an acquisition, IPO, or secondary sale in 3-7 years at a much higher valuation.</li>
+<li><strong>Strategic value.</strong> Larger companies sometimes invest for partnership reasons (technology access, market entry, cross-selling).</li>
+<li><strong>Founder/employee upside.</strong> People accept stock as part of compensation, betting on company's future value.</li>
+</ol>
+
+<p><strong>No one is buying Pheeew stock today expecting to flip it next week.</strong> They're investing in 3-7 year growth.</p>
+
+<h4>How does paper (equity) become money? Three paths:</h4>
+
+<ol>
+<li><strong>Acquisition (M&A)</strong> — Most common exit for early-stage companies. A larger company (PepsiCo, Unilever, Nestlé, PE firm) buys Pheeew. Shareholders receive cash or acquirer's stock. Examples in our category: Poppi sold to PepsiCo for $1.95B in 2025; Bare Foods to PepsiCo for $200M+.</li>
+<li><strong>IPO (Initial Public Offering)</strong> — Pheeew lists on a stock exchange (NYSE, NASDAQ). Shares become publicly tradeable. Less common for early-stage CPG — typically 7-10+ years out.</li>
+<li><strong>Secondary sales</strong> — Founders/early employees sell some shares to new investors at later funding rounds. Common at Series B/C+. Lets early holders get partial liquidity without full exit.</li>
+</ol>
+
+<p><strong>Without one of these events, founder shares are essentially paper.</strong> They have legal value, vote rights, dividend rights (if any) — but they can't be converted to cash through normal means.</p>
+
+<h4>Can we adjust the cap table "as we like" internally?</h4>
+
+<p>Yes — within real rules. Adjustments must:</p>
+
+<ol>
+<li>Be approved by appropriate parties (Board, stockholders) depending on the action</li>
+<li>Comply with Delaware General Corporation Law (DGCL)</li>
+<li>Have proper "consideration" (you can't just hand out shares; there must be cash, services, or value exchange)</li>
+<li>Stay within the authorized share count from the Certificate of Incorporation</li>
+<li>Be properly documented in corporate records</li>
+<li>Be reportable on annual tax filings (IRS Form 1120)</li>
+<li>Not create undisclosed tax events for recipients</li>
+</ol>
+
+<p><strong>When external parties look at us, they see the FULL record.</strong> Investors during diligence, auditors during financings, acquirers during M&A — they all review the cap table from inception. If we did anything undocumented or improper, it surfaces. <strong>Cap table integrity is critical for raising capital.</strong></p>
+
+<p>So while we have flexibility, we operate under real rules. The cap table IS the company. We can't doctor it without consequences — but we CAN structure new transactions properly to achieve specific economic outcomes.</p>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Pheeew's stock exists only on internal records (kept by Alex as Secretary) plus Delaware's corporate registry (which only shows total authorized shares, not who owns what). There's no public "stock price" until we either: (1) get acquired by another company, (2) go public on a stock exchange, or (3) have someone buy shares from existing stockholders at a future round. Until one of those happens, our shares are "paper" — legally real, but not cash. We can adjust the cap table internally, but only with proper approval, real consideration, and documentation. Future investors, acquirers, and the IRS all eventually see the full record.
+</div>
+</div>
+
+<h3>Q6. Does Dawon have additional paperwork as the only non-US citizen? Are things more complicated?</h3>
+
+<p>Yes, slightly more, but <strong>not broken</strong> — just normal cross-border startup paperwork. Dawon's situation is more complex than US-citizen founders, but it's well-trodden ground.</p>
+
+<h4>Already in process</h4>
+<ol>
+<li><strong>ITIN (Individual Taxpayer Identification Number)</strong> — Dawon has already filed her W-7 with a Certifying Acceptance Agent (CAA). 3-4 month processing time. Required to file US tax forms (including her 83(b) election).</li>
+</ol>
+
+<h4>Additional forms specific to Dawon</h4>
+<ol start="2">
+<li><strong>W-8BEN form</strong> — Required for non-US persons receiving US-source income or holding US securities. Pheeew should have this on file for Dawon. Establishes her foreign status and claims any tax treaty benefits (the US-Korea tax treaty provides reduced withholding on certain payment categories).</li>
+</ol>
+
+<h4>Korean tax side (handled by her Korean tax advisor)</h4>
+<ol start="3">
+<li><strong>Korean income tax reporting</strong> — Dawon must report her Pheeew equity to Korean tax authorities. South Korea taxes residents on worldwide income. Standard for any Korean resident with foreign investments.</li>
+<li><strong>Foreign financial asset reporting</strong> — If Pheeew shares qualify as "foreign financial assets" under Korean rules, separate reporting may be required.</li>
+</ol>
+
+<h4>Future considerations (apply only at liquidity events)</h4>
+<ol start="5">
+<li><strong>US withholding tax</strong> — If Pheeew ever pays Dawon dividends or salary, US tax law requires withholding on payments to foreign persons (default 30%, reduced by treaty in some cases). Pheeew handles this through payroll.</li>
+<li><strong>FATCA / CRS reporting</strong> — Pheeew may need to report Dawon's holdings to the IRS under FATCA. She'll need to provide her Korean Resident Registration Number or equivalent.</li>
+</ol>
+
+<h4>Process implications for Dawon</h4>
+<ul>
+<li><strong>One-time setup:</strong> W-8BEN (1 page, 10 minutes), ITIN completion (already in motion, 3-4 month wait), 83(b) filing (already signed, in mail flow)</li>
+<li><strong>Ongoing:</strong> Annual Korean tax filings (her Korean tax advisor handles)</li>
+<li><strong>At liquidity events:</strong> Coordinate with her Korean tax advisor and Pheeew's records to ensure proper reporting in both jurisdictions</li>
+</ul>
+
+<p><strong>Net additional time burden over the company's life: maybe 2-4 hours of paperwork.</strong> Not a meaningful blocker.</p>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Dawon being in Korea adds a few extra forms beyond what US founders need: ITIN (already in motion), W-8BEN (one-time, 10 minutes), and ongoing Korean tax reporting (handled by her Korean tax advisor). Total extra paperwork over the life of the company: maybe 2-4 hours. Not a big deal — it's normal cross-border startup stuff.
+</div>
+</div>
+
+<h3>Q7. Eventually VCs will own more than founders combined. How do we maintain control?</h3>
 
 <p>Real long-term concern. The answer is that <strong>control comes from multiple instruments — not just economic equity</strong>:</p>
 
@@ -853,7 +1020,7 @@ Even though VCs end up owning more economic equity over time, "control" doesn't 
 </div>
 </div>
 
-<h3>Q5. How much stock option is standard? What's fair? Does Alex get options too?</h3>
+<h3>Q8. How much stock option is standard? What's fair? Does Alex get options too?</h3>
 
 <p><strong>Standard option pool sizes by stage:</strong></p>
 
@@ -897,7 +1064,7 @@ Option pools are how startups motivate employees and founders by giving them sto
 </div>
 </div>
 
-<h3>Q6. How do stock options actually work? Terms, exercise, vesting, cliff?</h3>
+<h3>Q9. How do stock options actually work? Terms, exercise, vesting, cliff?</h3>
 
 <p><strong>Grant date:</strong> When the option is awarded. Recipient owns the OPTION (right to buy), not the stock yet.</p>
 
@@ -939,7 +1106,7 @@ Options work like this — you receive a coupon that says "you can buy [number] 
 </div>
 </div>
 
-<h3>Q7. Other questions you might be wondering</h3>
+<h3>Q10. Other questions you might be wondering</h3>
 
 <h4>"What if I leave the company before vesting?"</h4>
 <ul>
