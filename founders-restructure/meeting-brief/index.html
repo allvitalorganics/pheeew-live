@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pheeew, Inc. — Four-Founder Restructure — Meeting Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Caveat+Brush&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ed; --ink:#1c1a18; --soft:#4a4439; --mute:#8a7e6c;
+  --line:#d8d2c8; --cobalt:#2952b8; --brick:#8b3e1d; --peach:#e8b88d;
+  --peach-soft:#fbeed8; --green:#4a8e5a; --gold:#9a7a3a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 36px}
+
+/* GATE */
+.app-gate{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:100}
+.app-gate-box{background:white;border:1px solid var(--line);border-radius:16px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 12px 40px rgba(28,26,24,.06)}
+.editorial-i{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;font-weight:700;color:var(--ink);text-align:center;letter-spacing:-.02em}
+.brushy{font-family:'Caveat Brush',cursive;font-size:18px;color:var(--brick);text-align:center;display:block;margin:6px 0 24px}
+.app-gate input{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:.04em;background:var(--cream);color:var(--ink)}
+.app-gate input:focus{outline:none;border-color:var(--cobalt)}
+.app-gate button{width:100%;margin-top:12px;padding:14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer}
+.app-gate button:hover{background:var(--cobalt)}
+.gate-error{font-size:12px;color:var(--brick);margin-top:10px;text-align:center;display:none}
+
+/* HEADER */
+.site-header{position:sticky;top:0;background:rgba(250,246,237,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);z-index:50}
+.site-header-inner{max-width:900px;margin:0 auto;padding:14px 36px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .lettermark{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink)}
+.brand .pad{font-family:'Caveat Brush',cursive;font-size:13px;color:var(--brick)}
+.signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
+.signout:hover{color:var(--ink);border-color:var(--ink)}
+
+.confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
+.confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
+
+/* HERO */
+.hero{padding:48px 0 24px}
+.hero .eyebrow{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);font-weight:700;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:48px;letter-spacing:-.02em;line-height:1.05;color:var(--ink);margin-bottom:16px}
+.hero h1 .accent{font-style:italic;color:var(--cobalt)}
+.hero .meta{font-size:14px;color:var(--soft);line-height:1.6;font-family:'Special Elite',monospace}
+.hero .meta strong{color:var(--ink);font-weight:700}
+
+/* CHAPTER */
+section.chapter{margin-bottom:56px;scroll-margin-top:80px}
+.chapter-head{margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.chapter-head .num{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin-bottom:6px}
+.chapter-head h2{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:32px;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+
+.chapter h3{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--ink);margin:28px 0 12px}
+.chapter h4{font-family:'Inter',sans-serif;font-weight:700;font-size:13px;color:var(--brick);margin:18px 0 8px;letter-spacing:.04em;text-transform:uppercase}
+.chapter p{margin-bottom:14px;line-height:1.75}
+.chapter strong{font-weight:700;color:var(--ink)}
+.chapter ul,.chapter ol{margin:0 0 18px 22px;line-height:1.75}
+.chapter ul li,.chapter ol li{margin-bottom:6px}
+
+/* ELI5 — the side notes */
+.eli5{background:linear-gradient(135deg,#fff8eb 0%,#fbeed8 100%);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0 22px;display:flex;gap:14px;align-items:flex-start}
+.eli5-icon{flex-shrink:0;font-size:24px;line-height:1}
+.eli5-body{flex:1;font-size:14px;line-height:1.65;color:var(--ink)}
+.eli5-body .eli5-label{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px;display:block}
+.eli5-body strong{color:var(--brick);font-weight:700}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:14px 0 22px}
+table{width:100%;border-collapse:collapse;font-size:13px;background:white;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+table th{text-align:left;padding:10px 13px;background:var(--ink);color:var(--cream);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+table th.num{text-align:right}
+table td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+table td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Special Elite',monospace;font-size:12px}
+table tr:last-child td{border-bottom:none}
+table tr.total td{font-weight:700;background:var(--peach-soft);border-top:2px solid var(--ink)}
+table tr.highlight td{background:#eaf0ff}
+
+/* CALLOUTS */
+.callout{padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-size:14px;line-height:1.6}
+.callout-blue{background:#eaf0ff;border-left:4px solid var(--cobalt)}
+.callout-blue strong{color:var(--cobalt)}
+.callout-green{background:#eaf6ec;border-left:4px solid var(--green)}
+.callout-green strong{color:var(--green)}
+.callout-warn{background:#fdf2f2;border-left:4px solid var(--brick)}
+.callout-warn strong{color:var(--brick)}
+.callout .label{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:6px;display:block}
+
+/* CAP TABLE VISUAL */
+.cap-visual{background:white;border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:18px 0}
+.cap-row{display:grid;grid-template-columns:120px 1fr 80px;gap:14px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
+.cap-row:last-child{border-bottom:none}
+.cap-row .name{font-weight:600;color:var(--ink);font-size:14.5px}
+.cap-row .bar{height:18px;background:var(--line);border-radius:100px;overflow:hidden;position:relative}
+.cap-row .bar-fill{height:100%;border-radius:100px}
+.cap-row .pct{font-family:'Special Elite',monospace;font-size:13px;font-weight:700;color:var(--ink);text-align:right}
+.cap-row.alex .bar-fill{background:var(--cobalt);width:40%}
+.cap-row.jason .bar-fill{background:var(--brick);width:20%}
+.cap-row.justin .bar-fill{background:var(--gold);width:20%}
+.cap-row.dawon .bar-fill{background:var(--green);width:10%}
+.cap-row.pool .bar-fill{background:var(--mute);width:10%}
+
+/* SUMMARY BOX */
+.summary{background:var(--ink);color:var(--cream);border-radius:14px;padding:28px 32px;margin:24px 0;font-family:'Special Elite',monospace;font-size:13px;line-height:1.7;white-space:pre-wrap}
+.summary .summary-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:22px;color:var(--peach);margin-bottom:16px;letter-spacing:-.005em}
+
+/* PRINT BUTTON */
+.print-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--ink);color:var(--cream);border:none;border-radius:100px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;margin-top:18px;text-decoration:none}
+.print-btn:hover{background:var(--cobalt)}
+
+@media print{
+  .site-header,.confidential-banner,.print-btn,.signout{display:none}
+  body{font-size:11pt}
+  .chapter h2{font-size:18pt}
+  .wrap{max-width:100%;padding:0}
+  .eli5{break-inside:avoid;page-break-inside:avoid}
+  .tbl-wrap,table{break-inside:avoid}
+}
+
+@media(max-width:680px){
+  .wrap{padding:0 22px}
+  .hero h1{font-size:32px}
+  .chapter-head h2{font-size:24px}
+  .cap-row{grid-template-columns:90px 1fr 60px;gap:10px}
+  .eli5{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="appGate" class="app-gate" style="display:none">
+<div class="app-gate-box">
+<div class="editorial-i">Pheeew</div>
+<span class="brushy">meeting brief</span>
+<input id="gateInput" type="password" placeholder="passcode" autocomplete="off">
+<button id="gateSubmit">enter</button>
+<div class="gate-error" id="gateError"></div>
+</div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none">
+
+<header class="site-header">
+<div class="site-header-inner">
+<div class="brand">
+<span class="lettermark">Pheeew</span>
+<span class="pad">meeting brief</span>
+</div>
+<a href="#" class="signout" id="signOut">sign out</a>
+</div>
+</header>
+
+<div class="confidential-banner">
+<div class="confidential-banner-inner">Confidential — Internal Pheeew, Inc. corporate communication — do not distribute</div>
+</div>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+<div class="eyebrow">Founders Meeting · Monday, May 11, 2026</div>
+<h1>Four-Founder <span class="accent">Restructure.</span><br>Meeting Brief.</h1>
+<div class="meta">
+<strong>Audience:</strong> Seungjoon Kim ("Alex"), Jason Ko, Dawon Kim, Junhyuk Kim ("Justin")<br>
+<strong>Prepared by:</strong> Seungjoon Kim, CEO + Sole Director<br>
+<strong>Status:</strong> Confidential — Internal Corporate Communication<br>
+<br>
+<a href="#" class="print-btn" onclick="window.print();return false;">↓ print this page</a>
+</div>
+</section>
+
+<!-- CH 0 EXEC SUMMARY -->
+<section class="chapter" id="ch0">
+<div class="chapter-head">
+<div class="num">Chapter 0</div>
+<h2>Executive Summary</h2>
+</div>
+
+<p>We are proposing to admit <strong>Junhyuk Kim ("Justin")</strong> as the fourth co-Founder of Pheeew, Inc. with a clean, balanced cap table that:</p>
+
+<ul>
+<li>Establishes <strong>Alex at 40%</strong> (clear founder majority for VC fundability)</li>
+<li>Treats <strong>Jason and Junhyuk identically</strong> (20% each, identical $30,000 total outlay)</li>
+<li>Protects <strong>Dawon</strong> from severe dilution (10%, locked share count unchanged)</li>
+<li>Reserves <strong>10% pool</strong> for KPI-based earnable equity (Jason, Justin, Dawon only)</li>
+<li>Requires <strong>zero lawyer/accountant fees</strong> ($194 Delaware filing only)</li>
+<li>Filed under all standard tax exclusions (<strong>no Form 709, no IRS complications</strong>)</li>
+<li>Does <strong>not disrupt Dawon's in-flight ITIN process</strong></li>
+</ul>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+We're adding Justin as the 4th founder. Alex keeps the biggest slice as captain. Jason and Justin get equal slices and pay equal money. Dawon's slice stays untouched because her tax paperwork is mid-process. Everyone has a path to earn more equity if they hit performance goals.
+</div>
+</div>
+</section>
+
+<!-- CH 1 WHY -->
+<section class="chapter" id="ch1">
+<div class="chapter-head">
+<div class="num">Chapter 1</div>
+<h2>Why this restructure.</h2>
+</div>
+
+<h3>What changed since April</h3>
+<p>Pheeew was incorporated in March 2026 with Alex (CEO). In April 2026, Jason (COO) and Dawon (CBO/CDO) joined as co-founders, splitting equity roughly 31.5% / 29.7% / 28.8% (with 10% reserved pool).</p>
+
+<p>Justin (Alex's brother) has offered to join as the fourth co-founder. He brings:</p>
+<ol>
+<li><strong>$30,000 in capital</strong> (more than 4× what each original founder contributed)</li>
+<li><strong>VC network access</strong> through mentor relationships including a VC partner and the CEO of ABIB Cosmetic (who handles his own angel investments)</li>
+<li><strong>Front-of-house role as Chief Growth Officer (CGO)</strong> — partnerships, creator/influencer sourcing, retail buyer outreach, investor sourcing, marketing campaigns, biz dev</li>
+</ol>
+
+<h3>Why the structure has to change</h3>
+<p>Adding a fourth co-founder to a near-equal 3-founder split would create a 4-way equal split (~24/23/22/21). VCs reading this cap table during diligence often see four co-founders with similar % as a governance risk: "Who actually decides? Who's the captain?"</p>
+
+<p>Justin's mentors flagged this as a fundability concern. The cleanest fix is to <strong>concentrate equity toward Alex as the lead founder</strong>, while keeping the other founders meaningfully invested. This is a common pattern for founder-led brand companies (Facebook, Snap, Stripe).</p>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+When VCs look at a startup with 4 equal co-founders, they get nervous about who's actually in charge. If one person has clearly the most equity, the story is simpler: "Alex is the founder; the others are co-builders." This is better for raising money later.
+</div>
+</div>
+</section>
+
+<!-- CH 2 PRINCIPLES -->
+<section class="chapter" id="ch2">
+<div class="chapter-head">
+<div class="num">Chapter 2</div>
+<h2>The locked principles.</h2>
+</div>
+
+<div class="tbl-wrap"><table>
+<tr><th>#</th><th>Principle</th><th>Status</th></tr>
+<tr><td>1</td><td>Alex must hold <strong>40-60% equity</strong> as clear founder majority</td><td>LOCKED</td></tr>
+<tr><td>2</td><td><strong>Dawon's 2,880,000 shares are untouched</strong> (her ITIN is in flight; disrupting it would delay her tax filings 3-4 months)</td><td>LOCKED</td></tr>
+<tr><td>3</td><td><strong>Justin and Jason should be economically equal</strong> (same total outlay, same equity)</td><td>LOCKED</td></tr>
+<tr><td>4</td><td><strong>Dawon protected from severe dilution</strong> (no worse than ~10%)</td><td>LOCKED</td></tr>
+<tr><td>5</td><td><strong>No lawyer or accountant required</strong> unless absolutely unavoidable</td><td>LOCKED</td></tr>
+<tr><td>6</td><td><strong>No tax filings or complications</strong> for any founder</td><td>LOCKED</td></tr>
+<tr><td>7</td><td><strong>KPI-based stock options</strong> for non-Alex founders to earn additional upside</td><td>INCLUDED</td></tr>
+<tr><td>8</td><td><strong>Sustainable proportional dilution</strong> (no "Alex absorbs everything" trap)</td><td>INCLUDED</td></tr>
+</table></div>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+These are the ground rules. Alex needs to be clearly the largest. Dawon's shares can't move (tax paperwork in motion). Jason and Justin should be treated identically (same money, same equity). Nobody wants lawyer bills. Everyone except Alex can earn extra equity by hitting milestones.
+</div>
+</div>
+</section>
+
+<!-- CH 3 CAP TABLE -->
+<section class="chapter" id="ch3">
+<div class="chapter-head">
+<div class="num">Chapter 3</div>
+<h2>The final cap table.</h2>
+</div>
+
+<div class="cap-visual">
+<div class="cap-row alex">
+<div class="name">Alex</div>
+<div class="bar"><div class="bar-fill"></div></div>
+<div class="pct">40.00%</div>
+</div>
+<div class="cap-row jason">
+<div class="name">Jason</div>
+<div class="bar"><div class="bar-fill"></div></div>
+<div class="pct">20.00%</div>
+</div>
+<div class="cap-row justin">
+<div class="name">Justin</div>
+<div class="bar"><div class="bar-fill"></div></div>
+<div class="pct">20.00%</div>
+</div>
+<div class="cap-row dawon">
+<div class="name">Dawon</div>
+<div class="bar"><div class="bar-fill"></div></div>
+<div class="pct">10.00%</div>
+</div>
+<div class="cap-row pool">
+<div class="name">Pool</div>
+<div class="bar"><div class="bar-fill"></div></div>
+<div class="pct">10.00%</div>
+</div>
+</div>
+
+<div class="tbl-wrap"><table>
+<tr><th>Holder</th><th class="num">Shares</th><th class="num">% Fully Diluted</th><th>Role</th></tr>
+<tr><td><strong>Seungjoon Kim ("Alex")</strong></td><td class="num">11,520,000</td><td class="num">40.00%</td><td>CEO + Sole Director</td></tr>
+<tr><td><strong>Jason Ko</strong></td><td class="num">5,760,000</td><td class="num">20.00%</td><td>COO</td></tr>
+<tr><td><strong>Junhyuk Kim ("Justin")</strong></td><td class="num">5,760,000</td><td class="num">20.00%</td><td>CGO</td></tr>
+<tr><td><strong>Dawon Kim</strong> (unchanged)</td><td class="num">2,880,000</td><td class="num">10.00%</td><td>CBO</td></tr>
+<tr><td>Equity Pool (reserved)</td><td class="num">2,880,000</td><td class="num">10.00%</td><td>KPI + future hires</td></tr>
+<tr class="total"><td>Total fully diluted</td><td class="num">28,800,000</td><td class="num">100%</td><td>—</td></tr>
+</table></div>
+
+<h3>Before vs after</h3>
+<div class="tbl-wrap"><table>
+<tr><th>Founder</th><th class="num">April 2026</th><th class="num">Proposed</th><th class="num">Change</th></tr>
+<tr><td>Alex</td><td class="num">31.5%</td><td class="num">40.0%</td><td class="num">+8.5pp</td></tr>
+<tr><td>Jason</td><td class="num">29.7%</td><td class="num">20.0%</td><td class="num">−9.7pp</td></tr>
+<tr><td>Dawon</td><td class="num">28.8%</td><td class="num">10.0%</td><td class="num">−18.8pp</td></tr>
+<tr><td>Justin</td><td class="num">—</td><td class="num">20.0%</td><td class="num">new</td></tr>
+<tr><td>Pool</td><td class="num">10.0%</td><td class="num">10.0%</td><td class="num">unchanged</td></tr>
+</table></div>
+
+<p><strong>Authorized share increase:</strong> 10,000,000 → 30,000,000 shares. Requires a Certificate of Amendment filed with Delaware Secretary of State ($194 filing fee).</p>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Think of the company as a pie. Right now the pie has 10 million slices and there's only enough authorized for 10M total. We need to make a bigger pie (30M slices authorized) so we can give Justin his slice and grow some slices for Alex and Jason. The 30M number gives us room for future hires too.
+</div>
+</div>
+</section>
+
+<!-- CH 4 COMMITMENTS -->
+<section class="chapter" id="ch4">
+<div class="chapter-head">
+<div class="num">Chapter 4</div>
+<h2>What each founder commits.</h2>
+</div>
+
+<h3>Total economic outlay per founder</h3>
+<div class="tbl-wrap"><table>
+<tr><th>Founder</th><th class="num">Already paid</th><th class="num">New cash this round</th><th class="num">Total lifetime</th><th class="num">Equity</th></tr>
+<tr><td>Alex</td><td class="num">$6,750</td><td class="num">$0 (gifts cover refresh)</td><td class="num">$6,750</td><td class="num">40%</td></tr>
+<tr><td><strong>Jason</strong></td><td class="num">$6,750</td><td class="num"><strong>$23,250</strong></td><td class="num"><strong>$30,000</strong></td><td class="num">20%</td></tr>
+<tr><td><strong>Justin</strong></td><td class="num">$0</td><td class="num"><strong>$30,000</strong></td><td class="num"><strong>$30,000</strong></td><td class="num">20%</td></tr>
+<tr><td>Dawon</td><td class="num">$6,500</td><td class="num">$0</td><td class="num">$6,500</td><td class="num">10%</td></tr>
+</table></div>
+
+<h3>Justin's $30,000 splits as</h3>
+<div class="tbl-wrap"><table>
+<tr><th>Component</th><th class="num">Amount</th><th>Goes to</th></tr>
+<tr><td>Stock purchase (5,760,000 shares × $0.00226)</td><td class="num">$13,018</td><td>Pheeew (Common Stock)</td></tr>
+<tr><td>Additional Paid-in Capital (APIC)</td><td class="num">$7,524</td><td>Pheeew (operating capital)</td></tr>
+<tr><td>Personal gift to Alex</td><td class="num">$9,458</td><td>Alex's bank account</td></tr>
+<tr class="total"><td><strong>Total</strong></td><td class="num"><strong>$30,000</strong></td><td></td></tr>
+</table></div>
+
+<h3>Jason's $23,250 new (counting $6,750 existing = $30K total) splits as</h3>
+<div class="tbl-wrap"><table>
+<tr><th>Component</th><th class="num">Amount</th><th>Goes to</th></tr>
+<tr><td>Stock refresh (2,790,000 new shares × $0.00226)</td><td class="num">$6,268</td><td>Pheeew (Common Stock)</td></tr>
+<tr><td>Additional Paid-in Capital (APIC)</td><td class="num">$7,524</td><td>Pheeew (operating capital)</td></tr>
+<tr><td>Personal gift to Alex</td><td class="num">$9,458</td><td>Alex's bank account</td></tr>
+<tr class="total"><td><strong>Total new this round</strong></td><td class="num"><strong>$23,250</strong></td><td></td></tr>
+<tr><td>Plus existing</td><td class="num">$6,750</td><td>(already paid April 2026)</td></tr>
+<tr class="total"><td><strong>Total lifetime</strong></td><td class="num"><strong>$30,000</strong></td><td></td></tr>
+</table></div>
+
+<h3>Alex's refresh</h3>
+<ul>
+<li>Receives gifts from Justin ($9,458) + Jason ($9,458) = <strong>$18,916</strong> in his personal bank account</li>
+<li>Wires $18,916 to Pheeew to buy <strong>8,370,000 new shares</strong></li>
+<li>Alex's out-of-pocket: <strong>$0 new</strong> (gifts aren't his money)</li>
+</ul>
+
+<h3>Dawon's position</h3>
+<ul>
+<li>Existing $6,500 stays</li>
+<li>No new cash required</li>
+<li><strong>No new paperwork</strong> — her RSPA, 83(b), and ITIN all stay exactly as they are</li>
+</ul>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Justin and Jason are putting in the exact same amount — $30,000 each. They each give a small slice ($9,458) to Alex personally so Alex can buy more of his own stock. The rest goes to Pheeew. Alex doesn't pay anything new; his gift money buys his new shares. Dawon doesn't pay anything new either. The company ends up with $73K of total capital — meaningful runway.
+</div>
+</div>
+</section>
+
+<!-- CH 5 GIFT MECHANISM -->
+<section class="chapter" id="ch5">
+<div class="chapter-head">
+<div class="num">Chapter 5</div>
+<h2>The gift mechanism — why it's tax-clean.</h2>
+</div>
+
+<p>The key innovation: Justin and Jason each give Alex a personal cash gift, and Alex uses that money to buy his refresh shares. This is a real and legal mechanism.</p>
+
+<h3>IRS rules (2026)</h3>
+<ul>
+<li><strong>Annual gift tax exclusion: $19,000 per recipient.</strong> Anyone can gift up to $19,000 to any one person per year with <strong>no tax, no form filing, no record-keeping requirements</strong>.</li>
+<li>Both gifts ($9,458 each) are <strong>well under $19,000</strong> — no Form 709, no IRS reporting, no tax owed.</li>
+<li><strong>Gifts are not taxable income to the recipient.</strong> Alex doesn't owe income tax on the $18,916 he receives.</li>
+<li>Justin and Jason don't get a tax deduction (gifts aren't deductible to giver), but they don't owe gift tax either.</li>
+</ul>
+
+<h3>Why this works legally</h3>
+<p>This is <strong>not</strong> a structure being invented for tax avoidance. Personal gifts between siblings (Justin → Alex) and close friends (Jason → Alex) for the purpose of investing in a closely-held business are common and well-documented in corporate finance practice. The annual exclusion is specifically designed for transfers like this.</p>
+
+<h3>What we document</h3>
+<p>To make this airtight, two short Gift Letters will be drafted:</p>
+<ol>
+<li><strong>Letter from Justin to Alex</strong> — "I am gifting $9,458 to my brother Seungjoon Kim, with no expectation of repayment or return"</li>
+<li><strong>Letter from Jason to Alex</strong> — Same template</li>
+</ol>
+<p>Each letter is one page, signed by the giver. Total drafting time: 10 minutes per letter.</p>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Family and friends can gift each other up to $19,000/year with zero tax paperwork. Justin and Jason each gift Alex less than $19K, so it's totally clean. Alex uses that gifted money to buy more of his own company stock. The whole thing is one step legal, no forms, no fees.
+</div>
+</div>
+</section>
+
+<!-- CH 6 KPI -->
+<section class="chapter" id="ch6">
+<div class="chapter-head">
+<div class="num">Chapter 6</div>
+<h2>KPI-based options — earnable upside.</h2>
+</div>
+
+<h3>The pool</h3>
+<p>The 10% equity pool (2,880,000 shares) is split into two:</p>
+<div class="tbl-wrap"><table>
+<tr><th>Sub-pool</th><th class="num">Shares</th><th>Purpose</th></tr>
+<tr><td>KPI-based founder grants</td><td class="num">1,440,000 (5%)</td><td>Reserved for Jason, Justin, Dawon to earn</td></tr>
+<tr><td>General employee options</td><td class="num">1,440,000 (5%)</td><td>Future hires, advisors, consultants</td></tr>
+</table></div>
+
+<h3>Per-founder allocation</h3>
+<p>Each non-Alex founder can earn up to <strong>1.67% of fully diluted equity</strong> through KPI achievements, structured as <strong>three grants of approximately 0.55% each</strong>.</p>
+
+<h3>Double-trigger vesting</h3>
+<p>Every KPI option grant has <strong>two conditions that BOTH must be met</strong> to vest:</p>
+<ol>
+<li><strong>Performance trigger</strong> — the specific milestone is achieved (objective, measurable)</li>
+<li><strong>Service vesting</strong> — founder remains in continuous service to Pheeew for 12 months after the performance trigger is met</li>
+</ol>
+<p>If the founder leaves before BOTH conditions clear, the option is forfeited (shares return to pool).</p>
+
+<h3>Sample KPIs (customize together)</h3>
+
+<h4>Justin (CGO) — up to 1.67% earnable</h4>
+<ul>
+<li>KPI 1 (0.55%): First institutional investor pitch resulting in signed term sheet</li>
+<li>KPI 2 (0.55%): First $50,000 cumulative revenue from partnerships he originated</li>
+<li>KPI 3 (0.55%): First 10,000 verified subscribers from his outreach channels</li>
+</ul>
+
+<h4>Jason (COO) — up to 1.67% earnable</h4>
+<ul>
+<li>KPI 1 (0.55%): Production launch on time + at agreed COGS within 90 days of plan</li>
+<li>KPI 2 (0.55%): Annual inventory turn ratio above 4×</li>
+<li>KPI 3 (0.55%): Operations gross margin above 35% in year 2</li>
+</ul>
+
+<h4>Dawon (CBO) — up to 1.67% earnable</h4>
+<ul>
+<li>KPI 1 (0.55%): Brand asset library complete (style guide, photo library, design system) by [date]</li>
+<li>KPI 2 (0.55%): Email subscriber count above 25,000</li>
+<li>KPI 3 (0.55%): Customer retention rate above 40% at month 6</li>
+</ul>
+
+<div class="callout callout-blue">
+<span class="label">Important</span>
+These are starting examples. <strong>We'll workshop the exact KPIs together at the meeting</strong> to make sure each founder has fair, achievable, meaningful targets.
+</div>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Justin, Jason, and Dawon each get a path to earn extra equity — up to about 1.67% more — by hitting performance milestones. It's like a structured bonus. You earn the option when you hit your goal, but you only get the actual stock if you also stay with the company for another year after that. This rewards both achievement and commitment.
+</div>
+</div>
+</section>
+
+<!-- CH 7 GOVERNANCE -->
+<section class="chapter" id="ch7">
+<div class="chapter-head">
+<div class="num">Chapter 7</div>
+<h2>Voting & governance — how Alex stays in control.</h2>
+</div>
+
+<p>Alex's 40% equity is significant, but doesn't give him outright voting majority (>50%) on stockholder matters. The structure addresses this through <strong>layered governance</strong>, not equity concentration alone.</p>
+
+<h3>Layer 1: Sole Director (already in place)</h3>
+<p>Alex is the <strong>Sole Director</strong> of Pheeew, Inc. The Board controls operational decisions (officer hiring/firing, budgets, contracts, strategic plans). Until the board expands (typically at Series A), Alex has complete operational authority regardless of stockholder votes.</p>
+
+<h3>Layer 2: Voting Agreement (new, today)</h3>
+<p>Jason, Justin, and Dawon will grant Alex an <strong>irrevocable proxy on stockholder votes</strong> until the earlier of:</p>
+<ul>
+<li>Series A round closing, OR</li>
+<li>5 years from the agreement date</li>
+</ul>
+<p>This gives Alex <strong>90% voting power on stockholder matters</strong> (charter amendments, sale of company, IPO, dissolution) for the duration.</p>
+
+<h3>Layer 3: Class B Super-Voting Stock (planned for Series A)</h3>
+<p>When Pheeew raises Series A, Class B Common Stock with 10:1 voting power will be issued to Alex as part of the round terms. This gives Alex <strong>~70%+ voting power permanently</strong> through future dilution rounds. Standard founder-control mechanism used by Google, Facebook, Snap, Stripe, Coinbase, etc.</p>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Alex's 40% isn't a "vote majority" by itself. But three layers of governance give him real control: (1) he's the Sole Director (runs daily operations), (2) the other three founders give him their voting power on big company-wide decisions until Series A or 5 years, (3) at Series A we'll structure special voting stock for Alex that locks in his control permanently. Standard practice for founder-led companies.
+</div>
+</div>
+</section>
+
+<!-- CH 8 DILUTION -->
+<section class="chapter" id="ch8">
+<div class="chapter-head">
+<div class="num">Chapter 8</div>
+<h2>Dilution math — sustainable through Series A and beyond.</h2>
+</div>
+
+<p>The user concern about "Alex absorbs all dilution forever" is correctly identified as <strong>unsustainable</strong>. The proper structure uses <strong>standard proportional dilution</strong>: when new shares are issued (KPI options vesting, future investors), everyone dilutes by the same factor.</p>
+
+<div class="tbl-wrap"><table>
+<tr><th>Event</th><th class="num">Alex</th><th class="num">Jason</th><th class="num">Justin</th><th class="num">Dawon</th><th class="num">Pool</th></tr>
+<tr class="highlight"><td>Today</td><td class="num"><strong>40.0%</strong></td><td class="num">20.0%</td><td class="num">20.0%</td><td class="num">10.0%</td><td class="num">10.0%</td></tr>
+<tr><td>KPI options exercise</td><td class="num">38.0%</td><td class="num">19.0%</td><td class="num">19.0%</td><td class="num">9.5%</td><td class="num">9.5%</td></tr>
+<tr><td>Series Seed (20% dilution)</td><td class="num">30.4%</td><td class="num">15.2%</td><td class="num">15.2%</td><td class="num">7.6%</td><td class="num">7.6%</td></tr>
+<tr><td>Series A (20% dilution)</td><td class="num">24.3%</td><td class="num">12.2%</td><td class="num">12.2%</td><td class="num">6.1%</td><td class="num">6.1%</td></tr>
+<tr><td>Series B (20% dilution)</td><td class="num">19.5%</td><td class="num">9.7%</td><td class="num">9.7%</td><td class="num">4.9%</td><td class="num">4.9%</td></tr>
+</table></div>
+
+<div class="callout callout-green">
+<span class="label">Sustainable forever</span>
+<strong>Alex stays the largest single holder through every round</strong> — never inverted by Dawon, never dropping below Jason or Justin. The ranking is stable indefinitely. At Series A, the Class B super-voting locks Alex's voting power at 70%+ permanently.
+</div>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Whenever the company gets bigger (employees get options, investors come in), everyone's slice gets thinner — but in proportion. Alex starts with the biggest slice, so he always has the biggest slice. By the time we've done 3 rounds, Alex still has nearly 20%, Jason and Justin each have ~10%, Dawon has ~5%. That's normal and healthy. And Alex's voting control is preserved through the dual-class voting stock at Series A.
+</div>
+</div>
+</section>
+
+<!-- CH 9 TAX/LEGAL -->
+<section class="chapter" id="ch9">
+<div class="chapter-head">
+<div class="num">Chapter 9</div>
+<h2>Tax & legal — zero outside help.</h2>
+</div>
+
+<div class="tbl-wrap"><table>
+<tr><th>Item</th><th>Status</th></tr>
+<tr><td>Federal income tax to Pheeew</td><td>None. § 1032 exemption.</td></tr>
+<tr><td>Income tax to Alex (refresh shares at FMV)</td><td>$0 with timely 83(b)</td></tr>
+<tr><td>Income tax to Jason (refresh shares at FMV)</td><td>$0 with timely 83(b)</td></tr>
+<tr><td>Income tax to Justin (new grant at FMV)</td><td>$0 with timely 83(b)</td></tr>
+<tr><td>Gift tax — Justin → Alex ($9,458)</td><td>None. Under $19K annual exclusion. <strong>No Form 709.</strong></td></tr>
+<tr><td>Gift tax — Jason → Alex ($9,458)</td><td>None. Under $19K annual exclusion. <strong>No Form 709.</strong></td></tr>
+<tr><td>Income tax to Alex on gifts received</td><td>None. Gifts aren't income to recipient.</td></tr>
+<tr><td>Delaware franchise tax</td><td>No change. Still $400/year minimum.</td></tr>
+<tr><td>SEC filing</td><td>None. § 4(a)(2) private placement.</td></tr>
+<tr><td>Lawyer required</td><td><strong>None.</strong></td></tr>
+<tr><td>Accountant required</td><td><strong>None.</strong></td></tr>
+<tr class="total"><td><strong>Total external costs</strong></td><td class="num"><strong>$219</strong> (DE Cert Amendment $194 + CA DFPI $25)</td></tr>
+</table></div>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Nobody pays any taxes from this. No surprises. No IRS forms. No lawyer bills. No accountant fees. We pay $194 to Delaware to update our charter and $25 to California to register the new stock issuance. That's all.
+</div>
+</div>
+</section>
+
+<!-- CH 10 TIMELINE -->
+<section class="chapter" id="ch10">
+<div class="chapter-head">
+<div class="num">Chapter 10</div>
+<h2>Execution timeline.</h2>
+</div>
+
+<h3>Week 1 (this week)</h3>
+<div class="tbl-wrap"><table>
+<tr><th>Day</th><th>Action</th><th>Owner</th></tr>
+<tr><td>Mon</td><td>Founders meeting — present this brief, get verbal alignment</td><td>All</td></tr>
+<tr><td>Mon-Tue</td><td>Alex regenerates document set with locked numbers</td><td>Alex</td></tr>
+<tr><td>Tue-Wed</td><td>Alex pre-signs D01, D02, D03, D05 as CEO; sends documents to founders</td><td>Alex</td></tr>
+<tr><td>Wed-Thu</td><td>Jason, Dawon, Junhyuk e-sign D02 + D08 + Voting Agreement</td><td>All</td></tr>
+<tr><td>Wed-Thu</td><td>Justin signs D04, D07, D14, Gift Letter; wires $30,000 to Mercury</td><td>Justin</td></tr>
+<tr><td>Wed-Thu</td><td>Jason signs D06, D10, Gift Letter; wires $23,250 to Mercury</td><td>Jason</td></tr>
+<tr><td>Thu</td><td>Justin and Jason each Zelle/Venmo $9,458 personal gift to Alex</td><td>Justin, Jason</td></tr>
+<tr><td>Thu</td><td>Alex wires $18,916 (gifted money) to Pheeew for refresh stock</td><td>Alex</td></tr>
+<tr><td>Thu-Fri</td><td>Alex files D03 with Delaware via Stripe Atlas</td><td>Alex</td></tr>
+<tr><td>Fri</td><td>Stock certificates issued (CS-001-R-A, CS-003-A, CS-004)</td><td>Alex</td></tr>
+</table></div>
+
+<h3>Week 2</h3>
+<div class="tbl-wrap"><table>
+<tr><th>Day</th><th>Action</th><th>Owner</th></tr>
+<tr><td>Mon</td><td>Each founder mails their 83(b) election to IRS via USPS Certified Mail</td><td>Each</td></tr>
+<tr><td>Mon-Tue</td><td>Alex updates Cap Table v2 and Records Index</td><td>Alex</td></tr>
+<tr><td>Tue</td><td>Alex emails copies of executed 83(b) elections to Pheeew within 5 business days</td><td>Alex</td></tr>
+<tr><td>Mid</td><td>Workshop KPI specifics for each non-Alex founder</td><td>All</td></tr>
+<tr><td>End</td><td>Sign 2026 Equity Incentive Plan + KPI Option Grant Agreements</td><td>All</td></tr>
+</table></div>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+The whole restructure is done in two weeks. Week 1: sign documents, transfer money, file with Delaware. Week 2: mail 83(b) elections to the IRS (most important deadline), update records, agree on KPIs. That's it.
+</div>
+</div>
+</section>
+
+<!-- CH 11 DECISIONS -->
+<section class="chapter" id="ch11">
+<div class="chapter-head">
+<div class="num">Chapter 11</div>
+<h2>Decisions needed from each founder.</h2>
+</div>
+
+<p>Before the meeting ends Monday, each founder needs to commit to:</p>
+
+<h4>Alex</h4>
+<ul>
+<li>✓ Confirms 40% target as final</li>
+<li>✓ Will sign all CEO/director documents</li>
+<li>✓ Will workshop KPIs with each founder</li>
+</ul>
+
+<h4>Jason</h4>
+<ul>
+<li>Confirms commitment to <strong>$30,000 lifetime outlay</strong> ($6,750 already paid + $23,250 new cash)</li>
+<li>Will sign refresh RSPA, 83(b), and Gift Letter</li>
+<li>Will workshop his three KPIs with Alex</li>
+</ul>
+
+<h4>Justin</h4>
+<ul>
+<li>Confirms <strong>$30,000 wire to Pheeew</strong> (with separate $9,458 personal gift to Alex)</li>
+<li>Will sign RSPA, 83(b), CIIAA, and Gift Letter</li>
+<li>Will workshop his three KPIs with Alex</li>
+<li>Will provide SSN/TIN for the 83(b)</li>
+</ul>
+
+<h4>Dawon</h4>
+<ul>
+<li>Confirms acceptance of 10% post-restructure stake</li>
+<li>Will sign D02 (Stockholder Consent), D08 (Co-Founder Agreement v3), and Voting Agreement</li>
+<li>Will workshop her three KPIs with Alex</li>
+<li><strong>Her existing RSPA, 83(b), and ITIN process are not disrupted</strong></li>
+</ul>
+
+<div class="eli5">
+<div class="eli5-icon">💡</div>
+<div class="eli5-body">
+<span class="eli5-label">In plain English</span>
+Each person commits to two things at the meeting: (1) yes, I'm in on these specific numbers, and (2) I'll sign my piece of paperwork this week. Dawon has the smallest list — she barely needs to do anything different from what she's already done.
+</div>
+</div>
+</section>
+
+<!-- ONE-PAGE SUMMARY -->
+<section class="chapter" id="summary">
+<div class="chapter-head">
+<div class="num">Chapter 12</div>
+<h2>One-page summary.</h2>
+</div>
+
+<div class="summary">
+<div class="summary-title">PHEEEW, INC. — FOUR-FOUNDER RESTRUCTURE</div>
+
+CAP TABLE (post-restructure, 28.8M shares total):
+  Alex:   11,520,000 (40%)   CEO + Sole Director
+  Jason:   5,760,000 (20%)   COO
+  Justin:  5,760,000 (20%)   CGO
+  Dawon:   2,880,000 (10%)   CBO  [unchanged from April]
+  Pool:    2,880,000 (10%)   For KPI grants + future hires
+
+ECONOMIC OUTLAY (total per founder):
+  Alex:   $6,750  (existing only, no new cash needed)
+  Jason:  $30,000 (= $6,750 existing + $23,250 new)
+  Justin: $30,000 (all new this round)
+  Dawon:  $6,500  (existing only, no new cash needed)
+
+GIFT MECHANISM (under $19K annual exclusion = no IRS form):
+  Justin → Alex: $9,458 personal gift (for Alex's refresh)
+  Jason  → Alex: $9,458 personal gift (for Alex's refresh)
+  Alex receives $18,916; buys 8,370,000 refresh shares
+
+EQUITY INCENTIVE POOL (10% = 2,880,000 shares):
+  - 5% for KPI grants to Jason, Justin, Dawon (~1.67% each)
+  - 5% for future hires
+  Double-trigger: performance + 12mo service
+
+GOVERNANCE LAYERS (for Alex's control):
+  1. Sole Director (operational authority)
+  2. Voting Agreement (90% stockholder voting until Series A or 5yrs)
+  3. Class B super-voting Common Stock (at Series A)
+
+TAX STATUS: $0 tax. No Form 709. No lawyer. No accountant.
+
+EXTERNAL FEES: $194 (DE Cert Amendment) + $25 (CA DFPI) = $219
+
+TIMELINE: Sign and execute within 1 week; mail 83(b)s within 2 weeks.
+</div>
+
+<a href="#" class="print-btn" onclick="window.print();return false;">↓ print full brief</a>
+</section>
+
+</div><!-- /wrap -->
+
+<footer style="padding:48px 0 64px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);text-align:center;font-weight:600;border-top:1px solid var(--line);margin-top:40px">
+<div style="max-width:900px;margin:0 auto;padding:0 36px">
+Pheeew, Inc. · Internal Founders Meeting Brief · Confidential<br>
+<span style="color:var(--brick)">Prepared by Seungjoon Kim, CEO + Sole Director · May 11, 2026</span>
+</div>
+</footer>
+
+</div><!-- /app -->
+
+<script>
+(function(){
+  const STORAGE_KEY = 'pheeew-meeting-brief-auth';
+  const PASSCODE = 'pheeew-team-2026';
+  const gate = document.getElementById('appGate');
+  const app = document.getElementById('app');
+
+  function show(){
+    gate.style.display = 'none';
+    app.style.display = 'block';
+  }
+
+  if (sessionStorage.getItem(STORAGE_KEY) === 'ok') show();
+  else {
+    gate.style.display = 'flex';
+    setTimeout(() => document.getElementById('gateInput').focus(), 50);
+  }
+
+  function tryGate(){
+    const v = document.getElementById('gateInput').value.trim();
+    const err = document.getElementById('gateError');
+    if (v === PASSCODE) {
+      sessionStorage.setItem(STORAGE_KEY, 'ok');
+      err.style.display = 'none';
+      show();
+    } else {
+      err.textContent = 'Wrong passcode';
+      err.style.display = 'block';
+      document.getElementById('gateInput').value = '';
+      document.getElementById('gateInput').focus();
+    }
+  }
+  document.getElementById('gateSubmit').addEventListener('click', tryGate);
+  document.getElementById('gateInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryGate(); });
+  document.getElementById('signOut').addEventListener('click', e => {
+    e.preventDefault();
+    sessionStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+})();
+</script>
+
+</body>
+</html>
