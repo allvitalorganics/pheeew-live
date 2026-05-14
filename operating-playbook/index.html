@@ -68,6 +68,20 @@ html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-seri
 /* SCROLL PROGRESS BAR */
 .scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--pheeew);z-index:55;width:0;transition:width .12s ease;pointer-events:none}
 
+/* INLINE CITATIONS */
+.cite{font-family:'Special Elite',monospace;font-size:10px;color:var(--pheeew);text-decoration:none;font-weight:700;vertical-align:super;letter-spacing:0;margin-left:2px;padding:1px 4px;border-radius:3px;background:var(--pheeew-soft);transition:all .15s ease}
+.cite:hover{background:var(--pheeew);color:var(--cream)}
+
+/* REFERENCES SECTION */
+.ref-list{list-style:none;margin:14px 0;padding:0;counter-reset:refc}
+.ref-list li{counter-increment:refc;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.55;display:flex;gap:14px}
+.ref-list li:last-child{border-bottom:none}
+.ref-list li::before{content:"["counter(refc)"]";font-family:'Special Elite',monospace;font-size:11px;font-weight:700;color:var(--pheeew);min-width:34px;padding-top:2px;flex-shrink:0}
+.ref-list .ref-body{flex:1}
+.ref-list .ref-source{color:var(--mute);font-style:italic;font-size:13px}
+.ref-list a{color:var(--pheeew);text-decoration:none;font-weight:600}
+.ref-list a:hover{text-decoration:underline}
+
 .confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
 .confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
 
@@ -268,6 +282,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <a href="#syllabus" class="section-pill" data-section="syllabus"><span class="num">10</span><span class="label">Syllabus</span></a>
       <a href="#margins" class="section-pill" data-section="margins"><span class="num">11</span><span class="label">Margins</span></a>
       <a href="#not-here" class="section-pill" data-section="not-here"><span class="num">12</span><span class="label">Modules</span></a>
+      <a href="#references" class="section-pill" data-section="references"><span class="num">13</span><span class="label">Sources</span></a>
     </nav>
     <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
   </div>
@@ -307,6 +322,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <li><a href="#syllabus">The learning syllabus — what each of us studies</a></li>
       <li><a href="#margins">Marketing economics — margins, ad spend, near-zero-budget playbook</a></li>
       <li><a href="#not-here">What's not in this doc (and where to find it)</a></li>
+      <li><a href="#references">References &amp; sources — every cited number, with primary links</a></li>
     </ol>
   </div>
 
@@ -467,6 +483,20 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">Why this framing matters</span>
       <p>If you read the playbook as "we're in pre-launch now and launch starts on date X," you miss two things. First, you'll think Build "ends" when we ship — it doesn't, it just shrinks. Second, you'll defer Operate planning ("we don't need that yet") until you actually need it, at which point it's too late. The modes aren't sequential. The thing that's small today still needs to exist today.</p>
     </div>
+
+    <h3>Where the brands we benchmark against actually are</h3>
+    <p>For context — real revenue, real valuations, real exit multiples from comps in our category. We don't aspire to these as Year-1 outcomes; we use them to calibrate what "category success" looks like and where our locked thesis (no-VC, slow-and-deep) sits relative to others.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Brand</th><th class="num">2024 revenue</th><th>Valuation / outcome</th><th>Multiple</th><th>What they're known for</th></tr>
+      <tr><td><strong>Poppi</strong></td><td class="num">$500M+<a href="#ref-13" class="cite">13</a></td><td>Acquired by PepsiCo May 2025 for $1.95B<a href="#ref-13" class="cite">13</a></td><td class="num">3.9×</td><td>Prebiotic soda · TikTok-led growth · vibrant packaging</td></tr>
+      <tr><td><strong>Olipop</strong></td><td class="num">$400M<a href="#ref-14" class="cite">14</a></td><td>$1.85B (Series C, Feb 2025)<a href="#ref-14" class="cite">14</a> · 65K+ retailers · 60% prebiotic soda share</td><td class="num">4.6×</td><td>Prebiotic soda · "modern soda" reframe · functional + nostalgia</td></tr>
+      <tr><td><strong>AG1 (Athletic Greens)</strong></td><td class="num">~$600M projected<a href="#ref-15" class="cite">15</a></td><td>$1.2B (Jan 2025)<a href="#ref-15" class="cite">15</a> · subscription-led</td><td class="num">2.0×</td><td>Single-SKU greens powder · subscription LTV obsession</td></tr>
+      <tr><td><strong>Liquid Death</strong></td><td class="num">$333M<a href="#ref-16" class="cite">16</a></td><td>$1.4B Series E (Mar 2024) → $951M secondary (Aug 2025)<a href="#ref-16" class="cite">16</a></td><td class="num">2.9–4.2×</td><td>Premium water · irreverent brand · cult community</td></tr>
+      <tr><td><strong>Bloom Nutrition</strong></td><td class="num">~$200M<a href="#ref-17" class="cite">17</a></td><td>$90M Nutrabolt investment Jan 2024 (20% stake) · $200M+ total invested<a href="#ref-17" class="cite">17</a></td><td class="num">—</td><td>Greens + sparkling energy · Mari Llewellyn brand</td></tr>
+      <tr><td><strong>MOSH</strong></td><td class="num">$12M<a href="#ref-18" class="cite">18</a></td><td>Shark Tank valued $25M · projecting $20M+ 2025 · 500+ retail stores<a href="#ref-18" class="cite">18</a></td><td class="num">2.1×</td><td>Functional bars · founder-celebrity story (Schwarzenegger / Shriver)</td></tr>
+    </table></div>
+    <p style="font-size:14px;color:var(--soft);margin-top:8px">Calibration: A clean Year-1 outcome at our stage is $1–5M revenue and a clear path to month-over-month subscription growth. Year-3 is where comparisons to MOSH (~$12M) become realistic. Year 5+ is where Olipop/Poppi/Bloom comparisons start applying — and only if execution compounds. The locked no-VC thesis means we likely move slower than these comps but with more founder control and tighter margin discipline.</p>
+
     <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
@@ -557,6 +587,19 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <div class="fn-section">
         <h5>What it looks like at Pheeew right now</h5>
         <p>Alex owns the strategic side (what goes in the formula, the synbiotic philosophy, the SKU roadmap), Jason owns the operational side (manufacturer execution, packaging procurement, QA standards, shipping survivability), and Dawon owns the packaging design (label, pouch graphics, structural design choices). The manufacturer is treated as a vendor relationship under Product — Alex holds the strategic relationship, Jason runs the day-to-day. <strong>The manufacturer's name is not disclosed in any public Pheeew material; in this doc and internally, refer to them as "the Korean manufacturing partner" or "the manufacturer."</strong></p>
+
+        <div class="callout rule" style="margin-top:14px">
+          <span class="label">Regulatory positioning — locked decision</span>
+          <p>Pheeew is positioned as a <strong>conventional food</strong> (puree smoothie / functional beverage), not a <strong>dietary supplement</strong>. The FDA regulates these two product categories differently<a href="#ref-19" class="cite">19</a>:</p>
+          <div class="tbl-wrap" style="margin-top:10px"><table>
+            <tr><th></th><th>Conventional food</th><th>Dietary supplement</th></tr>
+            <tr><td><strong>FDA notification on claims</strong></td><td>Not required for structure/function claims</td><td>Required within 30 days of marketing</td></tr>
+            <tr><td><strong>Mandatory disclaimer on label</strong></td><td>Not required</td><td>"This statement has not been evaluated by FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."</td></tr>
+            <tr><td><strong>Claim substantiation</strong></td><td>Required (truthful, not misleading)</td><td>Required (truthful, not misleading)</td></tr>
+            <tr><td><strong>Disease claims allowed?</strong></td><td>No</td><td>No</td></tr>
+          </table></div>
+          <p style="margin-top:10px">Pheeew's conventional-food positioning gives us a meaningfully lighter regulatory burden — no mandatory disclaimer on packaging, no 30-day notification trigger. <strong>The trade-off:</strong> our claims must focus on <em>nutritive value</em> (fiber, real fruit content, probiotic strains as food ingredients) rather than the broader claim space supplements enjoy. We do NOT use disease language anywhere — not "treats bloating," not "cures constipation," not "prevents gut dysbiosis." Acceptable language: "supports digestion," "feeds beneficial gut bacteria," "delivers a daily synbiotic." Substantiation file (clinical studies on Bacillus coagulans, fiber dose, etc.) lives with Jason's regulatory folder.</p>
+        </div>
       </div>
 
       <div class="fn-section">
@@ -1075,17 +1118,17 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </table></div>
 
     <h3>Weekly — twelve metrics, Friday Wrap review</h3>
-    <p>Reviewed every Friday Wrap meeting. Each has an owner who reports it; trends compared to last week and to the same week one month ago.</p>
+    <p>Reviewed every Friday Wrap meeting. Each has an owner who reports it; trends compared to last week and to the same week one month ago. Targets benchmarked against published DTC industry data where available.</p>
     <div class="tbl-wrap"><table>
       <tr><th>Metric</th><th>Owner</th><th>Source</th><th>Target (first 90 days)</th></tr>
       <tr><td>Weekly revenue</td><td>Jason</td><td>Shopify</td><td>Growth week-over-week</td></tr>
       <tr><td>Units sold</td><td>Jason</td><td>Shopify</td><td>Track by SKU tier (Tester / Starter / Core / Committed / Household)</td></tr>
       <tr><td>Average Order Value (AOV)</td><td>Jason</td><td>Shopify</td><td>Hold or rise — beware AOV erosion from discounts</td></tr>
       <tr><td>New customers acquired</td><td>Justin</td><td>Shopify</td><td>Track source attribution</td></tr>
-      <tr><td>Customer Acquisition Cost (CAC) by channel</td><td>Justin</td><td>Klaviyo + Meta + Shopify</td><td>Below contribution margin per order (target: CAC &lt; 1.0x first-order contribution)</td></tr>
-      <tr><td>Conversion rate (visit → cart)</td><td>Justin</td><td>Shopify</td><td>Above 2% by week 4; above 3% by month 3</td></tr>
-      <tr><td>Conversion rate (cart → purchase)</td><td>Jason</td><td>Shopify</td><td>Above 60%</td></tr>
-      <tr><td>Email open rate / click rate</td><td>Justin</td><td>Klaviyo</td><td>Open ≥ 25%, click ≥ 2%</td></tr>
+      <tr><td>Customer Acquisition Cost (CAC) by channel</td><td>Justin</td><td>Klaviyo + Meta + Shopify</td><td>Industry avg DTC loses $29/customer before retention<a href="#ref-8" class="cite">8</a>. Our target: CAC ≤ first-order contribution margin. At Core 30 OT, that's ≤$46.</td></tr>
+      <tr><td>Conversion rate (visit → cart)</td><td>Justin</td><td>Shopify</td><td>Above 2% by week 4; above 3% by month 3 (ecommerce median: 2–3%)</td></tr>
+      <tr><td>Conversion rate (cart → purchase)</td><td>Jason</td><td>Shopify</td><td>Above 60% (anything below 50% suggests checkout friction)</td></tr>
+      <tr><td>Email open rate / click rate</td><td>Justin</td><td>Klaviyo</td><td>Open ≥ 25%, click ≥ 2% (Klaviyo benchmark medians)</td></tr>
       <tr><td>Storyline brief content reach</td><td>Dawon</td><td>Instagram / TikTok analytics</td><td>Growing followers, growing per-post reach</td></tr>
       <tr><td>Creator gifting boxes sent / responses</td><td>Justin</td><td>Notion tracking sheet</td><td>Conversion rate boxes → posts ≥ 25%</td></tr>
       <tr><td>Inventory on hand (units)</td><td>Jason</td><td>3PL inventory report</td><td>30-day buffer minimum; reorder triggered at 21-day buffer</td></tr>
@@ -1097,12 +1140,13 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Metric</th><th>Owner</th><th>Source</th><th>Why it matters</th></tr>
       <tr><td>Monthly revenue</td><td>Jason</td><td>Shopify</td><td>The top-line trajectory</td></tr>
-      <tr><td>Contribution margin per order</td><td>Alex</td><td>QuickBooks + COGS model</td><td>What's left after COGS, shipping, payment processing, and CAC. If negative, we have an unprofitable business; if low, we have a fragile one</td></tr>
-      <tr><td>Customer retention rate (% of month-1 customers who ordered in month-2)</td><td>Justin</td><td>Klaviyo / Shopify</td><td>The single most important DTC metric. Subscription brands should target ≥ 70% month-2 retention</td></tr>
-      <tr><td>LTV / CAC ratio</td><td>Alex</td><td>Model + actuals</td><td>Healthy = ≥ 3:1. Below 2:1 means we're scaling unprofitably; above 4:1 means we should spend more</td></tr>
-      <tr><td>Gross margin</td><td>Jason</td><td>QuickBooks</td><td>Target 50–60% for puree DTC; below 40% means we have a pricing or COGS problem</td></tr>
+      <tr><td>Contribution margin per order</td><td>Alex</td><td>QuickBooks + COGS model</td><td>What's left after COGS, shipping, payment processing. Target by tier per § 11 (Core 30 OT: $46.16; Sub: $19.68)</td></tr>
+      <tr><td>Subscription monthly churn rate</td><td>Justin</td><td>Recharge / Klaviyo</td><td>Beverage benchmark: 6–8% monthly churn; best-in-class &lt;5%<a href="#ref-9" class="cite">9</a>. Target for our first 6 months: stay under 10% monthly. Trigger an audit if it rises above 12%.</td></tr>
+      <tr><td>Repeat purchase rate (one-time buyers reordering)</td><td>Justin</td><td>Shopify / Klaviyo</td><td>Beverage benchmark: 20–30% acceptable, 40%+ excellent<a href="#ref-9" class="cite">9</a>. Target month-2 of launch: ≥25%.</td></tr>
+      <tr><td>LTV / CAC ratio</td><td>Alex</td><td>Model + actuals</td><td>Industry healthy: 3:1. Premium DTC: 4–6:1<a href="#ref-8" class="cite">8</a>. Below 2:1 means scaling unprofitably; above 4:1 means we should spend more. Use 8-month sub LTV for Core 30 = $157.44 as the working denominator.</td></tr>
+      <tr><td>Gross margin</td><td>Jason</td><td>QuickBooks</td><td>Target 50–60% blended for puree DTC; below 40% means we have a pricing or COGS problem. Current DTC blended GM at $1.09 COGS: 56–63% across tiers.</td></tr>
       <tr><td>Burn rate (monthly)</td><td>Alex</td><td>QuickBooks</td><td>The denominator on runway</td></tr>
-      <tr><td>Runway (months)</td><td>Alex</td><td>Cash / burn</td><td>Below 6 months = serious; below 3 months = action required</td></tr>
+      <tr><td>Runway (months)</td><td>Alex</td><td>Cash / burn</td><td>Below 6 months = serious; below 3 months = action required. <strong>"Running out of cash" is the #2 cause of startup failure (29%)</strong><a href="#ref-12" class="cite">12</a>.</td></tr>
       <tr><td>Customer service ticket volume + CSAT</td><td>Jason</td><td>Gorgias</td><td>Volume rising = brand reach or product issues. CSAT score &lt; 4.5/5 = something is off</td></tr>
     </table></div>
 
@@ -1466,9 +1510,39 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <p>Maintain backup options identified for every critical vendor — even if not actively used. Stripe Atlas account separate from Mercury operating. Klaviyo + secondary email tool (e.g., Postscript or basic Shopify Email) available. Quarterly review of vendor relationships and risks.</p>
     </div>
 
+    <!-- RISK 9 -->
+    <div class="risk-card">
+      <h4>Risk 9 · Tariff regime change (Section 122 expiry, extension, or expansion)</h4>
+      <div class="severity">Severity: 2 (Material) · Owner on response: Alex + Jason</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>Section 122 surcharge expiring without Congressional extension (statutorily limited to 150 days from Feb 24, 2026)<a href="#ref-4" class="cite">4</a></li>
+        <li>Congressional action extending Section 122 beyond original window</li>
+        <li>New Section 301 investigations announced targeting Korea or Korean-origin food/beverage</li>
+        <li>Section 232 expansion to new product categories (currently steel/aluminum/copper/lumber/autos)</li>
+        <li>Supreme Court IEEPA rulings or KORUS FTA renegotiation news</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0–4:</strong> Confirm with customs broker which tariff regime applies to our HTSUS classification (2106.90.99) at current shipment date. Pull latest landed COGS recalc.</li>
+        <li><strong>Hour 4–12:</strong> If tariff is rising: model the new landed COGS in the cap table forecast. If it crosses a margin threshold (Core 30 OT margin drops below $40), trigger pricing review.</li>
+        <li><strong>Hour 12–24:</strong> If tariff is falling: bank the margin uplift in the cash forecast; don't pass through to retail pricing on day one. Margin improvements get reinvested in marketing, inventory, or runway before they get reflected in lower SRP.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>Maintain ongoing relationship with customs broker who tracks tariff regime in real-time. Quarterly tariff review built into the Thursday Finance Review cadence (§ 04). Build pricing model with three scenarios: 0% duty (KORUS only), 10% (current Section 122), 15–20% (potential expansion). Decisions on whether to absorb, partially pass-through, or fully pass-through tariff changes follow Tier 3 (all-hands) authority per § 05.</p>
+    </div>
+
+    <div class="callout note">
+      <span class="label">A note on first-time founder context</span>
+      <p>Industry data sets the right humility level for this register. <strong>~90% of startups fail</strong><a href="#ref-12" class="cite">12</a>. <strong>First-time founders specifically have an 18% success rate</strong> — slightly worse than founders with prior failure experience (20%). The top three causes of startup failure: <strong>lack of market need (42%), running out of cash (29%), wrong team (23%)</strong><a href="#ref-12" class="cite">12</a>. None of the risks in this register are theoretical. The discipline of writing them down with first-24-hour playbooks is the operating equivalent of fire drills — most of the value is in <em>having done the thinking before the fire</em>.</p>
+    </div>
+
     <div class="callout warn">
       <span class="label">Risks not covered above</span>
-      <p>This register covers the eight most-likely risks for our stage and category. Risks not covered: cybersecurity incident (data breach), IP / trademark dispute, partnership / licensee dispute, internal misconduct, public health emergency (pandemic affecting supply chain), force majeure events. These will be added to the register as we grow into them. The register is a living document — update it the week after a near-miss, not the week after the actual crisis.</p>
+      <p>This register covers the nine most-likely risks for our stage and category. Risks not covered: cybersecurity incident (data breach), IP / trademark dispute, partnership / licensee dispute, internal misconduct, public health emergency, force majeure events. These will be added to the register as we grow into them. The register is a living document — update it the week after a near-miss, not the week after the actual crisis.</p>
     </div>
     <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
@@ -1496,17 +1570,17 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <div class="tool-box">
         <div class="name">Shopify</div>
         <div class="role">DTC storefront</div>
-        <div class="desc">$39–$105/mo depending on plan. Start Basic, upgrade as volume justifies. Includes payments processing via Shopify Payments. Owned: Jason.</div>
+        <div class="desc">$39 (Basic) / $105 (Shopify) / $399 (Advanced) per month. Start Basic. Shopify Payments rates: 2.9%+$0.30 (Basic), 2.6%+$0.30 (Shopify), 2.4%+$0.30 (Advanced)<a href="#ref-5" class="cite">5</a>. Plan upgrade pays for itself when monthly revenue × processing-rate-savings &gt; plan-price-delta. Owned: Jason.</div>
       </div>
       <div class="tool-box">
         <div class="name">Klaviyo</div>
         <div class="role">Email + SMS</div>
-        <div class="desc">Free up to 250 contacts; paid plans scale by contact count. Welcome / post-purchase / abandoned cart / browse abandonment flows. Owned: Justin.</div>
+        <div class="desc">Free up to 250 contacts. Paid: $20/mo (500 contacts) → $150/mo (10K contacts) → scales with list size<a href="#ref-11" class="cite">11</a>. <strong>Important:</strong> as of Feb 2025, billed on <em>active</em> profiles (not emailed profiles) — old guidance is wrong. Owned: Justin.</div>
       </div>
       <div class="tool-box">
-        <div class="name">Recharge or Skio</div>
+        <div class="name">Recharge</div>
         <div class="role">Subscriptions</div>
-        <div class="desc">~$60/mo + ~1% of subscription revenue. Powers the subscription tier in our pricing ladder. Owned: Jason.</div>
+        <div class="desc">$25/mo Starter (new merchants ≤50 subs), then $99/mo Standard + <strong>1.49%</strong> transaction fee<a href="#ref-7" class="cite">7</a> (was 1.25% pre-2026 — old quotes are stale). Stacks on top of Shopify Payments. Real total payment-layer cost on a $72 Core sub order: ~$3.46. Owned: Jason.</div>
       </div>
       <div class="tool-box">
         <div class="name">Gorgias</div>
@@ -1524,9 +1598,9 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         <div class="desc">~$20–$200/mo depending on order volume. Automates sales tax calculation, collection, and remittance across states. Owned: Jason.</div>
       </div>
       <div class="tool-box">
-        <div class="name">3PL (TBD)</div>
+        <div class="name">3PL — ShipMonk or ShipBob</div>
         <div class="role">Fulfillment</div>
-        <div class="desc">Variable per-order pricing (~$3–$6/order at our scale). Pick-pack-ship from inventory. ShipBob / ShipMonk / Stord / boutique 3PL under evaluation. Owned: Jason.</div>
+        <div class="desc">Pick-pack benchmark: <strong>$2–$5/order</strong> for single-item; $3–$8 for small businesses<a href="#ref-6" class="cite">6</a>. ShipMonk: $0 setup, $250/mo minimum. ShipBob: $275/mo + $975 implementation. ShipMonk wins on cost for most mid-market brands. Owned: Jason.</div>
       </div>
       <div class="tool-box">
         <div class="name">Slack</div>
@@ -1607,18 +1681,18 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <h3>Estimated monthly software cost at full launch (~Day 60+)</h3>
     <div class="tbl-wrap"><table>
       <tr><th>Tool</th><th class="num">Monthly</th></tr>
-      <tr><td>Shopify (Basic)</td><td class="num">$39</td></tr>
-      <tr><td>Klaviyo (~5K contacts)</td><td class="num">$100</td></tr>
-      <tr><td>Recharge / Skio</td><td class="num">$60 + 1% of subs</td></tr>
+      <tr><td>Shopify (Basic)<a href="#ref-5" class="cite">5</a></td><td class="num">$39</td></tr>
+      <tr><td>Klaviyo (~5K active profiles)<a href="#ref-11" class="cite">11</a></td><td class="num">~$100</td></tr>
+      <tr><td>Recharge (Standard + 1.49% of subs)<a href="#ref-7" class="cite">7</a></td><td class="num">$99 + 1.49%</td></tr>
       <tr><td>Gorgias</td><td class="num">$50</td></tr>
       <tr><td>QuickBooks Online</td><td class="num">$30</td></tr>
       <tr><td>TaxJar</td><td class="num">$20</td></tr>
       <tr><td>Notion + Google Workspace + Figma + Slack</td><td class="num">$40</td></tr>
       <tr><td>DocuSign</td><td class="num">$25</td></tr>
       <tr><td>Stripe Atlas</td><td class="num">$40 (avg)</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Approximate total</strong></td><td class="num"><strong>~$400/mo</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Fixed monthly base</strong></td><td class="num"><strong>~$443/mo + 1.49% sub revenue</strong></td></tr>
     </table></div>
-    <p>This baseline holds steady through ~$50K MRR. Beyond that, Klaviyo contact tier increases, 3PL volume kicks in real shipping costs, and the deferred stack starts coming online. Plan for ~$800–$1,500/mo by month 6.</p>
+    <p>Fixed software baseline holds steady through ~$50K MRR. Beyond that, Klaviyo's contact-tier pricing scales, 3PL volume kicks in real shipping costs, and the deferred stack starts coming online. Plan for <strong>~$900–$1,600/mo</strong> all-in by month 6. The Recharge 1.49% is variable but predictable: at $20K subscription MRR, that's ~$300/mo on top of the $99 base.</p>
 
     <h3>Account ownership ledger</h3>
     <p>Every tool above has one founder listed as account owner. That founder holds the login credentials in 1Password (shared founder vault). When a founder leaves or rotates, ownership transfers in writing. <strong>No tool is owned by a personal email account.</strong> Everything is on the @pheeew.com domain.</p>
@@ -1835,20 +1909,31 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <p><a href="#margins-cogs" style="color:var(--pheeew);font-weight:700;text-decoration:none">A. Landed COGS per pouch</a> · <a href="#margins-channels" style="color:var(--pheeew);font-weight:700;text-decoration:none">B. Per-tier contribution margin (DTC OT + sub)</a> · <a href="#margins-other-channels" style="color:var(--pheeew);font-weight:700;text-decoration:none">C. Wholesale, Amazon, B2B margin math</a> · <a href="#margins-adspend" style="color:var(--pheeew);font-weight:700;text-decoration:none">D. Ad spend math at $1,000/month</a> · <a href="#margins-stack" style="color:var(--pheeew);font-weight:700;text-decoration:none">E. The near-zero-budget marketing stack</a> · <a href="#margins-ugc" style="color:var(--pheeew);font-weight:700;text-decoration:none">F. The raw UGC creator playbook</a> · <a href="#margins-storytelling" style="color:var(--pheeew);font-weight:700;text-decoration:none">G. Why narrative is the highest-leverage spend</a></p>
     </div>
 
+    <h3>Market context — where we're playing</h3>
+    <p>Pheeew sits at the intersection of three growing categories. Numbers below are from public research firms with primary citations in § 13:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Category</th><th class="num">Size / growth</th><th>What it means for us</th></tr>
+      <tr><td>US functional beverage</td><td class="num">$192.8B (2026), 5.4% CAGR through 2036<a href="#ref-20" class="cite">20</a></td><td>The broad category we sit inside. Steady growth; mature competitive set.</td></tr>
+      <tr><td>US probiotic/prebiotic soda</td><td class="num">8.5% CAGR 2024–2030<a href="#ref-21" class="cite">21</a></td><td>The functional-beverage sub-segment Olipop and Poppi dominate. We don't play here directly (puree, not soda).</td></tr>
+      <tr><td>Probiotic drinks (narrow)</td><td class="num">$31M → $50M by 2031 (8.17% CAGR)<a href="#ref-22" class="cite">22</a></td><td>The strict "probiotic drink" SKU category — small but growing.</td></tr>
+      <tr><td>Synbiotic-formulated products</td><td class="num">Growing 25% faster than conventional fortified juices; demand +20% over 3 years<a href="#ref-20" class="cite">20</a></td><td><strong>This is our lane.</strong> Prebiotic + probiotic together. Less crowded than prebiotic soda. Less commodity than probiotic-alone.</td></tr>
+    </table></div>
+    <p>The strategic implication: we are NOT trying to win the prebiotic-soda fight (Olipop + Poppi/PepsiCo own it). We are creating a position in a smaller, faster-growing, less-defended segment — synbiotic puree — that complements (and recruits from) the existing functional-beverage audience without directly competing with the soda incumbents.</p>
+
     <!-- A. COGS -->
     <h3 id="margins-cogs">A · The landed COGS per pouch</h3>
     <p>Every margin calculation starts here. Before we can talk about what we can afford to spend on acquisition, we have to know what a pouch actually costs us by the time it's sitting in a 3PL warehouse ready to ship.</p>
 
     <div class="tbl-wrap"><table>
       <tr><th>Cost layer</th><th class="num">$/pouch</th><th>Notes</th></tr>
-      <tr><td>Manufacturer ex-factory (Korea)</td><td class="num">$0.83</td><td><strong>1,150 KRW per pouch</strong> at assumed ~$1,380 KRW/USD. <strong>Confirmed for Phase 2 SKU</strong> (Gut + Digestion / "Tropical Punch" — name being renamed for launch). Phase 1 (Gut + Energy, berry-forward) presumed comparable, to be confirmed at first production batch. Update this row when actual Phase 1 invoice lands.</td></tr>
-      <tr><td>Ocean freight (LCL early stage)</td><td class="num">$0.10</td><td>Korea → US West Coast; Less-than-Container-Load rate at launch MOQ. Drops to ~$0.03–$0.05/pouch with Full-Container-Load at month 6+.</td></tr>
-      <tr><td>US Customs duty</td><td class="num">$0.05</td><td>HTSUS 2106.90.99 (food preparations not elsewhere specified) — ~6.4% of declared ex-factory value. Final classification to be confirmed by customs broker at first shipment.</td></tr>
+      <tr><td>Manufacturer ex-factory (Korea)</td><td class="num">$0.77</td><td><strong>1,150 KRW per pouch</strong> at <strong>1,490 KRW/USD</strong> (mid-May 2026)<a href="#ref-1" class="cite">1</a>. <strong>Confirmed for Phase 2 SKU</strong> (Gut + Digestion / "Tropical Punch" — name being renamed for launch). Phase 1 (Gut + Energy, berry-forward) presumed comparable, to be confirmed at first production batch.</td></tr>
+      <tr><td>Ocean freight (LCL early stage)</td><td class="num">$0.10</td><td>Korea Busan → US West Coast LCL benchmark at ~$80–$180/CBM<a href="#ref-2" class="cite">2</a> plus 30–50% for CFS, documentation, BAF/CAF surcharges. Drops to ~$0.03–$0.05/pouch with FCL at month 6+.</td></tr>
+      <tr><td>US Customs duty</td><td class="num">$0.08</td><td>HTSUS 2106.90.99 (food preparations NEC). Under <strong>KORUS FTA the MFN duty is 0% for Korean origin</strong><a href="#ref-3" class="cite">3</a>, BUT the Trump-era <strong>Section 122 10% surcharge</strong> (effective Feb 24, 2026; replaces struck-down IEEPA tariffs)<a href="#ref-4" class="cite">4</a> applies on top. <strong>Political risk:</strong> Section 122 is statutorily limited to 150 days without Congressional extension — see § 08 Risk 9.</td></tr>
       <tr><td>Customs broker fees (amortized)</td><td class="num">$0.01</td><td>~$200 per shipment, amortized across the 40K–120K unit MOQ.</td></tr>
       <tr><td>Inland US to 3PL</td><td class="num">$0.03</td><td>Truck/drayage from port to 3PL warehouse.</td></tr>
       <tr><td>3PL intake + storage allocated</td><td class="num">$0.05</td><td>Per-pouch allocation of warehouse intake fee + monthly storage. Recalculate quarterly as volumes change.</td></tr>
       <tr><td>Returns / damage reserve</td><td class="num">$0.05</td><td>Average across all returns, damaged shipments, and inventory write-offs.</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total landed COGS</strong></td><td class="num"><strong>$1.12</strong></td><td><strong>Per pouch, at launch MOQ. Working figure for all margin tables below.</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total landed COGS</strong></td><td class="num"><strong>$1.09</strong></td><td><strong>Per pouch, at launch MOQ. Working figure for all margin tables below.</strong></td></tr>
     </table></div>
 
     <div class="callout warn">
@@ -1857,8 +1942,9 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <div class="callout note">
-      <span class="label">FX rate assumption — update quarterly</span>
-      <p>All USD figures derived from KRW invoicing assume a working rate of <strong>1 USD = 1,380 KRW</strong>. The actual rate floats — at 1,300 KRW/USD the ex-factory rises to ~$0.88; at 1,450 KRW/USD it falls to ~$0.79. The cap table forecast model needs to carry FX sensitivity as a real risk line, especially as we approach larger reorders. Lock FX via forward contract once monthly KRW outflow exceeds ~$25K to manage exposure.</p>
+      <span class="label">FX + tariff sensitivity — both volatile, both political</span>
+      <p>USD figures derived from KRW invoicing assume <strong>1 USD = 1,490 KRW</strong><a href="#ref-1" class="cite">1</a>. The won has weakened materially in 2026 (was ~1,380 a year ago). At 1,400 KRW/USD the ex-factory rises to ~$0.82; at 1,550 it falls to ~$0.74.</p>
+      <p>The Section 122 10% surcharge is <strong>not permanent</strong> — statutorily a 150-day temporary measure<a href="#ref-4" class="cite">4</a>. If it expires without extension, our duty drops back to 0% (KORUS FTA). If extended or expanded, we plan worst-case at 15–20%. <strong>Carry FX + tariff sensitivity as a real line in the cash forecast.</strong> Lock FX via forward contract once monthly KRW outflow exceeds ~$25K.</p>
     </div>
 
     <!-- B. Per-tier contribution margin -->
@@ -1868,7 +1954,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <h4>Per-order cost stack (applies to all tiers, varies by size)</h4>
     <div class="tbl-wrap"><table>
       <tr><th>Cost</th><th>Logic</th></tr>
-      <tr><td>Pouches × $1.12</td><td>Landed COGS × order quantity</td></tr>
+      <tr><td>Pouches × $1.09</td><td>Landed COGS × order quantity</td></tr>
       <tr><td>Packaging</td><td>$1.50 (Tester) → $4.00 (Household); box, void fill, label, shipping documents</td></tr>
       <tr><td>Outbound shipping</td><td>$6 (Tester) → $15 (Household); 3PL-negotiated UPS/USPS ground</td></tr>
       <tr><td>Payment processing</td><td>2.9% of revenue + $0.30 per transaction (Shopify Payments standard)</td></tr>
@@ -1882,14 +1968,14 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">$</th></tr>
       <tr><td>Revenue</td><td class="num">$34.00</td></tr>
-      <tr><td>COGS (10 × $1.12)</td><td class="num">−$11.20</td></tr>
+      <tr><td>COGS (10 × $1.09)</td><td class="num">−$10.90</td></tr>
       <tr><td>Packaging</td><td class="num">−$1.50</td></tr>
       <tr><td>Shipping</td><td class="num">−$6.00</td></tr>
-      <tr><td>Payment processing (2.9% + $0.30)</td><td class="num">−$1.29</td></tr>
-      <tr><td>3PL pick-pack</td><td class="num">−$2.50</td></tr>
+      <tr><td>Payment processing (2.9% + $0.30)<a href="#ref-5" class="cite">5</a></td><td class="num">−$1.29</td></tr>
+      <tr><td>3PL pick-pack<a href="#ref-6" class="cite">6</a></td><td class="num">−$2.50</td></tr>
       <tr><td>Customer service amortized</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (5%)</td><td class="num">−$1.70</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$9.31 · 27.4%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$9.61 · 28.3%</strong></td></tr>
     </table></div>
 
     <h4>Starter 20 · $59 one-time / $49 subscription</h4>
@@ -1897,14 +1983,15 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($59)</th><th class="num">Sub ($49)</th></tr>
       <tr><td>Revenue</td><td class="num">$59.00</td><td class="num">$49.00</td></tr>
-      <tr><td>COGS (20 × $1.12)</td><td class="num">−$22.40</td><td class="num">−$22.40</td></tr>
+      <tr><td>COGS (20 × $1.09)</td><td class="num">−$21.80</td><td class="num">−$21.80</td></tr>
       <tr><td>Packaging</td><td class="num">−$2.00</td><td class="num">−$2.00</td></tr>
       <tr><td>Shipping</td><td class="num">−$7.00</td><td class="num">−$7.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$2.01</td><td class="num">−$1.72</td></tr>
+      <tr><td>Recharge sub fee (1.49% + $99/mo allocated)<a href="#ref-7" class="cite">7</a></td><td class="num">—</td><td class="num">−$0.85</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$1.77</td><td class="num">−$1.47</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$20.32 · 34.4%</strong></td><td class="num"><strong>$10.91 · 22.3%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$20.92 · 35.5%</strong></td><td class="num"><strong>$10.66 · 21.8%</strong></td></tr>
     </table></div>
 
     <h4>Core 30 · $99 one-time / $72 subscription</h4>
@@ -1912,14 +1999,15 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($99)</th><th class="num">Sub ($72)</th></tr>
       <tr><td>Revenue</td><td class="num">$99.00</td><td class="num">$72.00</td></tr>
-      <tr><td>COGS (30 × $1.12)</td><td class="num">−$33.60</td><td class="num">−$33.60</td></tr>
+      <tr><td>COGS (30 × $1.09)</td><td class="num">−$32.70</td><td class="num">−$32.70</td></tr>
       <tr><td>Packaging</td><td class="num">−$2.50</td><td class="num">−$2.50</td></tr>
       <tr><td>Shipping</td><td class="num">−$8.00</td><td class="num">−$8.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$3.17</td><td class="num">−$2.39</td></tr>
+      <tr><td>Recharge sub fee (1.49%)<a href="#ref-7" class="cite">7</a></td><td class="num">—</td><td class="num">−$1.07</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$2.97</td><td class="num">−$2.16</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$45.26 · 45.7%</strong></td><td class="num"><strong>$19.85 · 27.6%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$46.16 · 46.6%</strong></td><td class="num"><strong>$19.68 · 27.3%</strong></td></tr>
     </table></div>
 
     <h4>Committed 60 · $179 one-time / $139 subscription</h4>
@@ -1927,14 +2015,15 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($179)</th><th class="num">Sub ($139)</th></tr>
       <tr><td>Revenue</td><td class="num">$179.00</td><td class="num">$139.00</td></tr>
-      <tr><td>COGS (60 × $1.12)</td><td class="num">−$67.20</td><td class="num">−$67.20</td></tr>
+      <tr><td>COGS (60 × $1.09)</td><td class="num">−$65.40</td><td class="num">−$65.40</td></tr>
       <tr><td>Packaging</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
       <tr><td>Shipping</td><td class="num">−$10.00</td><td class="num">−$10.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$5.49</td><td class="num">−$4.33</td></tr>
+      <tr><td>Recharge sub fee (1.49%)<a href="#ref-7" class="cite">7</a></td><td class="num">—</td><td class="num">−$2.07</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$4.00</td><td class="num">−$4.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$5.37</td><td class="num">−$4.17</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$83.44 · 46.6%</strong></td><td class="num"><strong>$45.80 · 32.9%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$85.24 · 47.6%</strong></td><td class="num"><strong>$45.53 · 32.8%</strong></td></tr>
     </table></div>
 
     <h4>Household 120 · $329 one-time / $259 subscription</h4>
@@ -1942,41 +2031,42 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($329)</th><th class="num">Sub ($259)</th></tr>
       <tr><td>Revenue</td><td class="num">$329.00</td><td class="num">$259.00</td></tr>
-      <tr><td>COGS (120 × $1.12)</td><td class="num">−$134.40</td><td class="num">−$134.40</td></tr>
+      <tr><td>COGS (120 × $1.09)</td><td class="num">−$130.80</td><td class="num">−$130.80</td></tr>
       <tr><td>Packaging</td><td class="num">−$4.00</td><td class="num">−$4.00</td></tr>
       <tr><td>Shipping</td><td class="num">−$15.00</td><td class="num">−$15.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$9.84</td><td class="num">−$7.81</td></tr>
+      <tr><td>Recharge sub fee (1.49%)<a href="#ref-7" class="cite">7</a></td><td class="num">—</td><td class="num">−$3.86</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$6.00</td><td class="num">−$6.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$9.87</td><td class="num">−$7.77</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$149.39 · 45.4%</strong></td><td class="num"><strong>$83.52 · 32.3%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$152.99 · 46.5%</strong></td><td class="num"><strong>$83.26 · 32.1%</strong></td></tr>
     </table></div>
 
     <h4>Summary — DTC contribution margin per tier</h4>
     <div class="tbl-wrap"><table>
       <tr><th>Tier</th><th class="num">Revenue (OT)</th><th class="num">Margin (OT)</th><th class="num">% (OT)</th><th class="num">Revenue (Sub)</th><th class="num">Margin (Sub)</th><th class="num">% (Sub)</th></tr>
-      <tr><td>Tester 10</td><td class="num">$34</td><td class="num">$9.31</td><td class="num">27.4%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
-      <tr><td>Starter 20</td><td class="num">$59</td><td class="num">$20.32</td><td class="num">34.4%</td><td class="num">$49</td><td class="num">$10.91</td><td class="num">22.3%</td></tr>
-      <tr><td>Core 30</td><td class="num">$99</td><td class="num">$45.26</td><td class="num">45.7%</td><td class="num">$72</td><td class="num">$19.85</td><td class="num">27.6%</td></tr>
-      <tr><td>Committed 60</td><td class="num">$179</td><td class="num">$83.44</td><td class="num">46.6%</td><td class="num">$139</td><td class="num">$45.80</td><td class="num">32.9%</td></tr>
-      <tr><td>Household 120</td><td class="num">$329</td><td class="num">$149.39</td><td class="num">45.4%</td><td class="num">$259</td><td class="num">$83.52</td><td class="num">32.3%</td></tr>
+      <tr><td>Tester 10</td><td class="num">$34</td><td class="num">$9.61</td><td class="num">28.3%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+      <tr><td>Starter 20</td><td class="num">$59</td><td class="num">$20.92</td><td class="num">35.5%</td><td class="num">$49</td><td class="num">$10.66</td><td class="num">21.8%</td></tr>
+      <tr><td>Core 30</td><td class="num">$99</td><td class="num">$46.16</td><td class="num">46.6%</td><td class="num">$72</td><td class="num">$19.68</td><td class="num">27.3%</td></tr>
+      <tr><td>Committed 60</td><td class="num">$179</td><td class="num">$85.24</td><td class="num">47.6%</td><td class="num">$139</td><td class="num">$45.53</td><td class="num">32.8%</td></tr>
+      <tr><td>Household 120</td><td class="num">$329</td><td class="num">$152.99</td><td class="num">46.5%</td><td class="num">$259</td><td class="num">$83.26</td><td class="num">32.1%</td></tr>
     </table></div>
 
     <div class="callout rule">
       <span class="label">Three things to internalize from this table</span>
-      <p><strong>1. Subscription margins are roughly 60-70% of one-time margins.</strong> The discount we offer to encourage subscription is a real cost — but at the new landed COGS of $1.12, subscription is meaningfully profitable on first order across all tiers (not just on aggregated LTV). The math gets even better as subscribers stay — see LTV section below.<br><br><strong>2. Tester is a low-margin trial, not a loss-leader.</strong> $9.31 margin per order at 27.4% beats most CPG trial-pack benchmarks. With paid retargeting CAC of ~$15–25 (see Section D), the Tester now lands roughly break-even on first order alone — anything beyond that conversion is pure upside. <em>If Tester conversion to Starter+ falls below 30%, the entire tier strategy still warrants rethinking, but the downside risk is lower than originally modeled.</em><br><br><strong>3. Core 30 is the tier we should push hardest.</strong> At 45.7% OT contribution margin and 27.6% sub margin, Core 30 is the most profitable single tier when blended across the customer base. Lowest barrier-to-entry among multi-month commitments, simplest first-time purchase decision. Marketing, on-site merchandising, and email lifecycle should all guide customers toward Core 30 as the default.</p>
+      <p><strong>1. Subscription margins are 55–65% of one-time margins after Recharge fees.</strong> The subscription discount + Recharge platform fee (1.49% per order + $99/mo allocated) is a real cost. Sub is still meaningfully profitable on every order across all tiers, but it's the multi-order LTV that makes the model — not the per-order margin. See LTV math below.<br><br><strong>2. Tester is a low-margin trial, not a loss-leader.</strong> $9.61 margin per order at 28.3% — competitive vs broader CPG trial benchmarks. With paid retargeting CAC at the lower end of category range ($15–25)<a href="#ref-8" class="cite">8</a>, the Tester now lands roughly break-even on first order alone. <em>If Tester conversion to Starter+ falls below 30%, the entire tier strategy still warrants rethinking.</em><br><br><strong>3. Core 30 is the tier to push hardest.</strong> At 46.6% OT contribution margin and 27.3% sub margin, it's the most profitable single tier when blended across the customer base. Lowest barrier-to-entry among multi-month commitments, simplest first-time purchase decision. Marketing, on-site merchandising, and email lifecycle should all guide customers toward Core 30 as the default. Food &amp; beverage has the lowest CAC across all DTC categories<a href="#ref-8" class="cite">8</a> — meaning our paid economics on Core 30 should compare favorably to most adjacent verticals.</p>
     </div>
 
     <h4>Subscription LTV math</h4>
-    <p>Per-order margin is half the story. What makes subscription work is the recurring contribution over a customer's lifetime. Assumed average subscription length: 4 months at launch (conservative; mature DTC CPG averages 6–9 months).</p>
+    <p>Per-order margin is half the story. What makes subscription work is the recurring contribution over a customer's lifetime. Subscription beverage benchmark: monthly churn 6–8%, best-in-class &lt;5% — implying typical 4-month average tenure at launch, 8+ months once retention infrastructure (email lifecycle, customer service, skip/pause flexibility) matures<a href="#ref-9" class="cite">9</a>.</p>
     <div class="tbl-wrap"><table>
-      <tr><th>Tier</th><th class="num">Sub margin/order</th><th class="num">4-mo LTV</th><th class="num">8-mo LTV (mature)</th><th class="num">12-mo LTV (best case)</th></tr>
-      <tr><td>Starter 20</td><td class="num">$10.91</td><td class="num">$43.64</td><td class="num">$87.28</td><td class="num">$130.92</td></tr>
-      <tr><td>Core 30</td><td class="num">$19.85</td><td class="num">$79.40</td><td class="num">$158.80</td><td class="num">$238.20</td></tr>
-      <tr><td>Committed 60</td><td class="num">$45.80</td><td class="num">$183.20</td><td class="num">$366.40</td><td class="num">$549.60</td></tr>
-      <tr><td>Household 120</td><td class="num">$83.52</td><td class="num">$334.08</td><td class="num">$668.16</td><td class="num">$1,002.24</td></tr>
+      <tr><th>Tier</th><th class="num">Sub margin/order</th><th class="num">4-mo LTV (launch)</th><th class="num">8-mo LTV (mature)</th><th class="num">12-mo LTV (best case)</th></tr>
+      <tr><td>Starter 20</td><td class="num">$10.66</td><td class="num">$42.64</td><td class="num">$85.28</td><td class="num">$127.92</td></tr>
+      <tr><td>Core 30</td><td class="num">$19.68</td><td class="num">$78.72</td><td class="num">$157.44</td><td class="num">$236.16</td></tr>
+      <tr><td>Committed 60</td><td class="num">$45.53</td><td class="num">$182.12</td><td class="num">$364.24</td><td class="num">$546.36</td></tr>
+      <tr><td>Household 120</td><td class="num">$83.26</td><td class="num">$333.04</td><td class="num">$666.08</td><td class="num">$999.12</td></tr>
     </table></div>
-    <p>Read across: a Core 30 subscriber who stays 8 months produces $158.80 of contribution margin. That's the number we can afford to spend acquiring them, in total, across their lifetime, before paid acquisition becomes a losing trade. At our retargeting CAC of ~$15–25, the payback period on Core subscribers is roughly 1–2 orders — meaning the third order onward is pure profit contribution for the runway.</p>
+    <p>Read across: a Core 30 subscriber who stays 8 months produces $157.44 of contribution margin — what we can afford to spend acquiring them across their lifetime before paid acquisition becomes a losing trade. <strong>Target LTV:CAC ratio: 3:1 healthy, 4–6:1 for premium DTC</strong><a href="#ref-8" class="cite">8</a>. At our retargeting CAC of ~$15–25, the payback period on Core subscribers is 1–2 orders — meaning the third order onward is pure profit contribution to runway.</p>
 
     <!-- C. Other channels -->
     <h3 id="margins-other-channels">C · Margin math for non-DTC channels</h3>
@@ -1990,13 +2080,14 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <tr><td>Retailer margin (50%)</td><td class="num">−$2.00</td></tr>
       <tr><td>Broker commission (5%)</td><td class="num">−$0.10</td></tr>
       <tr><td>Net to Pheeew</td><td class="num">$1.89</td></tr>
-      <tr><td>COGS (landed to retailer DC)</td><td class="num">−$1.12</td></tr>
+      <tr><td>COGS (landed to retailer DC)</td><td class="num">−$1.09</td></tr>
       <tr><td>Outbound freight to retailer DC (amortized)</td><td class="num">−$0.10</td></tr>
       <tr><td>Slotting / promotional reserve</td><td class="num">−$0.15</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$0.52 · 13.0%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$0.55 · 13.8%</strong></td></tr>
     </table></div>
     <p>Wholesale margin is roughly <strong>1/3 of DTC margin per pouch</strong> — meaningfully better than the original modeling at the prior COGS assumption, but still well below DTC. We do not enter retail to make per-pouch profit; we enter retail to drive brand awareness and volume that amortizes fixed costs.</p>
     <p><strong>Pricing implication:</strong> our DTC SRP needs to be set with retail headroom in mind from day one. If we price DTC too aggressively, we have no room to enter retail later. Current DTC pouch pricing range ($2.16–$3.40 per pouch) leaves us room to price retail at a higher SRP ($3.99–$4.49) — retail customers pay a convenience premium for being on shelf.</p>
+    <p><strong>Velocity reality check:</strong> Whole Foods doesn't publish a public minimum-velocity threshold, but industry standard for dry grocery / chilled center-store is 1–3 units/SKU/store/week<a href="#ref-10" class="cite">10</a>. Below 1 unit/store/week and the SKU is at risk of being delisted at the next category review. Plan demo + local marketing spend to support velocity at launch.</p>
 
     <h4>Amazon (decision pending)</h4>
     <p>Amazon takes 15% referral fee + FBA fees if we fulfill through them ($3–5/order) + ad spend if we want visibility. Estimated:</p>
@@ -2005,10 +2096,10 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <tr><td>Revenue</td><td class="num">$99.00</td></tr>
       <tr><td>Amazon referral fee (15%)</td><td class="num">−$14.85</td></tr>
       <tr><td>FBA pick-pack-ship</td><td class="num">−$8.00</td></tr>
-      <tr><td>COGS (30 × $1.12)</td><td class="num">−$33.60</td></tr>
+      <tr><td>COGS (30 × $1.09)</td><td class="num">−$32.70</td></tr>
       <tr><td>Amazon ads (assumed 10% ACOS)</td><td class="num">−$9.90</td></tr>
       <tr><td>Other (returns, packaging)</td><td class="num">−$4.00</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$28.65 · 28.9%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$29.55 · 29.8%</strong></td></tr>
     </table></div>
     <p>Amazon margin is roughly <strong>63% of DTC OT margin</strong>. The decision isn't economic — it's strategic. Amazon controls the customer relationship; we lose direct contact, retention email rights, and brand-building leverage. Default position: <strong>don't sell on Amazon for the first 12 months</strong>. Reconsider once DTC is operating at scale and brand identity is bulletproof.</p>
 
@@ -2017,11 +2108,11 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">300-pouch corporate order</th></tr>
       <tr><td>Revenue (300 × $2.50 bulk price)</td><td class="num">$750.00</td></tr>
-      <tr><td>COGS (300 × $1.12)</td><td class="num">−$336.00</td></tr>
+      <tr><td>COGS (300 × $1.09)</td><td class="num">−$327.00</td></tr>
       <tr><td>Bulk shipping (palletized)</td><td class="num">−$25.00</td></tr>
       <tr><td>Payment terms financing cost (Net 30)</td><td class="num">−$10.00</td></tr>
       <tr><td>Account management amortized</td><td class="num">−$15.00</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$364.00 · 48.5%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$373.00 · 49.7%</strong></td></tr>
     </table></div>
     <p>B2B margin per order is excellent — among the highest contribution rates in the entire channel mix. Risk: account concentration. Lose one big corporate account and revenue drops materially. Lane to develop in months 6–12 alongside DTC.</p>
 
@@ -2030,7 +2121,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <p>Hard budget cap: <strong>$1,000/month all-in for paid acquisition</strong>. That's $33/day. The first instinct is to use it for cold prospecting (Meta interest targeting, TikTok creative testing). The instinct is wrong at this scale.</p>
 
     <h4>Why cold prospecting doesn't work at $33/day</h4>
-    <p>At cold prospecting CAC (typical $30–60 for our category), $1,000/month buys 17–33 new customers. With Core 30 OT margin of $45.26, that's $769–$1,494 of first-order contribution. After paid spend: <strong>net contribution from cold paid acquisition: marginal to slightly positive on first order alone</strong>. The math is no longer cleanly negative at the new COGS — but it's still fragile, because it requires near-perfect creative + targeting to clear $30 CAC at this budget level.</p>
+    <p>At cold prospecting CAC (typical $30–60 for our category), $1,000/month buys 17–33 new customers. With Core 30 OT margin of $46.16, that's $785–$1,523 of first-order contribution. After paid spend: <strong>net contribution from cold paid acquisition: marginal to slightly positive on first order alone</strong>. The math is no longer cleanly negative at the new COGS — but it's still fragile, because it requires near-perfect creative + targeting to clear $30 CAC at this budget level. <strong>The industry average DTC brand loses $29 per new customer before retention kicks in</strong><a href="#ref-8" class="cite">8</a> — we are not exempt from that physics just because our margins are good.</p>
     <p>Worse: at $33/day, Meta's algorithm doesn't have enough budget to find good audiences. You burn 60–80% of the spend before the algorithm starts performing. Sub-scale spend on a "smart" platform is a worst-of-both-worlds situation. The improved per-customer margin at the new COGS doesn't fix the audience-discovery problem; it just makes the math less ugly when it works and equally ugly when it doesn't.</p>
 
     <h4>The retargeting reframe</h4>
@@ -2084,7 +2175,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <p>Cost: ~$0 cash (Dawon's time). Production setup under $100 (phone tripod, lavalier mic). <strong>This is the single biggest acquisition channel at our stage.</strong> See <a href="../storyline-brief/" style="color:var(--pheeew);font-weight:700;text-decoration:none">storyline brief</a> for full execution. Expected contribution: 40–60% of first 6 months' acquisitions.</p>
 
     <h4>2. Creator gifting (raw UGC) — Justin's outreach</h4>
-    <p>Cost: product COGS per box (~$22 per Starter 20 box, ~$34 per Core 30 box, plus ~$3–8 in inserts/packaging extras). At 15 boxes/month: ~$340–600/month in product cost. Drives third-party authentic content + community trust. Full playbook below in subsection F. Expected contribution: 20–30% of first 6 months' acquisitions.</p>
+    <p>Cost: product COGS per box (~$22 per Starter 20 box, ~$33 per Core 30 box, plus ~$3–8 in inserts/packaging extras). At 15 boxes/month: ~$330–600/month in product cost. Drives third-party authentic content + community trust. Full playbook below in subsection F. Expected contribution: 20–30% of first 6 months' acquisitions.</p>
 
     <h4>3. Email + SMS lifecycle (retention, not acquisition)</h4>
     <p>Cost: Klaviyo subscription ($30–$200/month depending on contact count). Drives repeat purchases, subscription conversion, reactivation of dormant subscribers. <strong>Not technically an acquisition channel — but it's the channel that makes acquisition profitable</strong> by extending the customer lifetime. Worth more than paid spend dollar-for-dollar.</p>
@@ -2115,13 +2206,13 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <tr><th>Channel</th><th class="num">$/month</th></tr>
       <tr><td>Klaviyo (Email + SMS lifecycle)</td><td class="num">$30–$200</td></tr>
       <tr><td>Referral program tool</td><td class="num">$25–$50</td></tr>
-      <tr><td>Creator gifting (15 boxes/month avg)</td><td class="num">$340–$600 in product COGS</td></tr>
+      <tr><td>Creator gifting (15 boxes/month avg)</td><td class="num">$330–$600 in product COGS</td></tr>
       <tr><td>Cross-brand partnerships (product exchanges)</td><td class="num">$100–$300 in product COGS</td></tr>
       <tr><td>Time (4 founders, organic execution)</td><td class="num">~$0 cash; ~50% of marketing team capacity</td></tr>
       <tr class="total" style="background:var(--peach-soft)"><td><strong>Total cash + product</strong></td><td class="num"><strong>~$500–$1,200/month</strong></td></tr>
     </table></div>
 
-    <p>Combined with the $1,000 paid budget, our all-in marketing spend lands at <strong>~$1,500–$2,200/month</strong>. At Core 30 OT margins of ~$45, that's a break-even threshold of <strong>~33–49 new customers per month</strong>. Below that, marketing is a net loss; above, marketing is a net positive. The new lower COGS shaves about 6–10 customers off the monthly break-even line — a real but modest improvement.</p>
+    <p>Combined with the $1,000 paid budget, our all-in marketing spend lands at <strong>~$1,500–$2,200/month</strong>. At Core 30 OT margins of ~$46, that's a break-even threshold of <strong>~33–48 new customers per month</strong>. Below that, marketing is a net loss; above, marketing is a net positive.</p>
 
     <!-- F. UGC playbook -->
     <h3 id="margins-ugc">F · The raw UGC creator playbook</h3>
@@ -2191,12 +2282,12 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <h4>Gifting box composition</h4>
     <div class="tbl-wrap"><table>
       <tr><th>Item</th><th>Cost</th><th>Notes</th></tr>
-      <tr><td>Starter 20 pouches (or Core 30 for higher-fit creators)</td><td class="num">$22–$34 COGS</td><td>The product is the gift</td></tr>
+      <tr><td>Starter 20 pouches (or Core 30 for higher-fit creators)</td><td class="num">$22–$33 COGS</td><td>The product is the gift</td></tr>
       <tr><td>Hand-written note from Dawon</td><td class="num">$0</td><td>Personal, short. Single page. References Dawon's story briefly.</td></tr>
       <tr><td>One-pager: ingredient breakdown + suggested ways to try</td><td class="num">$0.50 printing</td><td>Not a sales pitch; an explanation. Useful information they can reference.</td></tr>
       <tr><td>Optional: small branded extra (Pheeew tote, kitchen towel, sticker pack)</td><td class="num">$3–$8</td><td>Skip if budget is tight; include if it adds delight</td></tr>
       <tr><td>Custom packaging tape with Pheeew brand</td><td class="num">$0.20</td><td>Small thing; creators photograph unboxings; pays off in production value</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total per box</strong></td><td class="num"><strong>~$26–$43</strong></td><td></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total per box</strong></td><td class="num"><strong>~$26–$42</strong></td><td></td></tr>
     </table></div>
 
     <h4>Relationship cadence post-box</h4>
@@ -2321,6 +2412,47 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">The playbook is wrong about something right now</span>
       <p>It has to be. We don't know which sentence yet. The discipline isn't to write it perfectly; the discipline is to update it the moment we learn we got something wrong. The day this doc stops getting updated is the day it becomes a lie about how the company actually runs.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
+  </section>
+
+  <!-- 13. REFERENCES & SOURCES -->
+  <section class="block" id="references">
+    <div class="block-head">
+      <div class="num">§ 13 · references &amp; sources</div>
+      <h2>Every number, claim, and benchmark — with its source.</h2>
+      <p class="sub">If we cite it inline, it's here. Living document — when we add new claims, we add new references. When a source updates (e.g., FX rate, new earnings report), we re-cite and update the underlying number.</p>
+    </div>
+
+    <ol class="ref-list">
+      <li id="ref-1"><div class="ref-body"><strong>USD/KRW exchange rate — mid-May 2026 (~1,490 KRW/USD).</strong> <span class="ref-source">Federal Reserve H.10 historical data; Trading Economics; <a href="https://fred.stlouisfed.org/series/DEXKOUS" target="_blank">FRED South Korean Won to U.S. Dollar Spot Exchange Rate (DEXKOUS)</a>; <a href="https://tradingeconomics.com/south-korea/currency" target="_blank">Trading Economics South Korean Won</a>.</span></div></li>
+      <li id="ref-2"><div class="ref-body"><strong>LCL ocean freight Asia → US: $80–$180/CBM baseline; add 30–50% for CFS, documentation, BAF/CAF.</strong> <span class="ref-source"><a href="https://suaidglobal.com/insights/lcl-shipping-rates/" target="_blank">Suaid Global LCL Rates May 2026</a>; <a href="https://www.freightos.com/freight-resources/container-shipping-cost-calculator-free-tool/" target="_blank">Freightos Container Shipping Calculator 2026</a>.</span></div></li>
+      <li id="ref-3"><div class="ref-body"><strong>KORUS FTA: most Korean industrial and consumer goods enter US duty-free (eliminated by Jan 1, 2021).</strong> HTSUS 2106.90 covers food preparations not elsewhere specified. <span class="ref-source"><a href="https://www.cbp.gov/trade/priority-issues/trade-agreements/korea" target="_blank">U.S. Customs and Border Protection — Korea Free Trade Agreement (KORUS)</a>; <a href="https://ustr.gov/trade-agreements/free-trade-agreements/korus-fta" target="_blank">USTR KORUS FTA</a>; <a href="https://hts.usitc.gov/" target="_blank">USITC Harmonized Tariff Schedule</a>.</span></div></li>
+      <li id="ref-4"><div class="ref-body"><strong>Section 122 10% surcharge — Trump-era temporary import duty effective Feb 24, 2026; statutorily limited to 150 days without Congressional extension; replaces struck-down IEEPA tariffs.</strong> <span class="ref-source"><a href="https://www.whitehouse.gov/fact-sheets/2026/02/fact-sheet-president-donald-j-trump-imposes-a-temporary-import-duty-to-address-fundamental-international-payment-problems/" target="_blank">White House Fact Sheet, Feb 2026</a>; <a href="https://www.whitecase.com/insight-alert/trump-administration-imposes-10-section-122-tariff-plan-replace-ieepa-tariffs" target="_blank">White &amp; Case: Trump Administration Imposes 10% Section 122 Tariff</a>; <a href="https://www.wiley.law/alert-Trump-Imposes-Section-122-Tariffs-After-Halting-IEEPA-Tariffs-Previews-New-Section-301-Investigations" target="_blank">Wiley Law alert on Section 122</a>.</span></div></li>
+      <li id="ref-5"><div class="ref-body"><strong>Shopify Payments processing fees 2026: 2.9% + $0.30 (Basic, $39/mo); 2.6% + $0.30 (Shopify, $105/mo); 2.4% + $0.30 (Advanced, $399/mo).</strong> <span class="ref-source"><a href="https://www.shopify.com/blog/credit-card-processing-fees" target="_blank">Shopify — Average Credit Card Processing Fees 2026</a>; <a href="https://help.shopify.com/en/manual/international/pricing/fees" target="_blank">Shopify Help Center — Fees and costs</a>.</span></div></li>
+      <li id="ref-6"><div class="ref-body"><strong>3PL pick-pack benchmark 2026: $2–$5 per single-item order; $3–$8 for small businesses.</strong> ShipMonk: $0 setup, $250/mo minimum. ShipBob: $275/mo minimum + $975 implementation. <span class="ref-source"><a href="https://www.shipbob.com/ecommerce-fulfillment/fulfillment-costs/" target="_blank">ShipBob — Fulfillment Costs 101</a>; <a href="https://www.fulfill.com/shipbob-vs-shipmonk" target="_blank">Fulfill.com — ShipBob vs ShipMonk 2026</a>; <a href="https://catalistgroup.co/blog/3pl-fulfillment-cost-breakdown-2026/" target="_blank">Catalist — 3PL Fulfillment Costs 2026</a>.</span></div></li>
+      <li id="ref-7"><div class="ref-body"><strong>Recharge pricing 2026: Starter $25/mo (new merchants ≤50 subscribers); Standard $99/mo + 1.49% transaction fee (was 1.25% pre-2026).</strong> <span class="ref-source"><a href="https://support.getrecharge.com/hc/en-us/articles/360008682914-Recharge-billing-and-pricing" target="_blank">Recharge — billing and pricing support article</a>; <a href="https://www.ringly.io/blog/recharge-subscriptions-pricing" target="_blank">Ringly — Recharge Subscriptions Pricing 2026</a>.</span></div></li>
+      <li id="ref-8"><div class="ref-body"><strong>DTC benchmarks: F&amp;B has the lowest CAC across DTC categories. Industry average DTC loses $29 per new customer before retention. Healthy LTV:CAC is 3:1; premium DTC achieves 4–6:1.</strong> <span class="ref-source"><a href="https://www.rivo.io/blog/ecommerce-calculation-benchmark-statistics" target="_blank">Rivo — Customer Lifetime Value Benchmark Statistics</a>; <a href="https://www.mobiloud.com/blog/average-customer-acquisition-cost-for-ecommerce" target="_blank">Mobiloud — Average Customer Acquisition Cost for Ecommerce 2026</a>; <a href="https://www.sarasanalytics.com/blog/shopify-ltv" target="_blank">Saras Analytics — Shopify LTV 2026</a>.</span></div></li>
+      <li id="ref-9"><div class="ref-body"><strong>Subscription beverage benchmarks: monthly churn 6–8% (best-in-class &lt;5%); repeat purchase rate 20–30% acceptable, 40%+ excellent. Top subscription brands retain 65%+ of revenue after one year; median is 42%.</strong> <span class="ref-source"><a href="https://getrecharge.com/blog/10-subscription-metrics-every-dtc-brand-should-track/" target="_blank">Recharge — 10 subscription metrics every DTC brand should track</a>; <a href="https://www.mageloyalty.com/blog/beverage-brand-repeat-purchase-benchmarks-what-good-looks-like-in-2025" target="_blank">Mage Loyalty — Beverage Brand Repeat Purchase Benchmarks 2025</a>; <a href="https://recurly.com/research/churn-rate-benchmarks/" target="_blank">Recurly — Customer Churn Benchmarks</a>.</span></div></li>
+      <li id="ref-10"><div class="ref-body"><strong>Whole Foods velocity standard: industry standard for dry grocery / chilled center-store is 1–3 units per SKU per store per week.</strong> No public minimum threshold from Whole Foods. <span class="ref-source"><a href="https://foodtechconnect.com/2015/11/19/10-steps-to-getting-into-whole-foods-7-crunching-numbers/" target="_blank">Food+Tech Connect — 10 Steps to Getting Into Whole Foods: #7 Crunching Numbers</a>; <a href="https://www.cpgdatainsights.com/measure-sales/velocity-how-prod-really-sells/" target="_blank">CPG Data Insights — Velocity: How Well Your Product REALLY Sells</a>.</span></div></li>
+      <li id="ref-11"><div class="ref-body"><strong>Klaviyo pricing 2026: $20/mo for 500 contacts; $150/mo at 10K contacts. Billed on active profiles (not emailed profiles) as of Feb 2025.</strong> <span class="ref-source"><a href="https://www.klaviyo.com/pricing" target="_blank">Klaviyo — official pricing page</a>; <a href="https://www.retainful.com/blog/klaviyo-pricing" target="_blank">Retainful — Klaviyo Pricing 2026</a>; <a href="https://help.klaviyo.com/hc/en-us/articles/115000976672" target="_blank">Klaviyo Help Center — How billing works</a>.</span></div></li>
+      <li id="ref-12"><div class="ref-body"><strong>Startup failure statistics: ~90% of startups fail globally. First-time founders: 18% success rate (vs 20% for founders with prior failure). Top failure causes: lack of market need (42%), running out of cash (29%), wrong team (23%).</strong> <span class="ref-source"><a href="https://www.demandsage.com/startup-failure-rate/" target="_blank">DemandSage — Startup Failure Rates &amp; Statistics 2026</a>; <a href="https://www.failory.com/blog/startup-failure-rate" target="_blank">Failory — Startup Failure Rate 2026</a>; <a href="https://www.embroker.com/blog/startup-statistics/" target="_blank">Embroker — 110 must-know startup statistics</a>.</span></div></li>
+      <li id="ref-13"><div class="ref-body"><strong>Poppi: $500M+ 2024 revenue; PepsiCo acquired for $1.95B (closed May 19, 2025); $300M anticipated cash tax benefits = $1.65B net.</strong> <span class="ref-source"><a href="https://www.pepsico.com/en/newsroom/press-releases/2025/pepsico-completes-acquisition-of-poppi-accelerating-strategic-portfolio-transformation" target="_blank">PepsiCo press release — completes acquisition of poppi</a>; <a href="https://fortune.com/2025/06/16/poppi-founder-allison-ellsworth-went-from-making-soda-in-her-kitchen-to-selling-her-company-to-pepsico-for-1-95-billion/" target="_blank">Fortune — Poppi founder Allison Ellsworth</a>; <a href="https://www.cnbc.com/2025/10/17/poppi-went-from-kitchen-experiment-to-2-billion-deal-with-pepsico.html" target="_blank">CNBC — Poppi to $2 billion PepsiCo deal</a>.</span></div></li>
+      <li id="ref-14"><div class="ref-body"><strong>Olipop: $400M 2024 revenue; $1.85B valuation (JP Morgan-led Series C, Feb 2025); 65,000+ retailers; ~60% of prebiotic soda market share.</strong> <span class="ref-source"><a href="https://www.cnbc.com/2025/02/12/olipop-prebiotic-soda-valued-at-1point85-billion-in-funding-round.html" target="_blank">CNBC — Olipop valued at $1.85 billion</a>; <a href="https://www.inc.com/divya-bhardwaj/olipop-valued-at-1-85-billion-valuation-after-50-million-fundraise/91147679" target="_blank">Inc — Olipop's $1.85B valuation</a>; <a href="https://www.fooddive.com/news/olipop-valued-at-nearly-2b-following-latest-funding-round/739907/" target="_blank">Food Dive — Olipop valued at nearly $2B</a>.</span></div></li>
+      <li id="ref-15"><div class="ref-body"><strong>AG1 (Athletic Greens): ~$600M projected 2024 revenue; $1.2B valuation (Jan 2025). Single-SKU subscription model; rebranded from Athletic Greens.</strong> <span class="ref-source"><a href="https://fortune.com/2025/01/21/athletic-greens-launching-new-products-channels-2025/" target="_blank">Fortune — Athletic Greens projected to reach $600 million in revenue</a>; <a href="https://en.wikipedia.org/wiki/AG1_(company)" target="_blank">AG1 (company) Wikipedia</a>; <a href="https://pitchbook.com/profiles/company/268771-06" target="_blank">PitchBook — AG1 Company Profile</a>.</span></div></li>
+      <li id="ref-16"><div class="ref-body"><strong>Liquid Death: $333M 2024 revenue (Sacra); ~$340M projected 2025; $1.4B valuation (Series E, Mar 2024); $951.5M secondary market valuation (Aug 2025).</strong> <span class="ref-source"><a href="https://sacra.com/c/liquid-death/" target="_blank">Sacra — Liquid Death revenue, valuation &amp; funding</a>; <a href="https://www.fooddive.com/news/liquid-death-funding-investment/709912/" target="_blank">Food Dive — Liquid Death valued at $1.4B</a>; <a href="https://www.premieralts.com/companies/liquid-death/valuation" target="_blank">Premier Alts — Liquid Death Valuation 2026</a>.</span></div></li>
+      <li id="ref-17"><div class="ref-body"><strong>Bloom Nutrition: ~$200M 2024 revenue; $350–400M projected 2025; $90M Nutrabolt investment Jan 2024 (20% stake); $200M+ total Nutrabolt investment by Sep 2025.</strong> <span class="ref-source"><a href="https://www.fooddive.com/news/nutrabolt-bloom-nutrition-investment/759735/" target="_blank">Food Dive — Nutrabolt boosts stake in Bloom Nutrition</a>; <a href="https://www.inc.com/ali-donaldson/want-to-score-more-than-2-million-in-sales-in-two-weeks-make-these-hires/91227046" target="_blank">Inc — Bloom Scored More than $2 Million in Sales in Two Weeks</a>; <a href="https://athletechnews.com/nutrabolt-crosses-200m-in-bloom-investment-insiders-see-likely-majority-stake/" target="_blank">Athletech News — Nutrabolt crosses $200M in Bloom</a>.</span></div></li>
+      <li id="ref-18"><div class="ref-body"><strong>MOSH: $12M 2024 revenue (grew from $4M in 2022 → $7M in 2023); projecting $20M+ in 2025; 500+ retail stores. Shark Tank valuation $25M.</strong> <span class="ref-source"><a href="https://www.inc.com/nicole-gull-mcelroy/before-the-white-lotus-patrick-schwarzenegger-was-making-protein-bars-with-his-mom/91168920" target="_blank">Inc — Before The White Lotus, Patrick Schwarzenegger Was Making Protein Bars</a>; <a href="https://www.uschamber.com/co/good-company/the-leap/mosh-startup-growth" target="_blank">U.S. Chamber of Commerce — MOSH Disrupts Functional</a>.</span></div></li>
+      <li id="ref-19"><div class="ref-body"><strong>FDA regulation: Conventional foods do not require FDA notification for structure/function claims, nor a disclaimer. Dietary supplements require notification within 30 days of marketing AND a mandatory disclaimer.</strong> <span class="ref-source"><a href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/label-claims-conventional-foods-and-dietary-supplements" target="_blank">FDA — Label Claims for Conventional Foods and Dietary Supplements</a>; <a href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/structurefunction-claims" target="_blank">FDA — Structure/Function Claims</a>; <a href="https://www.congress.gov/crs-product/R48623" target="_blank">Congress.gov CRS Report R48623 — Food and Dietary Supplement Labeling Claims</a>.</span></div></li>
+      <li id="ref-20"><div class="ref-body"><strong>US functional beverage market: $192.8B in 2026, 5.4% CAGR through 2036. Synbiotic products growing 25% faster than conventional fortified juices.</strong> <span class="ref-source"><a href="https://www.futuremarketinsights.com/reports/global-functional-beverages-market" target="_blank">Future Market Insights — Functional Beverage Market Size, Demand &amp; Forecast to 2036</a>.</span></div></li>
+      <li id="ref-21"><div class="ref-body"><strong>US probiotic and prebiotic soda market: 8.5% CAGR 2024–2030.</strong> <span class="ref-source"><a href="https://www.grandviewresearch.com/industry-analysis/probiotic-prebiotic-soda-market-report" target="_blank">Grand View Research — Probiotic And Prebiotic Soda Market Report 2030</a>.</span></div></li>
+      <li id="ref-22"><div class="ref-body"><strong>Probiotic drinks market: $31.05M in 2025 → $49.74M by 2031 at 8.17% CAGR.</strong> <span class="ref-source"><a href="https://www.persistencemarketresearch.com/market-research/probiotic-drink-market.asp" target="_blank">Persistence Market Research — Probiotic Drink Market Size, Share &amp; Growth Trends</a>.</span></div></li>
+    </ol>
+
+    <div class="callout note">
+      <span class="label">How to use this section</span>
+      <p>Every superscript reference like <a class="cite" href="#ref-1">1</a> in the body of the playbook links here. When you click one, the relevant entry highlights. When you find a number in the playbook that disagrees with reality, fix the number AND update the reference (or remove the citation if it no longer applies). Don't leave stale citations attached to stale numbers — it's worse than having no citation at all.</p>
+    </div>
+
     <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
