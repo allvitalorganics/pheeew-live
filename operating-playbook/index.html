@@ -41,35 +41,29 @@ html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-seri
 .signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
 .signout:hover{color:var(--ink);border-color:var(--ink)}
 
-/* SECTION NAV BUTTON */
-.section-nav-btn{display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--pheeew-soft);color:var(--pheeew);border-radius:100px;font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;border:1px solid transparent;transition:border-color .15s ease;line-height:1}
-.section-nav-btn:hover{border-color:var(--pheeew)}
-.section-nav-btn .arrow{font-size:8px;display:inline-block;transform:translateY(-1px)}
-.section-nav-btn .section-label{font-weight:700}
+/* HORIZONTAL PILL NAV */
+.section-pills{display:flex;gap:4px;align-items:center;overflow-x:auto;flex:1;padding:0 8px;scrollbar-width:none;-ms-overflow-style:none}
+.section-pills::-webkit-scrollbar{display:none}
+.section-pill{flex-shrink:0;padding:7px 12px;background:transparent;color:var(--mute);font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;text-decoration:none;border-radius:100px;border:1px solid transparent;transition:all .15s ease;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;line-height:1}
+.section-pill:hover{background:var(--pheeew-soft);color:var(--pheeew)}
+.section-pill.active{background:var(--pheeew);color:var(--cream)}
+.section-pill .num{opacity:.55;font-weight:700;letter-spacing:0}
+.section-pill.active .num{opacity:1}
+.section-pill .label{font-weight:700}
 
-/* NAV OVERLAY */
-.nav-overlay{position:fixed;inset:0;background:rgba(28,26,24,.6);backdrop-filter:blur(8px);z-index:60;display:none;align-items:flex-start;justify-content:center;padding:72px 20px 32px;overflow-y:auto}
-.nav-overlay.open{display:flex}
-.nav-overlay-box{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:32px 28px;max-width:560px;width:100%;max-height:calc(100vh - 100px);overflow-y:auto;box-shadow:0 24px 60px rgba(28,26,24,.2)}
-.nav-overlay-box .nav-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.nav-overlay-box .nav-head h3{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--ink);margin:0;letter-spacing:-.005em}
-.nav-overlay-box .nav-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--mute);padding:4px 8px;line-height:1;font-weight:300}
-.nav-overlay-box .nav-close:hover{color:var(--ink)}
-.nav-overlay-box ol{list-style:none;margin:0;padding:0;counter-reset:navc}
-.nav-overlay-box li{counter-increment:navc;border-bottom:1px dashed var(--line)}
-.nav-overlay-box li:last-child{border-bottom:none}
-.nav-overlay-box li a{display:flex;gap:14px;align-items:flex-start;padding:12px 4px;font-size:15px;line-height:1.4;color:var(--ink);text-decoration:none;border-radius:6px;transition:background .12s ease}
-.nav-overlay-box li a:hover{background:var(--pheeew-soft);color:var(--pheeew);padding-left:10px;padding-right:10px}
-.nav-overlay-box li a::before{content:counter(navc,decimal-leading-zero);font-family:'Special Elite',monospace;font-size:11px;font-weight:700;color:var(--pheeew);min-width:28px;padding-top:3px;flex-shrink:0}
-.nav-overlay-box li a.active{color:var(--pheeew);font-weight:700;background:var(--pheeew-soft);padding-left:10px;padding-right:10px}
+/* BACK TO NAV (per section — also acts as visual section divider) */
+.back-to-nav{display:flex;justify-content:flex-end;margin-top:56px;margin-bottom:8px;padding-top:24px;border-top:1px solid var(--line)}
+.back-to-nav a{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 14px;border:1px solid var(--line);border-radius:100px;transition:all .15s ease;display:inline-flex;align-items:center;gap:5px}
+.back-to-nav a:hover{color:var(--pheeew);border-color:var(--pheeew);background:var(--cream)}
+.back-to-nav .arrow{font-size:13px;line-height:1}
 
-/* BACK TO TOP */
-.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;background:var(--ink);color:var(--cream);border-radius:100px;display:none;align-items:center;justify-content:center;font-size:22px;cursor:pointer;box-shadow:0 8px 24px rgba(28,26,24,.25);z-index:55;border:none;transition:transform .2s ease,background .2s ease;font-weight:700;line-height:1;padding-bottom:4px}
+/* BACK TO TOP (floating) */
+.back-to-top{position:fixed;bottom:28px;right:28px;width:46px;height:46px;background:var(--ink);color:var(--cream);border-radius:100px;display:none;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:0 8px 24px rgba(28,26,24,.25);z-index:55;border:none;transition:transform .2s ease,background .2s ease;font-weight:700;line-height:1;padding-bottom:4px}
 .back-to-top.visible{display:flex}
 .back-to-top:hover{transform:translateY(-2px);background:var(--pheeew)}
 
-/* SECTION DIVIDER */
-.section-divider{height:1px;background:linear-gradient(to right,transparent 0%,var(--line) 30%,var(--line) 70%,transparent 100%);margin:96px auto 56px;max-width:280px}
+/* SECTION DIVIDER — simpler, full-width line */
+.section-divider{height:1px;background:var(--line);margin:80px 0 56px;max-width:none}
 
 /* SCROLL PROGRESS BAR */
 .scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--pheeew);z-index:55;width:0;transition:width .12s ease;pointer-events:none}
@@ -206,10 +200,12 @@ footer p .sig{color:var(--pheeew);font-weight:700}
 /* MOBILE */
 @media (max-width:680px){
   .wrap{padding:0 20px}
-  .site-header-inner{padding:12px 16px;gap:8px}
+  .site-header-inner{padding:10px 12px;gap:6px}
+  .brand{flex-shrink:1;min-width:0}
   .brand .pad{display:none}
-  .section-nav-btn{padding:6px 10px;font-size:9px;letter-spacing:.1em}
-  .section-nav-btn .section-label-prefix{display:none}
+  .brand .lettermark{font-size:20px}
+  .section-pills{padding:0 4px}
+  .section-pill{padding:6px 10px;font-size:9px;letter-spacing:.06em}
   .signout{padding:5px 9px;font-size:9px;letter-spacing:.1em}
   .hero{padding:36px 0 24px}
   .hero h1{font-size:36px}
@@ -222,10 +218,9 @@ footer p .sig{color:var(--pheeew);font-weight:700}
   .tool-grid{grid-template-columns:1fr}
   .day-row{flex-direction:column;gap:4px}
   .day-row .day-owner{width:auto;text-align:left}
-  .nav-overlay{padding:60px 14px 24px}
-  .nav-overlay-box{padding:24px 20px}
-  .back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:20px}
-  .section-divider{margin:64px auto 40px}
+  .back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:18px}
+  .section-divider{margin:56px 0 36px}
+  .back-to-nav{margin-top:24px}
 }
 </style>
 </head>
@@ -249,50 +244,36 @@ footer p .sig{color:var(--pheeew);font-weight:700}
 <!-- SCROLL PROGRESS BAR -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- HEADER -->
+<!-- TOP ANCHOR -->
+<a id="top"></a>
+
+<!-- HEADER · horizontal pill nav -->
 <header class="site-header">
   <div class="site-header-inner">
     <div class="brand">
       <span class="lettermark">Pheeew</span>
-      <span class="pad">operating playbook</span>
+      <span class="pad">playbook</span>
     </div>
-    <div class="header-actions">
-      <button class="section-nav-btn" onclick="toggleNav()" aria-label="Open section menu">
-        <span class="section-label-prefix">Section</span>
-        <span class="section-label" id="currentSection">00</span>
-        <span class="arrow">▼</span>
-      </button>
-      <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
-    </div>
+    <nav class="section-pills" id="sectionPills" aria-label="Section navigation">
+      <a href="#how-to-use" class="section-pill" data-section="how-to-use"><span class="num">00</span><span class="label">How to use</span></a>
+      <a href="#team" class="section-pill" data-section="team"><span class="num">01</span><span class="label">Team</span></a>
+      <a href="#modes" class="section-pill" data-section="modes"><span class="num">02</span><span class="label">Modes</span></a>
+      <a href="#functions" class="section-pill" data-section="functions"><span class="num">03</span><span class="label">Functions</span></a>
+      <a href="#cadence" class="section-pill" data-section="cadence"><span class="num">04</span><span class="label">Cadence</span></a>
+      <a href="#decisions" class="section-pill" data-section="decisions"><span class="num">05</span><span class="label">Decisions</span></a>
+      <a href="#kpis" class="section-pill" data-section="kpis"><span class="num">06</span><span class="label">KPIs</span></a>
+      <a href="#thirty" class="section-pill" data-section="thirty"><span class="num">07</span><span class="label">30 days</span></a>
+      <a href="#risks" class="section-pill" data-section="risks"><span class="num">08</span><span class="label">Risks</span></a>
+      <a href="#tools" class="section-pill" data-section="tools"><span class="num">09</span><span class="label">Tools</span></a>
+      <a href="#syllabus" class="section-pill" data-section="syllabus"><span class="num">10</span><span class="label">Syllabus</span></a>
+      <a href="#margins" class="section-pill" data-section="margins"><span class="num">11</span><span class="label">Margins</span></a>
+      <a href="#not-here" class="section-pill" data-section="not-here"><span class="num">12</span><span class="label">Modules</span></a>
+    </nav>
+    <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
   </div>
 </header>
 
-<!-- NAV OVERLAY -->
-<div class="nav-overlay" id="navOverlay" onclick="if(event.target===this) toggleNav()">
-  <div class="nav-overlay-box">
-    <div class="nav-head">
-      <h3>Jump to section</h3>
-      <button class="nav-close" onclick="toggleNav()" aria-label="Close section menu">×</button>
-    </div>
-    <ol id="navList">
-      <li><a href="#how-to-use" data-section="how-to-use">How to use this playbook + the core principle</a></li>
-      <li><a href="#team" data-section="team">The team — who owns what</a></li>
-      <li><a href="#modes" data-section="modes">The four operating modes</a></li>
-      <li><a href="#functions" data-section="functions">Functional ownership — eight functions</a></li>
-      <li><a href="#cadence" data-section="cadence">The weekly cadence</a></li>
-      <li><a href="#decisions" data-section="decisions">Decision authority matrix</a></li>
-      <li><a href="#kpis" data-section="kpis">KPI dashboards</a></li>
-      <li><a href="#thirty" data-section="thirty">First 30 days — day-by-day</a></li>
-      <li><a href="#risks" data-section="risks">Risk register + crisis playbooks</a></li>
-      <li><a href="#tools" data-section="tools">Tooling + vendor stack</a></li>
-      <li><a href="#syllabus" data-section="syllabus">Learning syllabus</a></li>
-      <li><a href="#margins" data-section="margins">Marketing economics — margins, ad spend, UGC</a></li>
-      <li><a href="#not-here" data-section="not-here">What's not in this doc</a></li>
-    </ol>
-  </div>
-</div>
-
-<!-- BACK TO TOP -->
+<!-- BACK TO TOP (floating) -->
 <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 
 <div class="confidential-banner">
@@ -334,31 +315,46 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="block-head">
       <div class="num">§ 00 · how to use</div>
       <h2>How to read this playbook.</h2>
-      <p class="sub">This is a working document, not a finished book. It's wrong about something right now and we don't know what yet. The way to fix it is to keep using it.</p>
+      <p class="sub">A working document for a team that's never run a full DTC before. Teaches and instructs in the same breath. Wrong about something right now — we just don't know what yet.</p>
     </div>
 
-    <p>The playbook covers everything experienced CPG/DTC operators take for granted — the things you only learn by either working at an established brand or hiring someone who has. None of us have. So this doc has to teach as well as instruct: every function carries a "what this actually means" paragraph before the "what we do about it" paragraph.</p>
-
-    <p>It's structured so you can read it linearly the first time (which is recommended) and then return to specific sections as questions arise. Use the TOC. Cross-references throughout point you to where related material lives.</p>
-
-    <p>Three roles operate against this daily — <strong>Alex (CEO)</strong>, <strong>Jason (COO)</strong>, <strong>Justin (CGO)</strong>. Dawon (CBO) reads it but isn't expected to operate against it day-to-day; her work is governed by the <a href="../storyline-brief/" style="color:var(--pheeew);text-decoration:none;font-weight:700">storyline brief</a>. When the playbook says "the team" or "we," it usually means the three operators. When it says all four, it says all four.</p>
+    <h3>Who operates against it</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Founder</th><th>Role</th><th>Operates daily</th><th>Primary doc</th></tr>
+      <tr><td>Alex Kim</td><td>CEO + Sole Director</td><td>Yes</td><td>This playbook</td></tr>
+      <tr><td>Jason Ko</td><td>COO</td><td>Yes</td><td>This playbook</td></tr>
+      <tr><td>Justin Kim</td><td>CGO</td><td>Yes</td><td>This playbook</td></tr>
+      <tr><td>Dawon Kim</td><td>CBO</td><td>No</td><td><a href="../storyline-brief/" style="color:var(--pheeew);text-decoration:none;font-weight:700">Storyline brief</a></td></tr>
+    </table></div>
+    <p style="font-size:14px;color:var(--soft);margin-top:8px">When this doc says "the team" or "we," it usually means the three operators. When it says all four, it says all four.</p>
 
     <div class="callout rule">
       <span class="label">The core principle — modes, not phases</span>
-      <p>It would be natural to write this playbook as <em>"Pre-launch → Launch → Expansion → Scaling"</em> — a sequence with start dates and finish dates. That framing is wrong, the same way it was wrong in the storyline brief. <strong>Build, Launch, Operate, and Scale are not phases.</strong> They are overlapping ongoing modes the company is in (and returns to) for as long as it exists. Right now we're 80% Build / 20% Launch / 0% Operate / 0% Scale. Six months in, we might be 30/30/30/10. A year in, when we add a Phase 2 SKU, we'll snap back to 50% Build again on that SKU even while we're 30% Scale on the existing one. The dial moves. The modes don't end.</p>
-      <p>Apply this rule when you read every section. When you see "first 30 days" in § 07, that's not the end of the Build phase. It's the most concentrated Build period at the beginning of an ongoing one. When § 03 describes the Operations function, it's not describing what we do "after launch" — it's describing what we do continuously, with different intensities at different moments.</p>
+      <p><strong>Build · Launch · Operate · Scale are not phases. They are overlapping ongoing modes</strong> the company is in (and returns to) for as long as it exists. Today: ~70% Build / 20% Launch / 8% Operate / 2% Scale. Six months in: ~30/30/30/10. The dial moves. The modes don't end.</p>
+      <p>When you see "first 30 days" in § 07, it's the most concentrated Build window — not the end of Build. When § 03 describes Operations, it's continuous work at varying intensity, not "what we do after launch."</p>
     </div>
 
-    <h3>Living document rules</h3>
-    <ul>
-      <li><strong>When the playbook is wrong, update it.</strong> Don't tell people verbally. Edit the doc. Push live. Annotate the edit in Slack so everyone knows. The whole team operates from one source of truth.</li>
-      <li><strong>Disagreements get logged here.</strong> If two of us disagree about how something should be done, the disagreement and the resolution go into the relevant section. Future-us needs to know why we settled the way we did.</li>
-      <li><strong>Don't add aspirational structure.</strong> If we don't actually have a process for something yet, the section should say "we don't have a process for this yet" — not invent one. Invented process is worse than no process.</li>
-      <li><strong>One person owns each section.</strong> Listed in the section header. That person is responsible for keeping it accurate.</li>
-    </ul>
+    <h3>How to read it</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Reading mode</th><th>How to do it</th></tr>
+      <tr><td><strong>First time</strong></td><td>Linearly. Each section builds on the previous.</td></tr>
+      <tr><td><strong>After that</strong></td><td>Use the pill nav at top. Jump to whichever section answers your current question.</td></tr>
+      <tr><td><strong>Looking up a function</strong></td><td>§ 03 has all 8. Same template every time: <em>what it means → at Pheeew → owner → 90-day locks → pitfalls</em>.</td></tr>
+    </table></div>
 
-    <h3>What "operator-grade" means and why we care</h3>
-    <p>Most first-time CPG founders fail not on the brand or the product but on the operating layer underneath — the part where supply chain breaks, customer service collapses under volume, financials drift, vendor relationships sour, decisions don't get made fast enough. Experienced operators have internalized hundreds of small lessons from previous companies. We haven't. The playbook + the syllabus are how we close that gap on purpose, in writing, before the lessons cost us money or relationships.</p>
+    <h3>Living document rules</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Rule</th><th>What it means</th></tr>
+      <tr><td>Update don't tell</td><td>If the doc is wrong, edit it and push live. Annotate in Slack. Single source of truth.</td></tr>
+      <tr><td>Log disagreements here</td><td>Two founders disagree on an approach? The disagreement + resolution goes in the relevant section. Future-us needs the reasoning.</td></tr>
+      <tr><td>No aspirational structure</td><td>If we don't have a process yet, say "we don't have a process yet." Invented process is worse than no process.</td></tr>
+      <tr><td>One owner per section</td><td>Listed in the section header. That person keeps it accurate.</td></tr>
+    </table></div>
+
+    <h3>Why operator-grade matters</h3>
+    <p>Most first-time CPG founders fail on the operating layer — supply chain breaks, customer service collapses, financials drift, decisions don't get made fast enough. Experienced operators internalized hundreds of lessons from previous companies. We haven't. <strong>The playbook + the syllabus in § 10 are how we close that gap deliberately, in writing, before the lessons cost us money or relationships.</strong></p>
+
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 1. THE TEAM -->
@@ -366,40 +362,46 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="block-head">
       <div class="num">§ 01 · the team</div>
       <h2>Who owns what.</h2>
-      <p class="sub">Four founders, four roles, one Sole Director until Series A. Reporting lines are technically flat — Alex is the legal authority — but functionally each person owns a domain and the others stay out of it unless asked.</p>
+      <p class="sub">Four founders, four domains, one Sole Director until Series A. Each person owns a domain; the others stay out of it unless asked.</p>
     </div>
 
-    <h3>Seungjoon Kim · "Alex" · CEO + Sole Director</h3>
-    <p><strong>Owns:</strong> Strategy, vision, brand direction, fundraising posture, key vendor relationships (manufacturer, regulatory), board-level decisions, public/CEO-facing communications, founder hiring decisions, ultimate decision authority on anything that needs it.</p>
-    <p><strong>Does not own (but signs off on):</strong> Day-to-day ops (Jason runs), growth campaigns (Justin runs), brand creative (Dawon runs).</p>
-    <p><strong>Reports to:</strong> The Board of Directors (currently Alex himself, as Sole Director, until Series A expands the board). Functionally accountable to the four-founder team for major decisions per the Co-Founder Agreement v3.</p>
-    <p><strong>What this looks like day-to-day:</strong> 30% time on strategy + fundraising prep, 25% on brand + vendor relationships, 20% on financial review + decisions, 15% on internal team coordination, 10% reserved for whatever week's emergency is.</p>
+    <h3>Ownership map</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Founder</th><th>Title</th><th>Owns</th><th>Doesn't own (but signs off or partners on)</th></tr>
+      <tr><td><strong>Seungjoon Kim</strong><br><span style="color:var(--mute);font-size:13px">"Alex"</span></td><td>CEO + Sole Director</td><td>Strategy · vision · brand direction · fundraising posture · key vendor relationships (manufacturer, regulatory) · board-level decisions · public/CEO comms · ultimate decision authority</td><td>Day-to-day ops (Jason runs) · growth campaigns (Justin runs) · brand creative (Dawon runs)</td></tr>
+      <tr><td><strong>Junhyuk Kim</strong><br><span style="color:var(--mute);font-size:13px">"Justin"</span></td><td>CGO — Chief Growth Officer</td><td>Partnerships · creator/influencer sourcing · retail buyer outreach · investor sourcing · paid acquisition · biz dev · marketing campaigns · top-of-funnel customer acquisition</td><td>Brand creative (Dawon leads) · brand messaging (Alex + Dawon) · customer service (Jason)</td></tr>
+      <tr><td><strong>Jason Ko</strong></td><td>COO — Chief Operating Officer</td><td>Operations · supply chain · finance/bookkeeping coordination · vendor management · logistics · fulfillment · customer service · inventory · manufacturing relationship execution</td><td>Brand strategy (Alex + Dawon) · growth campaigns (Justin) · creative (Dawon)</td></tr>
+      <tr><td><strong>Dawon Kim</strong></td><td>CBO — Chief Brand Officer</td><td>Brand identity · voice · design system · creative direction · content production · customer-facing experience design · storyline + content calendar execution</td><td>Operations · growth strategy · finance · fundraising</td></tr>
+    </table></div>
 
-    <h3>Junhyuk Kim · "Justin" · CGO (Chief Growth Officer)</h3>
-    <p><strong>Owns:</strong> Partnerships, creator/influencer sourcing, retail buyer outreach, investor sourcing (for when we choose to engage), paid acquisition strategy + execution, biz dev, marketing campaigns, growth experiments, top-of-funnel customer acquisition.</p>
-    <p><strong>Does not own (but partners on):</strong> Brand creative (Dawon leads), brand messaging (Alex + Dawon lead), customer service (Jason owns).</p>
-    <p><strong>Reports to:</strong> Alex (CEO). Functionally peer-collaborative with Jason and Dawon.</p>
-    <p><strong>What this looks like day-to-day:</strong> 35% time on creator + partnership outreach, 25% on paid acquisition (when we turn it on), 20% on investor + retail buyer relationships, 15% on growth experimentation, 5% on internal coordination.</p>
+    <h3>Day-to-day time mix</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Founder</th><th>Primary focus</th><th>Secondary</th><th>Tertiary</th><th>Buffer</th></tr>
+      <tr><td><strong>Alex</strong></td><td>30% strategy + fundraising prep</td><td>25% brand + vendor relationships</td><td>20% financial review + decisions</td><td>15% internal coordination · 10% emergencies</td></tr>
+      <tr><td><strong>Justin</strong></td><td>35% creator + partnership outreach</td><td>25% paid acquisition (once active)</td><td>20% investor + retail buyer relationships</td><td>15% growth experiments · 5% coordination</td></tr>
+      <tr><td><strong>Jason</strong></td><td>30% supply chain + manufacturing</td><td>25% finance + cash management</td><td>20% fulfillment + customer service ops</td><td>15% vendor relationships · 10% coordination</td></tr>
+      <tr><td><strong>Dawon</strong></td><td colspan="4">Governed by the <a href="../storyline-brief/" style="color:var(--pheeew);text-decoration:none;font-weight:700">storyline brief</a> — not this playbook. Appears here as cross-functional stakeholder + brand integrity partner.</td></tr>
+    </table></div>
 
-    <h3>Jason Ko · COO (Chief Operating Officer)</h3>
-    <p><strong>Owns:</strong> Operations, supply chain, finance/bookkeeping coordination, vendor management day-to-day, logistics, fulfillment, customer service infrastructure, inventory management, manufacturing relationship execution (Alex owns the strategic relationship; Jason runs the operational one).</p>
-    <p><strong>Does not own (but executes on):</strong> Brand strategy (Alex + Dawon), growth campaigns (Justin), creative (Dawon).</p>
-    <p><strong>Reports to:</strong> Alex (CEO). Functionally peer-collaborative with Justin and Dawon.</p>
-    <p><strong>What this looks like day-to-day:</strong> 30% time on supply chain + manufacturing coordination, 25% on finance + cash management, 20% on fulfillment + customer service ops, 15% on vendor relationships, 10% on internal coordination.</p>
-
-    <h3>Dawon Kim · CBO (Chief Brand Officer)</h3>
-    <p><strong>Owns:</strong> Brand identity, voice, design system, creative direction, content production, customer-facing experience design (packaging, website UX, email design, social design), storyline + content calendar execution.</p>
-    <p><strong>Does not own (but informs):</strong> Operations, growth strategy, finance, fundraising.</p>
-    <p><strong>Reports to:</strong> Alex (CEO). Functionally peer-collaborative with Justin and Jason.</p>
-    <p><strong>What this looks like day-to-day:</strong> Per the storyline brief — Dawon's daily work is governed by that document, not this one. She appears in this playbook as a stakeholder in cross-functional decisions and as a partner on brand integrity questions.</p>
+    <h3>Reporting structure</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Founder</th><th>Reports to</th><th>Peer-collaborative with</th></tr>
+      <tr><td>Alex</td><td>The Board (currently Alex himself, until Series A). Accountable to the four-founder team for major decisions per Co-Founder Agreement v3.</td><td>—</td></tr>
+      <tr><td>Justin</td><td>Alex (CEO)</td><td>Jason · Dawon</td></tr>
+      <tr><td>Jason</td><td>Alex (CEO)</td><td>Justin · Dawon</td></tr>
+      <tr><td>Dawon</td><td>Alex (CEO)</td><td>Justin · Jason</td></tr>
+    </table></div>
 
     <div class="callout note">
       <span class="label">A note on the "Chief" titles</span>
-      <p>The titles are real — Alex is the legal CEO and Sole Director; the others' titles are formalized in the Co-Founder Agreement v3. But at our stage, titles describe ownership of a domain, not staffing tiers. Justin is a "Chief" Growth Officer with no growth team under him yet. The titles will earn their weight as we hire. Don't internally mistake the title for the team that should be supporting it.</p>
+      <p>The titles are real — formalized in the Co-Founder Agreement v3. But at our stage, titles describe ownership of a domain, not staffing tiers. Justin is a "Chief" Growth Officer with no growth team under him yet. The titles will earn their weight as we hire. Don't internally mistake the title for the team that should be supporting it.</p>
     </div>
 
-    <h3>The reporting truth, in plain language</h3>
-    <p>Until Series A and a real board, Alex has final authority on anything that reaches him. The Voting Agreement gives him 90% stockholder voting power; he is the Sole Director. <strong>This is not a debate point.</strong> But in practice, almost nothing reaches him as a unilateral CEO decision — most decisions are made by the function owner, escalated to Alex only when they cross a threshold (defined in § 05). The pattern: <em>own your function · escalate exceptions · don't second-guess each other's domains.</em></p>
+    <h3>The reporting truth</h3>
+    <p>Until Series A and a real board, Alex has final authority on anything that reaches him — the Voting Agreement gives him 90% stockholder voting power and he is the Sole Director. <strong>Not a debate point.</strong> But in practice almost nothing reaches him as a unilateral CEO decision; most decisions are made by the function owner and escalated to Alex only when they cross a threshold (see § 05).</p>
+    <p style="font-style:italic;color:var(--soft)">The pattern: own your function · escalate exceptions · don't second-guess each other's domains.</p>
+
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 2. THE FOUR OPERATING MODES -->
@@ -465,6 +467,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">Why this framing matters</span>
       <p>If you read the playbook as "we're in pre-launch now and launch starts on date X," you miss two things. First, you'll think Build "ends" when we ship — it doesn't, it just shrinks. Second, you'll defer Operate planning ("we don't need that yet") until you actually need it, at which point it's too late. The modes aren't sequential. The thing that's small today still needs to exist today.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 3. FUNCTIONAL OWNERSHIP -->
@@ -475,9 +478,23 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <p class="sub">The deepest section in the playbook. Read it once linearly before treating it as a reference. Every function is something real CPG companies have a person (or team) for; we have one of four founders covering all of it. The point of this section is not aspirational org design — it's making sure none of these eight things gets dropped because we didn't know it existed.</p>
     </div>
 
-    <p>Each function below carries five blocks: <strong>what it actually means</strong> (the teaching part), <strong>what it looks like at Pheeew right now</strong>, <strong>who owns it today</strong>, <strong>what we lock in the first 90 days</strong>, and <strong>common pitfalls we should expect</strong>. Read in order; the functions build on each other.</p>
+    <h3>Function index — at a glance</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>#</th><th>Function</th><th>Primary owner</th><th>One-line definition</th></tr>
+      <tr><td>01</td><td><a href="#fn-management" style="color:var(--pheeew);font-weight:700;text-decoration:none">Management</a></td><td>Alex</td><td>Strategy, vision, capital posture, board governance, founder alignment</td></tr>
+      <tr><td>02</td><td><a href="#fn-product" style="color:var(--pheeew);font-weight:700;text-decoration:none">Product</a></td><td>Alex + Jason</td><td>What we make — formula, form factor, packaging, regulatory, SKU roadmap</td></tr>
+      <tr><td>03</td><td><a href="#fn-md" style="color:var(--pheeew);font-weight:700;text-decoration:none">Merchandising (MD)</a></td><td>Alex + Jason</td><td>What we sell, in what assortment, at what price, in what bundle</td></tr>
+      <tr><td>04</td><td><a href="#fn-bm" style="color:var(--pheeew);font-weight:700;text-decoration:none">Brand Management (BM)</a></td><td>Alex strategic · Dawon creative · Justin distribution</td><td>What the brand stands for and how it shows up everywhere</td></tr>
+      <tr><td>05</td><td><a href="#fn-marketing" style="color:var(--pheeew);font-weight:700;text-decoration:none">Marketing</a></td><td>Justin primary · Dawon creative · Alex strategic</td><td>How the brand gets in front of customers and gets them to act</td></tr>
+      <tr><td>06</td><td><a href="#fn-sales" style="color:var(--pheeew);font-weight:700;text-decoration:none">Sales</a></td><td>Justin primary · Alex for retail strategy</td><td>DTC e-commerce + wholesale/retail + B2B partnerships</td></tr>
+      <tr><td>07</td><td><a href="#fn-operations" style="color:var(--pheeew);font-weight:700;text-decoration:none">Operations</a></td><td>Jason</td><td>Everything between "order placed" and "customer happy"</td></tr>
+      <tr><td>08</td><td><a href="#fn-financials" style="color:var(--pheeew);font-weight:700;text-decoration:none">Financials</a></td><td>Alex strategic · Jason operational · outside CPA</td><td>Bookkeeping, cash, reporting, forecasting, taxes, runway</td></tr>
+    </table></div>
+
+    <p style="font-size:14px;color:var(--soft)">Each function below carries the same five-block template: <strong>what it actually means</strong> · <strong>what it looks like at Pheeew</strong> · <strong>who owns it</strong> · <strong>90-day locks</strong> · <strong>common pitfalls</strong>. Click any row above to jump.</p>
 
     <!-- MANAGEMENT -->
+    <a id="fn-management"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 1</div>
@@ -521,6 +538,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <!-- PRODUCT -->
+    <a id="fn-product"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 2</div>
@@ -566,6 +584,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <!-- MERCHANDISE / MD -->
+    <a id="fn-md"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 3</div>
@@ -609,6 +628,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <!-- BRAND MANAGEMENT / BM -->
+    <a id="fn-bm"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 4</div>
@@ -653,6 +673,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <!-- MARKETING -->
+    <a id="fn-marketing"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 5</div>
@@ -699,6 +720,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <!-- SALES -->
+    <a id="fn-sales"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 6</div>
@@ -741,6 +763,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <!-- OPERATIONS -->
+    <a id="fn-operations"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 7</div>
@@ -786,6 +809,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
 
     <!-- FINANCIALS -->
+    <a id="fn-financials"></a>
     <div class="fn-card">
       <div class="fn-head">
         <div class="fn-tag">Function 8</div>
@@ -837,6 +861,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">A note on the eight functions</span>
       <p>You'll notice four functions are owned primarily by Alex, three by Jason, two by Justin, and one by Dawon (Brand creative, anchored in the storyline brief). That's because Alex carries the strategic load at this stage — Management, Product strategy, MD strategy, BM strategy, Financials strategy all land on him. As we grow, several of these get delegated or shared. The first time we hire (likely a part-time bookkeeper followed by a marketing manager) is when the load starts to formally redistribute.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 4. WEEKLY CADENCE -->
@@ -931,6 +956,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">When to skip a meeting</span>
       <p>Meetings can be skipped if everyone agrees there's no decision to make and the async update covers it. But the default is to hold them. We're early. Coordination is the value the cadence creates. If we start skipping because we're "too busy," we are probably going off the rails and don't know it yet.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 5. DECISION AUTHORITY -->
@@ -1023,6 +1049,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">A note on Alex's authority</span>
       <p>Alex has legal authority over almost everything via the Sole Director + Voting Agreement structure. He almost never uses it unilaterally. The matrix above is the operating culture, not the legal authority. If Alex disagrees with a Tier 3 all-hands decision, the legal authority sits with him — but the cost of overriding the team is trust, and trust is the single most expensive thing to rebuild. The matrix exists to make sure he almost never needs to.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 6. KPI DASHBOARDS -->
@@ -1114,6 +1141,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">The metric discipline rule</span>
       <p>Adding a metric to the dashboards is a Tier 2 decision (function owner + Alex). Removing one is a Tier 3 decision. Once a metric is tracked, it's load-bearing for the team — we make decisions from it. Quietly stopping to track it without saying so is how teams drift into operating blind.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 7. THE FIRST 30 DAYS -->
@@ -1218,6 +1246,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">If the timeline breaks</span>
       <p>It will. Manufacturer will slip a week. 3PL will have an onboarding hiccup. Storyline Episode 1 might not be ready Day 21. <strong>Don't compound by silence.</strong> When something slips, surface it at the next meeting (or sooner in Slack). Re-cut the dependency chain in writing. Update the runbook. The cost of a slip in time is small; the cost of a slip nobody knew about until two weeks later is everything downstream.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 8. RISK REGISTER -->
@@ -1441,6 +1470,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">Risks not covered above</span>
       <p>This register covers the eight most-likely risks for our stage and category. Risks not covered: cybersecurity incident (data breach), IP / trademark dispute, partnership / licensee dispute, internal misconduct, public health emergency (pandemic affecting supply chain), force majeure events. These will be added to the register as we grow into them. The register is a living document — update it the week after a near-miss, not the week after the actual crisis.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 9. TOOLING -->
@@ -1597,6 +1627,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">The "is it worth a tool" test</span>
       <p>Before adding a new tool to the stack, ask: (1) what specific decision will this help us make better, (2) can a spreadsheet do it for the next 3 months, (3) what's the all-in cost (subscription + setup time + ongoing maintenance), (4) who owns it. If you can't answer all four, don't add the tool yet.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 10. LEARNING SYLLABUS -->
@@ -1787,6 +1818,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">The "learning together" practice</span>
       <p>One Friday a month, the Friday Wrap is replaced by a 60-minute "book club" where one founder presents what they've been reading and the team discusses application to Pheeew. The same person doesn't present every month. This builds shared vocabulary and a culture of compounding intelligence. Skip a month at most twice a year; skip more than that and the practice dies.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 11. MARKETING ECONOMICS -->
@@ -2241,6 +2273,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">The compound math</span>
       <p>Every week Dawon publishes Episode N + Carousel N, she's building two things at once: short-term audience reach (this week's traffic) and long-term brand equity (people 6 months from now finding Episode 3 and binging the arc). The compound math means episode quality from week 1 matters in week 26. That's why the storyline brief sets the discipline high — the work she does now is the foundation for everything we sell five years from now.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 12. WHAT'S NOT IN THIS DOC -->
@@ -2288,6 +2321,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">The playbook is wrong about something right now</span>
       <p>It has to be. We don't know which sentence yet. The discipline isn't to write it perfectly; the discipline is to update it the moment we learn we got something wrong. The day this doc stops getting updated is the day it becomes a lie about how the company actually runs.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <footer>
@@ -2326,42 +2360,10 @@ footer p .sig{color:var(--pheeew);font-weight:700}
   }
 
   /* ===== NAVIGATION ===== */
-  const sectionMap = {
-    'how-to-use': '00',
-    'team': '01',
-    'modes': '02',
-    'functions': '03',
-    'cadence': '04',
-    'decisions': '05',
-    'kpis': '06',
-    'thirty': '07',
-    'risks': '08',
-    'tools': '09',
-    'syllabus': '10',
-    'margins': '11',
-    'not-here': '12'
-  };
-
-  function toggleNav(){
-    const overlay = document.getElementById('navOverlay');
-    overlay.classList.toggle('open');
-    if(overlay.classList.contains('open')){
-      document.body.style.overflow = 'hidden';
-      updateActiveNavLink();
-    } else {
-      document.body.style.overflow = '';
-    }
-  }
+  let currentActiveSection = null;
 
   function scrollToTop(){
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function updateActiveNavLink(){
-    const current = getCurrentSection();
-    document.querySelectorAll('#navList a').forEach(a => {
-      a.classList.toggle('active', a.getAttribute('data-section') === current);
-    });
   }
 
   function getCurrentSection(){
@@ -2373,6 +2375,19 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       if(rect.top <= triggerLine) current = s.id;
     });
     return current;
+  }
+
+  function updateActivePill(current){
+    if(current === currentActiveSection) return;
+    currentActiveSection = current;
+    document.querySelectorAll('.section-pill').forEach(p => {
+      const isActive = p.getAttribute('data-section') === current;
+      p.classList.toggle('active', isActive);
+      if(isActive){
+        // Auto-scroll the active pill into view in the horizontal nav
+        p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
   }
 
   function onScroll(){
@@ -2387,27 +2402,24 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     const btn = document.getElementById('backToTop');
     if(btn) btn.classList.toggle('visible', scrolled > 600);
 
-    // Current section indicator in header
-    const current = getCurrentSection();
-    const label = document.getElementById('currentSection');
-    if(label) label.textContent = sectionMap[current] || '00';
+    // Active pill in horizontal nav
+    updateActivePill(getCurrentSection());
   }
 
   function smoothScrollLinks(){
-    // Intercept clicks on TOC + nav overlay links to smooth-scroll
+    // Intercept clicks on internal anchor links to smooth-scroll with header offset
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', function(e){
-        const targetId = this.getAttribute('href').slice(1);
+        const href = this.getAttribute('href');
+        if(href === '#' || href === '#top'){
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const targetId = href.slice(1);
         const target = document.getElementById(targetId);
         if(target){
           e.preventDefault();
-          // Close nav overlay if open
-          const overlay = document.getElementById('navOverlay');
-          if(overlay && overlay.classList.contains('open')){
-            overlay.classList.remove('open');
-            document.body.style.overflow = '';
-          }
-          // Smooth scroll with header offset
           const headerHeight = document.querySelector('.site-header')?.offsetHeight || 60;
           const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
           window.scrollTo({ top, behavior: 'smooth' });
@@ -2419,16 +2431,6 @@ footer p .sig{color:var(--pheeew);font-weight:700}
   function initNav(){
     smoothScrollLinks();
     window.addEventListener('scroll', onScroll, { passive: true });
-    // ESC closes nav overlay
-    document.addEventListener('keydown', e => {
-      if(e.key === 'Escape'){
-        const overlay = document.getElementById('navOverlay');
-        if(overlay && overlay.classList.contains('open')){
-          overlay.classList.remove('open');
-          document.body.style.overflow = '';
-        }
-      }
-    });
     onScroll();
   }
 
