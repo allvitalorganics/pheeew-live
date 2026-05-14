@@ -65,6 +65,20 @@ html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-seri
 /* SCROLL PROGRESS BAR */
 .scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--pheeew);z-index:55;width:0;transition:width .12s ease;pointer-events:none}
 
+/* INLINE CITATIONS */
+.cite{font-family:'Special Elite',monospace;font-size:10px;color:var(--pheeew);text-decoration:none;font-weight:700;vertical-align:super;letter-spacing:0;margin-left:2px;padding:1px 4px;border-radius:3px;background:var(--pheeew-soft);transition:all .15s ease}
+.cite:hover{background:var(--pheeew);color:var(--cream)}
+
+/* REFERENCES SECTION */
+.ref-list{list-style:none;margin:14px 0;padding:0;counter-reset:refc}
+.ref-list li{counter-increment:refc;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.55;display:flex;gap:14px}
+.ref-list li:last-child{border-bottom:none}
+.ref-list li::before{content:"["counter(refc)"]";font-family:'Special Elite',monospace;font-size:11px;font-weight:700;color:var(--pheeew);min-width:34px;padding-top:2px;flex-shrink:0}
+.ref-list .ref-body{flex:1}
+.ref-list .ref-source{color:var(--mute);font-style:italic;font-size:13px}
+.ref-list a{color:var(--pheeew);text-decoration:none;font-weight:600}
+.ref-list a:hover{text-decoration:underline}
+
 .confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
 .confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
 
@@ -251,6 +265,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <a href="#cadence" class="section-pill" data-section="cadence"><span class="num">05</span><span class="label">Cadence</span></a>
       <a href="#deps" class="section-pill" data-section="deps"><span class="num">06</span><span class="label">Deps</span></a>
       <a href="#graduation" class="section-pill" data-section="graduation"><span class="num">07</span><span class="label">Graduation</span></a>
+      <a href="#sources" class="section-pill" data-section="sources"><span class="num">08</span><span class="label">Sources</span></a>
     </nav>
     <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
   </div>
@@ -300,6 +315,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <li><a href="#cadence">Cadence &amp; the 12-week calendar</a></li>
       <li><a href="#deps">What Dawon needs from Alex / Jason / Justin</a></li>
       <li><a href="#graduation">The graduation plan — how Dawon steps back as the brand evolves</a></li>
+      <li><a href="#sources">Sources &amp; references — helplines, FDA, clinical evidence</a></li>
     </ol>
   </div>
 
@@ -441,10 +457,10 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <h3>Helplines we link in captions</h3>
     <div class="helplines">
       <h4>Where we point people who are struggling</h4>
-      <p><strong>United States — NEDA Helpline:</strong> 1-800-931-2237 · text "NEDA" to 741741</p>
-      <p><strong>South Korea — 한국청소년상담복지개발원:</strong> 1388 (24-hour youth + young adult counseling)</p>
-      <p><strong>South Korea — 한국정신건강재단:</strong> 1577-0199 (mental health crisis line)</p>
-      <p style="margin-top:10px;font-size:13px;color:var(--mute)">These links are included in the caption of any episode that touches restriction, body, or self-image. They appear before the call-to-action for the waitlist — always.</p>
+      <p><strong>United States — NEDA Helpline:</strong> 1-800-931-2237 · text "NEDA" to 741741<a href="#sref-1" class="cite">1</a></p>
+      <p><strong>South Korea — 한국청소년상담복지개발원:</strong> 1388 (24-hour youth + young adult counseling)<a href="#sref-2" class="cite">2</a></p>
+      <p><strong>South Korea — 한국정신건강복지센터:</strong> 1577-0199 (24-hour mental health crisis line)<a href="#sref-3" class="cite">3</a></p>
+      <p style="margin-top:10px;font-size:13px;color:var(--mute)">These links are included in the caption of any episode that touches restriction, body, or self-image. They appear before the call-to-action for the waitlist — always. Each helpline is cited in § 08 Sources; verify quarterly that numbers are current before any episode posts.</p>
     </div>
 
     <h3>The diet pill framing rule</h3>
@@ -459,6 +475,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="callout warn">
       <span class="label">Disclaimer specific to episode 2</span>
       <p>This episode requires an additional disclaimer in the caption and as a slide in the carousel: <em>"The pills I describe were prescription medications used cosmetically through skincare clinics. They are dangerous. I am not naming them and not recommending them. If you've been prescribed something for weight loss that you're unsure about, please consult an actual medical doctor — not a cosmetic clinic."</em></p>
+      <p style="margin-top:10px;font-size:13px">The Korean cosmetic-clinic prescribing pattern Dawon describes is real and well-documented — phentermine and similar sympathomimetics are tightly controlled but routinely prescribed through cosmetic clinics rather than medical care<a href="#sref-4" class="cite">4</a>. We name the system, not the substance<a href="#sref-5" class="cite">5</a>.</p>
     </div>
 
     <h3>What never appears on camera</h3>
@@ -1444,8 +1461,8 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         <h5>Safety / accuracy notes</h5>
         <ul>
           <li>"Synbiotic = prebiotic + probiotic" is the only definition we use. Do NOT include postbiotic — that's a separate category, and pulling it in here confuses people</li>
-          <li>"A specific bacterial strain" is intentionally vague. Don't name SNZ 1969 / Bacillus coagulans / Sanzyme publicly here. Strain disclosure is for the science page on the website, not for an Instagram carousel</li>
-          <li>No medical claims — "works better together" is fine, "cures constipation" is not</li>
+          <li>"A specific bacterial strain" is intentionally vague. Don't name SNZ 1969 / Bacillus coagulans / Sanzyme publicly here<a href="#sref-8" class="cite">8</a>. Strain disclosure is for the science page on the website, not for an Instagram carousel</li>
+          <li>No medical/disease claims — "works better together" is fine, "cures constipation" is not. The clinical-evidence file backing our strain choice<a href="#sref-9" class="cite">9</a> supports structure/function language ("survives gastric acid," "reaches the colon intact") but NOT treatment language. See § 08 Sources for the full evidence cited</li>
           <li>"The industry sells them separately because it sells more that way" — leave this in. It's the only mild industry critique in the episode and it earns its place</li>
         </ul>
       </div>
@@ -1785,6 +1802,47 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">A note to Dawon, from Alex</span>
       <p>You're not signing up to be Pheeew's face forever. You're signing up to start the brand off in a way only you can. We've talked about this — the plan is to ease you back when the time is right, and to do that with intention, not because anyone got tired. The work you do at the beginning is the part of Pheeew that lasts the longest, even after your face stops being on every post. There's no end to the story — only changes in who's telling it on which days. You author the voice; whoever speaks for the brand later, speaks in it.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
+  </section>
+
+  <!-- 08 · SOURCES & REFERENCES -->
+  <section class="block" id="sources">
+    <div class="block-head">
+      <div class="num">§ 08 · sources &amp; references</div>
+      <h2>Helplines, regulatory rules, and clinical evidence — every cited source.</h2>
+      <p class="sub">Every claim, helpline number, regulatory note, or scientific reference cited in the safety guardrails and Episodes 1–4 + 14 links here. Verify these stay current; update the references the moment any number, URL, or guideline changes.</p>
+    </div>
+
+    <h3>Helplines we link in captions</h3>
+    <ol class="ref-list">
+      <li id="sref-1"><div class="ref-body"><strong>NEDA (National Eating Disorders Association) — United States.</strong> Helpline: <strong>1-800-931-2237</strong> (phone, Mon–Thu 11am–9pm ET, Fri 11am–5pm ET). Crisis Text Line: text <strong>"NEDA" to 741741</strong> (24/7). Services in English and Spanish. <span class="ref-source"><a href="https://www.nationaleatingdisorders.org/contact-us/" target="_blank">NEDA Contact page</a>; <a href="https://www.nationaleatingdisorders.org/" target="_blank">NEDA Home</a>.</span></div></li>
+      <li id="sref-2"><div class="ref-body"><strong>South Korea youth + young-adult crisis line: 1388.</strong> Operated by the Korea Youth Counseling &amp; Welfare Institute (한국청소년상담복지개발원). 24/7 service for ages 9–24 and their parents. Covers family conflicts, school problems, internet addiction, mental health concerns. <span class="ref-source"><a href="https://findahelpline.com/organizations/1388-youth1388" target="_blank">Find A Helpline — 1388 Youth1388</a>; <a href="https://www.koreatimes.co.kr/southkorea/globalcommunity/20221101/where-to-go-for-mental-health-services-if-you-cant-speak-korean" target="_blank">Korea Times — Mental health services if you can't speak Korean</a>.</span></div></li>
+      <li id="sref-3"><div class="ref-body"><strong>South Korea Mental Health Welfare Center crisis line: 1577-0199.</strong> 24-hour mental-health crisis support for all ages. Operated by the Korea Mental Health Welfare Center under the Ministry of Health and Welfare. <span class="ref-source"><a href="https://www.therapyroute.com/article/suicide-hotlines-and-crisis-lines-in-south-korea" target="_blank">TherapyRoute — Suicide Hotlines and Crisis Lines in South Korea</a>; <a href="https://findahelpline.com/countries/kr" target="_blank">Find A Helpline — South Korea</a>.</span></div></li>
+    </ol>
+
+    <h3>Episode 2 — the Korean cosmetic-clinic prescribing pattern is real</h3>
+    <ol class="ref-list" style="counter-reset:refc 3">
+      <li id="sref-4"><div class="ref-body"><strong>Korean cosmetic clinics prescribe sympathomimetic appetite suppressants (phentermine, diethylpropion, phendimetrazine, mazindol) for short-term cosmetic weight loss.</strong> These medications are <em>tightly controlled in Korea due to abuse and safety concerns</em>, but routinely prescribed through skin/cosmetic clinics rather than primary medical care. Korean Society for the Study of Obesity (KSSO) 2022 Guidelines list these as standard short-term options. This validates the system Dawon describes in Episode 2 — it's a documented, well-known regulatory pattern, not unique to her experience. <span class="ref-source"><a href="https://www.koreaclinicguide.com/blog/diet-pills-korea" target="_blank">Korea Clinic Guide — Diet Pills in Korea</a>; <a href="https://korealocalpages.com/directory/diet-pills-prescription-korea" target="_blank">Korea Local Pages — Best 5 Clinics for Phentermine Prescription</a>; <a href="https://www.jomes.org/journal/view.html?doi=10.7570/jomes23032" target="_blank">Journal of Obesity &amp; Metabolic Syndrome — KSSO 2022 Anti-Obesity Medication Guidelines</a>.</span></div></li>
+      <li id="sref-5"><div class="ref-body"><strong>Per the storyline brief safety rules: we do NOT name the specific medication in Episode 2 even though the regulatory data is publicly documented.</strong> Naming it creates a search-pathway problem — a viewer who hears the name from us and then searches it could find clinics willing to prescribe. Our framing names the <em>system</em> (cosmetic clinics, not doctors; cosmetic indication, not health indication) without naming the substance.</div></li>
+    </ol>
+
+    <h3>FDA — what conventional-food storytelling can and can't claim</h3>
+    <ol class="ref-list" style="counter-reset:refc 5">
+      <li id="sref-6"><div class="ref-body"><strong>Pheeew is positioned as a conventional food (puree smoothie), not a dietary supplement.</strong> Conventional foods can make structure/function claims about <em>nutritive value</em> without FDA notification and without a mandatory disclaimer; supplements require notification within 30 days and a mandatory disclaimer ("This statement has not been evaluated by FDA..."). Neither category can make disease claims. <span class="ref-source"><a href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/label-claims-conventional-foods-and-dietary-supplements" target="_blank">FDA — Label Claims for Conventional Foods and Dietary Supplements</a>; <a href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/structurefunction-claims" target="_blank">FDA — Structure/Function Claims</a>.</span></div></li>
+      <li id="sref-7"><div class="ref-body"><strong>Language Dawon must avoid in any episode caption or reel narration:</strong> "treats / cures / prevents / diagnoses [any condition]" — these are disease claims, prohibited for both conventional food and supplements. Specific phrases to never use: "cures IBS," "treats constipation," "heals gut dysbiosis," "fixes leaky gut," "eliminates bloating." Acceptable substitutions live in the safety section (§ 02) of this brief.</div></li>
+    </ol>
+
+    <h3>Episode 14 — the synbiotic science (Bacillus coagulans SNZ 1969)</h3>
+    <ol class="ref-list" style="counter-reset:refc 7">
+      <li id="sref-8"><div class="ref-body"><strong>Pheeew's probiotic strain: Bacillus coagulans SNZ 1969®</strong> from Sanzyme Biologics. Spore-forming, gastric-acid and bile resistant. Backed by 30+ clinical studies. Episode 14 names "synbiotic" (prebiotic + probiotic) without naming the specific strain publicly — strain disclosure stays on the science page on Pheeew.com, not in social captions. <span class="ref-source"><a href="https://www.sanzymebiologics.com/bacillus-coagulans/" target="_blank">Sanzyme Biologics — Bacillus coagulans SNZ 1969</a>.</span></div></li>
+      <li id="sref-9"><div class="ref-body"><strong>Key clinical studies (cited in operating-playbook § 03 substantiation file).</strong> IBS efficacy RCT (90% IBS-C / 100% IBS-D responders) · mild intermittent constipation RCT (improved colonic transit time) · immunomodulatory RCT (+42% NK cell activity in adults 60–65). These studies support the structure/function language ("spore-form probiotic engineered to reach the colon intact") that Dawon uses in Episode 14 — they do NOT permit disease claims. <span class="ref-source"><a href="https://www.ijbcp.com/index.php/ijbcp/article/view/5120" target="_blank">IJBCP — IBS efficacy study</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/34119240/" target="_blank">PubMed — Constipation study (PMID 34119240)</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12624130/" target="_blank">PMC PMCID 12624130 — Immunomodulatory study</a>.</span></div></li>
+    </ol>
+
+    <div class="callout note">
+      <span class="label">When references go stale</span>
+      <p>Helpline numbers can change. FDA guidance updates. New clinical studies on SNZ 1969 will publish. <strong>The discipline:</strong> verify each reference quarterly. If a helpline number changes, update the captions in every affected episode <em>that same day</em> — never leave a stale crisis number on a public post.</p>
+    </div>
+
     <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
