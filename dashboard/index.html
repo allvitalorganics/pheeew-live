@@ -903,17 +903,17 @@ details.content-expand[open] summary::after{content:" ▴"}
           <div class="finance-stat cogs">
             <div class="label">Landed COGS / pouch</div>
             <div class="value">$1.09</div>
-            <div class="sub">1,150 KRW ex-factory + freight + 3PL + Section 122 10% tariff</div>
+            <div class="sub">₩1,150 ex-factory ($0.77) + freight, tariff, 3PL intake amortized over 40K units</div>
           </div>
           <div class="finance-stat margin">
             <div class="label">Subscriber Gross Margin</div>
-            <div class="value">63%</div>
-            <div class="sub">@ Committed 60-pack subscription, $2.32 per pouch</div>
+            <div class="value">53%</div>
+            <div class="sub">@ Committed 60-pack subscription, $2.32 per pouch (before payment fees)</div>
           </div>
           <div class="finance-stat budget">
-            <div class="label">Marketing Bucket</div>
-            <div class="value">$19,378</div>
-            <div class="sub">Capital raised ($50,250) − production ($30,872 @ ₩1,150 × 40K) · before freight + tools</div>
+            <div class="label">Capital Raised</div>
+            <div class="value">$50,250</div>
+            <div class="sub">All 4 founders combined · before any external raise</div>
           </div>
         </div>
 
@@ -956,42 +956,104 @@ details.content-expand[open] summary::after{content:" ▴"}
           </div>
         </div>
 
-        <!-- Marketing budget breakdown -->
-        <div class="card card-green" style="margin-bottom:20px">
+        <!-- ONE-TIME LAUNCH COSTS -->
+        <div class="card" style="margin-bottom:20px">
           <div class="card-head">
             <div>
-              <div class="card-title">Marketing budget — how it's calculated</div>
-              <div class="card-subtitle">Whatever's left after the production line is the bucket we spend on getting attention</div>
+              <div class="card-title">One-time launch costs · day 0 → day 120</div>
+              <div class="card-subtitle">Everything we spend once to get the first 40,000 pouches in front of customers. Low / high range — pad for unknowns.</div>
             </div>
-          </div>
-          <div class="budget-breakdown">
-            <div class="budget-line"><span class="budget-label">Capital raised (4 founders)</span><span class="budget-value pos">+ $50,250</span></div>
-            <div class="budget-line"><span class="budget-label">Production line · 40,000 units × ₩1,150 (ex-factory)</span><span class="budget-value neg">− $30,872</span></div>
-            <div class="budget-line total"><span class="budget-label">Marketing bucket</span><span class="budget-value">$19,378</span></div>
-          </div>
-          <div style="font-size:12px;color:var(--text-muted-dark);margin-top:14px;line-height:1.55;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">This is the gross marketing line before LCL freight (~$1.5–2.5K), customs, 3PL setup, Shopify/Klaviyo/Recharge spin-up. Net spendable for paid ads, creator gifting, micro-influencer pay, content tools is closer to <strong style="color:#fff">$13–15K</strong>. The discipline is "win without needing to spend" — organic + Dawon's content + curated creator gifting before paid scales.</div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <div>
-              <div class="card-title">Monthly burn anchors</div>
-              <div class="card-subtitle">Recurring spend once tools + 3PL are live</div>
-            </div>
+            <div class="card-action">Range</div>
           </div>
           <table class="ch-table">
-            <thead>
-              <tr><th>Tool / line</th><th style="text-align:left">Vendor</th><th>Monthly</th><th>Trigger</th></tr>
-            </thead>
+            <thead><tr><th style="text-align:left">Line</th><th>Low</th><th>High</th><th style="text-align:left">Note</th></tr></thead>
             <tbody>
-              <tr><td class="channel-name">E-commerce</td><td style="text-align:left">Shopify Basic</td><td>$29</td><td style="text-align:left">Live now</td></tr>
-              <tr><td class="channel-name">Email</td><td style="text-align:left">Klaviyo (500 → 10K contacts)</td><td>$20 → $150</td><td style="text-align:left">Pre-launch</td></tr>
-              <tr><td class="channel-name">Subscriptions</td><td style="text-align:left">Recharge Standard</td><td>$99 + 1.49%</td><td style="text-align:left">Launch</td></tr>
-              <tr><td class="channel-name">3PL</td><td style="text-align:left">TBD West Coast 3PL</td><td>$300–$800</td><td style="text-align:left">Inventory arrives</td></tr>
-              <tr><td class="channel-name">Paid spend ceiling</td><td style="text-align:left">Meta + TikTok</td><td>$1,000</td><td style="text-align:left">Hard cap</td></tr>
-              <tr><td class="channel-name">Domains, SSL, misc</td><td style="text-align:left">Vercel, Google Workspace, etc.</td><td>~$50</td><td style="text-align:left">Live now</td></tr>
+              <tr><td class="channel-name">Production · 40,000 × ₩1,150</td><td>$30,872</td><td>$30,872</td><td style="text-align:left">Ex-factory, 좋은영농 (Naju)</td></tr>
+              <tr><td class="channel-name">LCL ocean freight · Korea → US West</td><td>$1,500</td><td>$2,500</td><td style="text-align:left">~21–30 days door-to-3PL</td></tr>
+              <tr><td class="channel-name">Section 122 tariff · 10% on declared</td><td>$3,087</td><td>$3,087</td><td style="text-align:left">KORUS 0% MFN + 10% emergency through Jul 23, 2026</td></tr>
+              <tr><td class="channel-name">US customs brokerage</td><td>$250</td><td>$500</td><td style="text-align:left">One-time clearance fee</td></tr>
+              <tr><td class="channel-name">3PL setup + first intake</td><td>$300</td><td>$700</td><td style="text-align:left">Receiving, racking, account setup</td></tr>
+              <tr><td class="channel-name">Legal · DE/CA filings, contracts, NDAs</td><td>$1,200</td><td>$2,500</td><td style="text-align:left">Pheeew Inc compliance + vendor agreements</td></tr>
+              <tr><td class="channel-name">FDA labeling + Nutrition Facts review</td><td>$300</td><td>$700</td><td style="text-align:left">Conventional food (not supplement) compliance</td></tr>
+              <tr><td class="channel-name">Packaging design + print files</td><td>$0</td><td>$1,000</td><td style="text-align:left">Mostly Dawon in-house; assume external touch-up</td></tr>
+              <tr><td class="channel-name">Initial creator gifting · 50 × ~$20</td><td>$800</td><td>$1,500</td><td style="text-align:left">Product + shipping to seed Dawon's pipeline</td></tr>
+              <tr><td class="channel-name">Founder samples + content shoot product</td><td>$400</td><td>$800</td><td style="text-align:left">Photo/video shoot inventory, founder use, QA</td></tr>
+              <tr style="background:var(--bg-soft);font-weight:700"><td class="channel-name">One-time launch total</td><td class="neg">$38,709</td><td class="neg">$44,159</td><td style="text-align:left">Range</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <!-- WORKING CAPITAL CALC -->
+        <div class="card card-green" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Working capital after launch costs</div><div class="card-subtitle">What's actually left to spend on monthly burn through Day 120 and beyond</div></div></div>
+          <div class="budget-breakdown">
+            <div class="budget-line"><span class="budget-label">Capital raised (4 founders)</span><span class="budget-value pos">+ $50,250</span></div>
+            <div class="budget-line"><span class="budget-label">One-time launch costs · low case</span><span class="budget-value neg">− $38,709</span></div>
+            <div class="budget-line"><span class="budget-label">One-time launch costs · high case</span><span class="budget-value neg">− $44,159</span></div>
+            <div class="budget-line total"><span class="budget-label">Working capital remaining</span><span class="budget-value">$6,091 – $11,541</span></div>
+          </div>
+          <div style="font-size:12px;color:var(--text-muted-dark);margin-top:14px;line-height:1.55;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">This is what we have for ~4 months of pre-launch monthly burn + the first 30 days post-launch. At the low end ($6,091), we need waitlist conversion on Day 121 to start refilling the bucket immediately. At the high end ($11,541), we have a few months of cushion. <strong style="color:#fff">Either way: the discipline through Day 120 is no surprise spend.</strong></div>
+        </div>
+
+        <!-- PRE-LAUNCH MONTHLY BURN -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Pre-launch monthly burn · Days 0–120</div><div class="card-subtitle">Recurring spend before any revenue arrives</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th style="text-align:left">Line</th><th>Low</th><th>High</th><th style="text-align:left">Note</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Shopify Basic</td><td>$29</td><td>$29</td><td style="text-align:left">E-commerce platform</td></tr>
+              <tr><td class="channel-name">Klaviyo · 500–2K profiles</td><td>$20</td><td>$45</td><td style="text-align:left">Email/SMS · scales with list</td></tr>
+              <tr><td class="channel-name">Vercel + domain + Google Workspace</td><td>$40</td><td>$60</td><td style="text-align:left">Site hosting + email + DNS</td></tr>
+              <tr><td class="channel-name">3PL · minimum storage pre-launch</td><td>$200</td><td>$400</td><td style="text-align:left">Holding inventory once it lands</td></tr>
+              <tr><td class="channel-name">Bookkeeping · QuickBooks Online</td><td>$30</td><td>$60</td><td style="text-align:left">Jason owns</td></tr>
+              <tr><td class="channel-name">Design + content tools</td><td>$50</td><td>$80</td><td style="text-align:left">Figma, Canva, Adobe CC</td></tr>
+              <tr><td class="channel-name">Customer service</td><td>$0</td><td>$0</td><td style="text-align:left">Founders DIY pre-launch · no tool yet</td></tr>
+              <tr><td class="channel-name">Gifting cadence · 10–20 creators/mo</td><td>$200</td><td>$400</td><td style="text-align:left">Product + outbound shipping</td></tr>
+              <tr style="background:var(--bg-soft);font-weight:700"><td class="channel-name">Pre-launch monthly total</td><td class="neg">$569</td><td class="neg">$1,074</td><td style="text-align:left">4 months × this = $2,276–$4,296</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- POST-LAUNCH MONTHLY BURN -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Post-launch monthly burn · Day 121+</div><div class="card-subtitle">Additions once the site is live and orders are flowing. Variable lines tied to revenue.</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th style="text-align:left">Line</th><th>Low</th><th>High</th><th style="text-align:left">Note</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Recharge Standard</td><td>$99</td><td>$99</td><td style="text-align:left">Base · plus 1.49% of subscription revenue</td></tr>
+              <tr><td class="channel-name">Klaviyo · 5K → 10K profiles</td><td>$100</td><td>$200</td><td style="text-align:left">List grows post-launch</td></tr>
+              <tr><td class="channel-name">3PL pick &amp; pack · ~$2.50/order</td><td>variable</td><td>variable</td><td style="text-align:left">Scales 1:1 with order volume</td></tr>
+              <tr><td class="channel-name">Outbound shipping · ~$7–10/order</td><td>variable</td><td>variable</td><td style="text-align:left">Customer-paid where possible</td></tr>
+              <tr><td class="channel-name">Shopify Payments · 2.9% + $0.30/txn</td><td>variable</td><td>variable</td><td style="text-align:left">Of order volume</td></tr>
+              <tr><td class="channel-name">Customer service · Gorgias Starter</td><td>$0</td><td>$50</td><td style="text-align:left">Wire when ticket volume justifies</td></tr>
+              <tr><td class="channel-name">Paid spend · Meta + TikTok ceiling</td><td>$0</td><td>$1,000</td><td style="text-align:left">Discipline: "win without needing to"</td></tr>
+              <tr><td class="channel-name">Gifting · ramped pipeline</td><td>$400</td><td>$1,000</td><td style="text-align:left">Scales with creator success</td></tr>
+              <tr style="background:var(--bg-soft);font-weight:700"><td class="channel-name">Post-launch fixed monthly</td><td class="neg">$599</td><td class="neg">$2,349</td><td style="text-align:left">Plus variable revenue-tied lines</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- RUNWAY -->
+        <div class="card card-dark">
+          <div class="card-head"><div><div class="card-title">Runway sketch · pre-revenue</div><div class="card-subtitle">How many months we have before the brand needs to be earning</div></div></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px">
+            <div style="padding:18px;background:rgba(255,255,255,.04);border-radius:14px">
+              <div style="font-size:11px;font-weight:700;color:var(--accent-mint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Low-spend case</div>
+              <div style="font-size:28px;font-weight:700;letter-spacing:-.02em">~10 months</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:6px;line-height:1.5">$11,541 working capital ÷ $1,074/mo = 10.7 months · plenty of cushion</div>
+            </div>
+            <div style="padding:18px;background:rgba(244,201,93,.08);border-radius:14px;border:1px solid rgba(244,201,93,.2)">
+              <div style="font-size:11px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Mid case (realistic)</div>
+              <div style="font-size:28px;font-weight:700;letter-spacing:-.02em">~5 months</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:6px;line-height:1.5">$8,800 working capital ÷ ~$1,700 blended burn = enough to launch + first 30 days</div>
+            </div>
+            <div style="padding:18px;background:rgba(232,116,90,.08);border-radius:14px;border:1px solid rgba(232,116,90,.25)">
+              <div style="font-size:11px;font-weight:700;color:var(--accent-coral);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">High-spend case</div>
+              <div style="font-size:28px;font-weight:700;letter-spacing:-.02em">~3 months</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:6px;line-height:1.5">$6,091 working capital ÷ $2,349/mo post-launch = 2.6 months · waitlist MUST convert</div>
+            </div>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted-dark);margin-top:18px;line-height:1.6;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)">The bottom line: <strong style="color:#fff">we built the brand to break even on Day 121.</strong> Subscriber GM at 53% means every $100 of subscription revenue contributes $53 toward burn. To cover $2,000/mo of fixed burn, we need ~$3,800/mo of subscription revenue from Day 121 — about <strong style="color:#fff">27 active Committed-60 subscribers</strong>, or 50 Core-30s. The waitlist + creator pipeline + Dawon's content has to deliver that within the first 30 days. If it does, we're self-funding. If it doesn't, we either raise or compress spend.</div>
         </div>
       </section>
 
@@ -1174,7 +1236,7 @@ details.content-expand[open] summary::after{content:" ▴"}
                 <div class="card-subtitle">One paragraph the team agrees on</div>
               </div>
             </div>
-            <p style="font-size:16px;line-height:1.6;color:var(--text)">Pheeew is <strong>a smoothie for your gut.</strong> A 100mL synbiotic puree pouch — real fruit blended with a prebiotic fiber and a clinically-studied probiotic strain — for people who tried doing more for their gut, gave up, and want something they'll actually finish. We're not a juice. We're not a shot. We're not a supplement. We're the food version of the gut routine.</p>
+            <p style="font-size:16px;line-height:1.6;color:var(--text)">Pheeew is <strong>a smoothie for your gut.</strong> An 80mL synbiotic puree pouch — real fruit blended with 10g of prebiotic fiber and a clinically-studied probiotic strain — for people who tried doing more for their gut, gave up, and want something they'll actually finish. We're not a juice. We're not a shot. We're not a supplement. We're the food version of the gut routine.</p>
             <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft)">
               <div style="font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Tagline (placeholder)</div>
               <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew)">"Your gut knows."</div>
@@ -1185,11 +1247,11 @@ details.content-expand[open] summary::after{content:" ▴"}
           <div class="card card-dark">
             <div class="card-head"><div><div class="card-title">Architecture</div><div class="card-subtitle">How we name what's next</div></div></div>
             <div style="font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">Gut + <span style="color:var(--accent-yellow)">(function)</span>.</div>
-            <div style="font-size:13px;color:var(--text-muted-dark);margin-bottom:18px;line-height:1.55">Every SKU is "Gut + [a second thing your body actually feels]." Anchor product is Gut + Energy. Phase 2 is Gut + Digestion. Phase 3 is Gut + Immunity. No "wellness" buzzwords. Each pairing is one body benefit you can name in a sentence.</div>
+            <div style="font-size:13px;color:var(--text-muted-dark);margin-bottom:18px;line-height:1.55">Every SKU is "Gut + [a second thing your body actually feels]." Phase 1 anchor is Tropical Punch. Subsequent SKUs pace based on Phase 1 signal — paired with body benefits the audience can name in a sentence. No "wellness" buzzwords.</div>
             <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
-              <div style="padding:10px 12px;background:rgba(244,201,93,.12);border-radius:8px"><strong style="color:var(--accent-yellow)">Phase 1 ·</strong> Gut + Energy · Berry-forward</div>
-              <div style="padding:10px 12px;background:rgba(255,255,255,.05);border-radius:8px">Phase 2 · Gut + Digestion · Tropical Punch</div>
-              <div style="padding:10px 12px;background:rgba(255,255,255,.05);border-radius:8px">Phase 3 · Gut + Immunity · Ginger &amp; Pear</div>
+              <div style="padding:10px 12px;background:rgba(244,201,93,.12);border-radius:8px"><strong style="color:var(--accent-yellow)">Phase 1 ·</strong> Tropical Punch · 열대과일·망고·바나나</div>
+              <div style="padding:10px 12px;background:rgba(255,255,255,.05);border-radius:8px">Phase 2 · Berry-forward · 블루베리·사과·딸기·크랜베리·엘더베리 <span style="color:var(--text-muted-dark);font-size:11px">· TBD order</span></div>
+              <div style="padding:10px 12px;background:rgba(255,255,255,.05);border-radius:8px">Phase 3 · Ginger &amp; Pear · 사과·배·생강 <span style="color:var(--text-muted-dark);font-size:11px">· TBD order</span></div>
             </div>
           </div>
         </div>
@@ -1249,12 +1311,12 @@ details.content-expand[open] summary::after{content:" ▴"}
           <div class="card">
             <div class="card-head"><div><div class="card-title">Format</div><div class="card-subtitle">What the product physically is</div></div></div>
             <dl class="kv-grid">
-              <dt>Form</dt><dd><strong>100mL puree pouch</strong> · single-serve · hot-fill</dd>
+              <dt>Form</dt><dd><strong>80mL puree pouch</strong> · single-serve · hot-fill</dd>
               <dt>Pack sizes</dt><dd>Tester 10 · Starter 20 · Core 30 · Committed 60 · Household 120</dd>
               <dt>MOQ</dt><dd><strong>40,000 pouches per SKU</strong> · multi-SKU launch multiplies the commitment</dd>
-              <dt>Phase 1 SKU</dt><dd><strong>Gut + Energy</strong> · berry-forward · 블루베리·사과·딸기·크랜베리·엘더베리</dd>
-              <dt>Phase 2 SKU</dt><dd>Gut + Digestion · Tropical Punch · 열대과일·망고·바나나</dd>
-              <dt>Phase 3 SKU</dt><dd>Gut + Immunity · Ginger &amp; Pear · 사과·배·생강</dd>
+              <dt>Phase 1 SKU</dt><dd><strong>Tropical Punch</strong> · 열대과일·망고·바나나</dd>
+              <dt>Phase 2 SKU</dt><dd>Berry-forward · 블루베리·사과·딸기·크랜베리·엘더베리 <span style="color:var(--text-tertiary);font-size:12px">· TBD order</span></dd>
+              <dt>Phase 3 SKU</dt><dd>Ginger &amp; Pear · 사과·배·생강 <span style="color:var(--text-tertiary);font-size:12px">· TBD order</span></dd>
               <dt>Shelf life</dt><dd>18 months ambient (target, pending QA)</dd>
               <dt>Storage</dt><dd>Room temp; refrigerate after opening; freeze for slushy texture</dd>
             </dl>
@@ -1268,9 +1330,10 @@ details.content-expand[open] summary::after{content:" ▴"}
               <div style="font-size:12px;color:var(--text-muted-dark);margin-top:4px;line-height:1.5">Sanzyme Biologics, India. Spore-form, heat-stable to 180°F — enables hot-fill in the pouch. 30+ clinical studies including IBS, constipation, and immunomodulatory trials.</div>
             </div>
             <div style="padding-top:18px;border-top:1px solid rgba(255,255,255,.1)">
-              <div style="font-size:12px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Prebiotic</div>
-              <div style="font-size:16px;font-weight:600">Synbiotic fiber blend</div>
-              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:4px;line-height:1.5">Real fruit + targeted prebiotic fiber that feeds the probiotic strain. Synbiotic = prebiotic + probiotic (NOT postbiotic — that's a separate category).</div>
+              <div style="font-size:12px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Prebiotic · 10g per pouch</div>
+              <div style="font-size:16px;font-weight:600">XOS + Fibersol-2 blend</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:4px;line-height:1.5"><strong style="color:#fff">XOS (xylo-oligosaccharide)</strong> is a short-chain prebiotic fermented selectively by Bifidobacteria. <strong style="color:#fff">Fibersol-2®</strong> (Matsutani/ADM) is a clinically-studied soluble resistant maltodextrin that adds bulk + supports regularity. Combined at <strong style="color:#fff">10g/pouch</strong> — roughly 30–40% of the FDA's daily fiber recommendation in a single 80mL serve.</div>
+              <div style="font-size:11px;color:var(--text-muted-dark);margin-top:8px;font-style:italic">Synbiotic = prebiotic + probiotic. Never "postbiotic" — that's a different category.</div>
             </div>
           </div>
         </div>
@@ -1324,7 +1387,7 @@ details.content-expand[open] summary::after{content:" ▴"}
           <div class="tl">
             <div class="tl-item done"><div class="tl-day">Day −7 → Day 0</div><div class="tl-title">Cap table restructure email confirmations</div><div class="tl-text">All four founders confirm 40/23/17/11.81/8.19 in writing. Justin wires $22K, Jason wires $15K net of his existing $6,750. Dawon's 83(b) is on file (filed April 18, 2026).</div><span class="tl-owner task-tag alex">Alex owns</span></div>
 
-            <div class="tl-item now"><div class="tl-day">Days 0–14</div><div class="tl-title">Manufacturer PO + freight bookings</div><div class="tl-text">Place the 40K Gut + Energy order with the Naju facility. Lock the LCL freight booking. Open the 3PL relationship. Lock final pouch artwork + FDA-compliant labeling.</div><span class="tl-owner task-tag justin">Justin owns</span></div>
+            <div class="tl-item now"><div class="tl-day">Days 0–14</div><div class="tl-title">Manufacturer PO + freight bookings</div><div class="tl-text">Place the 40K Tropical Punch order with the Naju facility. Lock the LCL freight booking. Open the 3PL relationship. Lock final 80mL pouch artwork + FDA-compliant labeling (Nutrition Facts at 10g fiber).</div><span class="tl-owner task-tag justin">Justin owns</span></div>
 
             <div class="tl-item"><div class="tl-day">Days 14–60</div><div class="tl-title">Pre-launch content sprint · Dawon's episodes 1–8</div><div class="tl-text">Episodes 1–8 of the storyline arc go live as reels + carousels. Waitlist link in every caption. Goal: 5,000+ waitlist signups before launch. Soft creator gifting starts at week 4.</div><span class="tl-owner task-tag dawon">Dawon owns</span></div>
 
