@@ -33,12 +33,37 @@ html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-seri
 
 /* HEADER */
 .site-header{position:sticky;top:0;background:rgba(250,246,237,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);z-index:50}
-.site-header-inner{max-width:840px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}
+.site-header-inner{max-width:840px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .brand .lettermark{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink)}
 .brand .pad{font-family:'Caveat Brush',cursive;font-size:13px;color:var(--pheeew)}
-.signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
+.signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px;flex-shrink:0}
 .signout:hover{color:var(--ink);border-color:var(--ink)}
+
+/* HORIZONTAL PILL NAV */
+.section-pills{display:flex;gap:4px;align-items:center;overflow-x:auto;flex:1;padding:0 8px;scrollbar-width:none;-ms-overflow-style:none}
+.section-pills::-webkit-scrollbar{display:none}
+.section-pill{flex-shrink:0;padding:7px 11px;background:transparent;color:var(--mute);font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;text-decoration:none;border-radius:100px;border:1px solid transparent;transition:all .15s ease;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;line-height:1}
+.section-pill:hover{background:var(--pheeew-soft);color:var(--pheeew)}
+.section-pill.active{background:var(--pheeew);color:var(--cream)}
+.section-pill .num{opacity:.55;font-weight:700;letter-spacing:0}
+.section-pill.active .num{opacity:1}
+.section-pill .label{font-weight:700}
+.section-pill.divider{background:transparent;color:var(--line);padding:7px 2px;pointer-events:none;font-size:13px;opacity:.8}
+
+/* BACK TO NAV (per section, also acts as section divider) */
+.back-to-nav{display:flex;justify-content:flex-end;margin-top:56px;margin-bottom:8px;padding-top:24px;border-top:1px solid var(--line)}
+.back-to-nav a{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 14px;border:1px solid var(--line);border-radius:100px;transition:all .15s ease;display:inline-flex;align-items:center;gap:5px}
+.back-to-nav a:hover{color:var(--pheeew);border-color:var(--pheeew);background:var(--cream)}
+.back-to-nav .arrow{font-size:13px;line-height:1}
+
+/* BACK TO TOP (floating) */
+.back-to-top{position:fixed;bottom:28px;right:28px;width:46px;height:46px;background:var(--ink);color:var(--cream);border-radius:100px;display:none;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:0 8px 24px rgba(28,26,24,.25);z-index:55;border:none;transition:transform .2s ease,background .2s ease;font-weight:700;line-height:1;padding-bottom:4px}
+.back-to-top.visible{display:flex}
+.back-to-top:hover{transform:translateY(-2px);background:var(--pheeew)}
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--pheeew);z-index:55;width:0;transition:width .12s ease;pointer-events:none}
 
 .confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
 .confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
@@ -150,7 +175,13 @@ footer p .sig{color:var(--pheeew);font-weight:700}
 /* MOBILE */
 @media (max-width:680px){
   .wrap{padding:0 20px}
-  .site-header-inner{padding:14px 20px}
+  .site-header-inner{padding:10px 12px;gap:6px}
+  .brand{flex-shrink:1;min-width:0}
+  .brand .pad{display:none}
+  .brand .lettermark{font-size:20px}
+  .section-pills{padding:0 4px}
+  .section-pill{padding:6px 9px;font-size:9px;letter-spacing:.06em}
+  .signout{padding:5px 9px;font-size:9px;letter-spacing:.1em}
   .hero{padding:36px 0 24px}
   .hero h1{font-size:36px}
   .hero .lede{font-size:16px}
@@ -159,6 +190,8 @@ footer p .sig{color:var(--pheeew);font-weight:700}
   .ep-title{font-size:20px}
   .ep-num{width:40px;height:40px;font-size:13px}
   .do-dont{grid-template-columns:1fr}
+  .back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:18px}
+  .back-to-nav{margin-top:40px;padding-top:18px}
 }
 </style>
 </head>
@@ -179,16 +212,52 @@ footer p .sig{color:var(--pheeew);font-weight:700}
 
 <div id="appContent" style="display:none">
 
-<!-- HEADER -->
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- TOP ANCHOR -->
+<a id="top"></a>
+
+<!-- HEADER · horizontal pill nav -->
 <header class="site-header">
   <div class="site-header-inner">
     <div class="brand">
       <span class="lettermark">Pheeew</span>
-      <span class="pad">storyline brief</span>
+      <span class="pad">storyline</span>
     </div>
+    <nav class="section-pills" id="sectionPills" aria-label="Section navigation">
+      <a href="#how-to-use" class="section-pill" data-section="how-to-use"><span class="num">00</span><span class="label">Use</span></a>
+      <a href="#voice" class="section-pill" data-section="voice"><span class="num">01</span><span class="label">Voice</span></a>
+      <a href="#safety" class="section-pill" data-section="safety"><span class="num">02</span><span class="label">Safety</span></a>
+      <a href="#arc" class="section-pill" data-section="arc"><span class="num">03</span><span class="label">Arc</span></a>
+      <span class="section-pill divider">·</span>
+      <a href="#ep1" class="section-pill" data-section="ep1"><span class="label">E01</span></a>
+      <a href="#ep2" class="section-pill" data-section="ep2"><span class="label">E02</span></a>
+      <a href="#ep3" class="section-pill" data-section="ep3"><span class="label">E03</span></a>
+      <a href="#ep4" class="section-pill" data-section="ep4"><span class="label">E04</span></a>
+      <a href="#ep5" class="section-pill" data-section="ep5"><span class="label">E05</span></a>
+      <a href="#ep6" class="section-pill" data-section="ep6"><span class="label">E06</span></a>
+      <a href="#ep7" class="section-pill" data-section="ep7"><span class="label">E07</span></a>
+      <a href="#ep8" class="section-pill" data-section="ep8"><span class="label">E08</span></a>
+      <a href="#ep9" class="section-pill" data-section="ep9"><span class="label">E09</span></a>
+      <a href="#ep10" class="section-pill" data-section="ep10"><span class="label">E10</span></a>
+      <a href="#ep11" class="section-pill" data-section="ep11"><span class="label">E11</span></a>
+      <a href="#ep12" class="section-pill" data-section="ep12"><span class="label">E12</span></a>
+      <a href="#ep13" class="section-pill" data-section="ep13"><span class="label">E13</span></a>
+      <a href="#ep14" class="section-pill" data-section="ep14"><span class="label">E14</span></a>
+      <a href="#ep15" class="section-pill" data-section="ep15"><span class="label">E15</span></a>
+      <span class="section-pill divider">·</span>
+      <a href="#visuals" class="section-pill" data-section="visuals"><span class="num">04</span><span class="label">Prod</span></a>
+      <a href="#cadence" class="section-pill" data-section="cadence"><span class="num">05</span><span class="label">Cadence</span></a>
+      <a href="#deps" class="section-pill" data-section="deps"><span class="num">06</span><span class="label">Deps</span></a>
+      <a href="#graduation" class="section-pill" data-section="graduation"><span class="num">07</span><span class="label">Graduation</span></a>
+    </nav>
     <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
   </div>
 </header>
+
+<!-- BACK TO TOP (floating) -->
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 
 <div class="confidential-banner">
   <div class="confidential-banner-inner">Confidential · Pheeew, Inc. · Founders Only · Dawon's working brief</div>
@@ -259,6 +328,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <p>This matters because every storytelling instinct Dawon has absorbed — from TV, film, school, TikTok — pushes toward arcs that resolve. Brand storytelling resists that. The brand is a living thing. The story is continuous: learning, finding, executing, guiding, becoming better. The audience comes back not for the next finale, but because the journey hasn't stopped.</p>
       <p>Apply this rule at the sentence level: no closing language, no "this is the end," no "wrap-up." When an episode finishes, it opens into what's next. When the origin arc finishes airing, the chapter that follows is still the same story — just told from <em>now</em> instead of <em>then</em>.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 1. VOICE -->
@@ -311,6 +381,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <p>Profanity: avoided. Even when warranted. The brand has to be safe to share with a relative who watches over your shoulder.</p>
 
     <p>Specificity over generality, always. "I ate one chicken breast and a handful of mushrooms" lands harder than "I undereat." "I tried prune juice, then magnesium, then a doctor-prescribed laxative" lands harder than "I tried everything."</p>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 2. SAFETY -->
@@ -384,6 +455,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <p>Episodes 1–4 will attract three kinds of comments: people sharing their own story (mostly), people asking for medical advice (some), people glorifying the restriction (rare but real). Dawon and Alex review and respond to the first within 24 hours, redirect the second to a doctor with empathy, and either ignore or quietly hide the third. We do not engage with restriction-glorifying comments — engagement amplifies them.</p>
 
     <p>If a comment indicates someone is in active crisis, we DM them privately with the relevant helpline and a short message. Then leave them be. We are not a counseling service. We are a brand that knows when to send someone toward real help.</p>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- 3. ARC -->
@@ -419,6 +491,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">Pheeew, Inc. is named in Episode 11 — not before.</span>
       <p>Before that, Dawon talks about food, body, gut health, her own healing — but never about a brand she's building. The waitlist link in the caption from Episode 1 onward is the only Pheeew presence in the first 10 episodes. Subtle, not absent.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 1 -->
@@ -492,6 +565,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </ul>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 2 -->
@@ -570,6 +644,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </div>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 3 -->
@@ -633,6 +708,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </div>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 4 -->
@@ -704,6 +780,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </div>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 5 -->
@@ -768,6 +845,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         <p>LA visuals can lean nostalgic and warm — golden hour, palm trees, simple street shots. <strong>Avoid</strong> the cliché LA fitness aesthetic (running shorts, smoothie bowls in a perfect light, gym selfies). The vibe is healing-through-ordinariness, not influencer LA. Find the moments that look like real life: a window with sunlight, a counter with breakfast, a friend's hands.</p>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 6 -->
@@ -826,6 +904,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </div>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 7 -->
@@ -882,6 +961,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </div>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 8 -->
@@ -936,6 +1016,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </div>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 9 -->
@@ -1002,6 +1083,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </ul>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 10 -->
@@ -1070,6 +1152,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         <p>Alex appears on camera for the first time in this episode — briefly. A hand. A laptop screen with two people working. A late-night kitchen scene. No full face shot, no "co-founder reveal" moment. The audience hears about him before they see him fully. We can let him show up more later if the audience wants more — but the origin arc is Dawon's face.</p>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 11 -->
@@ -1145,6 +1228,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </ul>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 12 -->
@@ -1202,6 +1286,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </div>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 13 -->
@@ -1274,6 +1359,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </ul>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 14 -->
@@ -1344,6 +1430,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </ul>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- EPISODE 15 -->
@@ -1420,6 +1507,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         </ul>
       </div>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- VISUAL + PRODUCTION RULES -->
@@ -1506,6 +1594,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <li>Dawon posts. Comments are her domain for the first 24 hours; Alex helps moderate after</li>
       <li>Carousel built 24–48 hours after reel posts, references the reel in slide 1 ("If you saw the reel, here's the part I couldn't fit")</li>
     </ol>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- CADENCE -->
@@ -1570,6 +1659,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <li><strong>YouTube Shorts</strong> — optional, if turnaround allows. Skip if it kills cadence. We can build a YouTube long-form presence later when the rhythm allows it — no commitment date.</li>
       <li><strong>Not yet:</strong> X/Twitter, LinkedIn (Justin can post adjacent professional updates separately), Pinterest, Reddit (we'll seed Reddit organically once customers start finding us there, not before).</li>
     </ul>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- DEPENDENCIES -->
@@ -1608,6 +1698,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <li><strong>Resharing is welcome, framing is not.</strong> Share her posts to your stories with no caption add — the audience finding her by being curious is more valuable than the audience finding her because you told them she's your co-founder</li>
       <li><strong>Speak to her before adding new strategy.</strong> If Justin signs a creator deal or Jason changes a launch date, Dawon needs 48 hours notice so the content rhythm doesn't crack</li>
     </ul>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <!-- GRADUATION -->
@@ -1674,6 +1765,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="label">A note to Dawon, from Alex</span>
       <p>You're not signing up to be Pheeew's face forever. You're signing up to start the brand off in a way only you can. We've talked about this — the plan is to ease you back when the time is right, and to do that with intention, not because anyone got tired. The work you do at the beginning is the part of Pheeew that lasts the longest, even after your face stops being on every post. There's no end to the story — only changes in who's telling it on which days. You author the voice; whoever speaks for the brand later, speaks in it.</p>
     </div>
+    <div class="back-to-nav"><a href="#top"><span class="arrow">↑</span> top</a></div>
   </section>
 
   <footer>
@@ -1697,6 +1789,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       document.getElementById('appGate').style.display = 'none';
       document.getElementById('appContent').style.display = 'block';
       err.style.display = 'none';
+      initNav();
     } else {
       err.style.display = 'block';
       input.value = '';
@@ -1710,9 +1803,81 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     location.reload();
   }
 
+  /* ===== NAVIGATION ===== */
+  let currentActiveSection = null;
+
+  function scrollToTop(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function getCurrentSection(){
+    const sections = document.querySelectorAll('section.block');
+    let current = 'how-to-use';
+    const triggerLine = window.innerHeight * 0.3;
+    sections.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      if(rect.top <= triggerLine) current = s.id;
+    });
+    return current;
+  }
+
+  function updateActivePill(current){
+    if(current === currentActiveSection) return;
+    currentActiveSection = current;
+    document.querySelectorAll('.section-pill').forEach(p => {
+      const isActive = p.getAttribute('data-section') === current;
+      p.classList.toggle('active', isActive);
+      if(isActive){
+        p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  }
+
+  function onScroll(){
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const progressPct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+    const progressBar = document.getElementById('scrollProgress');
+    if(progressBar) progressBar.style.width = progressPct + '%';
+
+    const btn = document.getElementById('backToTop');
+    if(btn) btn.classList.toggle('visible', scrolled > 600);
+
+    updateActivePill(getCurrentSection());
+  }
+
+  function smoothScrollLinks(){
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href === '#' || href === '#top'){
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const targetId = href.slice(1);
+        const target = document.getElementById(targetId);
+        if(target){
+          e.preventDefault();
+          const headerHeight = document.querySelector('.site-header')?.offsetHeight || 60;
+          const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  function initNav(){
+    smoothScrollLinks();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ===== INIT ===== */
   if(sessionStorage.getItem('pheeew-storyline-gate') === '1'){
     document.getElementById('appGate').style.display = 'none';
     document.getElementById('appContent').style.display = 'block';
+    initNav();
   } else {
     setTimeout(()=>document.getElementById('gateInput').focus(), 100);
   }
