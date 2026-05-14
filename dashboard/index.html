@@ -55,16 +55,24 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
 ::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--text-tertiary)}
 
-/* PASSCODE GATE */
-.app-gate{position:fixed;inset:0;background:var(--bg-page);display:flex;align-items:center;justify-content:center;z-index:200}
-.app-gate-box{max-width:380px;text-align:center;padding:40px}
+/* AUTH GATE */
+.app-gate{position:fixed;inset:0;background:var(--bg-page);display:flex;align-items:center;justify-content:center;z-index:200;padding:24px}
+.app-gate-box{max-width:420px;width:100%;text-align:center;padding:40px;background:var(--bg-card);border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 64px rgba(0,0,0,.06)}
 .app-gate .logo{font-size:42px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew);margin-bottom:8px}
-.app-gate .tag{font-size:14px;color:var(--text-tertiary);margin-bottom:32px;letter-spacing:.04em;text-transform:uppercase;font-weight:500}
-.app-gate input{width:100%;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--bg-card);font-size:15px;margin-bottom:12px;outline:none;transition:border-color .15s}
-.app-gate input:focus{border-color:var(--pheeew)}
-.app-gate button{width:100%;padding:14px;background:var(--pheeew);color:#fff;border-radius:12px;font-size:15px;font-weight:600;transition:background .15s}
+.app-gate .tag{font-size:14px;color:var(--text-tertiary);margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase;font-weight:500}
+.app-gate .sub{font-size:13px;color:var(--text-tertiary);margin-bottom:28px;line-height:1.5}
+.app-gate input{width:100%;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--bg-soft);font-size:15px;margin-bottom:12px;outline:none;transition:border-color .15s;font-family:inherit}
+.app-gate input:focus{border-color:var(--pheeew);background:var(--bg-card)}
+.app-gate input.code{letter-spacing:.4em;text-align:center;font-variant-numeric:tabular-nums;font-size:20px;font-weight:600}
+.app-gate button{width:100%;padding:14px;background:var(--pheeew);color:#fff;border-radius:12px;font-size:15px;font-weight:600;transition:background .15s;border:none;cursor:pointer}
 .app-gate button:hover{background:var(--pheeew-deep)}
-.gate-error{color:var(--accent-coral);font-size:13px;margin-top:10px;display:none}
+.app-gate button:disabled{opacity:.5;cursor:wait}
+.app-gate .link-btn{width:auto;background:transparent;color:var(--text-tertiary);padding:8px;font-size:13px;font-weight:500;margin-top:12px}
+.app-gate .link-btn:hover{background:transparent;color:var(--pheeew);text-decoration:underline}
+.gate-error{color:var(--accent-coral);font-size:13px;margin-top:10px;display:none;padding:10px 14px;background:#FCE9E5;border-radius:10px;text-align:left;line-height:1.45}
+.gate-info{font-size:13px;color:var(--text-secondary);margin:0 0 16px;padding:12px 14px;background:var(--accent-yellow-soft);border:1px solid var(--accent-yellow);border-radius:10px;line-height:1.5;display:none;text-align:left}
+.gate-info.show{display:block}
+.gate-info strong{color:var(--text)}
 
 /* FOUNDER PICKER */
 .founder-picker{position:fixed;inset:0;background:rgba(250,246,237,.95);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;z-index:180}
@@ -526,15 +534,29 @@ details.content-expand[open] summary::after{content:" ▴"}
 </head>
 <body>
 
-<!-- PASSCODE GATE -->
+<!-- AUTH GATE -->
 <div class="app-gate" id="appGate">
   <div class="app-gate-box">
     <div class="logo">Pheeew</div>
     <div class="tag">Founders Dashboard</div>
-    <form id="gateForm" onsubmit="checkGate(event)">
-      <input id="gateInput" type="password" placeholder="passcode" autocomplete="off" autofocus>
-      <button type="submit">Enter</button>
-      <div class="gate-error" id="gateError">Wrong passcode</div>
+
+    <!-- Step 1: email entry -->
+    <form id="emailForm" onsubmit="requestOtp(event)">
+      <div class="sub">Enter your founder email. We'll send you a 6-digit code (and a one-click link).</div>
+      <input id="emailInput" type="email" placeholder="you@example.com" autocomplete="email" required autofocus>
+      <button type="submit" id="emailSubmit">Send sign-in code</button>
+      <div class="gate-error" id="emailError"></div>
+    </form>
+
+    <!-- Step 2: code entry (shown after request) -->
+    <form id="codeForm" onsubmit="verifyOtp(event)" style="display:none">
+      <div class="gate-info show">
+        <strong>Check your inbox.</strong> We sent a 6-digit code to <span id="codeEmail" style="font-weight:600"></span>. Paste it below — or click the link in the email and you'll be signed in automatically. Expires in 10 minutes.
+      </div>
+      <input id="codeInput" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000" autocomplete="one-time-code" class="code" required autofocus>
+      <button type="submit" id="codeSubmit">Verify &amp; sign in</button>
+      <button type="button" class="link-btn" onclick="resetSignIn()">← Use a different email</button>
+      <div class="gate-error" id="codeError"></div>
     </form>
   </div>
 </div>
@@ -2147,9 +2169,9 @@ details.content-expand[open] summary::after{content:" ▴"}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   /* ====== CONFIG ====== */
-  const PASSCODE = 'pheeew-team-2026';
   const SUPABASE_URL = 'https://qukcnnmupijlnfiojtet.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_vMSTwwTUOo59oAreu6Wtkg_L0SADbMc';
+  const REDIRECT_URL = 'https://allvitalorganics.github.io/pheeew-live/dashboard/';
   const FOUNDERS = {
     alex:   { name:'Alex Kim',   short:'Alex',   role:'CEO + Sole Director', initials:'AK' },
     jason:  { name:'Jason Ko',   short:'Jason',  role:'COO',                  initials:'JK' },
@@ -2164,24 +2186,82 @@ details.content-expand[open] summary::after{content:" ▴"}
   let filters = { todo:'all', creator:'all', content:'all' };
   let calCursor = new Date(); // viewed month in calendar
 
-  /* ====== GATE ====== */
-  function checkGate(e){
+  /* ====== AUTH (Supabase magic link + OTP) ====== */
+  // pending email between request + verify
+  let pendingEmail = null;
+
+  function showError(elId, msg){
+    const e = document.getElementById(elId);
+    e.textContent = msg;
+    e.style.display = 'block';
+  }
+  function clearErrors(){
+    document.querySelectorAll('.gate-error').forEach(el => { el.style.display = 'none'; el.textContent = ''; });
+  }
+  function resetSignIn(){
+    pendingEmail = null;
+    clearErrors();
+    document.getElementById('codeForm').style.display = 'none';
+    document.getElementById('emailForm').style.display = 'block';
+    document.getElementById('codeInput').value = '';
+    document.getElementById('emailInput').focus();
+  }
+
+  async function requestOtp(e){
     e.preventDefault();
-    const input = document.getElementById('gateInput');
-    const err = document.getElementById('gateError');
-    if(input.value.trim().toLowerCase() === PASSCODE){
-      sessionStorage.setItem('pheeew-dashboard-gate', '1');
-      document.getElementById('appGate').style.display = 'none';
-      enterApp();
-    } else {
-      err.style.display = 'block';
-      input.value = '';
-      input.focus();
+    clearErrors();
+    const email = document.getElementById('emailInput').value.trim().toLowerCase();
+    if(!email) return;
+    const btn = document.getElementById('emailSubmit');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const { error } = await supa.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: REDIRECT_URL,
+          shouldCreateUser: true
+        }
+      });
+      if(error) throw error;
+      pendingEmail = email;
+      document.getElementById('codeEmail').textContent = email;
+      document.getElementById('emailForm').style.display = 'none';
+      document.getElementById('codeForm').style.display = 'block';
+      document.getElementById('codeInput').focus();
+    } catch(err){
+      console.error(err);
+      showError('emailError', 'Could not send the code: ' + (err.message || 'unknown error') + '. Check the email or try again.');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Send sign-in code';
     }
   }
-  function signOut(e){
+
+  async function verifyOtp(e){
+    e.preventDefault();
+    clearErrors();
+    const token = document.getElementById('codeInput').value.trim();
+    if(!pendingEmail || !token) return;
+    const btn = document.getElementById('codeSubmit');
+    btn.disabled = true; btn.textContent = 'Verifying…';
+    try {
+      const { data, error } = await supa.auth.verifyOtp({
+        email: pendingEmail,
+        token,
+        type: 'email'
+      });
+      if(error) throw error;
+      // Successful sign-in fires onAuthStateChange below, which calls enterApp().
+    } catch(err){
+      console.error(err);
+      showError('codeError', 'That code didn\'t work — double-check or request a new one.');
+      btn.disabled = false; btn.textContent = 'Verify & sign in';
+    }
+  }
+
+  async function signOut(e){
     if(e) e.preventDefault();
-    sessionStorage.removeItem('pheeew-dashboard-gate');
+    if(!supa) return location.reload();
+    await supa.auth.signOut();
     localStorage.removeItem('pheeew-dashboard-founder');
     location.reload();
   }
@@ -2193,27 +2273,29 @@ details.content-expand[open] summary::after{content:" ▴"}
     document.getElementById('founderPicker').classList.remove('open');
     afterFounderPicked();
   }
-  function enterApp(){
-    const saved = localStorage.getItem('pheeew-dashboard-founder');
-    if(saved && FOUNDERS[saved]){
-      me = saved;
-      document.getElementById('appContent').style.display = 'block';
-      afterFounderPicked();
-    } else {
-      document.getElementById('appContent').style.display = 'block';
-      document.getElementById('founderPicker').classList.add('open');
-    }
-  }
   function afterFounderPicked(){
     const f = FOUNDERS[me];
     document.getElementById('heroName').textContent = f.short;
     document.getElementById('profileName').textContent = f.short;
     document.getElementById('profileAvatar').textContent = f.initials;
     document.getElementById('founderLabelFooter').textContent = 'Signed in as ' + f.short;
-    initSupabase();
+    loadAll();
+    subscribeAll();
   }
 
-  /* ====== SUPABASE ====== */
+  function enterApp(){
+    document.getElementById('appGate').style.display = 'none';
+    document.getElementById('appContent').style.display = 'block';
+    const saved = localStorage.getItem('pheeew-dashboard-founder');
+    if(saved && FOUNDERS[saved]){
+      me = saved;
+      afterFounderPicked();
+    } else {
+      document.getElementById('founderPicker').classList.add('open');
+    }
+  }
+
+  /* ====== SUPABASE (auth-bootstrapped) ====== */
   function initSupabase(){
     if(!window.supabase){
       console.error('Supabase JS not loaded');
@@ -2221,10 +2303,32 @@ details.content-expand[open] summary::after{content:" ▴"}
       return;
     }
     supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,    // handles magic-link callback hash
+        flowType: 'pkce'
+      },
       realtime: { params: { eventsPerSecond: 5 } }
     });
-    loadAll();
-    subscribeAll();
+
+    // React to sign-in / sign-out
+    supa.auth.onAuthStateChange((event, session) => {
+      if(event === 'SIGNED_IN' && session){
+        enterApp();
+      } else if(event === 'SIGNED_OUT'){
+        // Force back to gate
+        location.reload();
+      }
+    });
+
+    // On load: check existing session
+    supa.auth.getSession().then(({ data }) => {
+      if(data?.session){
+        enterApp();
+      }
+      // else: gate stays visible, user signs in
+    });
   }
   function setConn(online, label){
     const el = document.getElementById('connStatus');
@@ -3184,12 +3288,7 @@ details.content-expand[open] summary::after{content:" ▴"}
     if(document.getElementById('view-' + view)) switchView(view);
   });
 
-  if(sessionStorage.getItem('pheeew-dashboard-gate') === '1'){
-    document.getElementById('appGate').style.display = 'none';
-    enterApp();
-    const initial = location.hash.replace('#','') || 'home';
-    if(document.getElementById('view-' + initial)) switchView(initial);
-  }
+  initSupabase();
 </script>
 
 </body>
