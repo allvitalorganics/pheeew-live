@@ -1,0 +1,1800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pheeew, Inc. — Operating Playbook · v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Caveat+Brush&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ed; --ink:#1c1a18; --soft:#4a4439; --mute:#8a7e6c;
+  --line:#d8d2c8; --cobalt:#2952b8; --brick:#8b3e1d; --peach:#e8b88d;
+  --peach-soft:#fbeed8; --green:#4a8e5a; --gold:#9a7a3a;
+  --pheeew:#8B4A2C; --pheeew-soft:#f1dccc;
+  --warn-bg:#fdf2f2; --warn-line:#f4cece;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 32px}
+
+/* GATE */
+.app-gate{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:100}
+.app-gate-box{background:white;border:1px solid var(--line);border-radius:16px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 12px 40px rgba(28,26,24,.06)}
+.editorial-i{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;font-weight:700;color:var(--ink);text-align:center;letter-spacing:-.02em}
+.brushy{font-family:'Caveat Brush',cursive;font-size:18px;color:var(--pheeew);text-align:center;display:block;margin:6px 0 24px}
+.app-gate input{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:.04em;background:var(--cream);color:var(--ink)}
+.app-gate input:focus{outline:none;border-color:var(--cobalt)}
+.app-gate button{width:100%;margin-top:12px;padding:14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer}
+.app-gate button:hover{background:var(--cobalt)}
+.gate-error{font-size:12px;color:var(--brick);margin-top:10px;text-align:center;display:none}
+
+/* HEADER */
+.site-header{position:sticky;top:0;background:rgba(250,246,237,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);z-index:50}
+.site-header-inner{max-width:860px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .lettermark{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink)}
+.brand .pad{font-family:'Caveat Brush',cursive;font-size:13px;color:var(--pheeew)}
+.signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
+.signout:hover{color:var(--ink);border-color:var(--ink)}
+
+.confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
+.confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
+
+/* HERO */
+.hero{padding:56px 0 36px}
+.hero .eyebrow{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pheeew);font-weight:700;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:54px;letter-spacing:-.02em;line-height:1.02;color:var(--ink);margin-bottom:18px}
+.hero h1 .accent{font-style:italic;color:var(--pheeew)}
+.hero .lede{font-size:18px;color:var(--soft);line-height:1.55;max-width:620px}
+.hero .meta{margin-top:18px;font-family:'Special Elite',monospace;font-size:12px;color:var(--mute);letter-spacing:.04em}
+
+/* SECTION */
+section.block{margin-bottom:64px;scroll-margin-top:80px}
+.block-head{margin-bottom:24px}
+.block-head .num{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin-bottom:6px}
+.block-head h2{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:34px;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.block-head .sub{margin-top:10px;color:var(--soft);font-size:15px;line-height:1.6}
+
+h3{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--ink);margin:28px 0 14px;letter-spacing:-.005em}
+h4{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:var(--ink);margin:18px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px;color:var(--ink);font-size:15.5px;line-height:1.7}
+p.lead{font-size:17px;color:var(--soft)}
+ul,ol{margin:0 0 14px 22px;color:var(--ink)}
+ul li,ol li{margin:8px 0;line-height:1.65;font-size:15.5px}
+strong{color:var(--ink);font-weight:700}
+em{color:var(--soft);font-style:italic}
+code{font-family:'Special Elite',monospace;font-size:13px;background:var(--pheeew-soft);padding:2px 8px;border-radius:4px;color:var(--pheeew)}
+
+/* CALLOUTS */
+.callout{padding:18px 22px;border-radius:14px;margin:18px 0}
+.callout .label{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:8px}
+.callout p{font-size:14.5px;line-height:1.65}
+.callout p:last-child{margin-bottom:0}
+
+.warn{background:var(--warn-bg);border:1.5px solid var(--warn-line)}
+.warn .label{color:var(--brick)}
+.note{background:linear-gradient(135deg,#fff8eb 0%,#fbeed8 100%);border-left:4px solid var(--gold)}
+.note .label{color:var(--gold)}
+.rule{background:#f1ece1;border-left:4px solid var(--pheeew)}
+.rule .label{color:var(--pheeew)}
+.green{background:#eaf3ec;border-left:4px solid var(--green)}
+.green .label{color:var(--green)}
+.blue{background:#e7eef9;border-left:4px solid var(--cobalt)}
+.blue .label{color:var(--cobalt)}
+
+/* FUNCTION CARDS */
+.fn-card{background:white;border:1px solid var(--line);border-radius:16px;padding:30px 32px;margin:24px 0;box-shadow:0 8px 28px rgba(28,26,24,.04)}
+.fn-head{display:flex;align-items:flex-start;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:18px}
+.fn-tag{flex-shrink:0;padding:6px 14px;border-radius:100px;background:var(--pheeew-soft);color:var(--pheeew);font-family:'Special Elite',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.fn-meta{flex:1}
+.fn-meta .owner{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:4px}
+.fn-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink);line-height:1.2;letter-spacing:-.01em}
+.fn-section{margin-top:18px}
+.fn-section h5{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--pheeew);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.fn-section h5::before{content:"";display:inline-block;width:18px;height:1px;background:var(--pheeew)}
+
+/* MODE CARDS */
+.mode-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}
+.mode-card{background:white;border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.mode-card .label{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--pheeew);font-weight:700;margin-bottom:8px}
+.mode-card h4{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.mode-card p{font-size:14px;line-height:1.6;margin-bottom:0;color:var(--soft)}
+.mode-card.build{border-left:4px solid var(--gold)}
+.mode-card.launch{border-left:4px solid var(--pheeew)}
+.mode-card.operate{border-left:4px solid var(--cobalt)}
+.mode-card.scale{border-left:4px solid var(--green)}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:14px 0}
+.tbl-wrap table{width:100%;border-collapse:collapse;font-size:14px}
+.tbl-wrap th{background:var(--ink);color:var(--cream);padding:10px 12px;text-align:left;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.tbl-wrap td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl-wrap tr:last-child td{border-bottom:none}
+.tbl-wrap td.num{text-align:right;font-family:'Special Elite',monospace}
+.tbl-wrap td.center{text-align:center}
+
+/* TOC */
+.toc{background:white;border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin:24px 0 40px}
+.toc h3{margin:0 0 14px;font-size:18px}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:tocc}
+.toc ol li{counter-increment:tocc;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14.5px;display:flex;gap:12px}
+.toc ol li:last-child{border-bottom:none}
+.toc ol li::before{content:counter(tocc,decimal-leading-zero);font-family:'Special Elite',monospace;font-size:11px;font-weight:700;color:var(--pheeew);min-width:28px;padding-top:2px}
+.toc a{color:var(--ink);text-decoration:none;flex:1}
+.toc a:hover{color:var(--pheeew)}
+
+/* DO/DONT */
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.do, .dont{background:white;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.do{border-left:4px solid var(--green)}
+.dont{border-left:4px solid var(--brick)}
+.do h4, .dont h4{margin:0 0 8px;font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.do h4{color:var(--green)}
+.dont h4{color:var(--brick)}
+.do ul, .dont ul{margin:0;padding-left:18px;font-size:14px;line-height:1.6}
+.do li, .dont li{margin:6px 0}
+
+/* DAY TIMELINE */
+.day-row{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14.5px;line-height:1.6}
+.day-row:last-child{border-bottom:none}
+.day-row .day-tag{flex-shrink:0;font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.06em;color:var(--cobalt);font-weight:700;width:80px;padding-top:2px}
+.day-row .day-task{flex:1;color:var(--ink)}
+.day-row .day-owner{flex-shrink:0;font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700;width:60px;text-align:right;padding-top:2px}
+
+/* RISK CARD */
+.risk-card{background:white;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:14px 0;border-left:4px solid var(--brick)}
+.risk-card h4{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--ink);margin-bottom:6px}
+.risk-card .severity{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);font-weight:700;margin-bottom:12px}
+.risk-card h5{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--pheeew);font-weight:700;margin:14px 0 6px}
+.risk-card p, .risk-card ul{font-size:14px;line-height:1.6}
+
+/* TOOLING */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:14px 0}
+.tool-box{background:white;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tool-box .name{font-weight:700;font-size:15px;color:var(--ink);margin-bottom:2px}
+.tool-box .role{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.1em;color:var(--mute);text-transform:uppercase;margin-bottom:8px}
+.tool-box .desc{font-size:13px;color:var(--soft);line-height:1.55}
+
+/* SYLLABUS */
+.syllabus-card{background:white;border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:14px 0}
+.syllabus-card h4{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--ink);margin-bottom:4px}
+.syllabus-card .who{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.16em;color:var(--mute);font-weight:700;text-transform:uppercase;margin-bottom:14px}
+.syllabus-card h5{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.16em;color:var(--pheeew);text-transform:uppercase;font-weight:700;margin:12px 0 6px}
+
+/* FOOTER */
+footer{margin:72px 0 48px;padding-top:32px;border-top:1px solid var(--line);text-align:center}
+footer p{font-family:'Special Elite',monospace;font-size:11px;color:var(--mute);letter-spacing:.06em;line-height:1.7}
+footer p .sig{color:var(--pheeew);font-weight:700}
+
+/* MOBILE */
+@media (max-width:680px){
+  .wrap{padding:0 20px}
+  .site-header-inner{padding:14px 20px}
+  .hero{padding:36px 0 24px}
+  .hero h1{font-size:36px}
+  .hero .lede{font-size:16px}
+  .block-head h2{font-size:26px}
+  .mode-grid{grid-template-columns:1fr}
+  .do-dont{grid-template-columns:1fr}
+  .fn-card{padding:22px 20px}
+  .fn-title{font-size:20px}
+  .tool-grid{grid-template-columns:1fr}
+  .day-row{flex-direction:column;gap:4px}
+  .day-row .day-owner{width:auto;text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div class="app-gate" id="appGate">
+  <div class="app-gate-box">
+    <div class="editorial-i">Pheeew</div>
+    <span class="brushy">operating playbook</span>
+    <form id="gateForm" onsubmit="checkGate(event)">
+      <input id="gateInput" type="password" placeholder="passcode" autocomplete="off">
+      <button type="submit">Enter</button>
+      <div class="gate-error" id="gateError">Wrong passcode</div>
+    </form>
+  </div>
+</div>
+
+<div id="appContent" style="display:none">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand">
+      <span class="lettermark">Pheeew</span>
+      <span class="pad">operating playbook</span>
+    </div>
+    <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
+  </div>
+</header>
+
+<div class="confidential-banner">
+  <div class="confidential-banner-inner">Confidential · Pheeew, Inc. · Founders Only · Living document</div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Operating Playbook · v1.0 · A living document</div>
+    <h1>How we <span class="accent">run</span> the company.</h1>
+    <p class="lede">A working manual for the four of us — what each function does, what each of us owns, how we decide, what we measure, what could go wrong, and what we should each be studying to get to operator-grade. None of us have run a full DTC before; this doc teaches as it instructs.</p>
+    <div class="meta">Prepared by Alex Kim, CEO · May 14, 2026 · Updated whenever something we wrote here turns out to be wrong</div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>What's in this playbook</h3>
+    <ol>
+      <li><a href="#how-to-use">How to use this playbook + the core principle</a></li>
+      <li><a href="#team">The team — who owns what</a></li>
+      <li><a href="#modes">The four operating modes — Build, Launch, Operate, Scale</a></li>
+      <li><a href="#functions">Functional ownership — eight functions, deep</a></li>
+      <li><a href="#cadence">The weekly cadence</a></li>
+      <li><a href="#decisions">Decision authority matrix</a></li>
+      <li><a href="#kpis">KPI dashboards — what we measure</a></li>
+      <li><a href="#thirty">The critical first 30 days — day-by-day</a></li>
+      <li><a href="#risks">Risk register + crisis playbooks</a></li>
+      <li><a href="#tools">Tooling + vendor stack</a></li>
+      <li><a href="#syllabus">The learning syllabus — what each of us studies</a></li>
+      <li><a href="#not-here">What's not in this doc (and where to find it)</a></li>
+    </ol>
+  </div>
+
+  <!-- 0. HOW TO USE -->
+  <section class="block" id="how-to-use">
+    <div class="block-head">
+      <div class="num">§ 00 · how to use</div>
+      <h2>How to read this playbook.</h2>
+      <p class="sub">This is a working document, not a finished book. It's wrong about something right now and we don't know what yet. The way to fix it is to keep using it.</p>
+    </div>
+
+    <p>The playbook covers everything experienced CPG/DTC operators take for granted — the things you only learn by either working at an established brand or hiring someone who has. None of us have. So this doc has to teach as well as instruct: every function carries a "what this actually means" paragraph before the "what we do about it" paragraph.</p>
+
+    <p>It's structured so you can read it linearly the first time (which is recommended) and then return to specific sections as questions arise. Use the TOC. Cross-references throughout point you to where related material lives.</p>
+
+    <p>Three roles operate against this daily — <strong>Alex (CEO)</strong>, <strong>Jason (COO)</strong>, <strong>Justin (CGO)</strong>. Dawon (CBO) reads it but isn't expected to operate against it day-to-day; her work is governed by the <a href="../storyline-brief/" style="color:var(--pheeew);text-decoration:none;font-weight:700">storyline brief</a>. When the playbook says "the team" or "we," it usually means the three operators. When it says all four, it says all four.</p>
+
+    <div class="callout rule">
+      <span class="label">The core principle — modes, not phases</span>
+      <p>It would be natural to write this playbook as <em>"Pre-launch → Launch → Expansion → Scaling"</em> — a sequence with start dates and finish dates. That framing is wrong, the same way it was wrong in the storyline brief. <strong>Build, Launch, Operate, and Scale are not phases.</strong> They are overlapping ongoing modes the company is in (and returns to) for as long as it exists. Right now we're 80% Build / 20% Launch / 0% Operate / 0% Scale. Six months in, we might be 30/30/30/10. A year in, when we add a Phase 2 SKU, we'll snap back to 50% Build again on that SKU even while we're 30% Scale on the existing one. The dial moves. The modes don't end.</p>
+      <p>Apply this rule when you read every section. When you see "first 30 days" in § 07, that's not the end of the Build phase. It's the most concentrated Build period at the beginning of an ongoing one. When § 03 describes the Operations function, it's not describing what we do "after launch" — it's describing what we do continuously, with different intensities at different moments.</p>
+    </div>
+
+    <h3>Living document rules</h3>
+    <ul>
+      <li><strong>When the playbook is wrong, update it.</strong> Don't tell people verbally. Edit the doc. Push live. Annotate the edit in Slack so everyone knows. The whole team operates from one source of truth.</li>
+      <li><strong>Disagreements get logged here.</strong> If two of us disagree about how something should be done, the disagreement and the resolution go into the relevant section. Future-us needs to know why we settled the way we did.</li>
+      <li><strong>Don't add aspirational structure.</strong> If we don't actually have a process for something yet, the section should say "we don't have a process for this yet" — not invent one. Invented process is worse than no process.</li>
+      <li><strong>One person owns each section.</strong> Listed in the section header. That person is responsible for keeping it accurate.</li>
+    </ul>
+
+    <h3>What "operator-grade" means and why we care</h3>
+    <p>Most first-time CPG founders fail not on the brand or the product but on the operating layer underneath — the part where supply chain breaks, customer service collapses under volume, financials drift, vendor relationships sour, decisions don't get made fast enough. Experienced operators have internalized hundreds of small lessons from previous companies. We haven't. The playbook + the syllabus are how we close that gap on purpose, in writing, before the lessons cost us money or relationships.</p>
+  </section>
+
+  <!-- 1. THE TEAM -->
+  <section class="block" id="team">
+    <div class="block-head">
+      <div class="num">§ 01 · the team</div>
+      <h2>Who owns what.</h2>
+      <p class="sub">Four founders, four roles, one Sole Director until Series A. Reporting lines are technically flat — Alex is the legal authority — but functionally each person owns a domain and the others stay out of it unless asked.</p>
+    </div>
+
+    <h3>Seungjoon Kim · "Alex" · CEO + Sole Director</h3>
+    <p><strong>Owns:</strong> Strategy, vision, brand direction, fundraising posture, key vendor relationships (manufacturer, regulatory), board-level decisions, public/CEO-facing communications, founder hiring decisions, ultimate decision authority on anything that needs it.</p>
+    <p><strong>Does not own (but signs off on):</strong> Day-to-day ops (Jason runs), growth campaigns (Justin runs), brand creative (Dawon runs).</p>
+    <p><strong>Reports to:</strong> The Board of Directors (currently Alex himself, as Sole Director, until Series A expands the board). Functionally accountable to the four-founder team for major decisions per the Co-Founder Agreement v3.</p>
+    <p><strong>What this looks like day-to-day:</strong> 30% time on strategy + fundraising prep, 25% on brand + vendor relationships, 20% on financial review + decisions, 15% on internal team coordination, 10% reserved for whatever week's emergency is.</p>
+
+    <h3>Junhyuk Kim · "Justin" · CGO (Chief Growth Officer)</h3>
+    <p><strong>Owns:</strong> Partnerships, creator/influencer sourcing, retail buyer outreach, investor sourcing (for when we choose to engage), paid acquisition strategy + execution, biz dev, marketing campaigns, growth experiments, top-of-funnel customer acquisition.</p>
+    <p><strong>Does not own (but partners on):</strong> Brand creative (Dawon leads), brand messaging (Alex + Dawon lead), customer service (Jason owns).</p>
+    <p><strong>Reports to:</strong> Alex (CEO). Functionally peer-collaborative with Jason and Dawon.</p>
+    <p><strong>What this looks like day-to-day:</strong> 35% time on creator + partnership outreach, 25% on paid acquisition (when we turn it on), 20% on investor + retail buyer relationships, 15% on growth experimentation, 5% on internal coordination.</p>
+
+    <h3>Jason Ko · COO (Chief Operating Officer)</h3>
+    <p><strong>Owns:</strong> Operations, supply chain, finance/bookkeeping coordination, vendor management day-to-day, logistics, fulfillment, customer service infrastructure, inventory management, manufacturing relationship execution (Alex owns the strategic relationship; Jason runs the operational one).</p>
+    <p><strong>Does not own (but executes on):</strong> Brand strategy (Alex + Dawon), growth campaigns (Justin), creative (Dawon).</p>
+    <p><strong>Reports to:</strong> Alex (CEO). Functionally peer-collaborative with Justin and Dawon.</p>
+    <p><strong>What this looks like day-to-day:</strong> 30% time on supply chain + manufacturing coordination, 25% on finance + cash management, 20% on fulfillment + customer service ops, 15% on vendor relationships, 10% on internal coordination.</p>
+
+    <h3>Dawon Kim · CBO (Chief Brand Officer)</h3>
+    <p><strong>Owns:</strong> Brand identity, voice, design system, creative direction, content production, customer-facing experience design (packaging, website UX, email design, social design), storyline + content calendar execution.</p>
+    <p><strong>Does not own (but informs):</strong> Operations, growth strategy, finance, fundraising.</p>
+    <p><strong>Reports to:</strong> Alex (CEO). Functionally peer-collaborative with Justin and Jason.</p>
+    <p><strong>What this looks like day-to-day:</strong> Per the storyline brief — Dawon's daily work is governed by that document, not this one. She appears in this playbook as a stakeholder in cross-functional decisions and as a partner on brand integrity questions.</p>
+
+    <div class="callout note">
+      <span class="label">A note on the "Chief" titles</span>
+      <p>The titles are real — Alex is the legal CEO and Sole Director; the others' titles are formalized in the Co-Founder Agreement v3. But at our stage, titles describe ownership of a domain, not staffing tiers. Justin is a "Chief" Growth Officer with no growth team under him yet. The titles will earn their weight as we hire. Don't internally mistake the title for the team that should be supporting it.</p>
+    </div>
+
+    <h3>The reporting truth, in plain language</h3>
+    <p>Until Series A and a real board, Alex has final authority on anything that reaches him. The Voting Agreement gives him 90% stockholder voting power; he is the Sole Director. <strong>This is not a debate point.</strong> But in practice, almost nothing reaches him as a unilateral CEO decision — most decisions are made by the function owner, escalated to Alex only when they cross a threshold (defined in § 05). The pattern: <em>own your function · escalate exceptions · don't second-guess each other's domains.</em></p>
+  </section>
+
+  <!-- 2. THE FOUR OPERATING MODES -->
+  <section class="block" id="modes">
+    <div class="block-head">
+      <div class="num">§ 02 · operating modes</div>
+      <h2>Build, Launch, Operate, Scale.</h2>
+      <p class="sub">Four ongoing modes the company operates in simultaneously. The proportions shift as the brand matures, but all four are always present in some amount.</p>
+    </div>
+
+    <div class="mode-grid">
+      <div class="mode-card build">
+        <div class="label">Mode 1</div>
+        <h4>Build</h4>
+        <p>Designing, formulating, manufacturing the actual product. Locking suppliers, packaging, regulatory compliance, QA standards. Heavy early; never zero. Returns to high every time we add an SKU or change a formulation.</p>
+      </div>
+      <div class="mode-card launch">
+        <div class="label">Mode 2</div>
+        <h4>Launch</h4>
+        <p>Bringing the product to market — first time and every subsequent time. Demand generation, content, paid acquisition kickoff, retail buyer outreach, press, influencer seeding. Returns to high at every SKU launch, every new market entry, every retail door opening.</p>
+      </div>
+      <div class="mode-card operate">
+        <div class="label">Mode 3</div>
+        <h4>Operate</h4>
+        <p>Running the business day-to-day. Fulfillment, customer service, inventory, bookkeeping, weekly metrics, vendor management. Once it starts, it never stops. It scales but it doesn't end.</p>
+      </div>
+      <div class="mode-card scale">
+        <div class="label">Mode 4</div>
+        <h4>Scale</h4>
+        <p>Adding capacity — new SKUs, retail expansion, hiring, fundraising, international, team structure. Becomes meaningful only after Operate is stable. But strategic planning for it happens from day one.</p>
+      </div>
+    </div>
+
+    <h3>Where we are today (May 2026)</h3>
+    <p>The current mix, roughly:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Mode</th><th class="num">% of team attention</th><th>What it looks like in practice</th></tr>
+      <tr><td><strong>Build</strong></td><td class="num">~70%</td><td>Finalizing formulation, packaging design, manufacturer order, regulatory compliance check, QA framework</td></tr>
+      <tr><td><strong>Launch</strong></td><td class="num">~20%</td><td>Waitlist build, organic content (storyline brief in motion), creator gifting list, brand voice formalization</td></tr>
+      <tr><td><strong>Operate</strong></td><td class="num">~8%</td><td>Mercury banking, Stripe Atlas corporate records, Cap Table v2, founder restructure docs</td></tr>
+      <tr><td><strong>Scale</strong></td><td class="num">~2%</td><td>Phase 2 + Phase 3 SKU concepts on paper, fundraising posture defined, investor mentor relationships warmed</td></tr>
+    </table></div>
+
+    <h3>Where we'll be 90 days in (post-first-shipment)</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Mode</th><th class="num">% of team attention</th><th>What it looks like in practice</th></tr>
+      <tr><td><strong>Build</strong></td><td class="num">~25%</td><td>Phase 2 SKU formulation begins; Phase 1 manufacturing relationship hardens through second order</td></tr>
+      <tr><td><strong>Launch</strong></td><td class="num">~35%</td><td>Active paid acquisition, ongoing creator partnerships, retail buyer conversations, first press cycle</td></tr>
+      <tr><td><strong>Operate</strong></td><td class="num">~35%</td><td>Daily fulfillment, weekly customer service tickets, monthly financial close, reorder cycle</td></tr>
+      <tr><td><strong>Scale</strong></td><td class="num">~5%</td><td>First angel/mentor conversations open up the question of when (and whether) to raise</td></tr>
+    </table></div>
+
+    <h3>Where we'll be 18 months in (if it works)</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Mode</th><th class="num">% of team attention</th><th>What it looks like in practice</th></tr>
+      <tr><td><strong>Build</strong></td><td class="num">~20%</td><td>Phase 3 SKU; potential formulation upgrades on existing SKUs based on customer feedback</td></tr>
+      <tr><td><strong>Launch</strong></td><td class="num">~25%</td><td>Multi-SKU portfolio means launch is a recurring motion, not a one-time event</td></tr>
+      <tr><td><strong>Operate</strong></td><td class="num">~30%</td><td>Higher volume; possibly first ops hire; 3PL likely active</td></tr>
+      <tr><td><strong>Scale</strong></td><td class="num">~25%</td><td>Retail conversations active; first round potentially in motion if signals align with our locked thesis on capital</td></tr>
+    </table></div>
+
+    <div class="callout rule">
+      <span class="label">Why this framing matters</span>
+      <p>If you read the playbook as "we're in pre-launch now and launch starts on date X," you miss two things. First, you'll think Build "ends" when we ship — it doesn't, it just shrinks. Second, you'll defer Operate planning ("we don't need that yet") until you actually need it, at which point it's too late. The modes aren't sequential. The thing that's small today still needs to exist today.</p>
+    </div>
+  </section>
+
+  <!-- 3. FUNCTIONAL OWNERSHIP -->
+  <section class="block" id="functions">
+    <div class="block-head">
+      <div class="num">§ 03 · functional ownership</div>
+      <h2>Eight functions, what they actually mean, and who runs each.</h2>
+      <p class="sub">The deepest section in the playbook. Read it once linearly before treating it as a reference. Every function is something real CPG companies have a person (or team) for; we have one of four founders covering all of it. The point of this section is not aspirational org design — it's making sure none of these eight things gets dropped because we didn't know it existed.</p>
+    </div>
+
+    <p>Each function below carries five blocks: <strong>what it actually means</strong> (the teaching part), <strong>what it looks like at Pheeew right now</strong>, <strong>who owns it today</strong>, <strong>what we lock in the first 90 days</strong>, and <strong>common pitfalls we should expect</strong>. Read in order; the functions build on each other.</p>
+
+    <!-- MANAGEMENT -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 1</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Alex (CEO)</div>
+          <div class="fn-title">Management</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Management is the function that holds the company's <em>direction</em> — strategy, vision, capital posture, board governance, founder/team alignment, and the ultimate "what are we building and why" question. At a mature CPG company, this is the CEO, the board, sometimes a Chief Strategy Officer. The function exists at every stage from one founder to public company. It is not the same as "doing everything" — it's the function that decides what gets done by whom and which decisions need to come back to the top.</p>
+        <p>Management is also the function that owns <strong>hiring and firing decisions</strong> at the executive level, <strong>major vendor and partnership commitments</strong>, <strong>fundraising posture and execution</strong>, and <strong>board communications</strong>. The CEO is the function's primary actor; the board is the function's governance layer.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>Alex is the entire Management function. He is CEO, Sole Director, and chief decision-maker on strategy, capital, and direction. The other three founders advise but Alex carries the load. The Co-Founder Agreement v3 + the Voting Agreement give him 90% stockholder voting power until Series A, which translates to: he can make almost any major decision unilaterally if he needs to, but the operating culture is consensus-where-possible.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>The brand thesis written down.</strong> Not in slides. In a single document Alex maintains and the team can disagree with in writing. Lives at <code>/tmp/pheeew-thesis</code> or in Notion when we set it up.</li>
+          <li><strong>The capital posture written down.</strong> "No VC for Pheeew" is the locked principle. What we WOULD take (mentor angel, founder-friendly seed, mission-aligned strategic), what we WOULDN'T take, and at what valuation floor.</li>
+          <li><strong>The 12-month financial plan.</strong> Burn forecast, runway, when we'd need to either be profitable or raise. Owned by Alex with Jason; updated monthly.</li>
+          <li><strong>The board governance structure.</strong> Until Series A, board = Alex. After Series A, target board composition. Documented now so we don't negotiate it under pressure later.</li>
+          <li><strong>Founder check-ins.</strong> 1:1 between Alex and each other founder every two weeks, 30 minutes, not optional. The Management function fails first when founders stop talking honestly to each other.</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Conflating "I'm CEO" with "I do everything."</strong> Alex does Management; he does not do Marketing, Ops, Growth, or Brand. Other founders own those. The CEO's job is to make sure those functions are owned, not to own them himself.</li>
+          <li><strong>Avoiding hard founder conversations.</strong> Equity disputes, role disputes, performance disputes — these get worse when avoided. Management surfaces them on a cadence (the 1:1s) so they don't compound silently.</li>
+          <li><strong>Taking the meeting because it's an investor.</strong> Capital posture has to hold. Every "just take the meeting" is a small erosion of the thesis. Either we said no to VC or we didn't.</li>
+          <li><strong>Strategy creep.</strong> "We could also do X" expands the scope of what we're building. The Management function is the gatekeeper of scope. Default is no.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PRODUCT -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 2</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Alex (CEO) + Jason (COO) joint · Dawon (CBO) on packaging design</div>
+          <div class="fn-title">Product</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Product is the function that owns <em>what we make</em> — the formula, the form factor, the packaging, the regulatory profile, the unit economics of the SKU itself. At a mature CPG company this is a Director of Product or VP R&D, working with a regulatory team, a packaging team, and a QA team. The function decides what goes in the product, what doesn't, what the dose is, what the format is, how it survives shipping, how it tastes, how it looks on shelf, how it complies with FDA and state-level law, and how much it costs to make per unit.</p>
+        <p>It is also the function that owns the <strong>product roadmap</strong> — what SKUs come next, when, in what order. For Pheeew, the locked roadmap is: Phase 1 Gut + Energy → Phase 2 Gut + Digestion → Phase 3 Gut + Immunity. Product owns the formulation development for each.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>Alex owns the strategic side (what goes in the formula, the synbiotic philosophy, the SKU roadmap), Jason owns the operational side (manufacturer execution, packaging procurement, QA standards, shipping survivability), and Dawon owns the packaging design (label, pouch graphics, structural design choices). The manufacturer is treated as a vendor relationship under Product — Alex holds the strategic relationship, Jason runs the day-to-day. <strong>The manufacturer's name is not disclosed in any public Pheeew material; in this doc and internally, refer to them as "the Korean manufacturing partner" or "the manufacturer."</strong></p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>The Phase 1 SKU is locked.</strong> Gut + Energy, 100mL puree pouch, synbiotic (prebiotic fiber + Bacillus coagulans spore-form probiotic). MOQ committed, packaging finalized, regulatory cleared, COGS documented.</li>
+          <li><strong>Quality assurance protocol documented.</strong> What we test for in incoming batches (probiotic CFU count, microbial contamination, heavy metals, label accuracy), who tests, what we do when a batch fails. Owned by Jason.</li>
+          <li><strong>Phase 2 formulation kicked off.</strong> Even before Phase 1 ships, formulation work for Phase 2 (Gut + Digestion / Tropical Punch) begins. Lead time from concept to manufacturer-ready sample is 8–12 weeks; we can't wait.</li>
+          <li><strong>Regulatory file built.</strong> FDA labeling compliance (Supplement Facts panel, claims substantiation file, allergen disclosures), state-level (California Prop 65 if applicable), import/export documentation. Owned by Jason with outside regulatory consultant when needed.</li>
+          <li><strong>The supplier diversification question answered.</strong> If our manufacturing partner has a problem, what's our backup plan? Document the answer even if the answer is "we don't have one yet."</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Confusing "the formulation is finalized" with "the product is finalized."</strong> Packaging, label compliance, shipping survivability, shelf life testing, and supply chain all need to work too. Formulation is one piece.</li>
+          <li><strong>Underestimating regulatory work.</strong> Supplement Facts panels, claim substantiation files, allergen labeling — these aren't optional and they aren't fast. Budget time and money for them from day one.</li>
+          <li><strong>Single-supplier risk.</strong> If the manufacturer goes down, we go down. We need a documented (even if not yet operational) backup plan by month 6.</li>
+          <li><strong>Skipping shelf-life testing.</strong> Real-time stability data for a synbiotic product is non-negotiable. Probiotic counts degrade over time; we need to know our actual usable life, not the theoretical one.</li>
+          <li><strong>Letting taste drift in QA.</strong> Customers will notice a 5% change in flavor profile between batches. Document the target sensory profile and test every batch against it.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MERCHANDISE / MD -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 3</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Alex (CEO) + Jason (COO) joint</div>
+          <div class="fn-title">Merchandising (MD)</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Merchandising — usually called <strong>"MD"</strong> in CPG and retail circles — is the function that owns <em>what we sell, in what assortment, at what price, in what bundle</em>. At a mature CPG company, the Merchandising Director decides which SKUs are in the active lineup, which are being phased out, which bundles exist, what the pricing ladder looks like, what limited editions launch when, and how the portfolio works as a coherent shopping experience for the customer.</p>
+        <p>At a DTC brand, MD also owns the <strong>e-commerce assortment strategy</strong> — what the customer sees on the home page, what's promoted at any given moment, what subscription tiers exist, what cross-sells and upsells are wired in. At brick-and-mortar retail later, MD owns the conversation with buyers about what the shelf set looks like.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>At launch we have one SKU (Gut + Energy) sold in five pricing tiers — Tester 10 / Starter 20 / Core 30 / Committed 60 / Household 120 — with one-time and subscription pricing for each. That entire pricing ladder is the MD function in its simplest form. Alex owns the strategic ladder design (what tiers, what prices, why); Jason owns the execution (Shopify configuration, subscription billing, fulfillment SKU mapping).</p>
+        <p>The ladder is intentionally generous on subscription discount (~20% off OT pricing) because subscription LTV is the long-term economics that matter; the function actively favors building the subscriber base over maximizing first-order margin.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>The launch pricing ladder is built into Shopify.</strong> All five tiers, OT and subscription pricing, with subscription billing wired correctly. Owned by Jason.</li>
+          <li><strong>The bundle logic documented.</strong> Why these five tiers and not three or seven? Where's the friction point in the ladder? Which tier do we want most customers to land on? This is a written doc, not a vibe.</li>
+          <li><strong>The "test pack" merchandising decision.</strong> Tester 10 is intentionally the lowest barrier-to-trial offer. What's our gross margin on the Tester? What's our conversion rate from Tester to Starter or Core? These are the key MD metrics from week one.</li>
+          <li><strong>Phase 2 SKU bundling concept.</strong> When Phase 2 lands, how does the assortment change? Do customers get a "Phase 1 + Phase 2 sampler"? When do we let people subscribe to a mix? Decide on paper before Phase 2 ships.</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Over-discounting first-order.</strong> Acquisition discounts feel great until you realize the average customer pays the discounted price every reorder because we re-trained their expectation. Discount the first order once if at all; protect the everyday price.</li>
+          <li><strong>Confusing pricing with merchandising.</strong> Pricing is one lever inside merchandising. Bundle design, assortment, naming, and tiering matter as much or more.</li>
+          <li><strong>Subscription dark patterns.</strong> Hard-to-cancel subscriptions are short-term margin and long-term reputation damage. Make canceling one click. The subscribers who stay are the real LTV.</li>
+          <li><strong>Adding SKUs to "give the customer choice" before the existing SKU has proven itself.</strong> Choice paralyzes. The discipline is to ship one thing well, then add. Phase 2 launches when Phase 1 has earned it, not on a calendar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BRAND MANAGEMENT / BM -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 4</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Alex (CEO) strategic · Dawon (CBO) creative · Justin (CGO) distribution</div>
+          <div class="fn-title">Brand Management (BM)</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Brand Management — <strong>"BM"</strong> in CPG circles — is the function that owns <em>what the brand stands for and how it shows up everywhere</em>. At a mature multi-brand company, each brand has a dedicated Brand Manager who owns the P&L, the positioning, the creative direction, and the long-term equity of that specific brand. At a single-brand company like Pheeew, BM is owned collectively by the founders, with Dawon as the creative anchor.</p>
+        <p>BM is distinct from marketing. Marketing is <em>how we get the brand in front of people</em>. Brand Management is <em>what the brand actually is</em> — the positioning, the voice, the visual identity, the values, the promise to the customer, and the discipline of saying no to anything that violates those.</p>
+        <p>Done well, BM is what compounds over years. Each campaign, each pack design, each customer service email either deposits to the brand's equity or withdraws from it. The BM function is the bank.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>The brand strategy is documented (or in process of being documented) across the Brand Base on the live site. The storyline brief governs Dawon's content posture. Together they form the operating BM doctrine.</p>
+        <p>Voice: warm, vulnerable, honest, real-food-derived. Anti-prescriptive ("here's what I found out"), anti-clinical, anti-influencer. Visuals: cream/brown palette, Apple/MOHO design system, Playfair Display + Inter + Special Elite typography. Customer-facing experience: every touchpoint — website, email, packaging, customer service reply — has to feel like the same brand.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>Brand book v1.</strong> Single document covering positioning, voice, visual system, do/don't language, photography direction, packaging rules. Owned by Dawon with Alex.</li>
+          <li><strong>Brand integrity review on every external touchpoint.</strong> Email templates, customer service macros, social posts (per storyline brief), website copy, packaging — Dawon reviews before anything ships. Two-person review for high-stakes content.</li>
+          <li><strong>Anti-brand list.</strong> Things we will not do, partner with, or be associated with. Diet culture, weight loss positioning, BMI references, "detox" claims, before/after photos. Written down so when a tempting deal comes along, the answer is already on paper.</li>
+          <li><strong>Brand health check on a quarterly cadence.</strong> Read the customer service replies. Read the comments on Dawon's posts. Read the reviews. Is the brand showing up as we intended? If not, where is the drift?</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Letting marketing "win" against brand.</strong> A short-term spike from a hooky-but-off-brand ad is a long-term loss. Brand sits above marketing in priority order.</li>
+          <li><strong>Inconsistent voice across surfaces.</strong> Email sounds different from Instagram which sounds different from packaging. The customer notices. Voice consistency is a brand integrity issue.</li>
+          <li><strong>Founder voice drift.</strong> When Alex, Jason, or Justin start speaking publicly (podcasts, panels, press), they will instinctively use language from their professional past. The brand needs the founders to speak the brand's language, not their own old vocabularies.</li>
+          <li><strong>Saying yes to partnerships that pay well but pull the brand off-axis.</strong> The brand-killer move is the lucrative wellness influencer deal in year one that compromises positioning. The anti-brand list is the defense against this.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MARKETING -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 5</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Justin (CGO) primary · Dawon (CBO) creative · Alex (CEO) strategic</div>
+          <div class="fn-title">Marketing</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Marketing is the function that owns <em>how the brand gets in front of customers and gets them to act</em>. At a mature CPG company, this splits into multiple sub-functions: <strong>Brand Marketing</strong> (long-term awareness, campaigns, narrative), <strong>Performance Marketing</strong> (paid acquisition — Meta, TikTok, Google, programmatic, etc.), <strong>Organic / Content</strong> (owned channels — Instagram, TikTok, YouTube, blog, SEO), <strong>Email + SMS Lifecycle</strong> (retention, automation, segmentation), <strong>PR + Communications</strong> (earned media, press, podcast tours), and <strong>Influencer + UGC</strong> (creator partnerships, gifting, affiliate). At a small DTC brand, one or two people cover all of it — that's us.</p>
+        <p>Marketing is also responsible for the <strong>customer acquisition cost (CAC)</strong> and <strong>marketing-driven revenue contribution</strong> — every dollar in has to produce a defensible return, measured over a meaningful window.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>We are zero-spend pre-launch. The marketing motion in the first 90 days is overwhelmingly organic + creator-led: Dawon's storyline brief content drives top-of-funnel awareness, Justin's creator gifting builds a stable of authentic third-party voices, the waitlist captures intent. Email is wired through Klaviyo with the basic flows (welcome, post-purchase, abandoned cart) before launch.</p>
+        <p>Paid acquisition turns on cautiously after first shipments validate that the unit economics support paid CAC. Until then, paid is in research mode (creative testing, audience research) not spend mode.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>Klaviyo setup.</strong> Welcome flow (5–7 emails), post-purchase flow (3–5 emails), abandoned cart flow (3 emails), reorder reminder flow, browse abandonment flow. Owned by Justin with Dawon on creative.</li>
+          <li><strong>Storyline brief execution.</strong> Per the storyline brief — Dawon's organic content engine running on Tue/Fri cadence.</li>
+          <li><strong>Creator gifting pipeline.</strong> 30 creators identified, segmented, scripted outreach sent, ~15 boxes shipped in first 60 days. Owned by Justin.</li>
+          <li><strong>Paid acquisition learning agenda.</strong> What channels we test in what order (Meta first, TikTok second, Google third), what creative formats, what audiences, what budgets. Written before we spend a dollar.</li>
+          <li><strong>Press + podcast outreach list.</strong> 50 outlets / podcasts segmented by tier; Justin owns; first 20 outreach emails sent within 60 days of launch.</li>
+          <li><strong>SEO foundation.</strong> Pheeew.com indexed properly, basic content pages live (about, science, FAQ, ingredients), structured data correct. Owned by Justin.</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Turning on paid spend before unit economics are proven.</strong> Paid acquisition only works if LTV / CAC math is on your side. Don't spend to find out — model it first, validate it with small tests, then scale.</li>
+          <li><strong>Underinvesting in retention.</strong> Most DTC brands die from too much focus on new acquisition and too little on existing customers. Email + SMS lifecycle should be 30–40% of marketing attention even at launch.</li>
+          <li><strong>Confusing reach with revenue.</strong> A viral reel is not a successful campaign unless it produces customers. Vanity metrics get budget that should go to revenue-producing channels.</li>
+          <li><strong>Letting Meta run on autopilot.</strong> Meta's algorithm wants you to spend more than you should. Daily caps, frequency caps, creative refresh discipline — these are the controls.</li>
+          <li><strong>Skipping the post-purchase experience.</strong> The email a customer gets after ordering is the single highest-engagement email in the entire lifecycle. Most brands write it as a receipt. We treat it as the most important brand moment we'll ever have with that person.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SALES -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 6</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Justin (CGO) primary · Alex (CEO) strategic for retail</div>
+          <div class="fn-title">Sales</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Sales at a CPG company has three distinct legs: <strong>DTC e-commerce sales</strong> (what happens on the brand's own website — wired through Shopify, Klaviyo, paid acquisition), <strong>Wholesale / Retail</strong> (selling to retailers who then sell to customers — Whole Foods, Sprouts, Erewhon, regional grocers, specialty), and <strong>B2B / Partnerships</strong> (large purchases by businesses — corporate wellness programs, hotels, gyms, subscription boxes, gifting programs).</p>
+        <p>At a mature CPG brand, sales is a real org with reps for each channel, brokers handling retail door management, distributors handling logistics-to-shelf. At our stage, all three legs are nascent. DTC is the only one with revenue at launch. Wholesale and B2B are conversation-stage opportunities Justin is warming up but not transacting on yet.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>DTC is the entire revenue stream at launch. Wholesale conversations are in research mode — Justin building the retail buyer list (Whole Foods regional, Sprouts national, Erewhon, Foxtrot, Bristol Farms, regional natural grocers) and warming the relationships, with no commitment to time-to-shelf. B2B is a future lane (corporate wellness programs are a high-margin opportunity for a daily synbiotic) but not active.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>DTC funnel measured end-to-end.</strong> Traffic source → product page → cart → checkout → first reorder. We know our drop-off points, our conversion rate per step, our AOV by source. Owned by Justin with Jason on analytics.</li>
+          <li><strong>Retail buyer outreach list built and warmed.</strong> 30 buyers identified across 8–12 retailers, LinkedIn-connected, brand exposure created (sending Dawon's storyline posts, etc.). No formal pitch yet — relationship-building first.</li>
+          <li><strong>Sell sheet drafted.</strong> A one-page buyer-facing PDF with brand, product, unit economics, marketing investment, retail pricing strategy. Drafted but not yet used until traction supports the conversation.</li>
+          <li><strong>B2B opportunities mapped.</strong> Which corporate wellness programs, fitness studios, hotel groups make sense as future channels. Documented, not pursued yet.</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Chasing retail too early.</strong> Whole Foods will say no to a brand with no DTC traction. Retail buyers want to see that customers want the product before they put it on shelf. DTC validation comes first; retail comes when the data supports the conversation.</li>
+          <li><strong>Mispricing for retail.</strong> Retail margins are brutal (40–50% off retail price to retailer; another 30% to broker/distributor). If our DTC pricing doesn't leave room for that math, we can't expand into retail without re-pricing. Build the retail margin headroom into the launch ladder.</li>
+          <li><strong>Confusing distribution with sales.</strong> Getting on shelf is not selling. Once we're on shelf, the question becomes velocity — units sold per store per week. Slow velocity gets us de-listed. Sales function plans for in-store velocity drivers (demos, end-cap promotions, local marketing) before the shelf appears.</li>
+          <li><strong>Letting Amazon happen accidentally.</strong> If we don't have a deliberate Amazon strategy, unauthorized resellers will list us with bad photos and bad listings. Decide Amazon-yes or Amazon-no by month 6 and execute the choice (either own the listing or actively block resellers).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OPERATIONS -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 7</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Jason (COO)</div>
+          <div class="fn-title">Operations</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Operations is the function that owns <em>everything between "the customer placed the order" and "the customer is happy with what arrived"</em>. At a CPG company this splits into: <strong>Supply Chain</strong> (manufacturer → warehouse → distribution), <strong>Inventory Management</strong> (forecasting, reorder cycles, stockout/overstock prevention), <strong>3PL / Fulfillment</strong> (third-party logistics, pick-pack-ship), <strong>Customer Service</strong> (tickets, returns, refunds, escalations), and <strong>Quality Control</strong> (incoming batches, customer complaints, batch-level recall protocol).</p>
+        <p>Operations is the function most customers never see — and the function that destroys brands fastest when it breaks. A great brand with broken ops gets one-star reviews and customers who churn before the second order.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>Operations is being built from scratch. Manufacturing partner is locked. 3PL is in selection mode (Jason evaluating options — ShipBob, ShipMonk, ShipHero, Stord, plus considering a smaller boutique 3PL for the first 6 months). Customer service infrastructure is being set up (Gorgias most likely vendor; Klaviyo for proactive comms). Inventory management starts as a spreadsheet, graduates to Cogsy or Inventory Planner around month 6.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>3PL selected and onboarded.</strong> Owned by Jason. Criteria: cold-chain capability NOT required (puree pouch is ambient), pick-pack speed under 48 hours, returns processing, integration with Shopify. Decision target: within 30 days of order placement.</li>
+          <li><strong>Customer service platform live.</strong> Gorgias or Help Scout, integrated with Shopify and Klaviyo. SLAs defined (first response within 4 business hours, resolution within 24). Macros written for top 20 anticipated questions.</li>
+          <li><strong>Returns + refunds policy written and published.</strong> 30-day satisfaction guarantee, simple process, no questions. The cost of refunds is the cost of trust.</li>
+          <li><strong>Inventory tracking discipline.</strong> Weekly inventory snapshot, monthly velocity review, quarterly reorder planning. Owned by Jason; cadence is non-negotiable.</li>
+          <li><strong>Incident protocol documented.</strong> What happens when a batch is bad, when a shipment is lost, when a customer has an adverse reaction, when packaging fails in transit. First-24-hour response written in advance.</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Underestimating fulfillment costs.</strong> Pick-pack-ship for a small parcel on the east coast can be $4–6 per order. Multiply by your conversion volume and decide if your AOV supports it. If not, change AOV or change shipping strategy.</li>
+          <li><strong>Choosing 3PL on price alone.</strong> Cheap 3PLs cost more than expensive ones when they ship wrong, slow, or lose inventory. Service quality matters more than per-order cost.</li>
+          <li><strong>Stockouts.</strong> Running out of inventory mid-acquisition campaign is the worst possible operational failure. Forecasting discipline + safety stock buffer prevents it.</li>
+          <li><strong>Overstock.</strong> The opposite problem. Money tied up in inventory you can't sell fast enough. Especially painful for a product with finite shelf life.</li>
+          <li><strong>Treating customer service as cost center.</strong> Every customer service interaction is a brand moment. Great customer service is brand investment that compounds.</li>
+          <li><strong>Skipping batch traceability.</strong> Every unit shipped should be traceable to the manufacturing batch it came from. When something goes wrong, you need to know which units are affected. Document this from the first batch.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FINANCIALS -->
+    <div class="fn-card">
+      <div class="fn-head">
+        <div class="fn-tag">Function 8</div>
+        <div class="fn-meta">
+          <div class="owner">Owner: Alex (CEO) strategic · Jason (COO) operational · Outside CPA for taxes</div>
+          <div class="fn-title">Financials</div>
+        </div>
+      </div>
+
+      <div class="fn-section">
+        <h5>What this actually means at a CPG company</h5>
+        <p>Financials at a CPG company covers: <strong>Bookkeeping</strong> (transactions in QuickBooks or equivalent), <strong>Cash Management</strong> (Mercury / Stripe Atlas balance, AP/AR timing, runway), <strong>Financial Reporting</strong> (monthly P&L, balance sheet, cash flow statement), <strong>Forecasting + FP&A</strong> (12-month rolling forecast, scenarios, unit economics modeling), <strong>Tax Compliance</strong> (federal corporate, state corporate, sales tax in nexus states, Delaware franchise tax, international when applicable), <strong>Payroll</strong> (when there's payroll — not yet), and <strong>Investor Reporting</strong> (when there are investors — also not yet, per locked thesis).</p>
+        <p>At a small CPG company, this is one or two people part-time plus an outside CPA. The bookkeeping is daily/weekly. The reporting is monthly. The forecasting is quarterly with rolling updates. The tax work is annual with quarterly check-ins.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What it looks like at Pheeew right now</h5>
+        <p>Mercury is the operating account. Stripe Atlas handles the Delaware corporate records. Bookkeeping isn't yet active — that becomes a priority within the first 30 days post-cap-table-confirmation. An outside CPA will be engaged for the first tax year filings (Pheeew, Inc. Form 1120 due ~mid-2027 for tax year 2026). California DFPI 25102(f) Notice filing required within 15 days of first sale to a CA resident; cost $25.</p>
+        <p>The capital structure is locked at 40 / 23 / 17 / 11.81 / 8.19 per the founders restructure; cap table is the source of truth in <code>/Pheeew_Master_Corporate_Records</code> internally.</p>
+      </div>
+
+      <div class="fn-section">
+        <h5>What we lock in the first 90 days</h5>
+        <ul>
+          <li><strong>QuickBooks set up and connected.</strong> Mercury bank feed, Stripe payment feed, manufacturer payments tracked, ad spend categorized. Owned by Jason; monthly close on the 5th business day of the following month.</li>
+          <li><strong>Outside CPA engaged.</strong> One CPA familiar with small CPG / DTC startups; quarterly check-ins; will own the 2026 Form 1120 filing. Recommended approach: Stripe Atlas's CPA partner network or a referral from Justin's mentor network.</li>
+          <li><strong>Sales tax compliance plan.</strong> California sales tax is mandatory at first $1 of revenue (we're California-resident-founded). Other states have economic nexus thresholds (~$100K–$500K revenue triggers). Use a tool like TaxJar or Avalara to manage automatically.</li>
+          <li><strong>12-month rolling cash forecast.</strong> Owned by Alex with Jason. Updated monthly. Sources: manufacturer order schedule, marketing spend plan, fulfillment cost per order, projected revenue by tier. Tracks runway in months remaining.</li>
+          <li><strong>Unit economics model documented.</strong> COGS, contribution margin per tier, CAC target, LTV target, payback period. Owned by Alex; updated quarterly.</li>
+          <li><strong>The "we don't pay ourselves yet" rule.</strong> Documented decision: founders do not draw salary until either (a) $1M revenue run rate is sustained, or (b) we close a funding round that funds payroll. Per locked thesis: option (a) is preferred path.</li>
+        </ul>
+      </div>
+
+      <div class="fn-section">
+        <h5>Common pitfalls we should expect</h5>
+        <ul>
+          <li><strong>Delaying bookkeeping until tax season.</strong> The most expensive way to do bookkeeping is in one big push at the end of the year. Monthly closes are operationally trivial; year-end clean-ups are a nightmare.</li>
+          <li><strong>Conflating revenue with profit.</strong> Top-line revenue is vanity; contribution margin is sanity; cash is reality. Track all three; obsess over the third.</li>
+          <li><strong>Ignoring sales tax until a state contacts us.</strong> By then we owe penalties + interest on top of the tax. Set up automation early.</li>
+          <li><strong>Forgetting Delaware franchise tax.</strong> Due annually, ~$400/year for our share structure, easily missed if you're not tracking. Calendar it.</li>
+          <li><strong>Letting cash drift without forecasting.</strong> "We have money in the account" is a feeling, not a plan. Always know runway in months. Always know what the trigger is to slow spending.</li>
+          <li><strong>Confusing the CEO's job with the bookkeeper's job.</strong> Alex sets financial direction; he does not enter receipts. Bookkeeping is operational work owned by Jason (and eventually a bookkeeper).</li>
+          <li><strong>Mixing personal and corporate expenses.</strong> Always — always — use the Mercury card or write a memo for any company expense. Never pay company costs from a personal account and "reimburse later." Co-mingling is one of the fastest ways to compromise corporate veil.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout note">
+      <span class="label">A note on the eight functions</span>
+      <p>You'll notice four functions are owned primarily by Alex, three by Jason, two by Justin, and one by Dawon (Brand creative, anchored in the storyline brief). That's because Alex carries the strategic load at this stage — Management, Product strategy, MD strategy, BM strategy, Financials strategy all land on him. As we grow, several of these get delegated or shared. The first time we hire (likely a part-time bookkeeper followed by a marketing manager) is when the load starts to formally redistribute.</p>
+    </div>
+  </section>
+
+  <!-- 4. WEEKLY CADENCE -->
+  <section class="block" id="cadence">
+    <div class="block-head">
+      <div class="num">§ 04 · weekly cadence</div>
+      <h2>How the week runs.</h2>
+      <p class="sub">Five recurring meetings plus an async rhythm. The cadence is the spine of the operating system — when it breaks, decisions stop happening and the team loses coordination.</p>
+    </div>
+
+    <p>Two of us are in LA (Alex, Justin), one is in LA part-time and Korea part-time (Jason — TBD), and one is in Seoul (Dawon). The cadence is built around a single overlap window: <strong>7pm–9pm PT / 11am–1pm KST</strong>. Anything synchronous happens in that window unless an emergency forces otherwise.</p>
+
+    <h3>The five recurring meetings</h3>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Meeting</th><th>When</th><th>Who</th><th>Duration</th><th>Owner</th></tr>
+      <tr><td><strong>Monday All-Hands</strong></td><td>Mon 7pm PT / Tue 11am KST</td><td>All four</td><td>60 min</td><td>Alex</td></tr>
+      <tr><td><strong>Tuesday Build Sync</strong></td><td>Tue 7pm PT / Wed 11am KST</td><td>Alex + Jason</td><td>30 min</td><td>Jason</td></tr>
+      <tr><td><strong>Wednesday Growth Sync</strong></td><td>Wed 7pm PT / Thu 11am KST</td><td>Justin + Dawon + Alex (optional)</td><td>45 min</td><td>Justin</td></tr>
+      <tr><td><strong>Thursday Finance Review</strong></td><td>Thu 7pm PT / Fri 11am KST</td><td>Alex + Jason</td><td>30 min</td><td>Alex</td></tr>
+      <tr><td><strong>Friday Weekly Wrap</strong></td><td>Fri 7pm PT / Sat 11am KST</td><td>All four</td><td>45 min</td><td>Alex</td></tr>
+    </table></div>
+
+    <h3>Monday All-Hands — agenda template</h3>
+    <p>The week-opening meeting. Sets priorities, surfaces blockers, aligns on what each founder is doing this week. The only meeting all four founders attend together with full focus.</p>
+    <ol>
+      <li><strong>Quick rounds (10 min).</strong> Each founder: one win from last week, one blocker, one ask. No discussion yet — surface only.</li>
+      <li><strong>Last week's metrics review (10 min).</strong> Top 5 KPIs from § 06 (revenue, units, CAC, retention rate, runway months). Alex owns the read; Jason pulls the numbers.</li>
+      <li><strong>This week's priorities (20 min).</strong> Per founder, what are the 2–3 things that have to land this week. Get specific. Get committed dates.</li>
+      <li><strong>Blockers + dependencies (15 min).</strong> Surface anything one founder needs from another. Resolve on the call where possible; assign owner-and-deadline where not.</li>
+      <li><strong>Anything else (5 min).</strong> Reserved for the thing nobody surfaced but everyone is thinking about.</li>
+    </ol>
+    <p>Notes documented in Notion (when we set it up) or in a shared doc. Action items have an owner and a date. If an action item is repeated three Mondays in a row, it gets re-scoped — either it's stuck, mis-owned, or shouldn't be done.</p>
+
+    <h3>Tuesday Build Sync (Alex + Jason)</h3>
+    <p>Manufacturer / supply chain / product roadmap / regulatory status. Tight, focused, two-person. Output: any decisions that need full-team sign-off go to Friday Wrap.</p>
+    <ul>
+      <li>Manufacturer status (production timeline, sample feedback, QA results)</li>
+      <li>Inventory + reorder planning</li>
+      <li>3PL status</li>
+      <li>Regulatory / compliance issues</li>
+      <li>Phase 2 / Phase 3 SKU development progress</li>
+    </ul>
+
+    <h3>Wednesday Growth Sync (Justin + Dawon, Alex optional)</h3>
+    <p>Where Marketing meets Brand. Justin owns demand generation; Dawon owns brand integrity. They have to align weekly on what's about to ship and what's not.</p>
+    <ul>
+      <li>Content calendar for the week (storyline brief execution + ongoing chapter content)</li>
+      <li>Creator gifting pipeline status</li>
+      <li>Paid acquisition (when active): creative testing results, CAC by channel, budget pacing</li>
+      <li>Email + SMS lifecycle: what's about to send, what worked last week</li>
+      <li>Partnership / press conversations active</li>
+      <li>Brand integrity check on anything Justin's planning that touches voice/visual</li>
+    </ul>
+
+    <h3>Thursday Finance Review (Alex + Jason)</h3>
+    <p>Numbers-only meeting. No strategy, no debate — just review the financial state.</p>
+    <ul>
+      <li>Cash balance Mercury</li>
+      <li>Outstanding AP (manufacturer invoice, 3PL, agencies, software)</li>
+      <li>Outstanding AR (Stripe deposits in flight, retail invoices when applicable)</li>
+      <li>Runway in months (cash / monthly burn)</li>
+      <li>Anything overdue or about to be overdue</li>
+      <li>Sales tax accruals</li>
+      <li>Any expense decision over $1,000 that needs Alex sign-off</li>
+    </ul>
+
+    <h3>Friday Weekly Wrap (all four)</h3>
+    <p>The week-closing meeting. Decisions made, decisions deferred, next week's setup.</p>
+    <ol>
+      <li><strong>What we shipped (10 min).</strong> Each founder lists the things that actually got done. No fluff — outcomes, not activity.</li>
+      <li><strong>What slipped (10 min).</strong> What didn't happen that was on Monday's list. Why. What we do about it.</li>
+      <li><strong>Decisions for the week (15 min).</strong> Anything that needs all-four consent (per § 05 Decision Authority Matrix) gets decided here. If it can't be decided, it gets parked with a specific date for resolution.</li>
+      <li><strong>Pre-read Monday (5 min).</strong> Anything each founder wants the others to read/think about before Monday's all-hands.</li>
+      <li><strong>Personal check (5 min).</strong> How is each person doing — not work, just human. We're a small team. Burnout kills companies. Catch it early.</li>
+    </ol>
+
+    <h3>The async layer</h3>
+    <p>Most operational work happens between meetings, not in them. The async rhythm:</p>
+    <ul>
+      <li><strong>Slack / iMessage for fast updates.</strong> "Wired the manufacturer" / "Klaviyo welcome flow live" / "Got a yes from [creator]." Default channel for in-the-moment updates.</li>
+      <li><strong>Notion (when set up) for durable docs.</strong> Strategy, brand book, vendor lists, customer service macros, KPI dashboards. Anything that more than one person will read more than once goes here.</li>
+      <li><strong>Loom for anything that's faster to say than to type.</strong> 3-minute video > 20-minute meeting on most operational topics. Use it.</li>
+      <li><strong>Linear (when we have eng or production tracking) for tasks.</strong> Not yet. Probably month 3+.</li>
+      <li><strong>Email reserved for external.</strong> Internal communication never happens over email. External communication never happens over Slack.</li>
+    </ul>
+
+    <h3>The escalation rule</h3>
+    <p>If something is blocking you for more than 24 hours and you're in a function someone else owns — escalate. Don't wait for the next meeting. Slack the owner. The cost of asking is small; the cost of waiting is whatever the blocker was about to cost the company.</p>
+
+    <div class="callout rule">
+      <span class="label">When to skip a meeting</span>
+      <p>Meetings can be skipped if everyone agrees there's no decision to make and the async update covers it. But the default is to hold them. We're early. Coordination is the value the cadence creates. If we start skipping because we're "too busy," we are probably going off the rails and don't know it yet.</p>
+    </div>
+  </section>
+
+  <!-- 5. DECISION AUTHORITY -->
+  <section class="block" id="decisions">
+    <div class="block-head">
+      <div class="num">§ 05 · decision authority matrix</div>
+      <h2>Who can decide what, alone or together.</h2>
+      <p class="sub">A clear matrix prevents two failure modes: decisions that didn't happen because everyone thought someone else owned them, and decisions that happened wrong because they didn't get the right consent.</p>
+    </div>
+
+    <h3>The four tiers</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tier</th><th>What it means</th><th>Who can sign off</th></tr>
+      <tr><td><strong>Tier 1 · Solo</strong></td><td>The owner of the function decides alone. Logged in writing after the fact.</td><td>Function owner (per § 03)</td></tr>
+      <tr><td><strong>Tier 2 · Two-founder</strong></td><td>Function owner + one other founder consent. Documented in Slack or notes.</td><td>Function owner + one other</td></tr>
+      <tr><td><strong>Tier 3 · All-hands</strong></td><td>Discussed and decided in a Monday or Friday meeting; documented in meeting notes.</td><td>All four founders</td></tr>
+      <tr><td><strong>Tier 4 · Board (Alex)</strong></td><td>Sole Director decides; documented in board consent. Until Series A, this is Alex unilaterally — but he can choose to bring it to all four for input.</td><td>Alex as Sole Director</td></tr>
+    </table></div>
+
+    <h3>Decisions by category</h3>
+
+    <h4>Spending</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Spend amount</th><th>Tier</th><th>Notes</th></tr>
+      <tr><td>Under $500</td><td>Tier 1</td><td>Function owner approves, files receipt in QuickBooks</td></tr>
+      <tr><td>$500 – $5,000</td><td>Tier 2</td><td>Function owner + Jason (COO) sign off — Jason is the cash gatekeeper</td></tr>
+      <tr><td>$5,000 – $25,000</td><td>Tier 3</td><td>All-hands discussion; reviewed at Friday Wrap</td></tr>
+      <tr><td>Over $25,000</td><td>Tier 4</td><td>Alex signs as CEO + Sole Director; pre-discussed with all four</td></tr>
+    </table></div>
+
+    <h4>People decisions</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Decision</th><th>Tier</th><th>Notes</th></tr>
+      <tr><td>Engaging an outside contractor for &lt; 1 month at &lt; $5K</td><td>Tier 2</td><td>Function owner + Alex</td></tr>
+      <tr><td>Engaging an agency / freelancer ongoing</td><td>Tier 3</td><td>Brings recurring cost; affects function ownership</td></tr>
+      <tr><td>First full-time hire</td><td>Tier 4</td><td>Alex decides with all-four input; affects cap table (option grant), payroll, culture</td></tr>
+      <tr><td>Letting a contractor go</td><td>Tier 1</td><td>Function owner; informed to all four within 24 hours</td></tr>
+      <tr><td>Adjusting a founder's role, equity, or responsibilities</td><td>Tier 4</td><td>Requires Co-Founder Agreement amendment; cannot happen without all four signing</td></tr>
+    </table></div>
+
+    <h4>Product + SKU decisions</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Decision</th><th>Tier</th><th>Notes</th></tr>
+      <tr><td>Tweaking flavor / sweetness within tolerance</td><td>Tier 1</td><td>Alex + manufacturer iteration; standard formulation work</td></tr>
+      <tr><td>Adding a new active ingredient to Phase 1</td><td>Tier 3</td><td>Changes the formula; affects QA, regulatory, claims</td></tr>
+      <tr><td>Approving Phase 2 SKU for launch</td><td>Tier 3</td><td>Affects merchandising, cash, capacity — all four weigh in</td></tr>
+      <tr><td>Discontinuing an SKU</td><td>Tier 3</td><td>Customer-facing; affects subscribers</td></tr>
+      <tr><td>Changing the manufacturer</td><td>Tier 4</td><td>Strategic relationship; CEO-level decision</td></tr>
+    </table></div>
+
+    <h4>Marketing + brand decisions</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Decision</th><th>Tier</th><th>Notes</th></tr>
+      <tr><td>Routine social posts (per storyline brief)</td><td>Tier 1</td><td>Dawon; per the storyline brief's two-person sign-off rule for high-risk content</td></tr>
+      <tr><td>Email campaign approval</td><td>Tier 2</td><td>Justin owns; Dawon reviews creative/voice</td></tr>
+      <tr><td>Paid ad spend kickoff (channel + budget over $1K/mo)</td><td>Tier 2</td><td>Justin + Alex</td></tr>
+      <tr><td>Influencer / creator partnership with $$$ exchange under $5K</td><td>Tier 1</td><td>Justin; under threshold per spending matrix</td></tr>
+      <tr><td>Influencer / creator partnership over $5K</td><td>Tier 2</td><td>Justin + Alex</td></tr>
+      <tr><td>Brand integrity decisions (visual rebrand, voice change, anti-brand list updates)</td><td>Tier 3</td><td>Affects the long-term brand equity</td></tr>
+      <tr><td>Press / podcast appearance by a founder</td><td>Tier 2</td><td>Founder appearing + Alex</td></tr>
+    </table></div>
+
+    <h4>Operations + customer service decisions</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Decision</th><th>Tier</th><th>Notes</th></tr>
+      <tr><td>Day-to-day customer service responses</td><td>Tier 1</td><td>Owned by Jason; macros in Gorgias</td></tr>
+      <tr><td>Issuing refund under $200</td><td>Tier 1</td><td>Customer service / Jason; logged</td></tr>
+      <tr><td>Issuing refund over $200</td><td>Tier 2</td><td>Jason + Alex</td></tr>
+      <tr><td>3PL switch</td><td>Tier 3</td><td>Affects fulfillment continuity</td></tr>
+      <tr><td>Batch recall</td><td>Tier 4</td><td>Regulatory + brand-defining moment</td></tr>
+      <tr><td>Response to an adverse event report</td><td>Tier 4</td><td>Crisis; immediate CEO involvement</td></tr>
+    </table></div>
+
+    <h4>Financial + strategic decisions</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Decision</th><th>Tier</th><th>Notes</th></tr>
+      <tr><td>Routine bookkeeping entries</td><td>Tier 1</td><td>Jason; QuickBooks</td></tr>
+      <tr><td>Software subscription &lt; $200/mo</td><td>Tier 1</td><td>Function owner</td></tr>
+      <tr><td>Software subscription &gt; $200/mo</td><td>Tier 2</td><td>Function owner + Jason</td></tr>
+      <tr><td>Taking a meeting with an investor</td><td>Tier 2</td><td>Alex + one other (Justin if it's mentor network)</td></tr>
+      <tr><td>Accepting a non-equity check (grant, prize, etc.)</td><td>Tier 3</td><td>Affects financial reporting</td></tr>
+      <tr><td>Opening fundraising conversations seriously</td><td>Tier 4</td><td>Per locked thesis — Alex's call against the no-VC default</td></tr>
+      <tr><td>Selling, licensing, or strategic-partnering the company</td><td>Tier 4</td><td>Requires Co-Founder Agreement drag-along (75%+ founder approval)</td></tr>
+    </table></div>
+
+    <h3>How to handle a decision when in doubt</h3>
+    <p>When you're not sure what tier a decision is — default to a tier higher than you think. Over-consulting is a small cost; under-consulting destroys trust. Slack the question to all four with the proposed decision and a default-yes-in-24-hours rule. If anyone wants to discuss, they do. If nobody objects in 24 hours, you proceed.</p>
+
+    <div class="callout note">
+      <span class="label">A note on Alex's authority</span>
+      <p>Alex has legal authority over almost everything via the Sole Director + Voting Agreement structure. He almost never uses it unilaterally. The matrix above is the operating culture, not the legal authority. If Alex disagrees with a Tier 3 all-hands decision, the legal authority sits with him — but the cost of overriding the team is trust, and trust is the single most expensive thing to rebuild. The matrix exists to make sure he almost never needs to.</p>
+    </div>
+  </section>
+
+  <!-- 6. KPI DASHBOARDS -->
+  <section class="block" id="kpis">
+    <div class="block-head">
+      <div class="num">§ 06 · KPI dashboards</div>
+      <h2>What we measure, how often, and who owns each number.</h2>
+      <p class="sub">If a metric isn't on this list, we don't track it. If it's on this list, we track it religiously. The discipline of measuring less but better is the difference between knowing what's happening and drowning in dashboards.</p>
+    </div>
+
+    <h3>The four dashboard tiers</h3>
+    <p>Different cadences for different metrics. Day-of metrics are reflexive; week-of metrics are operational; month-of metrics are strategic; quarter-of metrics are directional.</p>
+
+    <h3>Daily — five metrics, glance only</h3>
+    <p>The "glance dashboard" you check each morning over coffee. No deep analysis — just notice the trend.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Metric</th><th>Owner</th><th>Source</th><th>What "good" looks like</th></tr>
+      <tr><td>Orders yesterday</td><td>Jason</td><td>Shopify</td><td>Trending up week-over-week</td></tr>
+      <tr><td>Revenue yesterday</td><td>Jason</td><td>Shopify</td><td>Trending up; AOV holding or rising</td></tr>
+      <tr><td>Email subscribers added</td><td>Justin</td><td>Klaviyo</td><td>Net positive day; unsubscribes ≤ 0.5% of list</td></tr>
+      <tr><td>Customer service tickets open</td><td>Jason</td><td>Gorgias</td><td>Under 10 open; first response under 4 hrs</td></tr>
+      <tr><td>Mercury cash balance</td><td>Alex</td><td>Mercury</td><td>Above the trigger threshold (defined in cash forecast)</td></tr>
+    </table></div>
+
+    <h3>Weekly — twelve metrics, Friday Wrap review</h3>
+    <p>Reviewed every Friday Wrap meeting. Each has an owner who reports it; trends compared to last week and to the same week one month ago.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Metric</th><th>Owner</th><th>Source</th><th>Target (first 90 days)</th></tr>
+      <tr><td>Weekly revenue</td><td>Jason</td><td>Shopify</td><td>Growth week-over-week</td></tr>
+      <tr><td>Units sold</td><td>Jason</td><td>Shopify</td><td>Track by SKU tier (Tester / Starter / Core / Committed / Household)</td></tr>
+      <tr><td>Average Order Value (AOV)</td><td>Jason</td><td>Shopify</td><td>Hold or rise — beware AOV erosion from discounts</td></tr>
+      <tr><td>New customers acquired</td><td>Justin</td><td>Shopify</td><td>Track source attribution</td></tr>
+      <tr><td>Customer Acquisition Cost (CAC) by channel</td><td>Justin</td><td>Klaviyo + Meta + Shopify</td><td>Below contribution margin per order (target: CAC &lt; 1.0x first-order contribution)</td></tr>
+      <tr><td>Conversion rate (visit → cart)</td><td>Justin</td><td>Shopify</td><td>Above 2% by week 4; above 3% by month 3</td></tr>
+      <tr><td>Conversion rate (cart → purchase)</td><td>Jason</td><td>Shopify</td><td>Above 60%</td></tr>
+      <tr><td>Email open rate / click rate</td><td>Justin</td><td>Klaviyo</td><td>Open ≥ 25%, click ≥ 2%</td></tr>
+      <tr><td>Storyline brief content reach</td><td>Dawon</td><td>Instagram / TikTok analytics</td><td>Growing followers, growing per-post reach</td></tr>
+      <tr><td>Creator gifting boxes sent / responses</td><td>Justin</td><td>Notion tracking sheet</td><td>Conversion rate boxes → posts ≥ 25%</td></tr>
+      <tr><td>Inventory on hand (units)</td><td>Jason</td><td>3PL inventory report</td><td>30-day buffer minimum; reorder triggered at 21-day buffer</td></tr>
+      <tr><td>Cash burn (week)</td><td>Alex</td><td>Mercury + QuickBooks</td><td>Within forecast; flag if 20%+ over</td></tr>
+    </table></div>
+
+    <h3>Monthly — eight metrics, Monday All-Hands review (first Monday of month)</h3>
+    <p>The strategic layer. Reviewed in detail at the first Monday All-Hands of each month.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Metric</th><th>Owner</th><th>Source</th><th>Why it matters</th></tr>
+      <tr><td>Monthly revenue</td><td>Jason</td><td>Shopify</td><td>The top-line trajectory</td></tr>
+      <tr><td>Contribution margin per order</td><td>Alex</td><td>QuickBooks + COGS model</td><td>What's left after COGS, shipping, payment processing, and CAC. If negative, we have an unprofitable business; if low, we have a fragile one</td></tr>
+      <tr><td>Customer retention rate (% of month-1 customers who ordered in month-2)</td><td>Justin</td><td>Klaviyo / Shopify</td><td>The single most important DTC metric. Subscription brands should target ≥ 70% month-2 retention</td></tr>
+      <tr><td>LTV / CAC ratio</td><td>Alex</td><td>Model + actuals</td><td>Healthy = ≥ 3:1. Below 2:1 means we're scaling unprofitably; above 4:1 means we should spend more</td></tr>
+      <tr><td>Gross margin</td><td>Jason</td><td>QuickBooks</td><td>Target 50–60% for puree DTC; below 40% means we have a pricing or COGS problem</td></tr>
+      <tr><td>Burn rate (monthly)</td><td>Alex</td><td>QuickBooks</td><td>The denominator on runway</td></tr>
+      <tr><td>Runway (months)</td><td>Alex</td><td>Cash / burn</td><td>Below 6 months = serious; below 3 months = action required</td></tr>
+      <tr><td>Customer service ticket volume + CSAT</td><td>Jason</td><td>Gorgias</td><td>Volume rising = brand reach or product issues. CSAT score &lt; 4.5/5 = something is off</td></tr>
+    </table></div>
+
+    <h3>Quarterly — six metrics, strategic review</h3>
+    <p>The directional layer. Reviewed at the end of every quarter; informs the next quarter's plan.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Metric</th><th>Owner</th><th>Why it matters</th></tr>
+      <tr><td>Net Promoter Score (NPS)</td><td>Justin</td><td>Brand health proxy. Target 50+; below 30 = brand problem</td></tr>
+      <tr><td>Cohort retention curves (90-day, 180-day)</td><td>Alex</td><td>Long-term LTV truth, not vanity month-over-month</td></tr>
+      <tr><td>Channel mix of revenue (DTC organic / DTC paid / wholesale / B2B)</td><td>Justin</td><td>Concentration risk; over-dependence on one channel</td></tr>
+      <tr><td>Subscription % of revenue</td><td>Jason</td><td>The recurring base; the higher this is, the less volatile the business</td></tr>
+      <tr><td>Retail door count (when retail is active)</td><td>Justin</td><td>Distribution growth signal</td></tr>
+      <tr><td>Press + earned media coverage</td><td>Justin</td><td>Brand awareness compounding; tracked qualitatively</td></tr>
+    </table></div>
+
+    <h3>Where the dashboards live</h3>
+    <ul>
+      <li><strong>Notion KPI page.</strong> The aggregate dashboard. Everyone can read; only the metric owner can edit their numbers.</li>
+      <li><strong>Klaviyo native dashboards.</strong> Email + SMS metrics live in Klaviyo; we don't replicate them.</li>
+      <li><strong>Shopify Analytics.</strong> Order, AOV, conversion metrics live in Shopify; we don't replicate them.</li>
+      <li><strong>QuickBooks reports.</strong> Financial metrics live in QuickBooks; Alex/Jason pull as needed.</li>
+      <li><strong>Monthly close report.</strong> The single PDF that aggregates everything; produced by Jason within 5 business days of month-end. Format locked in month 2.</li>
+    </ul>
+
+    <h3>What we deliberately don't track yet</h3>
+    <p>Tracking these too early creates noise and false signals:</p>
+    <ul>
+      <li>Lifetime value (LTV) — needs 6+ months of cohort data to be meaningful</li>
+      <li>Channel-level ROAS — needs sustained paid spend at scale</li>
+      <li>Net Revenue Retention (NRR) — relevant once subscription cohort is large enough</li>
+      <li>Wholesale velocity per store — relevant once retail is active</li>
+      <li>NPS — we ask, but the score is noise until N&gt;200</li>
+    </ul>
+
+    <div class="callout rule">
+      <span class="label">The metric discipline rule</span>
+      <p>Adding a metric to the dashboards is a Tier 2 decision (function owner + Alex). Removing one is a Tier 3 decision. Once a metric is tracked, it's load-bearing for the team — we make decisions from it. Quietly stopping to track it without saying so is how teams drift into operating blind.</p>
+    </div>
+  </section>
+
+  <!-- 7. THE FIRST 30 DAYS -->
+  <section class="block" id="thirty">
+    <div class="block-head">
+      <div class="num">§ 07 · the first 30 days</div>
+      <h2>Day-by-day from cap table confirmation through first batch.</h2>
+      <p class="sub">The most concentrated Build + Launch period in the company's life. Day 0 = the moment all four founders confirm the restructure email in writing. Everything from here is sequenced against that anchor.</p>
+    </div>
+
+    <div class="callout note">
+      <span class="label">Reading this section</span>
+      <p>This is not a schedule with hard dates — manufacturer lead times, packaging supplier turnaround, and 3PL onboarding all introduce slippage we can't fully control. It's a <strong>sequence</strong>. The order of operations matters more than the calendar. If something on Day 5 doesn't happen, Day 6 doesn't happen either; the chain shifts but doesn't break.</p>
+    </div>
+
+    <h3>Week 1 · Restructure execution + order placement</h3>
+    <div class="fn-card" style="padding:22px 26px;margin-top:14px">
+      <div class="day-row"><div class="day-tag">Day 0</div><div class="day-task">All four founders confirm cap table restructure email in writing (reply-all "Confirmed"). This is the activation gate for everything below.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 1</div><div class="day-task">Alex regenerates the full document set (Cert of Amendment, RSPAs for Justin and Jason refresh, 83(b) elections, Gift Letters, Voting Agreement, Co-Founder Agreement v3, Stockholder Consent, Capital Contribution Receipts). Documents distributed via DocuSign or equivalent.</div><div class="day-owner">Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 2</div><div class="day-task">All founders sign their respective documents. Alex pre-signs anything that needs his CEO/Sole Director signature. Documents land in the Pheeew Master Corporate Records folder.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 2</div><div class="day-task">Justin wires $22,000 to the Pheeew Mercury account.</div><div class="day-owner">Justin</div></div>
+      <div class="day-row"><div class="day-tag">Day 2</div><div class="day-task">Jason wires $8,250 (new contribution) to the Pheeew Mercury account.</div><div class="day-owner">Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 3</div><div class="day-task">Justin Zelle/Venmo $9,326.23 personal gift to Alex's personal account. Jason Zelle/Venmo $5,593.92 personal gift to Alex's personal account. Both gifts logged in writing (Gift Letters already signed).</div><div class="day-owner">Justin, Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 3</div><div class="day-task">Alex wires $14,920.15 (the gifted money) from his personal account to Pheeew Mercury for his refresh stock purchase.</div><div class="day-owner">Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 4</div><div class="day-task">Alex files the Certificate of Amendment with the Delaware Secretary of State via Stripe Atlas ($194 filing fee). Authorized shares increase from 10M to 30M.</div><div class="day-owner">Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 5</div><div class="day-task">Stock certificates issued internally (CS-001-R-A for Alex refresh, CS-003-A for Jason refresh, CS-004 for Justin new). Cap Table v2 updated. Records Index updated.</div><div class="day-owner">Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 5</div><div class="day-task">Manufacturer order finalized and placed. Confirm: SKU spec, MOQ, packaging artwork, label compliance, ingredient declarations, ship-by date, payment terms. Manufacturer signs production agreement; deposit wired if required.</div><div class="day-owner">Alex + Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 6</div><div class="day-task">Friday Wrap (the first one). All four founders. Review: what landed Week 1, what slipped, decisions for next week. First Monday All-Hands set for Day 8.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 7</div><div class="day-task">Buffer day. Anything that slipped, this is when it gets unblocked.</div><div class="day-owner">As needed</div></div>
+    </div>
+
+    <h3>Week 2 · 83(b) filings + infrastructure setup</h3>
+    <div class="fn-card" style="padding:22px 26px;margin-top:14px">
+      <div class="day-row"><div class="day-tag">Day 8</div><div class="day-task">First Monday All-Hands. Set Week 2 priorities. Confirm 83(b) mailing day.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 9</div><div class="day-task"><strong>83(b) elections mailed to IRS via USPS Certified Mail with Return Receipt.</strong> Justin, Jason, and Alex each mail their own. <strong>This is non-negotiable — 30-day window from grant date. Missing this is a $5K-$8K personal tax mistake per founder.</strong> Take photos of each envelope + receipt. Email copies to Pheeew within 5 business days.</div><div class="day-owner">Justin, Jason, Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 9</div><div class="day-task">California DFPI 25102(f) Notice prepared. Will be filed within 15 days of first sale to a CA resident; calendar reminder set.</div><div class="day-owner">Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 10</div><div class="day-task">QuickBooks setup. Mercury bank feed connected. Stripe payment feed connected (when Stripe is active). Chart of accounts established. First month of transactions categorized.</div><div class="day-owner">Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 10</div><div class="day-task">Outside CPA shortlist created (3 candidates). One first call scheduled within Week 3.</div><div class="day-owner">Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 11</div><div class="day-task">Shopify store v1 scaffolding starts. Theme installed (Dawn or a clean DTC theme), product page mockup with the five tiers, pricing wired, subscription plugin selected (Recharge or Skio).</div><div class="day-owner">Jason + Dawon</div></div>
+      <div class="day-row"><div class="day-tag">Day 12</div><div class="day-task">Klaviyo account created. Welcome flow drafted (5 emails). Post-purchase flow drafted (3 emails). Abandoned cart flow drafted (3 emails). Templates not yet final — content drafts only.</div><div class="day-owner">Justin + Dawon</div></div>
+      <div class="day-row"><div class="day-tag">Day 13</div><div class="day-task">Friday Wrap. Confirm 83(b) mailings landed in postal flow. Review Shopify + Klaviyo progress. Review storyline brief Episode 1 readiness (target: Episode 1 films around Day 21).</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 14</div><div class="day-task">Buffer day.</div><div class="day-owner">As needed</div></div>
+    </div>
+
+    <h3>Week 3 · Storyline kickoff + creator gifting + 3PL selection</h3>
+    <div class="fn-card" style="padding:22px 26px;margin-top:14px">
+      <div class="day-row"><div class="day-tag">Day 15</div><div class="day-task">Monday All-Hands. Storyline brief Episode 1 production date locked. Creator gifting list reviewed.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 15</div><div class="day-task">3PL final shortlist (3 candidates max). Quotes requested. Tour or video walkthrough scheduled with top 2.</div><div class="day-owner">Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 16</div><div class="day-task">Creator gifting target list finalized (30 names). Outreach templates drafted. First 10 outreach DMs/emails sent.</div><div class="day-owner">Justin</div></div>
+      <div class="day-row"><div class="day-tag">Day 17</div><div class="day-task">Pheeew.com waitlist landing page reviewed and tightened. Brand Base updated. Klaviyo waitlist flow live.</div><div class="day-owner">Dawon + Justin</div></div>
+      <div class="day-row"><div class="day-tag">Day 18</div><div class="day-task">First batch QA arrangement with manufacturer confirmed: when do we get samples back, what tests are run, what's the pass/fail criteria.</div><div class="day-owner">Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 19</div><div class="day-task">CPA first call. Engagement letter sent if it's the right fit. Confirms tax-year 2026 filing plan, quarterly check-in cadence, sales tax setup recommendation.</div><div class="day-owner">Alex + Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 20</div><div class="day-task">Friday Wrap. Storyline brief Ep 1 production confirmed for Day 21. 3PL down to top 2 candidates.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 21</div><div class="day-task"><strong>Storyline Episode 1 films.</strong> Per storyline brief: voice rules, safety guardrails, two-person sign-off mandatory. Dawon edits Day 21–22 for Day 23 posting.</div><div class="day-owner">Dawon</div></div>
+    </div>
+
+    <h3>Week 4 · Episode 1 ships + first samples land + ops onboarding</h3>
+    <div class="fn-card" style="padding:22px 26px;margin-top:14px">
+      <div class="day-row"><div class="day-tag">Day 22</div><div class="day-task">Monday All-Hands. Episode 1 final review (Alex + Dawon two-person sign-off). 3PL final decision.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 23</div><div class="day-task"><strong>Storyline Episode 1 posts.</strong> Public day. Comments monitored by Dawon; team hands-off per storyline brief. Performance reviewed at Friday Wrap.</div><div class="day-owner">Dawon</div></div>
+      <div class="day-row"><div class="day-tag">Day 24</div><div class="day-task">3PL onboarding begins. Contract signed. Initial inventory shipment from manufacturer routed to 3PL.</div><div class="day-owner">Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 25</div><div class="day-task">First manufacturer sample batch arrives. QA testing initiated: probiotic CFU count, microbial contamination, sensory evaluation (taste, mouthfeel, color), label accuracy, pouch integrity.</div><div class="day-owner">Jason + Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 26</div><div class="day-task">Storyline Episode 2 films and edits. Safety review mandatory (highest-risk episode in the arc).</div><div class="day-owner">Dawon + Alex sign-off</div></div>
+      <div class="day-row"><div class="day-tag">Day 26</div><div class="day-task">Gorgias or Help Scout account set up. Customer service macros drafted (first 20 templates).</div><div class="day-owner">Jason</div></div>
+      <div class="day-row"><div class="day-tag">Day 27</div><div class="day-task">Friday Wrap. Episode 1 performance reviewed. Sample batch QA results in. Decision: production batch proceeds vs. holds.</div><div class="day-owner">All four</div></div>
+      <div class="day-row"><div class="day-tag">Day 28</div><div class="day-task">Storyline Episode 1 carousel posts. Storyline Episode 2 reel posts.</div><div class="day-owner">Dawon</div></div>
+      <div class="day-row"><div class="day-tag">Day 29</div><div class="day-task">First-month financial close. Mercury bank reconciliation. QuickBooks first close. Cash forecast updated.</div><div class="day-owner">Jason + Alex</div></div>
+      <div class="day-row"><div class="day-tag">Day 30</div><div class="day-task">Monthly All-Hands review. KPIs reviewed for the first time as a full set. What worked in 30 days, what didn't, what we change in the next 30. Confirm: 83(b) Certified Mail Return Receipts have arrived (or in flight); creator gifting first cohort metrics; Shopify store completion progress.</div><div class="day-owner">All four</div></div>
+    </div>
+
+    <h3>Critical sequencing rules</h3>
+    <ol>
+      <li><strong>Day 9 is the load-bearing day.</strong> If 83(b) elections aren't mailed on Day 9 (or within the 30-day window from grant date), founders incur personal tax liability. This is the single most important deadline in the first 30 days. Set three calendar reminders each. Do not depend on memory.</li>
+      <li><strong>Manufacturer order on Day 5 is the critical-path anchor.</strong> Every downstream date depends on production lead time. If Day 5 slips, every subsequent week slips proportionally.</li>
+      <li><strong>Storyline Episode 1 ships before first product ships.</strong> The origin arc builds audience before the brand has a SKU to sell. This sequencing is deliberate.</li>
+      <li><strong>QuickBooks and Klaviyo are set up before paid spend turns on.</strong> No paid acquisition until financial tracking and email lifecycle are in place. This is non-negotiable.</li>
+      <li><strong>3PL is selected by Day 22.</strong> Onboarding a 3PL takes 1–3 weeks. We need them live before the first production batch ships from the manufacturer.</li>
+    </ol>
+
+    <h3>Days 31–60 (preview)</h3>
+    <p>Beyond Day 30, the rhythm of the playbook takes over — weekly cadence, monthly close, KPI dashboards. Storyline arc continues per the storyline brief calendar. Specific Day 31–60 actions worth flagging now:</p>
+    <ul>
+      <li>First production batch arrives at 3PL (~Day 35–45 depending on manufacturer lead time)</li>
+      <li>Shopify store finalized; soft launch to waitlist Day 40–50</li>
+      <li>Phase 2 SKU formulation kickoff with manufacturer (~Day 45)</li>
+      <li>First customer service tickets land; macros refined</li>
+      <li>Paid acquisition spend turns on cautiously, starting at $50–100/day (~Day 50)</li>
+      <li>First creator gifting box recipients post (~Day 50–60)</li>
+    </ul>
+
+    <h3>Days 61–90 (preview)</h3>
+    <ul>
+      <li>Public launch (Day 60–70 depending on waitlist soft launch performance)</li>
+      <li>Storyline Episode 11 posts (Pheeew named publicly for the first time)</li>
+      <li>First reorder cycle for subscribers</li>
+      <li>First retail buyer outreach emails sent (Whole Foods regional, Sprouts, Erewhon)</li>
+      <li>First investor mentor conversations open (informational only — no fundraise active)</li>
+      <li>Phase 2 SKU sample one back from manufacturer</li>
+    </ul>
+
+    <div class="callout rule">
+      <span class="label">If the timeline breaks</span>
+      <p>It will. Manufacturer will slip a week. 3PL will have an onboarding hiccup. Storyline Episode 1 might not be ready Day 21. <strong>Don't compound by silence.</strong> When something slips, surface it at the next meeting (or sooner in Slack). Re-cut the dependency chain in writing. Update the runbook. The cost of a slip in time is small; the cost of a slip nobody knew about until two weeks later is everything downstream.</p>
+    </div>
+  </section>
+
+  <!-- 8. RISK REGISTER -->
+  <section class="block" id="risks">
+    <div class="block-head">
+      <div class="num">§ 08 · risk register + crisis playbooks</div>
+      <h2>What could go wrong, and what we do in the first 24 hours when it does.</h2>
+      <p class="sub">Each risk below has three blocks: <strong>signs to watch for</strong> (the leading indicators), <strong>first 24-hour response</strong> (who leads, who supports, what we do), and <strong>recovery + prevention</strong> (what we change so it doesn't recur). Written in advance so we don't have to think while it's happening.</p>
+    </div>
+
+    <h3>Why a risk register exists</h3>
+    <p>Every founder thinks "we'll figure it out when it happens." When a crisis hits at 11pm on a Friday and one founder is asleep in Korea, you do not want to be figuring it out. The risk register is the document you read at 11:01pm so you know which lever to pull. It is for the moment when judgment is hardest.</p>
+
+    <h3>Risk severity scale</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Severity</th><th>Definition</th><th>Response posture</th></tr>
+      <tr><td><strong>Sev 1 · Existential</strong></td><td>Could materially threaten the company's existence within 90 days if unaddressed</td><td>Drop everything. CEO involvement immediate. All four founders informed within 1 hour.</td></tr>
+      <tr><td><strong>Sev 2 · Material</strong></td><td>Could damage the company significantly (revenue, brand, relationships) but is recoverable with focused attention</td><td>CEO + function owner lead. All four informed within 4 hours.</td></tr>
+      <tr><td><strong>Sev 3 · Operational</strong></td><td>Disruptive but bounded — affects a specific function, can be managed inside the cadence</td><td>Function owner handles; surfaced at next meeting.</td></tr>
+    </table></div>
+
+    <!-- RISK 1 -->
+    <div class="risk-card">
+      <h4>Risk 1 · Manufacturing partner disruption</h4>
+      <div class="severity">Severity: 1 (Existential) · Owner on response: Alex + Jason</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>Communication slowdown from manufacturer (delayed responses, missed calls)</li>
+        <li>Quality drift in samples (sensory differences, CFU count variance, packaging defects)</li>
+        <li>Manufacturer renegotiating terms mid-order</li>
+        <li>Local political / regulatory / labor disruption in manufacturer's region</li>
+        <li>Manufacturer asking for upfront payment they didn't previously require</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 1:</strong> Alex calls the manufacturer's primary contact directly. Jason notifies all four founders in Slack. CEO holds the relationship; COO holds the operational state.</li>
+        <li><strong>Hour 2–6:</strong> Document the specific disruption in writing. Estimate impact: how many units affected, ship delay timeline, financial exposure. Update cash forecast.</li>
+        <li><strong>Hour 6–24:</strong> If material, activate backup-supplier conversation. Reach out to two backup candidates (we should have these identified by month 6 per § 03 Product). Communicate proactively with subscribers if any ship dates are at risk — silence is worse than honesty.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>Diversify supplier base by month 12 — second manufacturer qualified for at least one SKU. Document the manufacturer relationship at the contract level (termination terms, dispute resolution, IP ownership of formulation). Maintain personal relationship with the manufacturer's leadership, not just operations.</p>
+    </div>
+
+    <!-- RISK 2 -->
+    <div class="risk-card">
+      <h4>Risk 2 · Adverse customer health event</h4>
+      <div class="severity">Severity: 1 (Existential) · Owner on response: Alex + outside counsel</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>Customer service ticket reporting illness, allergic reaction, or hospitalization possibly linked to product</li>
+        <li>Social media post by customer claiming Pheeew caused a health event</li>
+        <li>FDA inquiry or state health department contact</li>
+        <li>Multiple complaints with similar symptoms in same week from same batch</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0:</strong> Jason flags to Alex immediately — no exceptions, no waiting for meetings. Even unverified.</li>
+        <li><strong>Hour 1:</strong> Customer service responds to the affected customer with empathy and a single ask: please describe what happened and when, and (if comfortable) share medical documentation. No admission, no denial. We do not say "Pheeew didn't cause this" — we say "we are taking this seriously and investigating."</li>
+        <li><strong>Hour 2–4:</strong> Identify batch ID(s) shipped to the customer. Pull QA records for those batches. Check for other complaints from the same batch.</li>
+        <li><strong>Hour 4–8:</strong> Engage outside counsel (product liability specialist) and outside food safety consultant. Do not communicate publicly about the incident until counsel has reviewed.</li>
+        <li><strong>Hour 8–24:</strong> If pattern emerges (multiple complaints, same batch), initiate voluntary batch hold or recall. FDA notification within 24 hours of decision to recall. Public communication, if needed, drafted by Dawon, reviewed by Alex and counsel, signed off by all four founders.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>Maintain product liability insurance from launch (mandatory). Maintain batch traceability for every unit shipped. Maintain QA records per batch (CFU counts, microbial tests, allergen tests) for at least 3 years. Customer service staff trained to flag any health language immediately to Jason and Alex, no exceptions.</p>
+    </div>
+
+    <!-- RISK 3 -->
+    <div class="risk-card">
+      <h4>Risk 3 · Viral negative content</h4>
+      <div class="severity">Severity: 2 (Material) · Owner on response: Alex + Dawon</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>TikTok / Instagram post with negative review reaching 100K+ views</li>
+        <li>Influencer with significant following calling out the brand</li>
+        <li>Reddit thread on r/EatCheapAndHealthy, r/Supplements, or similar gaining traction</li>
+        <li>Press article framing Pheeew negatively</li>
+        <li>Sudden spike in customer service tickets referencing the same external content</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0–1:</strong> Read the content. Read the comments. Understand what's actually being said before reacting.</li>
+        <li><strong>Hour 1–2:</strong> Alex + Dawon decide: respond, ignore, or engage privately. Default is <em>respond if there's a legitimate concern; engage privately if the creator might be open to dialogue; ignore if the content is a bad-faith pile-on.</em></li>
+        <li><strong>Hour 2–6:</strong> If responding publicly: Dawon drafts. Alex + Justin review. Voice must match storyline brief — vulnerable, not defensive. Acknowledge what's true; correct what's wrong; offer to talk privately. Never "lawyer up" on social media.</li>
+        <li><strong>Hour 6–24:</strong> Monitor comments. Reply to genuine questions. Do not engage with bots, trolls, or bad-faith actors. Track sentiment shifts. Update the team at end of day.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>The best defense against viral negative content is consistent transparency before any crisis. Customers who see months of honest content from Dawon don't pile on when a stranger calls Pheeew names — they defend. Build the bank account of trust now. Document criticism patterns: if the same thing comes up three times, address it proactively in content.</p>
+    </div>
+
+    <!-- RISK 4 -->
+    <div class="risk-card">
+      <h4>Risk 4 · 3PL or fulfillment failure</h4>
+      <div class="severity">Severity: 2 (Material) · Owner on response: Jason</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>3PL ship-time SLA missed for &gt; 48 hours</li>
+        <li>Inventory discrepancy between 3PL system and Shopify</li>
+        <li>Multiple customer service tickets about "where's my order"</li>
+        <li>3PL acquired, restructured, or financially distressed</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0–2:</strong> Jason confirms the issue with the 3PL contact. Quantify: how many orders affected, what's the recovery timeline.</li>
+        <li><strong>Hour 2–6:</strong> Customer service proactively reaches out to affected customers (Jason + Klaviyo blast). Apologize, acknowledge, give a realistic ship date, offer a small comp (15–20% off next order). Do not promise what we can't deliver.</li>
+        <li><strong>Hour 6–24:</strong> If 3PL is non-responsive or the issue is structural, activate backup 3PL contingency. Inventory transfer planning. Communicate to subscribers.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>Always have a second 3PL relationship at least at the conversation stage. Never rely on a single fulfillment partner for &gt; 12 months without an evaluated alternative. Monthly inventory reconciliation, never trust the 3PL's number without our own count.</p>
+    </div>
+
+    <!-- RISK 5 -->
+    <div class="risk-card">
+      <h4>Risk 5 · Cash crunch</h4>
+      <div class="severity">Severity: 1 if &lt; 3 months runway; 2 if 3–6 months · Owner on response: Alex + Jason</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>Monthly burn outpacing revenue for 3+ consecutive months without a planned reason</li>
+        <li>Manufacturer invoice coming due with insufficient cash to cover</li>
+        <li>Runway dropping below 6 months on the rolling forecast</li>
+        <li>Unexpected expense (tax bill, equipment failure, refund spike)</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0–6:</strong> Alex + Jason close the cash forecast model with fresh actuals. Confirm: how many months of runway at current burn? At zero discretionary spend?</li>
+        <li><strong>Hour 6–12:</strong> Identify trigger thresholds for spend categories. What gets paused first (paid acquisition), what stays (fulfillment, customer service), what's negotiable (software subscriptions, agencies).</li>
+        <li><strong>Hour 12–24:</strong> Communicate to all four founders. If &lt; 3 months runway, surface to Alex's investor mentor network for guidance — not yet a raise, but informational. Avoid making the situation worse with panicked decisions.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>Always know runway in months — not in dollars, in months. Default to under-spending on marketing until LTV is proven. Maintain a "trigger framework" written in advance: when runway hits N months, X spending categories pause; when it hits M months, Y categories pause. The framework removes emotion from cash decisions made under stress.</p>
+    </div>
+
+    <!-- RISK 6 -->
+    <div class="risk-card">
+      <h4>Risk 6 · Regulatory inquiry</h4>
+      <div class="severity">Severity: 2 (Material) · Owner on response: Alex + outside counsel</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>FDA, FTC, or state Attorney General office contacting Pheeew about a claim or product</li>
+        <li>NAD (National Advertising Division) inquiry about an advertising claim</li>
+        <li>State sales tax authority audit</li>
+        <li>California Prop 65 listing affecting an ingredient</li>
+        <li>Customs / import issue with manufacturer's shipments</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0–4:</strong> Alex reads the inquiry carefully. Does not respond directly. Forwards to outside counsel for review.</li>
+        <li><strong>Hour 4–24:</strong> Outside counsel drafts response. Documents the underlying claim or practice in question. Pulls all supporting evidence (claim substantiation file, ingredient sourcing records, marketing copy archive). Internal team does not communicate publicly about the inquiry.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>Maintain a claim substantiation file from day one — every product claim has documented scientific support. Conservative on health claims; never "treats / cures / prevents." Maintain a written record of all advertising and marketing copy (Klaviyo emails, ad creative, social posts) for at least 3 years. Outside CPG-specialized counsel on retainer for inquiries.</p>
+    </div>
+
+    <!-- RISK 7 -->
+    <div class="risk-card">
+      <h4>Risk 7 · Founder departure or major conflict</h4>
+      <div class="severity">Severity: 1 (Existential) · Owner on response: Alex + remaining founders</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>Founder consistently missing meetings or async commitments</li>
+        <li>Personal/health/family situation affecting capacity for sustained period</li>
+        <li>Strategic disagreement on direction unresolved through normal cadence</li>
+        <li>Founder taking outside employment or starting parallel ventures</li>
+        <li>Cap table / role / equity discontent surfacing repeatedly</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0–24:</strong> Alex has a direct 1:1 with the founder in question. Not a group meeting, not a Slack thread. <strong>Personal conversation.</strong> Goal: understand the actual situation before any structural decision.</li>
+        <li><strong>Within 7 days:</strong> Decision on path forward. If staying: revise R&R, adjust workload, address the underlying concern. If leaving: Co-Founder Agreement v3 governs the separation — vested shares retained, unvested shares subject to repurchase by the company at original price, IP assignment confirmed.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>The bi-weekly 1:1 cadence between Alex and each founder is the primary prevention mechanism. Founders who feel unheard build resentment quietly; the 1:1 surfaces it before it compounds. The Co-Founder Agreement v3 includes vesting cliffs, ROFR, and drag-along terms specifically because founder departures are statistically common and need a clean playbook in advance.</p>
+    </div>
+
+    <!-- RISK 8 -->
+    <div class="risk-card">
+      <h4>Risk 8 · Key vendor failure (Shopify, Klaviyo, Stripe, Mercury)</h4>
+      <div class="severity">Severity: 2 (Material) · Owner on response: Jason</div>
+
+      <h5>Signs to watch for</h5>
+      <ul>
+        <li>Stripe account flagged or hold placed on payments</li>
+        <li>Shopify store down or major feature outage</li>
+        <li>Mercury account frozen, locked, or under review</li>
+        <li>Klaviyo deliverability collapse (spam folder placement)</li>
+        <li>Any of these vendors acquired, restructured, or distressed</li>
+      </ul>
+
+      <h5>First 24-hour response</h5>
+      <ul>
+        <li><strong>Hour 0–2:</strong> Jason confirms the issue with vendor support. Document exact issue.</li>
+        <li><strong>Hour 2–6:</strong> If payment-related: enable alternative payment method if available (PayPal, Shop Pay). Customer service script ready for "your order is processing, no charges yet" inquiries.</li>
+        <li><strong>Hour 6–24:</strong> If vendor outage is &gt; 24 hours, evaluate switching cost. If account is frozen, escalate to vendor's account team. Maintain transparent communication with customers without panicking them.</li>
+      </ul>
+
+      <h5>Recovery + prevention</h5>
+      <p>Maintain backup options identified for every critical vendor — even if not actively used. Stripe Atlas account separate from Mercury operating. Klaviyo + secondary email tool (e.g., Postscript or basic Shopify Email) available. Quarterly review of vendor relationships and risks.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">Risks not covered above</span>
+      <p>This register covers the eight most-likely risks for our stage and category. Risks not covered: cybersecurity incident (data breach), IP / trademark dispute, partnership / licensee dispute, internal misconduct, public health emergency (pandemic affecting supply chain), force majeure events. These will be added to the register as we grow into them. The register is a living document — update it the week after a near-miss, not the week after the actual crisis.</p>
+    </div>
+  </section>
+
+  <!-- 9. TOOLING -->
+  <section class="block" id="tools">
+    <div class="block-head">
+      <div class="num">§ 09 · tooling + vendor stack</div>
+      <h2>What we use, what each one's for, what we're not paying for yet.</h2>
+      <p class="sub">A minimal stack is a deliberate stack. Each tool we add costs setup time, mental load, and recurring spend. We add only when the function it solves is actually load-bearing for us.</p>
+    </div>
+
+    <h3>Active stack (live or being set up in first 30 days)</h3>
+    <div class="tool-grid">
+      <div class="tool-box">
+        <div class="name">Stripe Atlas</div>
+        <div class="role">Corporate records</div>
+        <div class="desc">Delaware C-Corp formation, Cert of Amendment, EIN, basic corporate templates. ~$500/yr after free first year. Owned: Alex.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Mercury</div>
+        <div class="role">Banking</div>
+        <div class="desc">Business checking + savings. Free. Wire transfers, ACH, virtual cards. Connected to QuickBooks for transaction sync. Owned: Jason.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Shopify</div>
+        <div class="role">DTC storefront</div>
+        <div class="desc">$39–$105/mo depending on plan. Start Basic, upgrade as volume justifies. Includes payments processing via Shopify Payments. Owned: Jason.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Klaviyo</div>
+        <div class="role">Email + SMS</div>
+        <div class="desc">Free up to 250 contacts; paid plans scale by contact count. Welcome / post-purchase / abandoned cart / browse abandonment flows. Owned: Justin.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Recharge or Skio</div>
+        <div class="role">Subscriptions</div>
+        <div class="desc">~$60/mo + ~1% of subscription revenue. Powers the subscription tier in our pricing ladder. Owned: Jason.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Gorgias</div>
+        <div class="role">Customer service</div>
+        <div class="desc">~$10–$60/mo at our scale. Integrates Shopify orders, refunds, and customer history into one inbox. Owned: Jason.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">QuickBooks Online</div>
+        <div class="role">Bookkeeping</div>
+        <div class="desc">~$30/mo. Chart of accounts, bank reconciliation, monthly P&L. Owned: Jason + outside CPA.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">TaxJar or Avalara</div>
+        <div class="role">Sales tax</div>
+        <div class="desc">~$20–$200/mo depending on order volume. Automates sales tax calculation, collection, and remittance across states. Owned: Jason.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">3PL (TBD)</div>
+        <div class="role">Fulfillment</div>
+        <div class="desc">Variable per-order pricing (~$3–$6/order at our scale). Pick-pack-ship from inventory. ShipBob / ShipMonk / Stord / boutique 3PL under evaluation. Owned: Jason.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Slack</div>
+        <div class="role">Internal comms</div>
+        <div class="desc">Free for small teams. Channels: #general, #ops, #growth, #brand, #emergencies. Owned: All.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Notion</div>
+        <div class="role">Internal docs + project tracking</div>
+        <div class="desc">$10/user/mo or free for small teams. KPI dashboards, brand book, vendor list, meeting notes, decision log. Owned: All; Alex maintains structure.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Google Workspace</div>
+        <div class="role">Email + Docs + Drive</div>
+        <div class="desc">$6/user/mo. hello@pheeew.com, founder accounts, shared drive for assets. Owned: Alex.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Figma</div>
+        <div class="role">Design</div>
+        <div class="desc">Free for small teams up to 3 editors. Brand system, packaging, web design, carousel slides. Owned: Dawon.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">DocuSign or PandaDoc</div>
+        <div class="role">Signatures</div>
+        <div class="desc">~$15–$50/mo. Founder agreements, vendor contracts, NDA library. Owned: Alex.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Outside CPA</div>
+        <div class="role">Tax + advisory</div>
+        <div class="desc">~$2,000–$5,000/yr at our scale. Form 1120 filing, quarterly check-ins, sales tax setup advisory. Owned: Alex + Jason.</div>
+      </div>
+    </div>
+
+    <h3>Deferred stack (probably needed in months 3–6)</h3>
+    <div class="tool-grid">
+      <div class="tool-box">
+        <div class="name">Cogsy or Inventory Planner</div>
+        <div class="role">Inventory forecasting</div>
+        <div class="desc">$100–$300/mo. Demand forecasting, reorder triggers, stockout prevention. Add when single-SKU complexity exceeds spreadsheet capacity (~month 4).</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Triple Whale or Northbeam</div>
+        <div class="role">Marketing attribution</div>
+        <div class="desc">$129–$500/mo. Multi-touch attribution across Meta, TikTok, Google. Add when paid spend exceeds $5K/mo and channel mix complexity demands real attribution.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Postscript</div>
+        <div class="role">Dedicated SMS</div>
+        <div class="desc">$25–$300/mo. More SMS-specific than Klaviyo's SMS. Add if SMS becomes a primary revenue channel (~month 6+).</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Yotpo or Stamped</div>
+        <div class="role">Reviews</div>
+        <div class="desc">~$15–$200/mo. Customer review collection, display, syndication. Add ~month 2 once first review base exists.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Loom</div>
+        <div class="role">Async video</div>
+        <div class="desc">$15/user/mo or free for short videos. Internal communication, customer service video responses. Add when async video becomes faster than typing.</div>
+      </div>
+      <div class="tool-box">
+        <div class="name">Linear</div>
+        <div class="role">Task tracking</div>
+        <div class="desc">$8/user/mo. Useful when tasks across functions exceed what Slack can hold. Probably month 3+.</div>
+      </div>
+    </div>
+
+    <h3>Not yet (we'll know when)</h3>
+    <ul>
+      <li><strong>Salesforce or HubSpot CRM</strong> — overkill at our stage. Wholesale + B2B contacts can live in Notion or Airtable until month 6+.</li>
+      <li><strong>NetSuite / advanced ERP</strong> — multi-million revenue territory. QuickBooks scales further than founders think.</li>
+      <li><strong>Gusto / Rippling (payroll)</strong> — only when there's payroll, which is when we cross the locked threshold (per § 03 Financials).</li>
+      <li><strong>Confluence / dedicated wiki</strong> — Notion handles it.</li>
+      <li><strong>Datadog / advanced observability</strong> — we're not a software company; Shopify uptime is Shopify's problem.</li>
+      <li><strong>Brokered Slack alternatives</strong> — Slack is fine. Don't switch tools mid-stride.</li>
+    </ul>
+
+    <h3>Estimated monthly software cost at full launch (~Day 60+)</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tool</th><th class="num">Monthly</th></tr>
+      <tr><td>Shopify (Basic)</td><td class="num">$39</td></tr>
+      <tr><td>Klaviyo (~5K contacts)</td><td class="num">$100</td></tr>
+      <tr><td>Recharge / Skio</td><td class="num">$60 + 1% of subs</td></tr>
+      <tr><td>Gorgias</td><td class="num">$50</td></tr>
+      <tr><td>QuickBooks Online</td><td class="num">$30</td></tr>
+      <tr><td>TaxJar</td><td class="num">$20</td></tr>
+      <tr><td>Notion + Google Workspace + Figma + Slack</td><td class="num">$40</td></tr>
+      <tr><td>DocuSign</td><td class="num">$25</td></tr>
+      <tr><td>Stripe Atlas</td><td class="num">$40 (avg)</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Approximate total</strong></td><td class="num"><strong>~$400/mo</strong></td></tr>
+    </table></div>
+    <p>This baseline holds steady through ~$50K MRR. Beyond that, Klaviyo contact tier increases, 3PL volume kicks in real shipping costs, and the deferred stack starts coming online. Plan for ~$800–$1,500/mo by month 6.</p>
+
+    <h3>Account ownership ledger</h3>
+    <p>Every tool above has one founder listed as account owner. That founder holds the login credentials in 1Password (shared founder vault). When a founder leaves or rotates, ownership transfers in writing. <strong>No tool is owned by a personal email account.</strong> Everything is on the @pheeew.com domain.</p>
+
+    <div class="callout rule">
+      <span class="label">The "is it worth a tool" test</span>
+      <p>Before adding a new tool to the stack, ask: (1) what specific decision will this help us make better, (2) can a spreadsheet do it for the next 3 months, (3) what's the all-in cost (subscription + setup time + ongoing maintenance), (4) who owns it. If you can't answer all four, don't add the tool yet.</p>
+    </div>
+  </section>
+
+  <!-- 10. LEARNING SYLLABUS -->
+  <section class="block" id="syllabus">
+    <div class="block-head">
+      <div class="num">§ 10 · learning syllabus</div>
+      <h2>What each of us should be studying.</h2>
+      <p class="sub">We did not arrive here pre-trained for what we are about to do. The syllabus closes the gap deliberately — books, podcasts, case studies, operators to follow — segmented by role.</p>
+    </div>
+
+    <p>This section is the one most operating manuals skip. We don't, because the user-acquisition cost of mistakes we make from not knowing things is higher than the time cost of learning them. Each founder has a curriculum tailored to their function. The expectation is roughly 3 hours per week of role-specific learning, on top of doing the work.</p>
+
+    <div class="callout note">
+      <span class="label">How to use the syllabus</span>
+      <p>This isn't homework. The point is to feed the brain enough operator-grade thinking that your default response to operational problems gets smarter over time. Read one book per quarter, listen to a podcast on commutes, follow operators on the platforms they actually post on. The compounding shows up in 6 months, not 6 days.</p>
+    </div>
+
+    <h3>Shared reading — all four founders</h3>
+    <div class="syllabus-card">
+      <h4>The CPG / DTC foundation</h4>
+      <div class="who">Everyone reads these in the first 60 days</div>
+
+      <h5>Books</h5>
+      <ul>
+        <li><strong>The Lean Startup</strong> — Eric Ries · still the foundation despite being old. Build-measure-learn discipline.</li>
+        <li><strong>The Mom Test</strong> — Rob Fitzpatrick · how to interview customers without lying to yourself.</li>
+        <li><strong>Crossing the Chasm</strong> — Geoffrey Moore · the early-adopter-to-mainstream transition. Especially relevant for a wellness brand.</li>
+        <li><strong>Obviously Awesome</strong> — April Dunford · positioning for products that don't fit a clean existing category. Pheeew sits between juice, smoothie, and supplement; this book is the playbook for that.</li>
+      </ul>
+
+      <h5>Podcasts (subscribe and listen on cadence)</h5>
+      <ul>
+        <li><strong>Acquired</strong> — long-form company breakdowns. Liquid Death, Olipop, Athletic Greens, and Patagonia episodes are essential.</li>
+        <li><strong>How I Built This</strong> — Guy Raz · founder origin stories. Pattern-match against ours.</li>
+        <li><strong>Lenny's Podcast</strong> — Lenny Rachitsky · product + growth operators. Highly relevant for the marketing and growth functions.</li>
+        <li><strong>My First Million</strong> — Sam Parr + Shaan Puri · pattern-matching DTC and consumer trends.</li>
+      </ul>
+
+      <h5>Case studies (read once, return to)</h5>
+      <ul>
+        <li><strong>Liquid Death's brand build</strong> — premium beverage, irreverent voice, IPO trajectory. Closest brand-philosophy comp to us in some ways.</li>
+        <li><strong>Olipop's growth</strong> — functional soda, science-forward, mass retail expansion. The CPG playbook done well.</li>
+        <li><strong>Casper's IPO unwind</strong> — what happens when you raise too much, scale too fast, and let unit economics drift. Anti-playbook.</li>
+        <li><strong>Allbirds' brand decline</strong> — what happens when the brand stops being honest about who it's for. Cautionary tale.</li>
+        <li><strong>Glossier's voice evolution</strong> — DTC beauty brand that built community before product. Pheeew has parallels.</li>
+      </ul>
+    </div>
+
+    <h3>Alex's syllabus — CEO / Management / Strategy</h3>
+    <div class="syllabus-card">
+      <h4>Alex Kim · CEO + Sole Director</h4>
+      <div class="who">Focus areas: vision, capital strategy, brand thesis, founder leadership, fundraising posture</div>
+
+      <h5>Books</h5>
+      <ul>
+        <li><strong>Built to Last / Good to Great</strong> — Jim Collins · the foundational CEO library.</li>
+        <li><strong>The Hard Thing About Hard Things</strong> — Ben Horowitz · CEO survival mode. The honest version.</li>
+        <li><strong>Zero to One</strong> — Peter Thiel · founder-as-monopoly-builder. Disagree with some of it; useful frame regardless.</li>
+        <li><strong>Shoe Dog</strong> — Phil Knight · Nike's origin. CPG founder story told honestly.</li>
+        <li><strong>Patagonia: Let My People Go Surfing</strong> — Yvon Chouinard · the playbook for the brand archetype Pheeew aspires to.</li>
+        <li><strong>Trillion Dollar Coach</strong> — Bill Campbell's coaching playbook. Lessons on building executive teams.</li>
+      </ul>
+
+      <h5>Operators to follow</h5>
+      <ul>
+        <li>Daniel Lubetzky (KIND Snacks) — clean CPG operator-philosopher.</li>
+        <li>Jenni Smith (Magic Spoon) — single-SKU DTC scaling.</li>
+        <li>Ben Lerer (Thrillist / Lerer Hippeau) — investor-operator perspective on DTC.</li>
+        <li>Patrick Schwarzenegger (Mosh) — functional food entrepreneur our generation.</li>
+      </ul>
+
+      <h5>Quarterly study targets</h5>
+      <ul>
+        <li>Q1: brand-thesis literature + Pheeew brand thesis written down by end of Q1</li>
+        <li>Q2: fundraising literature + capital posture stress-test</li>
+        <li>Q3: scaling literature (when ops are running)</li>
+        <li>Q4: org design + first-hire decision</li>
+      </ul>
+    </div>
+
+    <h3>Jason's syllabus — COO / Operations / Finance</h3>
+    <div class="syllabus-card">
+      <h4>Jason Ko · COO</h4>
+      <div class="who">Focus areas: supply chain, financial discipline, fulfillment, customer service, vendor management</div>
+
+      <h5>Books</h5>
+      <ul>
+        <li><strong>The Goal</strong> — Eliyahu Goldratt · operations / throughput / constraint thinking. Old but still the foundation.</li>
+        <li><strong>Profit First</strong> — Mike Michalowicz · cash discipline for small businesses. Read once, internalize.</li>
+        <li><strong>The E-Myth Revisited</strong> — Michael Gerber · systems thinking for small businesses.</li>
+        <li><strong>Inventory Management for Dummies</strong> — actually useful, despite the title. Forecasting, safety stock, EOQ.</li>
+        <li><strong>The Phoenix Project</strong> — DevOps fable but the operations philosophy translates directly to CPG ops.</li>
+      </ul>
+
+      <h5>Operators / resources to follow</h5>
+      <ul>
+        <li>Nik Sharma (Sharma Brands) — DTC operator-investor, deep on infrastructure.</li>
+        <li>Web Smith (2pm) — DTC strategy via paid newsletter; subscribe.</li>
+        <li>r/ecommerce on Reddit — daily operator lore.</li>
+        <li>Practical Ecommerce — newsletter / blog covering operational specifics.</li>
+      </ul>
+
+      <h5>Quarterly study targets</h5>
+      <ul>
+        <li>Q1: inventory + fulfillment foundations</li>
+        <li>Q2: financial controls + bookkeeping rigor</li>
+        <li>Q3: customer service systems + escalation playbooks</li>
+        <li>Q4: 3PL relationship management + supply chain diversification</li>
+      </ul>
+    </div>
+
+    <h3>Justin's syllabus — CGO / Growth / Marketing</h3>
+    <div class="syllabus-card">
+      <h4>Junhyuk Kim · CGO</h4>
+      <div class="who">Focus areas: paid acquisition, organic growth, creator partnerships, retail buyer relationships, fundraising sourcing</div>
+
+      <h5>Books</h5>
+      <ul>
+        <li><strong>The Cold Start Problem</strong> — Andrew Chen · network effects, marketplace dynamics, early-stage growth. Even for non-marketplaces, the discipline of "how do you start a flywheel from zero" is essential.</li>
+        <li><strong>Hooked</strong> — Nir Eyal · product-led growth and habit loops.</li>
+        <li><strong>Contagious</strong> — Jonah Berger · why ideas and products spread. Useful for organic content strategy.</li>
+        <li><strong>The 1-Page Marketing Plan</strong> — Allan Dib · marketing fundamentals in one sitting.</li>
+        <li><strong>The Lean Brand</strong> — Jeremiah Gardner · brand-thinking applied to startups.</li>
+      </ul>
+
+      <h5>Operators / resources to follow</h5>
+      <ul>
+        <li>Eric Bandholz (Beardbrand) — DTC operator who teaches openly.</li>
+        <li>Davis Helman / Common Thread Collective — DTC growth agency content; gold for paid acquisition fundamentals.</li>
+        <li>Taylor Holiday — CTC founder; deep on paid spend strategy.</li>
+        <li>Daniel Murray (The Marketing Millennials) — accessible marketing fundamentals.</li>
+        <li>Mosh, Olipop, Magic Spoon ads on Foreplay or AdSpy — study what works.</li>
+      </ul>
+
+      <h5>Quarterly study targets</h5>
+      <ul>
+        <li>Q1: Meta + TikTok ad fundamentals before turning on spend</li>
+        <li>Q2: Email + SMS lifecycle deep-dive</li>
+        <li>Q3: Creator partnerships + influencer attribution</li>
+        <li>Q4: Retail buyer relationship management + B2B sales fundamentals</li>
+      </ul>
+    </div>
+
+    <h3>Dawon's syllabus — CBO / Brand / Content</h3>
+    <div class="syllabus-card">
+      <h4>Dawon Kim · CBO</h4>
+      <div class="who">Focus areas: brand identity, design system rigor, content production, storytelling discipline, customer experience design</div>
+
+      <h5>Books</h5>
+      <ul>
+        <li><strong>Story</strong> — Robert McKee · screenwriting bible. Applies directly to long-form brand storytelling.</li>
+        <li><strong>Building a StoryBrand</strong> — Donald Miller · narrative structure for brand voice.</li>
+        <li><strong>Hey Whipple, Squeeze This</strong> — Luke Sullivan · advertising voice classic.</li>
+        <li><strong>The Visual Display of Quantitative Information</strong> — Edward Tufte · design rigor and information design.</li>
+        <li><strong>Wabi-Sabi for Artists, Designers, Poets &amp; Philosophers</strong> — Leonard Koren · the aesthetic philosophy beneath Pheeew's visual posture.</li>
+      </ul>
+
+      <h5>Operators / resources to follow</h5>
+      <ul>
+        <li>Glossier's Emily Weiss — founder-as-brand origin story.</li>
+        <li>Liquid Death's brand team — irreverent CPG voice.</li>
+        <li>Aesop's brand-as-quiet-luxury approach.</li>
+        <li>It's Nice That — daily design discipline.</li>
+        <li>Brand New (UnderConsideration) — identity system analysis.</li>
+      </ul>
+
+      <h5>Quarterly study targets</h5>
+      <ul>
+        <li>Q1: brand book v1 (per § 03 Brand Management) + storyline arc execution</li>
+        <li>Q2: long-form content (essay format, brand journal)</li>
+        <li>Q3: packaging system evolution as Phase 2 SKU lands</li>
+        <li>Q4: brand-as-character creative — preparing for Mode 2 / Mode 3 transition per storyline brief</li>
+      </ul>
+    </div>
+
+    <h3>Pheeew-specific deep-dive topics — everyone</h3>
+    <p>Reading specifically on gut health, the supplement industry, and synbiotic science. Required reading for everyone — not just Alex or Dawon.</p>
+    <ul>
+      <li><strong>10% Human</strong> — Alanna Collen · accessible gut-microbiome science.</li>
+      <li><strong>Fiber Fueled</strong> — Will Bulsiewicz, MD · the prebiotic + fiber case.</li>
+      <li><strong>The Good Gut</strong> — Justin and Erica Sonnenburg (Stanford) · the foundational microbiome science.</li>
+      <li><strong>The Mind-Gut Connection</strong> — Emeran Mayer, MD · gut-brain axis literature.</li>
+      <li>NIH PubMed on Bacillus coagulans · primary sources for our probiotic strain.</li>
+      <li>FDA + FTC on supplement claim regulation — boring but operationally necessary.</li>
+    </ul>
+
+    <div class="callout green">
+      <span class="label">The "learning together" practice</span>
+      <p>One Friday a month, the Friday Wrap is replaced by a 60-minute "book club" where one founder presents what they've been reading and the team discusses application to Pheeew. The same person doesn't present every month. This builds shared vocabulary and a culture of compounding intelligence. Skip a month at most twice a year; skip more than that and the practice dies.</p>
+    </div>
+  </section>
+
+  <!-- 11. WHAT'S NOT IN THIS DOC -->
+  <section class="block" id="not-here">
+    <div class="block-head">
+      <div class="num">§ 11 · what's not in this doc</div>
+      <h2>The modules we'll build separately.</h2>
+      <p class="sub">This playbook is the operating constitution. The deeper how-to documents for specific functions live (or will live) as separate modules. Listed here so you know what we don't yet have, and where each will end up.</p>
+    </div>
+
+    <p>The playbook tells you <em>what the function does and who owns it</em>. The modules tell you <em>how to actually do it</em>. They get built as specific questions arise — building them all upfront would mean inventing process for things we haven't actually done yet, which is exactly the failure mode § 00 warns against.</p>
+
+    <h3>Planned modules (built when needed)</h3>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Module</th><th>What it covers</th><th>Likely build date</th><th>Owner</th></tr>
+      <tr><td><strong>DTC Infrastructure Setup</strong></td><td>Step-by-step Shopify configuration · Klaviyo flow building · Stripe + Recharge wiring · Gorgias integration · 3PL onboarding checklist</td><td>Within first 30 days (urgent)</td><td>Jason</td></tr>
+      <tr><td><strong>Marketing Operations</strong></td><td>Paid acquisition setup (Meta + TikTok) · creative testing framework · creator outreach scripts · UGC pipeline operations · attribution discipline</td><td>Days 30–60</td><td>Justin</td></tr>
+      <tr><td><strong>Customer Service Playbook</strong></td><td>Macro library · escalation paths · refund/returns workflow · adverse event protocol · CSAT measurement</td><td>Days 30–45</td><td>Jason</td></tr>
+      <tr><td><strong>Financial Operations</strong></td><td>Monthly close checklist · cash forecast model · unit economics model · sales tax automation · CPA collaboration cadence</td><td>Days 14–30</td><td>Jason + Alex</td></tr>
+      <tr><td><strong>Product Operations</strong></td><td>QA testing protocol · batch traceability system · regulatory file structure · packaging procurement workflow · Phase 2 formulation roadmap</td><td>Days 30–45</td><td>Jason + Alex</td></tr>
+      <tr><td><strong>Sales + Partnerships Playbook</strong></td><td>Sell sheet template · retail buyer outreach scripts · B2B channel evaluation framework · Amazon strategy decision</td><td>Days 60–90</td><td>Justin</td></tr>
+      <tr><td><strong>Fundraising Module</strong></td><td>Pitch deck v1 · investor mentor sequencing · diligence prep · term sheet evaluation · capital structure scenario planning</td><td>Built lazily; only when we're actually fundraising</td><td>Alex</td></tr>
+      <tr><td><strong>Hiring Playbook</strong></td><td>First-hire criteria · interview process · offer structure · option grant mechanics · onboarding checklist</td><td>Pre-first-hire (likely months 4–6)</td><td>Alex</td></tr>
+      <tr><td><strong>Retail Operations</strong></td><td>Broker selection · distributor relationships · in-store velocity drivers · trade marketing budget</td><td>Only when retail is active (likely months 9+)</td><td>Jason + Justin</td></tr>
+      <tr><td><strong>International Expansion</strong></td><td>Korea-specific operations · CE/EU compliance · cross-border logistics · localization rules</td><td>Year 2+</td><td>Alex + Jason</td></tr>
+    </table></div>
+
+    <h3>Documents that already exist (separate from this playbook)</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Document</th><th>What it is</th><th>URL / location</th></tr>
+      <tr><td><strong>Storyline Brief</strong></td><td>Dawon's working brief for the origin arc + ongoing chapter content</td><td><a href="../storyline-brief/" style="color:var(--pheeew);font-weight:700;text-decoration:none">/storyline-brief/</a></td></tr>
+      <tr><td><strong>Founder Restructure Meeting Brief</strong></td><td>The full cap table restructure rationale, math, and document set</td><td><a href="../founders-restructure/meeting-brief/" style="color:var(--pheeew);font-weight:700;text-decoration:none">/founders-restructure/meeting-brief/</a></td></tr>
+      <tr><td><strong>Cap Table v2</strong></td><td>Live cap table after the restructure</td><td><a href="../founders-restructure/cap-table/" style="color:var(--pheeew);font-weight:700;text-decoration:none">/founders-restructure/cap-table/</a></td></tr>
+      <tr><td><strong>Founder Equity Guide</strong></td><td>Educational reference on cap tables, dilution, and equity mechanics</td><td><a href="../founder-equity-guide/" style="color:var(--pheeew);font-weight:700;text-decoration:none">/founder-equity-guide/</a></td></tr>
+      <tr><td><strong>Brand Base</strong></td><td>Public-facing brand foundation (positioning, voice, visual system)</td><td><a href="../brand-base/" style="color:var(--pheeew);font-weight:700;text-decoration:none">/brand-base/</a></td></tr>
+      <tr><td><strong>Launch Plan</strong></td><td>The pre-launch operational plan (predecessor to this playbook in some sections)</td><td><a href="../launch-plan/" style="color:var(--pheeew);font-weight:700;text-decoration:none">/launch-plan/</a></td></tr>
+      <tr><td><strong>Pheeew Master Corporate Records</strong></td><td>Internal corporate records folder (RSPAs, 83(b)s, board consents, cap table, capital contribution receipts)</td><td><code>/Users/veriswypemedia/Downloads/MOHO STUDIO/Pheeew/Pheeew_Master_Corporate_Records/</code></td></tr>
+    </table></div>
+
+    <h3>Versioning</h3>
+    <p>This playbook is v1.0. Major revisions happen on a quarterly cadence; minor revisions (updating a metric target, replacing a tool, adjusting a process) happen continuously. Change log lives at the bottom of the Notion mirror of this doc (when set up). When a section changes materially, Alex or the function owner Slacks the team with a one-line summary of what changed.</p>
+
+    <div class="callout rule">
+      <span class="label">The playbook is wrong about something right now</span>
+      <p>It has to be. We don't know which sentence yet. The discipline isn't to write it perfectly; the discipline is to update it the moment we learn we got something wrong. The day this doc stops getting updated is the day it becomes a lie about how the company actually runs.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Pheeew, Inc. · Delaware C-Corporation</p>
+    <p>Prepared by <span class="sig">Seungjoon Kim, CEO + Sole Director</span> · May 14, 2026</p>
+    <p>Confidential · For the four founders only · Living document · v1.0</p>
+  </footer>
+
+</div>
+</div>
+
+<script>
+  const PASSCODE = 'pheeew-team-2026';
+
+  function checkGate(e){
+    e.preventDefault();
+    const input = document.getElementById('gateInput');
+    const err = document.getElementById('gateError');
+    if(input.value.trim().toLowerCase() === PASSCODE){
+      sessionStorage.setItem('pheeew-playbook-gate', '1');
+      document.getElementById('appGate').style.display = 'none';
+      document.getElementById('appContent').style.display = 'block';
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  function signOut(e){
+    e.preventDefault();
+    sessionStorage.removeItem('pheeew-playbook-gate');
+    location.reload();
+  }
+
+  if(sessionStorage.getItem('pheeew-playbook-gate') === '1'){
+    document.getElementById('appGate').style.display = 'none';
+    document.getElementById('appContent').style.display = 'block';
+  } else {
+    setTimeout(()=>document.getElementById('gateInput').focus(), 100);
+  }
+</script>
+
+</body>
+</html>
