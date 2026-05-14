@@ -598,6 +598,18 @@ details.content-expand[open] summary::after{content:" ▴"}
         <span class="sidebar-nav-icon">$</span>
         <span class="sidebar-nav-label">Finance</span>
       </a>
+      <a class="sidebar-nav-item" data-view="channels" onclick="switchView('channels', event)">
+        <span class="sidebar-nav-icon">⇆</span>
+        <span class="sidebar-nav-label">Channels</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="projections" onclick="switchView('projections', event)">
+        <span class="sidebar-nav-icon">📈</span>
+        <span class="sidebar-nav-label">Projections</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="legal" onclick="switchView('legal', event)">
+        <span class="sidebar-nav-icon">§</span>
+        <span class="sidebar-nav-label">Legal &amp; Tax</span>
+      </a>
     </nav>
 
     <div class="sidebar-section-label">Brand</div>
@@ -1159,14 +1171,15 @@ details.content-expand[open] summary::after{content:" ▴"}
             <div class="stat-meta">reaching out</div>
           </div>
           <div class="stat dark">
-            <div class="stat-label">Sample Sent</div>
+            <div class="stat-label">Sample Sent + Posted</div>
             <div class="stat-value" id="crStatSample">0</div>
-            <div class="stat-meta">product on the way</div>
+            <div class="stat-meta">product out or live</div>
           </div>
           <div class="stat">
-            <div class="stat-label">Posted</div>
-            <div class="stat-value" id="crStatPosted">0</div>
-            <div class="stat-meta up">↗ converted</div>
+            <div class="stat-label">Total Creator Spend</div>
+            <div class="stat-value" id="crStatCost">$0</div>
+            <div class="stat-meta" id="crStatCostMeta">across all paid creators</div>
+            <div class="stat-icon">$</div>
           </div>
         </div>
 
@@ -1199,7 +1212,14 @@ details.content-expand[open] summary::after{content:" ▴"}
             <input type="number" id="crFollowing" placeholder="Following" style="flex-basis:110px">
             <input type="text" id="crNiche" placeholder="Niche (gut, wellness, food…)" style="flex-basis:180px">
             <input type="email" id="crEmail" placeholder="Email" style="flex-basis:180px">
-            <input type="text" id="crNotes" placeholder="Notes (style, fit, why them)" style="flex:1;min-width:200px">
+            <select id="crCostType" style="flex-basis:130px">
+              <option value="gift_only">Gift only</option>
+              <option value="flat_fee">Flat fee</option>
+              <option value="per_post">Per post</option>
+              <option value="commission">Commission</option>
+            </select>
+            <input type="number" id="crCost" placeholder="Cost $" min="0" style="flex-basis:100px">
+            <input type="text" id="crNotes" placeholder="Notes (style, fit, why them)" style="flex:1;min-width:180px">
             <button type="submit">Add</button>
           </form>
 
@@ -1212,6 +1232,466 @@ details.content-expand[open] summary::after{content:" ▴"}
               <div class="activity-empty">No creators yet — add the first one above.</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- VIEW: CHANNELS -->
+      <section class="view" id="view-channels">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Sales <span class="accent-name">Channels</span></h1>
+            <div class="subtitle">DTC · Amazon · TikTok Shop · Wholesale. Margin, fees, launch investment, when to turn each one on.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../operating-playbook/#margins" target="_blank">Playbook margins →</a>
+          </div>
+        </div>
+
+        <!-- AT-A-GLANCE COMPARISON -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Channel comparison at a glance</div><div class="card-subtitle">Hero tier per channel · margin after all fees · launch investment to turn the channel on</div></div></div>
+          <table class="ch-table">
+            <thead>
+              <tr>
+                <th style="text-align:left">Channel</th>
+                <th style="text-align:left">Hero SKU</th>
+                <th>Price</th>
+                <th>Platform fees</th>
+                <th>Net contribution</th>
+                <th>CM %</th>
+                <th>Launch invest</th>
+                <th style="text-align:left">Turn on</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="channel-name">DTC subscription</td>
+                <td style="text-align:left">Committed 60-pack sub</td>
+                <td>$139</td>
+                <td>~$5.20 (Shopify + Recharge)</td>
+                <td>$48.42</td>
+                <td class="pos">35%</td>
+                <td>$0 (live)</td>
+                <td style="text-align:left">Day 121</td>
+              </tr>
+              <tr>
+                <td class="channel-name">TikTok Shop</td>
+                <td style="text-align:left">Core 30-pack</td>
+                <td>$99</td>
+                <td>~$15.84 (5% + 10% aff.)</td>
+                <td>$46.66</td>
+                <td class="pos">47%</td>
+                <td>$700–$1,600</td>
+                <td style="text-align:left">Month 2 post-launch</td>
+              </tr>
+              <tr>
+                <td class="channel-name">Amazon FBA</td>
+                <td style="text-align:left">Core 30-pack</td>
+                <td>$99</td>
+                <td>~$24.85 (15% ref + FBA)</td>
+                <td>$39.45</td>
+                <td class="pos">40%</td>
+                <td>$2,500–$4,500</td>
+                <td style="text-align:left">Month 4–6 post-launch</td>
+              </tr>
+              <tr>
+                <td class="channel-name">Wholesale (indie retail)</td>
+                <td style="text-align:left">Starter 20-pack</td>
+                <td>$29.50 wholesale (MSRP $59)</td>
+                <td>brokerage 5–10%</td>
+                <td>$5.85</td>
+                <td>20%</td>
+                <td>$10K–$30K+</td>
+                <td style="text-align:left">Year 2+</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.55">Contribution margin is after platform fees, payment processing, pick/pack, packaging, and inbound. <strong style="color:var(--text-secondary)">Before</strong> shipping (variable), gifting, and paid acquisition. Pheeew's intentional sequencing: DTC first (margin + brand control) · TikTok Shop second (creator-native, cheap to test) · Amazon third (volume, but lowest margin per dollar of effort) · Wholesale last (capital-intensive, low CM, but real distribution).</div>
+        </div>
+
+        <!-- DTC -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">DTC · pheeew.com</div><div class="card-subtitle">Direct to consumer · Shopify + Recharge + Klaviyo · the brand's primary channel</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th>Pack · sub</th><th>Sub price</th><th>$/pouch</th><th>COGS</th><th>Shopify Pay (2.9% + $0.30)</th><th>Recharge 1.49%</th><th>3PL P&amp;P ($2.50)</th><th>Packaging ($1)</th><th>Net CM</th><th>CM %</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Tester 10 · OT</td><td>$34</td><td>$3.40</td><td>$10.90</td><td>$1.29</td><td>—</td><td>$2.50</td><td>$1.00</td><td>$18.31</td><td class="pos">54%</td></tr>
+              <tr><td class="channel-name">Starter 20 · sub</td><td>$49</td><td>$2.45</td><td>$21.80</td><td>$1.72</td><td>$0.73</td><td>$2.50</td><td>$1.00</td><td>$21.25</td><td class="pos">43%</td></tr>
+              <tr><td class="channel-name">Core 30 · sub</td><td>$72</td><td>$2.40</td><td>$32.70</td><td>$2.39</td><td>$1.07</td><td>$2.50</td><td>$1.00</td><td>$32.34</td><td class="pos">45%</td></tr>
+              <tr><td class="channel-name">Committed 60 · sub</td><td>$139</td><td>$2.32</td><td>$65.40</td><td>$4.33</td><td>$2.07</td><td>$2.50</td><td>$1.00</td><td>$63.70</td><td class="pos">46%</td></tr>
+              <tr><td class="channel-name">Household 120 · sub</td><td>$259</td><td>$2.16</td><td>$130.80</td><td>$7.81</td><td>$3.86</td><td>$3.50</td><td>$1.50</td><td>$111.53</td><td class="pos">43%</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.55"><strong style="color:var(--text-secondary)">Launch investment for DTC: $0 net.</strong> Shopify ($29/mo), Klaviyo ($20→$150/mo as list grows), Recharge ($99/mo when subscriptions live) are already in the Finance view's monthly burn. Outbound shipping is customer-paid above $50 cart minimum.</div>
+        </div>
+
+        <!-- TIKTOK SHOP -->
+        <div class="card card-dark" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">TikTok Shop</div><div class="card-subtitle">Creator-native · same audience as Dawon's reels · lowest friction</div></div></div>
+          <table class="ch-table" style="color:var(--text-on-dark)">
+            <thead><tr><th style="text-align:left;color:var(--accent-yellow)">Pack</th><th style="color:var(--accent-yellow)">Price</th><th style="color:var(--accent-yellow)">Platform 5%</th><th style="color:var(--accent-yellow)">Affiliate 10%</th><th style="color:var(--accent-yellow)">COGS</th><th style="color:var(--accent-yellow)">3PL + ship</th><th style="color:var(--accent-yellow)">Net CM</th><th style="color:var(--accent-yellow)">CM %</th></tr></thead>
+            <tbody>
+              <tr style="color:#fff"><td class="channel-name" style="color:#fff">Starter 20</td><td>$59</td><td>$2.95</td><td>$5.90</td><td>$21.80</td><td>$10.50</td><td style="color:var(--accent-mint);font-weight:600">$17.85</td><td style="color:var(--accent-mint)">30%</td></tr>
+              <tr style="color:#fff"><td class="channel-name" style="color:#fff">Core 30</td><td>$99</td><td>$4.95</td><td>$9.90</td><td>$32.70</td><td>$11.50</td><td style="color:var(--accent-mint);font-weight:600">$39.95</td><td style="color:var(--accent-mint)">40%</td></tr>
+              <tr style="color:#fff"><td class="channel-name" style="color:#fff">Committed 60</td><td>$179</td><td>$8.95</td><td>$17.90</td><td>$65.40</td><td>$14.50</td><td style="color:var(--accent-mint);font-weight:600">$72.25</td><td style="color:var(--accent-mint)">40%</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:13px;color:var(--text-muted-dark);margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);line-height:1.6"><strong style="color:#fff">Launch investment: $700–$1,600.</strong> $0 account setup · $400–$600 in product COGS to seed 20 affiliate creators · $300–$1,000 TikTok Shop ad test budget. <strong style="color:#fff">Why second:</strong> the audience Dawon is already building is native to TikTok. The affiliate program lets creators tag the product directly in their videos — sales attribution is built in. First 3 months the platform fee drops to 1% (promo) which lifts CM ~4 points.</div>
+        </div>
+
+        <!-- AMAZON -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Amazon FBA</div><div class="card-subtitle">Volume play · lowest brand control · highest discovery surface</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th>Pack</th><th>Price</th><th>Referral 15%</th><th>FBA pick/pack</th><th>Inbound ship</th><th>COGS</th><th>Storage (~$0.50/mo amort)</th><th>Net CM</th><th>CM %</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Starter 20</td><td>$59</td><td>$8.85</td><td>$6.00</td><td>$1.50</td><td>$21.80</td><td>$0.50</td><td>$20.35</td><td class="pos">34%</td></tr>
+              <tr><td class="channel-name">Core 30</td><td>$99</td><td>$14.85</td><td>$7.50</td><td>$2.00</td><td>$32.70</td><td>$0.75</td><td>$41.20</td><td class="pos">42%</td></tr>
+              <tr><td class="channel-name">Committed 60</td><td>$179</td><td>$26.85</td><td>$10.00</td><td>$3.50</td><td>$65.40</td><td>$1.50</td><td>$71.75</td><td class="pos">40%</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.55">Amazon Subscribe &amp; Save is +5% off but lifts retention. PPC is on top: $0.30–$1.50 per click in food &amp; bev, conversion 8–12% on a strong listing. Plan $300–$800 monthly ad spend once live.</div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:18px;padding:16px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:12px;line-height:1.55">
+            <strong>Launch investment for Amazon: $2,500–$4,500</strong>
+            <ul style="margin-top:8px;font-size:13px;list-style:disc;padding-left:18px;color:var(--text-secondary);line-height:1.6">
+              <li>Seller Central Pro: $39.99/mo (recurring)</li>
+              <li>Brand Registry: free, requires registered trademark on "Pheeew"</li>
+              <li>A+ Content design: $500 (DIY in Figma or freelance)</li>
+              <li>Product photography for Amazon listing (white-bg + lifestyle): $400–$800</li>
+              <li>First FBA inbound shipment (~5K units): $1,500–$2,500 prep + freight</li>
+              <li>Initial PPC test budget: $500–$1,500</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- WHOLESALE -->
+        <div class="card card-green" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Wholesale &amp; retail</div><div class="card-subtitle">Year 2+ play · the slowest margin, the biggest physical reach</div></div></div>
+          <table class="ch-table" style="color:var(--text-on-dark)">
+            <thead><tr><th style="text-align:left;color:var(--accent-mint)">Pack</th><th style="color:var(--accent-mint)">MSRP</th><th style="color:var(--accent-mint)">Wholesale @ 50%</th><th style="color:var(--accent-mint)">COGS</th><th style="color:var(--accent-mint)">Brokerage 7%</th><th style="color:var(--accent-mint)">Trade promo 5%</th><th style="color:var(--accent-mint)">Net CM</th><th style="color:var(--accent-mint)">CM %</th></tr></thead>
+            <tbody>
+              <tr style="color:#fff"><td class="channel-name" style="color:#fff">Single pouch (cooler)</td><td>$3.50</td><td>$1.75</td><td>$1.09</td><td>$0.12</td><td>$0.09</td><td style="color:var(--accent-mint);font-weight:600">$0.45</td><td style="color:var(--accent-mint)">26%</td></tr>
+              <tr style="color:#fff"><td class="channel-name" style="color:#fff">Tester 10-pack</td><td>$34</td><td>$17.00</td><td>$10.90</td><td>$1.19</td><td>$0.85</td><td style="color:var(--accent-mint);font-weight:600">$4.06</td><td style="color:var(--accent-mint)">24%</td></tr>
+              <tr style="color:#fff"><td class="channel-name" style="color:#fff">Starter 20-pack</td><td>$59</td><td>$29.50</td><td>$21.80</td><td>$2.07</td><td>$1.48</td><td style="color:var(--accent-mint);font-weight:600">$4.15</td><td style="color:var(--accent-mint)">14%</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:13px;color:var(--text-muted-dark);margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);line-height:1.6">
+            <strong style="color:#fff">Launch investment: $10K–$30K+ to test one regional chain.</strong>
+            <ul style="margin-top:8px;font-size:12px;list-style:disc;padding-left:18px;line-height:1.6">
+              <li>Trade show booth (Expo West or Natural Products NY): $2K–$5K</li>
+              <li>Sales sheet design + sample kits: $500–$1,000</li>
+              <li>Broker retainer (regional): $1K–$3K/mo, 5–10% of revenue</li>
+              <li>Slotting fees: $0 (indie) to $5K–$25K (regional chain) to $50K+ (Whole Foods/Sprouts national)</li>
+              <li>Free fills: 1–2 cases per door free at launch</li>
+              <li>Trade marketing budget: 5–10% of wholesale revenue ongoing</li>
+            </ul>
+            <strong style="color:#fff;display:block;margin-top:14px">Why last:</strong>
+            Wholesale CM (14–26%) is roughly half DTC's. Working capital tied up in slotting fees and broker retainers takes a year+ to recoup. The reason to do it: physical placement builds brand equity that DTC alone can't replicate, and direct shopper feedback informs the next SKU. Best done after Pheeew has 6+ months of DTC retention data to bring to buyer meetings.
+          </div>
+        </div>
+
+        <!-- INVESTMENT SUMMARY -->
+        <div class="card">
+          <div class="card-head"><div><div class="card-title">Total channel investment sequence</div><div class="card-subtitle">If we turn on all four channels in order, what does it cost?</div></div></div>
+          <div class="budget-breakdown" style="background:transparent;color:var(--text)">
+            <div class="budget-line" style="border-color:var(--line-soft);color:var(--text)"><span class="budget-label" style="color:var(--text-secondary)">DTC · Day 121</span><span class="budget-value">$0 (live)</span></div>
+            <div class="budget-line" style="border-color:var(--line-soft);color:var(--text)"><span class="budget-label" style="color:var(--text-secondary)">TikTok Shop · Month 2 post-launch</span><span class="budget-value">$700 – $1,600</span></div>
+            <div class="budget-line" style="border-color:var(--line-soft);color:var(--text)"><span class="budget-label" style="color:var(--text-secondary)">Amazon FBA · Month 4–6 post-launch</span><span class="budget-value">$2,500 – $4,500</span></div>
+            <div class="budget-line" style="border-color:var(--line-soft);color:var(--text)"><span class="budget-label" style="color:var(--text-secondary)">Wholesale test · Year 2+</span><span class="budget-value">$10,000 – $30,000</span></div>
+            <div class="budget-line total" style="color:var(--text);font-size:20px;padding-top:18px;margin-top:10px;border-top:1px solid var(--line)"><span class="budget-label" style="color:var(--text)">Cumulative channel launch · Year 1–2</span><span class="budget-value">$13,200 – $36,100</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: PROJECTIONS -->
+      <section class="view" id="view-projections">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>12-Month <span class="accent-name">Projections</span></h1>
+            <div class="subtitle">Conservative · Base · Optimistic. Day 121 launch → end of Year 1.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../operating-playbook/#kpis" target="_blank">Playbook KPIs →</a>
+          </div>
+        </div>
+
+        <!-- SCENARIO STATS -->
+        <div class="grid-3" style="margin-bottom:20px">
+          <div class="finance-stat cogs">
+            <div class="label">Conservative · Year 1</div>
+            <div class="value">$170K</div>
+            <div class="sub">Below Olipop Y1 ($852K). Lean spend, slow growth — survives without raise.</div>
+          </div>
+          <div class="finance-stat margin">
+            <div class="label">Base · Year 1</div>
+            <div class="value">$390K</div>
+            <div class="sub">Tracks Olipop's Year 1. Calibrated against beverage-DTC norms.</div>
+          </div>
+          <div class="finance-stat budget">
+            <div class="label">Optimistic · Year 1</div>
+            <div class="value">$830K</div>
+            <div class="sub">If TikTok Shop + waitlist over-perform. Below Poppi Y1, above MOSH Y1 organic.</div>
+          </div>
+        </div>
+
+        <!-- ASSUMPTIONS -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Assumptions per scenario</div><div class="card-subtitle">What's different between conservative, base, optimistic</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th style="text-align:left">Assumption</th><th>Conservative</th><th>Base</th><th>Optimistic</th><th style="text-align:left">Why</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Waitlist size at launch</td><td>3,000</td><td>5,000</td><td>8,000</td><td style="text-align:left">Episodes 1–14 lead capture</td></tr>
+              <tr><td class="channel-name">Waitlist conversion (Day 121–151)</td><td>10%</td><td>15%</td><td>22%</td><td style="text-align:left">Industry benchmark 8–25%</td></tr>
+              <tr><td class="channel-name">First-month buyers</td><td>300</td><td>750</td><td>1,760</td><td style="text-align:left">Waitlist × conversion</td></tr>
+              <tr><td class="channel-name">New buyers / month (steady)</td><td>200</td><td>500</td><td>1,000</td><td style="text-align:left">Organic + creator + TikTok Shop</td></tr>
+              <tr><td class="channel-name">Subscription rate (of buyers)</td><td>25%</td><td>35%</td><td>45%</td><td style="text-align:left">DTC beverage industry: 30–40%</td></tr>
+              <tr><td class="channel-name">Monthly sub churn</td><td>9%</td><td>7%</td><td>5%</td><td style="text-align:left">Beverage subs industry: 6–8%</td></tr>
+              <tr><td class="channel-name">Blended AOV</td><td>$78</td><td>$95</td><td>$118</td><td style="text-align:left">Mix shifts toward Core/Committed</td></tr>
+              <tr><td class="channel-name">Non-sub repeat rate (Y1)</td><td>1.2×</td><td>1.6×</td><td>2.0×</td><td style="text-align:left">Annual order frequency</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- QUARTERLY -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Quarterly revenue · Year 1</div><div class="card-subtitle">Day 121 = Q1 month 1. Numbers reflect order revenue (not net contribution).</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th style="text-align:left">Quarter</th><th>Conservative</th><th>Base</th><th>Optimistic</th><th style="text-align:left">Note</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Q1 · Sep–Nov 2026</td><td>$35K</td><td>$78K</td><td>$185K</td><td style="text-align:left">Waitlist conversion + first orders</td></tr>
+              <tr><td class="channel-name">Q2 · Dec–Feb 2027</td><td>$38K</td><td>$92K</td><td>$210K</td><td style="text-align:left">Sub base compounds · TikTok Shop on</td></tr>
+              <tr><td class="channel-name">Q3 · Mar–May 2027</td><td>$45K</td><td>$105K</td><td>$215K</td><td style="text-align:left">Amazon launches · spring lift</td></tr>
+              <tr><td class="channel-name">Q4 · Jun–Aug 2027</td><td>$52K</td><td>$115K</td><td>$220K</td><td style="text-align:left">Summer hot-weather peak</td></tr>
+              <tr style="background:var(--bg-soft);font-weight:700"><td class="channel-name">Year 1 total</td><td>$170K</td><td>$390K</td><td>$830K</td><td style="text-align:left">Pre-tax, pre-payment fees</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- BREAKEVEN MATH -->
+        <div class="card card-dark" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Breakeven math · when does Pheeew self-fund?</div><div class="card-subtitle">Subscriber GM × monthly burn = how many active subs we need</div></div></div>
+          <div class="grid-3" style="margin-top:14px">
+            <div style="padding:20px;background:rgba(255,255,255,.04);border-radius:14px">
+              <div style="font-size:11px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Conservative</div>
+              <div style="font-size:24px;font-weight:700;letter-spacing:-.02em">~40 subs</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:6px;line-height:1.55">$1,400/mo fixed burn ÷ ($95 × 35% CM) = 42 Committed-60 subs to break even. Month 4–5.</div>
+            </div>
+            <div style="padding:20px;background:rgba(244,201,93,.08);border-radius:14px;border:1px solid rgba(244,201,93,.2)">
+              <div style="font-size:11px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Base</div>
+              <div style="font-size:24px;font-weight:700;letter-spacing:-.02em">~60 subs</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:6px;line-height:1.55">$2,000/mo with Recharge + paid + gifting ÷ ($95 × 35%) = 60 subs. Month 3.</div>
+            </div>
+            <div style="padding:20px;background:rgba(168,213,186,.1);border-radius:14px;border:1px solid rgba(168,213,186,.25)">
+              <div style="font-size:11px;font-weight:700;color:var(--accent-mint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Optimistic</div>
+              <div style="font-size:24px;font-weight:700;letter-spacing:-.02em">~90 subs</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:6px;line-height:1.55">$3,000/mo with full stack on ÷ ($95 × 35%) = 90 subs. Month 2.</div>
+            </div>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted-dark);margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);line-height:1.6">In all three scenarios, <strong style="color:#fff">breakeven on operating burn happens inside the first 5 months post-launch.</strong> Working capital + waitlist conversion buy the runway. The question isn't "will we break even" but "how fast does subscription compound after that." The 7% monthly churn (base case) means we need new acquisition equal to ~7% of the active sub base every month just to hold flat. Net growth comes from acquisition rate > churn rate.</div>
+        </div>
+
+        <!-- BENCHMARKS -->
+        <div class="card">
+          <div class="card-head"><div><div class="card-title">Industry benchmarks · what Year 1 looked like for comps</div><div class="card-subtitle">Calibrating expectations against real DTC beverage launches</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th style="text-align:left">Brand</th><th>Year 1 revenue</th><th>How</th><th>Funded</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Olipop</td><td>$852K</td><td>DTC + early Whole Foods · clean-soda category build</td><td>$1.3M seed</td></tr>
+              <tr><td class="channel-name">MOSH (granola bar)</td><td>$4M</td><td>Founder fame (Patrick Schwarzenegger) + viral launch</td><td>VC + celeb network</td></tr>
+              <tr><td class="channel-name">Poppi</td><td>$13M</td><td>Shark Tank · prebiotic-soda category claim</td><td>$400K Shark Tank · $11M Series A by Y2</td></tr>
+              <tr><td class="channel-name">Vive Organic</td><td>~$300K Y1</td><td>DTC + LA retail · cold-pressed wellness</td><td>founder + small angel</td></tr>
+              <tr><td class="channel-name">Suja Juice</td><td>~$500K Y1</td><td>SoCal retail-first · cold-pressed</td><td>founder + family</td></tr>
+              <tr style="background:var(--bg-soft)"><td class="channel-name">Pheeew base case</td><td>$390K</td><td>DTC + waitlist + creator + TikTok Shop</td><td>$50K founder pool</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.55">Our base case sits between Vive Organic and Olipop's Year 1. We have less capital than any of these brands but a more concentrated channel mix (DTC + creator-native vs retail-first). The reasonable upside isn't matching Poppi's Shark Tank spike — it's matching Olipop's grind. The reasonable downside is Vive's slower retail-first path. We're betting Dawon's content + TikTok Shop closes the gap between $300K and $850K Year 1.</div>
+        </div>
+      </section>
+
+      <!-- VIEW: LEGAL & TAX -->
+      <section class="view" id="view-legal">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Legal &amp; <span class="accent-name">Tax</span></h1>
+            <div class="subtitle">Entity stack · federal &amp; state tax · FDA · FTC · IP · insurance · deadlines.</div>
+          </div>
+          <div class="view-hero-right">
+            <span style="font-size:12px;color:var(--text-tertiary);font-weight:500">Not legal advice. Jason owns this function — flag anything novel before acting.</span>
+          </div>
+        </div>
+
+        <!-- ENTITY -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Entity stack</div><div class="card-subtitle">Who Pheeew, Inc. is on paper</div></div></div>
+          <dl class="kv-grid">
+            <dt>Legal entity</dt><dd><strong>Pheeew, Inc.</strong> · Delaware C-Corporation</dd>
+            <dt>EIN</dt><dd>41-5111005</dd>
+            <dt>Authorized</dt><dd>30,000,000 common shares</dd>
+            <dt>Issued / FD</dt><dd>24,382,236 fully diluted (incl. 1,996,448 option pool reserved)</dd>
+            <dt>Sole Director</dt><dd>Alex Kim · until Series A</dd>
+            <dt>Officers</dt><dd>Alex Kim (CEO) · Jason Ko (COO) · Justin Kim (CGO) · Dawon Kim (CBO)</dd>
+            <dt>DE registered agent</dt><dd>TBD · most likely Cooley/Stripe Atlas standard</dd>
+            <dt>CA foreign qualification</dt><dd>Registered to do business in California</dd>
+            <dt>Packaging legal line</dt><dd>"Distributed by Pheeew, Inc." — never "All Vital Organics"</dd>
+          </dl>
+        </div>
+
+        <!-- FEDERAL TAX -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Federal tax</div><div class="card-subtitle">Pheeew, Inc. files its own corporate return separate from any founder's personal return</div></div></div>
+          <dl class="kv-grid">
+            <dt>Tax classification</dt><dd>C-Corporation · <strong>21% federal corporate rate</strong> on net income</dd>
+            <dt>Form 1120</dt><dd>Annual corporate return · due <strong>March 15, 2027</strong> for 2026 tax year (or 6-month extension via Form 7004)</dd>
+            <dt>Estimated taxes</dt><dd>Quarterly if projected tax owed &gt; $500. Year 1 will likely show a net operating loss (NOL) carried forward — no quarterly payments needed.</dd>
+            <dt>NOL carryforward</dt><dd>Net operating losses carry forward indefinitely · offset up to 80% of future taxable income</dd>
+            <dt>R&amp;D tax credit</dt><dd>Section 41 credit potentially applies to formulation R&amp;D · qualified spend = founder time on formula work + supplier QA · check threshold at year-end</dd>
+            <dt>Founder salaries</dt><dd>No salaries Year 1 (cash conservation). When started, must be "reasonable compensation" to avoid IRS reclassification of distributions.</dd>
+            <dt>1099 contractors</dt><dd>Any contractor paid &gt; $600/year (creators, designers, copywriters) gets a 1099-NEC by January 31, 2027. Track in QBO with W-9 collected upfront.</dd>
+          </dl>
+        </div>
+
+        <!-- STATE TAX -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">State tax &amp; sales tax</div><div class="card-subtitle">Delaware home + California operating + economic nexus rules</div></div></div>
+          <dl class="kv-grid">
+            <dt>Delaware franchise tax</dt><dd>Minimum <strong>$400/year</strong> (par-value method) up to $200,000 (max method). Due <strong>March 1</strong> annually. Authorized-share count drives the math.</dd>
+            <dt>California franchise tax</dt><dd><strong>$800/year minimum</strong> (Form 100). Due 4 months after fiscal year-end. Applies even with $0 revenue.</dd>
+            <dt>CA income tax</dt><dd>8.84% corporate rate on CA-apportioned income. With single-state ops, most apportionment lands in CA.</dd>
+            <dt>Sales tax · pre-launch</dt><dd>Zero owed · no sales yet.</dd>
+            <dt>Sales tax · economic nexus (most states)</dt><dd>Threshold is typically <strong>$100,000 in sales OR 200 transactions</strong> in a given state in a given year. Once crossed → register, collect, remit.</dd>
+            <dt>California economic nexus</dt><dd>$500,000 threshold. Year 1 base case ($390K) stays under. If we cross, register w/ CDTFA, collect ~7.25–10.25% depending on shipping address.</dd>
+            <dt>Compliance tool</dt><dd>Shopify Tax ($0.99/order) handles auto-collect + remit. TaxJar or Avalara at higher volume. Wire when first state crosses threshold.</dd>
+            <dt>Delaware (DE)</dt><dd>0% sales tax · DE customers pay no sales tax regardless</dd>
+          </dl>
+        </div>
+
+        <!-- 83(b) + FOUNDER -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Founder equity · 83(b) elections</div><div class="card-subtitle">The IRS deadline that's permanently bonkers about · 30 days, no extensions</div></div></div>
+          <dl class="kv-grid">
+            <dt>What it is</dt><dd>Section 83(b) election lets founders pay ordinary income tax on shares at issuance FMV (usually low) instead of vesting FMV (potentially high). Saves enormous tax if the company succeeds.</dd>
+            <dt>Deadline</dt><dd><strong>30 days from share issuance.</strong> No extensions. Certified mail with return receipt to IRS office where founder files personal taxes.</dd>
+            <dt>Alex</dt><dd>Filed at company formation · on file</dd>
+            <dt>Dawon</dt><dd><strong>Filed April 18, 2026</strong> · $6,500 FMV = price paid · 2,880,000 shares · IRS receipt confirmed</dd>
+            <dt>Justin</dt><dd>Verify filing status with Jason. If shares were issued in May 2026 cap restructure, deadline was ~ June 2026.</dd>
+            <dt>Jason</dt><dd>Same — verify filing status.</dd>
+            <dt>If missed</dt><dd>Tax is owed annually on the vested portion at then-current FMV. If Pheeew becomes valuable, this can be a 6-figure problem. <strong>If anyone missed their 30-day window, talk to a CPA immediately about Section 83(b) reasonable cause relief options.</strong></dd>
+          </dl>
+        </div>
+
+        <!-- IP -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Intellectual property</div><div class="card-subtitle">The non-product asset the brand will live or die on</div></div></div>
+          <dl class="kv-grid">
+            <dt>Trademark · "Pheeew"</dt><dd><strong>File ASAP.</strong> Search USPTO first (TESS database). Class 5 (probiotics) + Class 32 (non-alcoholic beverages). DIY via USPTO: $250–$350 per class. Or attorney: $1,000–$2,000 all-in. <strong>Why ASAP:</strong> Amazon Brand Registry requires a registered or pending trademark.</dd>
+            <dt>Trademark · "Your gut knows."</dt><dd>Placeholder tagline · don't file yet. File only after the final tagline is locked.</dd>
+            <dt>Logo + label design</dt><dd>Copyright auto-vests in the creator. Work-for-hire language must be in every designer/contractor contract so rights transfer to Pheeew, Inc.</dd>
+            <dt>Trade dress</dt><dd>The look/feel of the pouch + packaging is protectable but not registered. Document distinctive elements in design files for future enforcement.</dd>
+            <dt>Patent</dt><dd>None needed. Formulation is a blend, not a process. The probiotic strain (SNZ 1969) is licensed/specified, not owned.</dd>
+            <dt>Trade secrets</dt><dd>Exact formula ratios + supplier terms + landed-cost stack are trade secrets. Keep in private docs only (this dashboard is gated).</dd>
+            <dt>Domain</dt><dd>pheeew.com owned. Watch for typo squatters once brand awareness grows. Auto-renew on.</dd>
+          </dl>
+        </div>
+
+        <!-- FDA -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">FDA compliance</div><div class="card-subtitle">Pheeew is a conventional food, not a dietary supplement — the regulatory pathway that lets us sell without 30-day notification</div></div></div>
+          <dl class="kv-grid">
+            <dt>Category</dt><dd><strong>Conventional food</strong> (FDA-regulated under FD&amp;C Act). NOT classified as a dietary supplement.</dd>
+            <dt>Why it matters</dt><dd>Conventional food = no mandatory disclaimer ("These statements have not been evaluated…"), no 75-day FDA notification for new ingredients, fewer label warnings. Supplement classification triggers all of that.</dd>
+            <dt>Probiotic GRAS status</dt><dd>Bacillus coagulans is GRAS-affirmed (Generally Recognized As Safe) for conventional food use. <strong>1B CFU per pouch is well under any safety concern threshold.</strong></dd>
+            <dt>Nutrition Facts</dt><dd>FDA-compliant Nutrition Facts panel required. Includes: serving size (80mL), calories, sugars, fiber (10g — disclosed), and required micronutrients.</dd>
+            <dt>Allergen labeling</dt><dd>Big 9 allergens (milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, soy, sesame). Pheeew's puree base doesn't contain any of the top 9 — declare "May contain" only if there's cross-contamination risk in the facility.</dd>
+            <dt>Country of origin</dt><dd>"Product of Korea" · "Distributed by Pheeew, Inc., Los Angeles CA" on every pouch.</dd>
+            <dt>Claims we CAN'T make</dt><dd>"Cures," "treats," "prevents" any condition (drug claims). "Boosts immunity," "supports digestion" require Structure/Function claim substantiation and disclaimers. Default: stay descriptive — what's in it, how it tastes, when you'd drink it.</dd>
+            <dt>Claims we CAN make</dt><dd>Nutrient content claims ("good source of fiber" at &gt;10% DV — we qualify at 10g). Ingredient descriptions. "Synbiotic" is OK as long as we describe what it means.</dd>
+            <dt>Facility registration</dt><dd>Pheeew, Inc. doesn't manufacture — 좋은영농 does. Importer of record registers with FDA as a food facility under Food Safety Modernization Act (FSMA). Annual.</dd>
+            <dt>FSVP</dt><dd>Foreign Supplier Verification Program required for imported food. Pheeew, Inc. is the importer → Jason owns the FSVP documentation including supplier audits.</dd>
+          </dl>
+        </div>
+
+        <!-- FTC -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">FTC compliance · advertising &amp; testimonials</div><div class="card-subtitle">The agency that polices what we say in ads, on socials, and in influencer posts</div></div></div>
+          <dl class="kv-grid">
+            <dt>Substantiation rule</dt><dd>Every claim about Pheeew (energy, gut health, regularity, fullness, hydration) must have a reasonable basis on file <em>before</em> we make the claim. Build a Claims Substantiation Doc: claim → supporting study/citation → date. Update as we add claims.</dd>
+            <dt>Testimonials</dt><dd>Customer reviews must reflect typical experience. If we highlight a non-typical result ("lost 10 lbs"), we must disclose it's not typical. <strong>Default: never feature aspirational outcomes.</strong></dd>
+            <dt>Influencer disclosure (2023 update)</dt><dd>"#ad" or "Paid partnership" must be clear and prominent in caption. Hidden in 30 hashtags = non-compliant. Story disclosures must persist on screen for the duration of the brand mention.</dd>
+            <dt>Endorsement Guides</dt><dd>Material connection (free product, paid posts) must be disclosed. <strong>Even free product to a creator triggers disclosure</strong> — creators must say "PR" or "gifted" or "#ad". Build this into every creator outreach template.</dd>
+            <dt>Negative-option marketing</dt><dd>Subscription auto-renewal must have: clear upfront disclosure, easy cancellation (single click in customer portal), reminder before renewal. Recharge handles most of this; we audit annually.</dd>
+            <dt>Made in USA</dt><dd>We don't make this claim — product is made in Korea. Avoid any language that implies US manufacture.</dd>
+            <dt>Comparative claims</dt><dd>"Better than [competitor]" requires head-to-head substantiation. Default: don't name competitors. Talk about the category.</dd>
+          </dl>
+        </div>
+
+        <!-- PRIVACY -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Privacy &amp; data</div><div class="card-subtitle">Customer data, email lists, retargeting cookies</div></div></div>
+          <dl class="kv-grid">
+            <dt>Privacy policy</dt><dd>Already live on pheeew-website (privacy + terms + refund + shipping + subscription-terms + accessibility + prop65 + ccpa + cookies + dmca). Maintained by Alex.</dd>
+            <dt>CCPA / CPRA</dt><dd>California Consumer Privacy Act applies once we cross $25M revenue OR process data of 100K+ CA consumers OR sell consumer data. Year 1 base case is well under all three. Maintain "Do Not Sell My Info" toggle just in case.</dd>
+            <dt>COPPA</dt><dd>Children's Online Privacy Protection Act. Pheeew isn't targeted at under-13 — no compliance trigger. Don't market to teens explicitly.</dd>
+            <dt>GDPR</dt><dd>Only triggers if we sell/market to EU customers. <strong>We don't ship internationally Year 1.</strong> If a EU buyer somehow orders, geo-block or refund.</dd>
+            <dt>Klaviyo + Shopify</dt><dd>Both have signed Data Processing Agreements with their platforms. Customer email/PII is processed under their privacy frameworks.</dd>
+            <dt>Cookies</dt><dd>Banner required for EU + recommended for CA. Most Shopify themes include this. Klaviyo signup forms are first-party.</dd>
+            <dt>Data breach</dt><dd>If Shopify/Klaviyo has a breach, they notify us; we notify affected customers within state-required windows (typically 30–60 days).</dd>
+          </dl>
+        </div>
+
+        <!-- INSURANCE -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Insurance</div><div class="card-subtitle">What we need before launch · what's nice-to-have · what we don't need yet</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th style="text-align:left">Type</th><th>Coverage</th><th>Annual cost</th><th style="text-align:left">When</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Product liability</td><td>$1M occurrence / $2M aggregate</td><td>$300–$800</td><td style="text-align:left"><strong>Before launch (Day 90)</strong></td></tr>
+              <tr><td class="channel-name">General liability</td><td>$1M occurrence / $2M aggregate</td><td>$400–$700</td><td style="text-align:left">Before launch · often bundled with product liability</td></tr>
+              <tr><td class="channel-name">Cyber liability</td><td>$1M</td><td>$500–$1,000</td><td style="text-align:left">Once we have a customer DB &gt; 5K</td></tr>
+              <tr><td class="channel-name">Recall insurance</td><td>$500K event</td><td>$500–$2,000</td><td style="text-align:left">Optional · evaluate after 6 months</td></tr>
+              <tr><td class="channel-name">D&amp;O (Directors &amp; Officers)</td><td>$1M</td><td>$1,500–$5,000</td><td style="text-align:left">Pre-Series A (Year 2+)</td></tr>
+              <tr><td class="channel-name">Workers' comp</td><td>State minimum</td><td>variable</td><td style="text-align:left">When first W-2 employee hired</td></tr>
+              <tr style="background:var(--bg-soft);font-weight:700"><td class="channel-name">Year 1 total</td><td colspan="2">~$1,200–$2,500</td><td style="text-align:left">Product + GL + cyber baseline</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.55">Provider candidates for food &amp; beverage: <strong>Thimble, Next Insurance, Coalition (cyber), Food Liability Insurance Program (FLIP).</strong> Quotes typically come back same-day. Most retailers require proof of product liability before stocking.</div>
+        </div>
+
+        <!-- MANUFACTURING / VENDOR -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Manufacturing &amp; vendor contracts</div><div class="card-subtitle">The Korea side · what needs to be on paper before the PO</div></div></div>
+          <dl class="kv-grid">
+            <dt>Master Supply Agreement w/ 좋은영농</dt><dd>Needed before first PO. Covers: pricing schedule, lead time guarantees, minimum order, payment terms (50% deposit / 50% on B/L), quality specs, recall responsibility, force majeure, IP ownership of artwork.</dd>
+            <dt>Quality Agreement</dt><dd>Separate doc · specifies QA tests at production (microbial, fiber assay, CFU count, pH, brix, fill volume), batch documentation, retention samples, certificate of analysis per batch.</dd>
+            <dt>Confidentiality (NDA)</dt><dd>Mutual NDA before sharing final formula/specs. Standard 5-year term, covers formulation + supplier list + cost data.</dd>
+            <dt>Payment</dt><dd>Wire transfer (USD) · SWIFT · 50% deposit on PO · 50% on Bill of Lading. ~5–7 business days each leg.</dd>
+            <dt>Incoterms</dt><dd>FOB Naju factory (Korea). Title transfers to Pheeew, Inc. at port of loading. We carry freight + insurance from there.</dd>
+            <dt>Korean VAT</dt><dd>10% Korean VAT is exporter's responsibility · doesn't apply to exports. We pay zero Korean VAT.</dd>
+            <dt>Freight forwarder</dt><dd>LCL ocean Korea → US West Coast. Quotes from Flexport, Freightos, or local Korean LCL consolidators. ~$1,500–$2,500 per 40K shipment.</dd>
+            <dt>Customs broker</dt><dd>Hire a US customs broker (Livingston, Tower, others). Files entry, calculates duty + Section 122 tariff, releases shipment. ~$250–$500 per shipment.</dd>
+          </dl>
+        </div>
+
+        <!-- DEADLINES -->
+        <div class="card">
+          <div class="card-head"><div><div class="card-title">Deadlines &amp; calendar</div><div class="card-subtitle">The dates that, if missed, cost real money or compliance status</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th style="text-align:left">Item</th><th style="text-align:left">Owner</th><th style="text-align:left">Due</th><th style="text-align:left">Note</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Verify 83(b) for Justin + Jason</td><td style="text-align:left">Jason</td><td style="text-align:left">ASAP</td><td style="text-align:left">If missed, talk to CPA about reasonable-cause relief</td></tr>
+              <tr><td class="channel-name">USPTO trademark file · "Pheeew"</td><td style="text-align:left">Alex + Jason</td><td style="text-align:left">Before Amazon launch</td><td style="text-align:left">Class 5 + Class 32 · ~$700 DIY · ~$2K w/ attorney</td></tr>
+              <tr><td class="channel-name">Product liability insurance bind</td><td style="text-align:left">Jason</td><td style="text-align:left">Day 90 (~Jul 2026)</td><td style="text-align:left">Most 3PLs require proof on file before intake</td></tr>
+              <tr><td class="channel-name">FDA food facility registration</td><td style="text-align:left">Jason</td><td style="text-align:left">Before importing inventory</td><td style="text-align:left">Free · biennial renewal</td></tr>
+              <tr><td class="channel-name">FSVP documentation</td><td style="text-align:left">Jason</td><td style="text-align:left">Before importing</td><td style="text-align:left">Supplier audit + hazard analysis</td></tr>
+              <tr><td class="channel-name">Master Supply Agreement w/ 좋은영농</td><td style="text-align:left">Jason</td><td style="text-align:left">Before PO</td><td style="text-align:left">Korean attorney for review recommended</td></tr>
+              <tr><td class="channel-name">Customs broker engaged</td><td style="text-align:left">Jason</td><td style="text-align:left">Before shipment loads</td><td style="text-align:left">Lead time for paperwork ~2 weeks</td></tr>
+              <tr><td class="channel-name">CA sales tax registration</td><td style="text-align:left">Jason</td><td style="text-align:left">At launch</td><td style="text-align:left">CDTFA · file when first CA sale ships</td></tr>
+              <tr><td class="channel-name">DE franchise tax</td><td style="text-align:left">Jason</td><td style="text-align:left">March 1, 2027</td><td style="text-align:left">Minimum $400</td></tr>
+              <tr><td class="channel-name">CA franchise tax (Form 100)</td><td style="text-align:left">Jason</td><td style="text-align:left">~April 15, 2027</td><td style="text-align:left">$800 minimum</td></tr>
+              <tr><td class="channel-name">Federal Form 1120</td><td style="text-align:left">Jason + CPA</td><td style="text-align:left">March 15, 2027</td><td style="text-align:left">Or 7004 extension to Sept 15</td></tr>
+              <tr><td class="channel-name">1099-NEC to contractors</td><td style="text-align:left">Jason</td><td style="text-align:left">January 31, 2027</td><td style="text-align:left">Anyone paid &gt; $600 in 2026</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.55"><strong style="color:var(--text-secondary)">Engage a CPA before year-end 2026.</strong> Pilot Bookkeeping, Bench, or a CPA who specializes in CPG startups. Year 1 returns can be cleaned up retroactively but it's cheaper to set up the books right from month 1.</div>
         </div>
       </section>
 
@@ -1325,9 +1805,9 @@ details.content-expand[open] summary::after{content:" ▴"}
           <div class="card card-dark">
             <div class="card-head"><div><div class="card-title">Active core</div><div class="card-subtitle">The functional ingredients</div></div></div>
             <div style="margin-bottom:18px">
-              <div style="font-size:12px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Probiotic</div>
+              <div style="font-size:12px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Probiotic · 1B CFU per pouch</div>
               <div style="font-size:16px;font-weight:600">Bacillus coagulans SNZ 1969®</div>
-              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:4px;line-height:1.5">Sanzyme Biologics, India. Spore-form, heat-stable to 180°F — enables hot-fill in the pouch. 30+ clinical studies including IBS, constipation, and immunomodulatory trials.</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:4px;line-height:1.5">Sanzyme Biologics, India. Spore-form, heat-stable to 180°F — enables hot-fill in the pouch. <strong style="color:#fff">1 billion CFU per 80mL serve</strong> · stable through 18-month ambient shelf life. 30+ clinical studies including IBS RCT, constipation RCT, and NK-cell immunomodulatory trials. GRAS-affirmed for use in conventional food.</div>
             </div>
             <div style="padding-top:18px;border-top:1px solid rgba(255,255,255,.1)">
               <div style="font-size:12px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Prebiotic · 10g per pouch</div>
@@ -1965,14 +2445,22 @@ details.content-expand[open] summary::after{content:" ▴"}
     const niche = document.getElementById('crNiche').value.trim() || null;
     const email = document.getElementById('crEmail').value.trim() || null;
     const notes = document.getElementById('crNotes').value.trim() || null;
+    const cost = parseFloat(document.getElementById('crCost').value) || null;
+    const cost_type = document.getElementById('crCostType').value;
     const profile_url = buildProfileUrl(handle, platform);
-    ['crName','crHandle','crFollowers','crFollowing','crNiche','crEmail','crNotes'].forEach(id => document.getElementById(id).value = '');
+    ['crName','crHandle','crFollowers','crFollowing','crNiche','crEmail','crNotes','crCost'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('crCostType').value = 'gift_only';
     const { error } = await supa.from('creators').insert({
       name, handle, platform, follower_count: followers, following_count: following,
-      niche, email, notes, profile_url,
+      niche, email, notes, profile_url, cost, cost_type,
       status:'discovered', added_by: me
     });
     if(error) alert('Error adding creator: ' + error.message);
+  }
+  async function updateCreatorCost(id, cost, cost_type){
+    const update = { cost: parseFloat(cost) || null, updated_at: new Date().toISOString() };
+    if(cost_type) update.cost_type = cost_type;
+    await supa.from('creators').update(update).eq('id', id);
   }
   async function updateCreatorNotes(id, notes){
     await supa.from('creators').update({ notes, updated_at: new Date().toISOString() }).eq('id', id);
@@ -2007,8 +2495,15 @@ details.content-expand[open] summary::after{content:" ▴"}
     const byStatus = (s) => state.creators.filter(c => c.status === s).length;
     document.getElementById('crStatDiscovered').textContent = byStatus('discovered');
     document.getElementById('crStatContacted').textContent = byStatus('contacted') + byStatus('replied');
-    document.getElementById('crStatSample').textContent = byStatus('sample_sent');
-    document.getElementById('crStatPosted').textContent = byStatus('posted');
+    document.getElementById('crStatSample').textContent = byStatus('sample_sent') + byStatus('posted');
+
+    // Total creator spend
+    const paidCreators = state.creators.filter(c => c.cost && c.cost > 0);
+    const totalCost = paidCreators.reduce((sum, c) => sum + Number(c.cost || 0), 0);
+    document.getElementById('crStatCost').textContent = '$' + totalCost.toLocaleString('en-US', {maximumFractionDigits:0});
+    const paidCount = paidCreators.length;
+    const giftedCount = state.creators.filter(c => !c.cost || c.cost === 0).length;
+    document.getElementById('crStatCostMeta').textContent = paidCount + ' paid · ' + giftedCount + ' gifted';
 
     let list = state.creators;
     if(filters.creator !== 'all') list = list.filter(c => c.status === filters.creator);
@@ -2041,6 +2536,7 @@ details.content-expand[open] summary::after{content:" ▴"}
             <div style="display:flex;gap:14px;margin-top:8px;font-size:12px;color:var(--text-tertiary);flex-wrap:wrap">
               <span><strong style="color:var(--text);font-variant-numeric:tabular-nums">${followers}</strong> followers</span>
               ${following ? `<span><strong style="color:var(--text);font-variant-numeric:tabular-nums">${following}</strong> following</span>` : ''}
+              ${c.cost && c.cost > 0 ? `<span style="background:var(--accent-yellow-soft);color:#8B6914;padding:2px 8px;border-radius:8px;font-weight:600">$${Number(c.cost).toLocaleString()} ${({flat_fee:'flat',per_post:'/post',commission:'commission'})[c.cost_type] || ''}</span>` : `<span style="background:#D8EBE0;color:var(--bg-green);padding:2px 8px;border-radius:8px;font-weight:600">Gift only</span>`}
               ${c.email ? `<span>✉ <a href="mailto:${escapeHtml(c.email)}" style="color:var(--text-secondary)">${escapeHtml(c.email)}</a></span>` : ''}
               ${c.last_contacted_at ? `<span>Last contact ${timeAgo(c.last_contacted_at)}</span>` : ''}
             </div>
@@ -2061,15 +2557,28 @@ details.content-expand[open] summary::after{content:" ▴"}
               <label>Notes (style, fit, why them, last DM, etc.)</label>
               <textarea rows="3" onblur="updateCreatorNotes('${c.id}', this.value)">${escapeHtml(c.notes || '')}</textarea>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
               <div>
                 <label>Update followers</label>
                 <input type="number" value="${c.follower_count || ''}" onblur="updateCreatorFollowers('${c.id}', this.value)" placeholder="Refresh follower count">
               </div>
               <div>
-                <label>Profile link</label>
-                <input type="text" value="${escapeHtml(profileUrl || '')}" readonly style="background:var(--bg-soft)">
+                <label>Cost type</label>
+                <select onchange="updateCreatorCost('${c.id}', document.getElementById('cost-${c.id}').value, this.value)">
+                  <option value="gift_only" ${c.cost_type==='gift_only'?'selected':''}>Gift only</option>
+                  <option value="flat_fee" ${c.cost_type==='flat_fee'?'selected':''}>Flat fee</option>
+                  <option value="per_post" ${c.cost_type==='per_post'?'selected':''}>Per post</option>
+                  <option value="commission" ${c.cost_type==='commission'?'selected':''}>Commission</option>
+                </select>
               </div>
+              <div>
+                <label>Cost ($)</label>
+                <input id="cost-${c.id}" type="number" value="${c.cost || ''}" min="0" step="50" onblur="updateCreatorCost('${c.id}', this.value, null)">
+              </div>
+            </div>
+            <div class="full">
+              <label>Profile link</label>
+              <input type="text" value="${escapeHtml(profileUrl || '')}" readonly style="background:var(--bg-soft)">
             </div>
           </div>
         </details>
