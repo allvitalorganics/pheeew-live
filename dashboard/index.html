@@ -235,9 +235,10 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
 .task-tag.high{background:var(--accent-coral-soft);color:#A0432F}
 .task-tag.med{background:var(--accent-yellow-soft);color:#8B6914}
 .task-tag.low{background:#EFEFEF;color:var(--text-secondary)}
-.task-delete{opacity:0;transition:opacity .15s;font-size:12px;color:var(--text-tertiary);padding:4px 8px;border-radius:6px}
-.task-row:hover .task-delete{opacity:1}
-.task-delete:hover{background:#FCD9CF;color:var(--accent-coral)}
+.task-delete{font-size:11px;color:var(--text-tertiary);padding:4px 10px;border-radius:6px;border:1px solid var(--line-soft);background:var(--bg-card);transition:all .15s;flex-shrink:0;cursor:pointer}
+.task-delete:hover{background:#FCD9CF;color:var(--accent-coral);border-color:var(--accent-coral)}
+.row-delete{font-size:11px;color:var(--text-tertiary);padding:4px 8px;border-radius:6px;border:1px solid var(--line-soft);background:var(--bg-card);transition:all .15s;cursor:pointer;line-height:1}
+.row-delete:hover{background:#FCD9CF;color:var(--accent-coral);border-color:var(--accent-coral)}
 
 /* FORM */
 .form-add{display:flex;gap:10px;padding:14px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:14px;margin-bottom:16px;flex-wrap:wrap}
@@ -356,6 +357,138 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
 .conn-status.online .conn-dot{background:#3D8B6E;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 
+/* DAWON SPOTLIGHT (Home hero card) */
+.spotlight{display:grid;grid-template-columns:200px 1fr;gap:24px;background:linear-gradient(135deg,var(--accent-yellow-soft) 0%,var(--bg-card) 60%);border:1px solid var(--accent-yellow);border-radius:24px;padding:28px;align-items:center;overflow:hidden;position:relative}
+.spotlight-photo{width:180px;height:180px;border-radius:50%;background:var(--accent-yellow);display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:700;color:var(--text);box-shadow:0 12px 40px rgba(244,201,93,.4);position:relative}
+.spotlight-photo::after{content:"";position:absolute;inset:-6px;border:2px dashed rgba(0,0,0,.15);border-radius:50%}
+.spotlight-tag{font-size:11px;font-weight:700;color:#8B6914;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.spotlight h3{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px}
+.spotlight p{font-size:14px;color:var(--text-secondary);line-height:1.55;margin-bottom:12px}
+.spotlight-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.spotlight-meta span{padding:5px 12px;background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.06);border-radius:20px;font-weight:600;color:var(--text-secondary)}
+
+/* BRAND / PRODUCT static blocks */
+.kv-grid{display:grid;grid-template-columns:140px 1fr;gap:10px 18px;font-size:14px}
+.kv-grid dt{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+.kv-grid dd{font-size:14px;color:var(--text);line-height:1.5}
+.kv-grid dd strong{font-weight:600}
+.pillar{padding:16px 18px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:14px;margin-bottom:10px}
+.pillar:last-child{margin-bottom:0}
+.pillar .pillar-num{font-size:11px;font-weight:700;color:var(--pheeew);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.pillar .pillar-title{font-size:15px;font-weight:600;margin-bottom:3px}
+.pillar .pillar-text{font-size:13px;color:var(--text-secondary);line-height:1.55}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:32px}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:24px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-26px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg-card);border:3px solid var(--pheeew);box-shadow:0 0 0 4px var(--bg-page)}
+.tl-item.done::before{background:var(--pheeew)}
+.tl-item.now::before{background:var(--accent-yellow);border-color:var(--accent-yellow);animation:tl-pulse 2s infinite}
+@keyframes tl-pulse{0%,100%{box-shadow:0 0 0 4px var(--bg-page),0 0 0 8px rgba(244,201,93,.3)}50%{box-shadow:0 0 0 4px var(--bg-page),0 0 0 12px rgba(244,201,93,0)}}
+.tl-day{font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.tl-title{font-size:15px;font-weight:600;line-height:1.35;margin-bottom:3px}
+.tl-text{font-size:13px;color:var(--text-secondary);line-height:1.5}
+.tl-owner{display:inline-block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:8px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+
+/* ANNOUNCEMENTS */
+.ann-item{display:flex;gap:12px;padding:16px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:14px;margin-bottom:10px;position:relative}
+.ann-item:last-child{margin-bottom:0}
+.ann-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px;flex-shrink:0}
+.ann-avatar.alex{background:var(--pheeew)}
+.ann-avatar.jason{background:var(--bg-green)}
+.ann-avatar.justin{background:var(--accent-coral)}
+.ann-avatar.dawon{background:var(--accent-yellow);color:var(--text)}
+.ann-body{flex:1;min-width:0}
+.ann-meta{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.ann-name{font-weight:600;font-size:13px}
+.ann-time{font-size:11px;color:var(--text-tertiary)}
+.ann-text{font-size:14px;color:var(--text);line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
+.ann-delete{position:absolute;top:12px;right:12px}
+
+/* CONTENT TRACKER */
+.content-card{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:14px;padding:18px;margin-bottom:12px;position:relative}
+.content-card:last-child{margin-bottom:0}
+.content-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.content-card-title{font-size:15px;font-weight:600;line-height:1.3}
+.content-card-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;font-size:11px}
+.content-card-meta .pill{padding:3px 9px;border-radius:8px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.content-format-reel{background:#F4D5C5;color:#8B4A2C}
+.content-format-carousel{background:#D8EBE0;color:var(--bg-green)}
+.content-format-story{background:var(--accent-yellow-soft);color:#8B6914}
+.content-format-video{background:#E1D6F0;color:#523B7A}
+.content-format-post{background:#EFEFEF;color:var(--text-secondary)}
+.content-format-other{background:#EFEFEF;color:var(--text-secondary)}
+.content-status{padding:3px 9px;border-radius:8px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:11px}
+.content-status-planned{background:#EFEFEF;color:var(--text-secondary)}
+.content-status-scripted{background:#FCE9A6;color:#8B6914}
+.content-status-filmed{background:#FCD9CF;color:#A0432F}
+.content-status-edited{background:#F4D5C5;color:#8B4A2C}
+.content-status-scheduled{background:#B8D4E3;color:#2D5773}
+.content-status-posted{background:#D8EBE0;color:var(--bg-green)}
+.content-status-archived{background:#D0D0D0;color:#555}
+.content-card-body{font-size:13px;color:var(--text-secondary);line-height:1.5;margin-bottom:8px}
+.content-card-body p{margin-bottom:6px}
+.content-card-body p:last-child{margin-bottom:0}
+.content-metrics{display:flex;gap:14px;font-size:12px;color:var(--text-tertiary);margin-top:8px;padding-top:10px;border-top:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+.content-metrics span strong{color:var(--text);font-weight:600}
+.content-actions{position:absolute;top:14px;right:14px;display:flex;gap:6px}
+details.content-expand summary{cursor:pointer;font-size:12px;color:var(--pheeew);font-weight:600;list-style:none;margin-top:4px}
+details.content-expand summary::after{content:" ▾"}
+details.content-expand[open] summary::after{content:" ▴"}
+.expanded-fields{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft);display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px}
+.expanded-fields label{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;display:block}
+.expanded-fields input,.expanded-fields select,.expanded-fields textarea{width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg-card);outline:none;font-size:13px}
+.expanded-fields .full{grid-column:1 / -1}
+.expanded-fields textarea{resize:vertical;min-height:60px;font-family:inherit;line-height:1.5}
+
+/* CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:12px;padding:8px}
+.cal-head{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;text-align:center;padding:8px 4px}
+.cal-cell{background:var(--bg-card);border-radius:8px;padding:8px;min-height:80px;font-size:12px;position:relative;border:1px solid transparent;cursor:default;overflow:hidden}
+.cal-cell.empty{background:transparent}
+.cal-cell.today{border-color:var(--pheeew);background:var(--pheeew-tint)}
+.cal-cell.today .cal-num{color:var(--pheeew);font-weight:700}
+.cal-num{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;margin-bottom:4px}
+.cal-event{font-size:10px;background:var(--pheeew);color:#fff;border-radius:4px;padding:2px 6px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;line-height:1.3}
+.cal-event.milestone{background:var(--accent-coral)}
+.cal-event.deadline{background:var(--bg-dark)}
+.cal-event.launch{background:var(--bg-green)}
+.cal-event.reminder{background:var(--accent-yellow);color:var(--text)}
+.cal-event.meeting{background:var(--pheeew)}
+.cal-month-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.cal-month-title{font-size:18px;font-weight:600;letter-spacing:-.01em}
+
+/* EVENT LIST */
+.event-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.event-row:last-child{border-bottom:none}
+.event-date{width:64px;text-align:center;padding:8px 0;background:var(--bg-soft);border-radius:10px;flex-shrink:0}
+.event-date-month{font-size:10px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em}
+.event-date-day{font-size:22px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.event-date.past{opacity:.4}
+.event-row.past{opacity:.55}
+.event-body{flex:1;min-width:0}
+.event-title{font-size:14px;font-weight:600;line-height:1.4}
+.event-meta{font-size:12px;color:var(--text-tertiary);margin-top:3px;display:flex;gap:10px;flex-wrap:wrap}
+.event-kind{padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.event-kind.meeting{background:var(--pheeew-tint);color:var(--pheeew)}
+.event-kind.milestone{background:var(--accent-coral-soft);color:#A0432F}
+.event-kind.deadline{background:#EFEFEF;color:var(--text)}
+.event-kind.launch{background:#D8EBE0;color:var(--bg-green)}
+.event-kind.reminder{background:var(--accent-yellow-soft);color:#8B6914}
+.event-kind.other{background:#EFEFEF;color:var(--text-secondary)}
+
+/* MARKETING BUDGET CARD */
+.budget-breakdown{padding:14px 0;display:flex;flex-direction:column;gap:10px}
+.budget-line{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.budget-line.total{border-bottom:none;padding-top:14px;font-size:18px;font-weight:700}
+.budget-label{color:var(--text-muted-dark)}
+.budget-line.total .budget-label{color:#fff}
+.budget-value{font-variant-numeric:tabular-nums;font-weight:600}
+.budget-value.neg{color:var(--accent-coral)}
+.budget-value.pos{color:var(--accent-mint)}
+
 /* MOBILE */
 @media (max-width: 980px){
   .app-shell{grid-template-columns:1fr}
@@ -467,6 +600,22 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
       </a>
     </nav>
 
+    <div class="sidebar-section-label">Brand</div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" data-view="brand" onclick="switchView('brand', event)">
+        <span class="sidebar-nav-icon">◆</span>
+        <span class="sidebar-nav-label">Brand</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="product" onclick="switchView('product', event)">
+        <span class="sidebar-nav-icon">▣</span>
+        <span class="sidebar-nav-label">Product</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="timeline" onclick="switchView('timeline', event)">
+        <span class="sidebar-nav-icon">⟶</span>
+        <span class="sidebar-nav-label">Timeline</span>
+      </a>
+    </nav>
+
     <div class="sidebar-section-label">Work</div>
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item" data-view="tasks" onclick="switchView('tasks', event)">
@@ -474,15 +623,34 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
         <span class="sidebar-nav-label">Tasks</span>
         <span class="sidebar-nav-count" id="navCountTasks">0</span>
       </a>
+      <a class="sidebar-nav-item" data-view="content" onclick="switchView('content', event)">
+        <span class="sidebar-nav-icon">▶</span>
+        <span class="sidebar-nav-label">Content</span>
+        <span class="sidebar-nav-count" id="navCountContent">0</span>
+      </a>
       <a class="sidebar-nav-item" data-view="creators" onclick="switchView('creators', event)">
         <span class="sidebar-nav-icon">◉</span>
         <span class="sidebar-nav-label">Creators</span>
         <span class="sidebar-nav-count" id="navCountCreators">0</span>
       </a>
+      <a class="sidebar-nav-item" data-view="calendar" onclick="switchView('calendar', event)">
+        <span class="sidebar-nav-icon">▦</span>
+        <span class="sidebar-nav-label">Calendar</span>
+        <span class="sidebar-nav-count" id="navCountEvents">0</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="announcements" onclick="switchView('announcements', event)">
+        <span class="sidebar-nav-icon">◆</span>
+        <span class="sidebar-nav-label">Announcements</span>
+        <span class="sidebar-nav-count" id="navCountAnn">0</span>
+      </a>
     </nav>
 
     <div class="sidebar-section-label">Documents</div>
     <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" data-view="docs" onclick="switchView('docs', event)">
+        <span class="sidebar-nav-icon">📚</span>
+        <span class="sidebar-nav-label">All docs (embedded)</span>
+      </a>
       <a class="sidebar-nav-item" href="../operating-playbook/" target="_blank">
         <span class="sidebar-nav-icon">📘</span>
         <span class="sidebar-nav-label">Operating Playbook</span>
@@ -542,9 +710,24 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
           </div>
           <div class="stat">
             <div class="stat-label">Total Raised (Founders)</div>
-            <div class="stat-value">$36,500</div>
-            <div class="stat-meta up">↗ vs $6,750 pre-restructure</div>
+            <div class="stat-value">$50,250</div>
+            <div class="stat-meta up">↗ Alex $6,750 + Justin $22K + Jason $15K + Dawon $6,500</div>
             <div class="stat-icon">$</div>
+          </div>
+        </div>
+
+        <!-- DAWON SPOTLIGHT: face of the brand -->
+        <div class="spotlight" style="margin-bottom:20px">
+          <div class="spotlight-photo">DK</div>
+          <div>
+            <div class="spotlight-tag">◆ Face of the Brand</div>
+            <h3>Dawon is the main character.</h3>
+            <p>Every reel, every carousel, every founder photo on the site is Dawon. The brand is hers to inhabit — Alex writes the strategy, Dawon owns the voice the audience actually meets. Her 15-episode storyline is the pre-launch arc; her ongoing content is everything after.</p>
+            <div class="spotlight-meta">
+              <span>15-episode origin arc</span>
+              <span>Reels + carousels weekly</span>
+              <span>CBO · 11.81% equity</span>
+            </div>
           </div>
         </div>
 
@@ -728,9 +911,9 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
             <div class="sub">@ Committed 60-pack subscription, $2.32 per pouch</div>
           </div>
           <div class="finance-stat budget">
-            <div class="label">Monthly Paid Ceiling</div>
-            <div class="value">$1,000</div>
-            <div class="sub">Hard cap through early stage · discipline is "win without needing to"</div>
+            <div class="label">Marketing Bucket</div>
+            <div class="value">$19,378</div>
+            <div class="sub">Capital raised ($50,250) − production ($30,872 @ ₩1,150 × 40K) · before freight + tools</div>
           </div>
         </div>
 
@@ -765,19 +948,35 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
                 <div class="card-subtitle">Cash in to date</div>
               </div>
             </div>
-            <div class="inv-row alex"><div class="av">AK</div><div><div class="name">Alex Kim</div><div class="sub">35% issued · 40% post-pool</div></div><div class="amount">$6,750</div></div>
+            <div class="inv-row alex"><div class="av">AK</div><div><div class="name">Alex Kim</div><div class="sub">40% post-pool</div></div><div class="amount">$6,750</div></div>
             <div class="inv-row justin"><div class="av">JK</div><div><div class="name">Justin Kim</div><div class="sub">23% post-pool</div></div><div class="amount">$22,000</div></div>
             <div class="inv-row jason"><div class="av">JK</div><div><div class="name">Jason Ko</div><div class="sub">17% post-pool</div></div><div class="amount">$15,000</div></div>
-            <div class="inv-row dawon"><div class="av">DK</div><div><div class="name">Dawon Kim</div><div class="sub">11.81% post-pool · sweat</div></div><div class="amount">$0</div></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;margin-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:13px"><span style="color:var(--text-muted-dark);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Total in</span><span style="font-size:22px;font-weight:700">$43,750</span></div>
+            <div class="inv-row dawon"><div class="av">DK</div><div><div class="name">Dawon Kim</div><div class="sub">11.81% post-pool · 83(b) FMV</div></div><div class="amount">$6,500</div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;margin-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:13px"><span style="color:var(--text-muted-dark);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Total in</span><span style="font-size:22px;font-weight:700">$50,250</span></div>
           </div>
+        </div>
+
+        <!-- Marketing budget breakdown -->
+        <div class="card card-green" style="margin-bottom:20px">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Marketing budget — how it's calculated</div>
+              <div class="card-subtitle">Whatever's left after the production line is the bucket we spend on getting attention</div>
+            </div>
+          </div>
+          <div class="budget-breakdown">
+            <div class="budget-line"><span class="budget-label">Capital raised (4 founders)</span><span class="budget-value pos">+ $50,250</span></div>
+            <div class="budget-line"><span class="budget-label">Production line · 40,000 units × ₩1,150 (ex-factory)</span><span class="budget-value neg">− $30,872</span></div>
+            <div class="budget-line total"><span class="budget-label">Marketing bucket</span><span class="budget-value">$19,378</span></div>
+          </div>
+          <div style="font-size:12px;color:var(--text-muted-dark);margin-top:14px;line-height:1.55;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">This is the gross marketing line before LCL freight (~$1.5–2.5K), customs, 3PL setup, Shopify/Klaviyo/Recharge spin-up. Net spendable for paid ads, creator gifting, micro-influencer pay, content tools is closer to <strong style="color:#fff">$13–15K</strong>. The discipline is "win without needing to spend" — organic + Dawon's content + curated creator gifting before paid scales.</div>
         </div>
 
         <div class="card">
           <div class="card-head">
             <div>
               <div class="card-title">Monthly burn anchors</div>
-              <div class="card-subtitle">Recurring spend we know we'll have once tools are live</div>
+              <div class="card-subtitle">Recurring spend once tools + 3PL are live</div>
             </div>
           </div>
           <table class="ch-table">
@@ -925,8 +1124,8 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
           </div>
 
           <form class="form-add" onsubmit="addCreator(event)">
-            <input type="text" id="crName" placeholder="Name" required>
-            <input type="text" id="crHandle" placeholder="@handle">
+            <input type="text" id="crName" placeholder="Name" required style="flex-basis:160px">
+            <input type="text" id="crHandle" placeholder="@handle (no @)" style="flex-basis:140px">
             <select id="crPlatform">
               <option value="instagram">Instagram</option>
               <option value="tiktok">TikTok</option>
@@ -934,26 +1133,341 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
               <option value="multi">Multi</option>
               <option value="other">Other</option>
             </select>
-            <input type="number" id="crFollowers" placeholder="Followers">
-            <input type="text" id="crNiche" placeholder="Niche (gut, wellness, food…)">
-            <input type="email" id="crEmail" placeholder="Email">
+            <input type="number" id="crFollowers" placeholder="Followers" style="flex-basis:110px">
+            <input type="number" id="crFollowing" placeholder="Following" style="flex-basis:110px">
+            <input type="text" id="crNiche" placeholder="Niche (gut, wellness, food…)" style="flex-basis:180px">
+            <input type="email" id="crEmail" placeholder="Email" style="flex-basis:180px">
+            <input type="text" id="crNotes" placeholder="Notes (style, fit, why them)" style="flex:1;min-width:200px">
             <button type="submit">Add</button>
           </form>
 
+          <div style="font-size:12px;color:var(--text-tertiary);background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:10px;padding:10px 14px;margin-bottom:14px;line-height:1.5">
+            <strong style="color:var(--text-secondary)">On auto-pull from IG/TikTok/YouTube:</strong> live API pulls require either a paid creator-CRM service (Modash from ~$99/mo, GRIN, Aspire) or per-platform Graph API setup where each creator OAuths into our app. For free + zero-friction, this CRM stores the profile URL — one click opens their feed so you can eyeball follower count and update. Auto-sync can be wired in a later pass if the manual pace gets tight.
+          </div>
+
           <div id="creatorTable">
-            <div class="creator-row head">
-              <div></div>
-              <div>Creator</div>
-              <div>Platform</div>
-              <div>Followers</div>
-              <div>Status</div>
-              <div>Contact</div>
-              <div></div>
-            </div>
             <div id="creatorRows">
               <div class="activity-empty">No creators yet — add the first one above.</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- VIEW: BRAND -->
+      <section class="view" id="view-brand">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>The <span class="accent-name">Brand</span></h1>
+            <div class="subtitle">Positioning, voice, mission. What Pheeew is and isn't.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../storyline-brief/" target="_blank">Storyline brief →</a>
+            <a class="btn-secondary" href="../operating-playbook/" target="_blank">Operating playbook →</a>
+          </div>
+        </div>
+
+        <div class="grid-2-1" style="margin-bottom:20px">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Positioning</div>
+                <div class="card-subtitle">One paragraph the team agrees on</div>
+              </div>
+            </div>
+            <p style="font-size:16px;line-height:1.6;color:var(--text)">Pheeew is <strong>a smoothie for your gut.</strong> A 100mL synbiotic puree pouch — real fruit blended with a prebiotic fiber and a clinically-studied probiotic strain — for people who tried doing more for their gut, gave up, and want something they'll actually finish. We're not a juice. We're not a shot. We're not a supplement. We're the food version of the gut routine.</p>
+            <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft)">
+              <div style="font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Tagline (placeholder)</div>
+              <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew)">"Your gut knows."</div>
+              <div style="font-size:12px;color:var(--text-tertiary);margin-top:6px">Final direction: warmer Poppi/Olipop × Suja/Vive feel. Not locked.</div>
+            </div>
+          </div>
+
+          <div class="card card-dark">
+            <div class="card-head"><div><div class="card-title">Architecture</div><div class="card-subtitle">How we name what's next</div></div></div>
+            <div style="font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px">Gut + <span style="color:var(--accent-yellow)">(function)</span>.</div>
+            <div style="font-size:13px;color:var(--text-muted-dark);margin-bottom:18px;line-height:1.55">Every SKU is "Gut + [a second thing your body actually feels]." Anchor product is Gut + Energy. Phase 2 is Gut + Digestion. Phase 3 is Gut + Immunity. No "wellness" buzzwords. Each pairing is one body benefit you can name in a sentence.</div>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+              <div style="padding:10px 12px;background:rgba(244,201,93,.12);border-radius:8px"><strong style="color:var(--accent-yellow)">Phase 1 ·</strong> Gut + Energy · Berry-forward</div>
+              <div style="padding:10px 12px;background:rgba(255,255,255,.05);border-radius:8px">Phase 2 · Gut + Digestion · Tropical Punch</div>
+              <div style="padding:10px 12px;background:rgba(255,255,255,.05);border-radius:8px">Phase 3 · Gut + Immunity · Ginger &amp; Pear</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Voice pillars</div><div class="card-subtitle">How the brand sounds when Dawon speaks for it</div></div></div>
+          <div class="pillar"><div class="pillar-num">01 · Discovery, not teacher</div><div class="pillar-title">"Here's what I tried" — never "here's what you should do."</div><div class="pillar-text">Audience is brought along as a witness, not a student. The Glossier <em>Into the Gloss</em> side of the line, not the "10 products you need" side.</div></div>
+          <div class="pillar"><div class="pillar-num">02 · Body, not aesthetic</div><div class="pillar-title">The gut is a place to live in, not look at.</div><div class="pillar-text">No before/after weight loss. No body language as the metric. The win is how you feel inside your skin, not how your skin looks.</div></div>
+          <div class="pillar"><div class="pillar-num">03 · Feeling first, then mechanism</div><div class="pillar-title">Hero copy speaks in feelings. Science lives on the science page.</div><div class="pillar-text">"Synbiotic," "Bacillus coagulans SNZ 1969," "clinically-studied" — these are footer language and PDP technicals. The front door talks about how it feels, when you'd use it, why you'd come back.</div></div>
+          <div class="pillar"><div class="pillar-num">04 · Earned, not announced</div><div class="pillar-title">Pheeew shows up in Episode 11 — not Episode 1.</div><div class="pillar-text">Dawon's first ten episodes are her own story. The brand is the answer she found, not the thing she's selling. Soft presence in captions (waitlist link only) until the story earns the right to name it.</div></div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card card-soft">
+            <div class="card-head"><div><div class="card-title">Public language</div></div></div>
+            <ul style="font-size:13px;line-height:1.7;list-style:disc;padding-left:18px;color:var(--text-secondary)">
+              <li>Los Angeles + Korea</li>
+              <li>Korea-born, Seattle-raised, LA-based (Alex)</li>
+              <li>Pheeew, Inc. · Delaware C-Corp</li>
+              <li>Distributed by Pheeew, Inc.</li>
+            </ul>
+          </div>
+          <div class="card card-soft">
+            <div class="card-head"><div><div class="card-title">Internal-only</div></div></div>
+            <ul style="font-size:13px;line-height:1.7;list-style:disc;padding-left:18px;color:var(--text-secondary)">
+              <li>Silver Lake / East-side</li>
+              <li>좋은영농 manufacturer name</li>
+              <li>Specific clinic / pill names</li>
+              <li>Founder restructure math</li>
+            </ul>
+          </div>
+          <div class="card card-soft">
+            <div class="card-head"><div><div class="card-title">Words we don't use</div></div></div>
+            <ul style="font-size:13px;line-height:1.7;list-style:disc;padding-left:18px;color:var(--text-secondary)">
+              <li>"Detox" (regulatory + pseudoscience)</li>
+              <li>"Cures" / "fixes" (FDA + FTC)</li>
+              <li>"Postbiotic" (different category)</li>
+              <li>"Drink" / "juice" / "shot"</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: PRODUCT -->
+      <section class="view" id="view-product">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>The <span class="accent-name">Product</span></h1>
+            <div class="subtitle">Format, SKU plan, ingredients, manufacturing.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../operating-playbook/#margins" target="_blank">Margin math →</a>
+          </div>
+        </div>
+
+        <div class="grid-2-1" style="margin-bottom:20px">
+          <div class="card">
+            <div class="card-head"><div><div class="card-title">Format</div><div class="card-subtitle">What the product physically is</div></div></div>
+            <dl class="kv-grid">
+              <dt>Form</dt><dd><strong>100mL puree pouch</strong> · single-serve · hot-fill</dd>
+              <dt>Pack sizes</dt><dd>Tester 10 · Starter 20 · Core 30 · Committed 60 · Household 120</dd>
+              <dt>MOQ</dt><dd><strong>40,000 pouches per SKU</strong> · multi-SKU launch multiplies the commitment</dd>
+              <dt>Phase 1 SKU</dt><dd><strong>Gut + Energy</strong> · berry-forward · 블루베리·사과·딸기·크랜베리·엘더베리</dd>
+              <dt>Phase 2 SKU</dt><dd>Gut + Digestion · Tropical Punch · 열대과일·망고·바나나</dd>
+              <dt>Phase 3 SKU</dt><dd>Gut + Immunity · Ginger &amp; Pear · 사과·배·생강</dd>
+              <dt>Shelf life</dt><dd>18 months ambient (target, pending QA)</dd>
+              <dt>Storage</dt><dd>Room temp; refrigerate after opening; freeze for slushy texture</dd>
+            </dl>
+          </div>
+
+          <div class="card card-dark">
+            <div class="card-head"><div><div class="card-title">Active core</div><div class="card-subtitle">The functional ingredients</div></div></div>
+            <div style="margin-bottom:18px">
+              <div style="font-size:12px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Probiotic</div>
+              <div style="font-size:16px;font-weight:600">Bacillus coagulans SNZ 1969®</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:4px;line-height:1.5">Sanzyme Biologics, India. Spore-form, heat-stable to 180°F — enables hot-fill in the pouch. 30+ clinical studies including IBS, constipation, and immunomodulatory trials.</div>
+            </div>
+            <div style="padding-top:18px;border-top:1px solid rgba(255,255,255,.1)">
+              <div style="font-size:12px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Prebiotic</div>
+              <div style="font-size:16px;font-weight:600">Synbiotic fiber blend</div>
+              <div style="font-size:12px;color:var(--text-muted-dark);margin-top:4px;line-height:1.5">Real fruit + targeted prebiotic fiber that feeds the probiotic strain. Synbiotic = prebiotic + probiotic (NOT postbiotic — that's a separate category).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Pricing ladder · pre-launch</div><div class="card-subtitle">DTC ladder mirrors what the audience actually buys: bigger packs = bigger savings on subscription</div></div></div>
+          <table class="ch-table">
+            <thead><tr><th>Pack</th><th>One-time</th><th>Subscribe &amp; save</th><th>Per pouch (sub)</th><th>Savings vs OT</th></tr></thead>
+            <tbody>
+              <tr><td class="channel-name">Tester · 10 pouches</td><td>$34</td><td>—</td><td>$3.40</td><td>—</td></tr>
+              <tr><td class="channel-name">Starter · 20 pouches</td><td>$59</td><td>$49</td><td>$2.45</td><td class="pos">17% off</td></tr>
+              <tr><td class="channel-name">Core · 30 pouches</td><td>$99</td><td>$72</td><td>$2.40</td><td class="pos">27% off</td></tr>
+              <tr><td class="channel-name">Committed · 60 pouches</td><td>$179</td><td>$139</td><td>$2.32</td><td class="pos">22% off</td></tr>
+              <tr><td class="channel-name">Household · 120 pouches</td><td>$329</td><td>$259</td><td>$2.16</td><td class="pos">21% off</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid-3">
+          <div class="stat"><div class="stat-label">Ex-factory cost</div><div class="stat-value">₩1,150</div><div class="stat-meta">per pouch · 40K MOQ</div></div>
+          <div class="stat yellow"><div class="stat-label">Landed COGS</div><div class="stat-value">$1.09</div><div class="stat-meta">incl. freight + 10% tariff</div></div>
+          <div class="stat dark"><div class="stat-label">Production line</div><div class="stat-value">$30,872</div><div class="stat-meta">40K × ₩1,150 ÷ 1,490 KRW/USD</div></div>
+        </div>
+
+        <div class="card" style="margin-top:20px">
+          <div class="card-head"><div><div class="card-title">Manufacturing</div><div class="card-subtitle">Public-facing language only. Internal facility name in playbook.</div></div></div>
+          <dl class="kv-grid">
+            <dt>Country</dt><dd>South Korea · Naju city, Jeollanam-do</dd>
+            <dt>Facility</dt><dd>FDA-registered · HACCP · GMP-certified hot-fill puree line</dd>
+            <dt>Lead time</dt><dd><strong>90 days</strong> from order placement to finished product</dd>
+            <dt>Freight</dt><dd>LCL ocean freight · Korea → US West Coast · ~21–30 days door-to-3PL</dd>
+            <dt>Duty</dt><dd>0% MFN under KORUS FTA + 10% Section 122 tariff (Feb 24, 2026, 150-day window)</dd>
+            <dt>3PL</dt><dd>TBD · West Coast · pick &amp; pack for DTC, freight-forward for any wholesale</dd>
+          </dl>
+        </div>
+      </section>
+
+      <!-- VIEW: TIMELINE -->
+      <section class="view" id="view-timeline">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Launch <span class="accent-name">Timeline</span></h1>
+            <div class="subtitle">Days 0–120. Day 0 is the moment all four founders confirm the restructure in writing.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../operating-playbook/#thirty" target="_blank">Full launch path →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tl">
+            <div class="tl-item done"><div class="tl-day">Day −7 → Day 0</div><div class="tl-title">Cap table restructure email confirmations</div><div class="tl-text">All four founders confirm 40/23/17/11.81/8.19 in writing. Justin wires $22K, Jason wires $15K net of his existing $6,750. Dawon's 83(b) is on file (filed April 18, 2026).</div><span class="tl-owner task-tag alex">Alex owns</span></div>
+
+            <div class="tl-item now"><div class="tl-day">Days 0–14</div><div class="tl-title">Manufacturer PO + freight bookings</div><div class="tl-text">Place the 40K Gut + Energy order with the Naju facility. Lock the LCL freight booking. Open the 3PL relationship. Lock final pouch artwork + FDA-compliant labeling.</div><span class="tl-owner task-tag justin">Justin owns</span></div>
+
+            <div class="tl-item"><div class="tl-day">Days 14–60</div><div class="tl-title">Pre-launch content sprint · Dawon's episodes 1–8</div><div class="tl-text">Episodes 1–8 of the storyline arc go live as reels + carousels. Waitlist link in every caption. Goal: 5,000+ waitlist signups before launch. Soft creator gifting starts at week 4.</div><span class="tl-owner task-tag dawon">Dawon owns</span></div>
+
+            <div class="tl-item"><div class="tl-day">Days 30–60</div><div class="tl-title">Site, Shopify, Klaviyo, Recharge spin-up</div><div class="tl-text">Production site goes live with waitlist mode. Klaviyo flows: welcome, waitlist drip, abandoned cart, post-purchase. Recharge subscription wired with the 5-pack ladder. Test mode through Day 90.</div><span class="tl-owner task-tag alex">Alex owns</span></div>
+
+            <div class="tl-item"><div class="tl-day">Days 60–90</div><div class="tl-title">Production complete · LCL freight in transit</div><div class="tl-text">Manufacturer ships from Naju → US West Coast (LCL, ~21–30 days). Customs clearance arranged in advance. 3PL receives, racks, palletizes. Episodes 9–12 air.</div><span class="tl-owner task-tag jason">Jason owns</span></div>
+
+            <div class="tl-item"><div class="tl-day">Days 90–115</div><div class="tl-title">Final QA + warehouse intake · Episodes 13–14</div><div class="tl-text">Inventory live in 3PL. QA pull from 3PL → founder sample. Site flips from waitlist to pre-order with delivery dates. Email list warmed to ~5–10K. Episodes 13–14 introduce Pheeew by name.</div><span class="tl-owner task-tag jason">Jason owns</span></div>
+
+            <div class="tl-item"><div class="tl-day">Day 120 · Target Aug 24, 2026</div><div class="tl-title">Public launch · waitlist converts · Episode 15 lands</div><div class="tl-text">Site goes live to public. Waitlist gets the first 48-hour window. Episode 15 lands as the hand-off — from the origin arc to "what's happening now." Paid spend stays at $1K/mo ceiling; the rest of the bucket is held for the first 30 post-launch days.</div><span class="tl-owner task-tag alex">Alex owns</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: CONTENT TRACKER (Dawon's posts) -->
+      <section class="view" id="view-content">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Content <span class="accent-name">Tracker</span></h1>
+            <div class="subtitle">Dawon's reels, carousels, and posts. Concept → caption → metrics.</div>
+          </div>
+          <div class="view-hero-right">
+            <span class="conn-status online"><span class="conn-dot"></span>Real-time sync</span>
+            <a class="btn-secondary" href="../storyline-brief/" target="_blank">Storyline brief →</a>
+          </div>
+        </div>
+
+        <div class="grid-4" style="margin-bottom:20px">
+          <div class="stat"><div class="stat-label">Planned</div><div class="stat-value" id="ctStatPlanned">0</div><div class="stat-meta">in concept</div></div>
+          <div class="stat yellow"><div class="stat-label">In production</div><div class="stat-value" id="ctStatProd">0</div><div class="stat-meta">scripted → filmed → edited</div></div>
+          <div class="stat dark"><div class="stat-label">Scheduled</div><div class="stat-value" id="ctStatScheduled">0</div><div class="stat-meta">queued to post</div></div>
+          <div class="stat"><div class="stat-label">Posted</div><div class="stat-value" id="ctStatPosted">0</div><div class="stat-meta up">↗ live</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title">Posts</div><div class="card-subtitle">Add a new post, update status as it moves through production</div></div>
+            <div style="display:flex;gap:6px">
+              <button class="btn-tiny" onclick="setContentFilter('all', this)" data-cfilter="all" style="background:var(--pheeew);color:#fff;border-color:var(--pheeew)">All</button>
+              <button class="btn-tiny" onclick="setContentFilter('planned', this)" data-cfilter="planned">Planned</button>
+              <button class="btn-tiny" onclick="setContentFilter('filmed', this)" data-cfilter="filmed">Filmed</button>
+              <button class="btn-tiny" onclick="setContentFilter('scheduled', this)" data-cfilter="scheduled">Scheduled</button>
+              <button class="btn-tiny" onclick="setContentFilter('posted', this)" data-cfilter="posted">Posted</button>
+            </div>
+          </div>
+
+          <form class="form-add" onsubmit="addContent(event)">
+            <input type="text" id="ctTitle" placeholder="Post title (e.g., 'Episode 3 — I Stopped Being Able To Poop')" required style="flex:1;min-width:240px">
+            <select id="ctFormat">
+              <option value="reel">Reel</option>
+              <option value="carousel">Carousel</option>
+              <option value="story">Story</option>
+              <option value="post">Post</option>
+              <option value="video">Video</option>
+              <option value="other">Other</option>
+            </select>
+            <input type="number" id="ctEpisode" placeholder="Ep #" min="1" max="50" style="flex-basis:80px">
+            <input type="text" id="ctConcept" placeholder="One-line concept" style="flex:1;min-width:200px">
+            <button type="submit">Add</button>
+          </form>
+
+          <div id="contentList">
+            <div class="activity-empty">No content posts yet. Add the first one above.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: CALENDAR -->
+      <section class="view" id="view-calendar">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Calendar &amp; <span class="accent-name">Events</span></h1>
+            <div class="subtitle">Meetings, milestones, deadlines, launch markers.</div>
+          </div>
+          <div class="view-hero-right">
+            <span class="conn-status online"><span class="conn-dot"></span>Real-time sync</span>
+          </div>
+        </div>
+
+        <div class="grid-2-1" style="margin-bottom:20px">
+          <div class="card">
+            <div class="cal-month-nav">
+              <button class="btn-tiny" onclick="calNav(-1)">← Prev</button>
+              <div class="cal-month-title" id="calMonthTitle"></div>
+              <button class="btn-tiny" onclick="calNav(1)">Next →</button>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div><div class="card-title">Add an event</div><div class="card-subtitle">Visible to all four founders</div></div></div>
+            <form onsubmit="addEvent(event)" style="display:flex;flex-direction:column;gap:10px">
+              <input type="text" id="evTitle" placeholder="Event title" required style="padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);outline:none;font-size:13px">
+              <div style="display:flex;gap:8px">
+                <select id="evKind" style="flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);outline:none;font-size:13px">
+                  <option value="meeting">Meeting</option>
+                  <option value="milestone">Milestone</option>
+                  <option value="deadline">Deadline</option>
+                  <option value="launch">Launch</option>
+                  <option value="reminder">Reminder</option>
+                  <option value="other">Other</option>
+                </select>
+                <input type="date" id="evDate" required style="flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);outline:none;font-size:13px">
+              </div>
+              <div style="display:flex;gap:8px">
+                <input type="time" id="evTime" style="flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);outline:none;font-size:13px">
+                <input type="text" id="evLocation" placeholder="Location (optional)" style="flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);outline:none;font-size:13px">
+              </div>
+              <textarea id="evDesc" placeholder="Description (optional)" style="padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);outline:none;font-size:13px;font-family:inherit;resize:vertical;min-height:60px"></textarea>
+              <button type="submit" style="padding:10px;background:var(--pheeew);color:#fff;border-radius:10px;font-size:13px;font-weight:600">Add event</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div><div class="card-title">Upcoming &amp; recent</div><div class="card-subtitle">Closest events first</div></div></div>
+          <div id="eventList"><div class="activity-empty">No events yet.</div></div>
+        </div>
+      </section>
+
+      <!-- VIEW: ANNOUNCEMENTS -->
+      <section class="view" id="view-announcements">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1><span class="accent-name">Announcements</span></h1>
+            <div class="subtitle">Daily posts from any founder. The team feed.</div>
+          </div>
+          <div class="view-hero-right">
+            <span class="conn-status online"><span class="conn-dot"></span>Real-time sync</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Post an announcement</div><div class="card-subtitle">Show up for the team — what changed, what you noticed, what you decided</div></div></div>
+          <form onsubmit="addAnnouncement(event)" style="display:flex;flex-direction:column;gap:10px">
+            <textarea id="annBody" placeholder="What's on your mind?" required style="padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg-card);outline:none;font-size:14px;font-family:inherit;resize:vertical;min-height:80px;line-height:1.5"></textarea>
+            <button type="submit" style="padding:10px 16px;background:var(--pheeew);color:#fff;border-radius:10px;font-size:13px;font-weight:600;align-self:flex-start">Post</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div><div class="card-title">Feed</div><div class="card-subtitle">Most recent first</div></div></div>
+          <div id="annList"><div class="activity-empty">No announcements yet. Be the first.</div></div>
         </div>
       </section>
 
@@ -1026,8 +1540,9 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
   /* ====== STATE ====== */
   let supa = null;
   let me = null; // current founder key
-  let state = { todos:[], requests:[], creators:[], announcements:[] };
-  let filters = { todo:'all', creator:'all' };
+  let state = { todos:[], requests:[], creators:[], announcements:[], content_posts:[], events:[] };
+  let filters = { todo:'all', creator:'all', content:'all' };
+  let calCursor = new Date(); // viewed month in calendar
 
   /* ====== GATE ====== */
   function checkGate(e){
@@ -1100,17 +1615,21 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
   async function loadAll(){
     try {
       setConn(false, 'Loading…');
-      const [todos, requests, creators, announcements] = await Promise.all([
+      const [todos, requests, creators, announcements, content_posts, events] = await Promise.all([
         supa.from('todos').select('*').order('created_at', { ascending: false }),
         supa.from('requests').select('*').order('created_at', { ascending: false }),
         supa.from('creators').select('*').order('created_at', { ascending: false }),
-        supa.from('announcements').select('*').order('created_at', { ascending: false }).limit(20)
+        supa.from('announcements').select('*').order('created_at', { ascending: false }).limit(50),
+        supa.from('content_posts').select('*').order('created_at', { ascending: false }),
+        supa.from('events').select('*').order('starts_at', { ascending: true })
       ]);
       if(todos.error) throw todos.error;
       state.todos = todos.data || [];
       state.requests = requests.data || [];
       state.creators = creators.data || [];
       state.announcements = announcements.data || [];
+      state.content_posts = content_posts.data || [];
+      state.events = events.data || [];
       renderAll();
       setConn(true, 'Live');
     } catch(e){
@@ -1120,7 +1639,7 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
   }
 
   function subscribeAll(){
-    ['todos','requests','creators','announcements'].forEach(table => {
+    ['todos','requests','creators','announcements','content_posts','events'].forEach(table => {
       supa.channel('public:' + table)
         .on('postgres_changes', { event: '*', schema: 'public', table }, payload => {
           handleChange(table, payload);
@@ -1149,6 +1668,10 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
     renderTodos();
     renderRequests();
     renderCreators();
+    renderContent();
+    renderAnnouncements();
+    renderEvents();
+    renderCalendar();
     renderHome();
   }
 
@@ -1160,6 +1683,9 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
     document.getElementById('statActiveCreators').textContent = activeCreators.length;
     document.getElementById('navCountTasks').textContent = openTodos.length + state.requests.filter(r => r.status !== 'done').length;
     document.getElementById('navCountCreators').textContent = state.creators.length;
+    document.getElementById('navCountContent').textContent = state.content_posts.filter(p => p.status !== 'archived').length;
+    document.getElementById('navCountEvents').textContent = state.events.filter(e => new Date(e.starts_at) >= new Date(Date.now() - 86400000)).length;
+    document.getElementById('navCountAnn').textContent = state.announcements.length;
 
     // Days to launch (target Aug 24, 2026)
     const target = new Date('2026-08-24');
@@ -1168,28 +1694,30 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
     const days = Math.max(0, Math.ceil(ms / 86400000));
     document.getElementById('statDaysLaunch').textContent = days;
 
-    // Recent activity = recent todos + creator status changes + requests
+    // Recent activity = announcements + todos + creator status changes + requests + content + events
     const activity = [];
-    state.todos.slice(0,5).forEach(t => activity.push({
-      type: 'todo',
-      who: t.created_by,
-      when: t.created_at,
+    state.announcements.slice(0,5).forEach(a => activity.push({
+      who: a.author, when: a.created_at,
+      text: 'posted: ' + escapeHtml(a.body.length > 100 ? a.body.slice(0,100)+'…' : a.body)
+    }));
+    state.todos.slice(0,3).forEach(t => activity.push({
+      who: t.created_by, when: t.created_at,
       text: 'added a to-do: ' + escapeHtml(t.title)
     }));
-    state.requests.slice(0,5).forEach(r => activity.push({
-      type: 'request',
-      who: r.from_founder,
-      when: r.created_at,
-      text: 'asked ' + FOUNDERS[r.to_founder].short + ' to: ' + escapeHtml(r.title)
+    state.requests.slice(0,3).forEach(r => activity.push({
+      who: r.from_founder, when: r.created_at,
+      text: 'asked ' + (FOUNDERS[r.to_founder]?.short || '?') + ' to: ' + escapeHtml(r.title)
     }));
-    state.creators.slice(0,5).forEach(c => activity.push({
-      type: 'creator',
-      who: c.added_by,
-      when: c.created_at,
+    state.creators.slice(0,3).forEach(c => activity.push({
+      who: c.added_by, when: c.created_at,
       text: 'added creator <strong>' + escapeHtml(c.name) + '</strong>'
     }));
+    state.content_posts.slice(0,3).forEach(p => activity.push({
+      who: p.added_by, when: p.created_at,
+      text: 'planned content: <strong>' + escapeHtml(p.title) + '</strong> (' + p.format + ')'
+    }));
     activity.sort((a,b) => new Date(b.when) - new Date(a.when));
-    const top = activity.slice(0, 8);
+    const top = activity.slice(0, 10);
 
     const feed = document.getElementById('recentActivity');
     if(top.length === 0){
@@ -1355,21 +1883,39 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
   }
 
   /* Creators */
+  function buildProfileUrl(handle, platform){
+    if(!handle) return null;
+    const h = handle.replace(/^@/, '');
+    if(platform === 'instagram') return 'https://instagram.com/' + h;
+    if(platform === 'tiktok')   return 'https://www.tiktok.com/@' + h;
+    if(platform === 'youtube')  return 'https://youtube.com/@' + h;
+    return null;
+  }
   async function addCreator(e){
     e.preventDefault();
     const name = document.getElementById('crName').value.trim();
     if(!name) return;
-    const handle = document.getElementById('crHandle').value.trim() || null;
+    const handle = document.getElementById('crHandle').value.trim().replace(/^@/,'') || null;
     const platform = document.getElementById('crPlatform').value;
     const followers = parseInt(document.getElementById('crFollowers').value) || null;
+    const following = parseInt(document.getElementById('crFollowing').value) || null;
     const niche = document.getElementById('crNiche').value.trim() || null;
     const email = document.getElementById('crEmail').value.trim() || null;
-    ['crName','crHandle','crFollowers','crNiche','crEmail'].forEach(id => document.getElementById(id).value = '');
+    const notes = document.getElementById('crNotes').value.trim() || null;
+    const profile_url = buildProfileUrl(handle, platform);
+    ['crName','crHandle','crFollowers','crFollowing','crNiche','crEmail','crNotes'].forEach(id => document.getElementById(id).value = '');
     const { error } = await supa.from('creators').insert({
-      name, handle, platform, follower_count: followers, niche, email,
+      name, handle, platform, follower_count: followers, following_count: following,
+      niche, email, notes, profile_url,
       status:'discovered', added_by: me
     });
     if(error) alert('Error adding creator: ' + error.message);
+  }
+  async function updateCreatorNotes(id, notes){
+    await supa.from('creators').update({ notes, updated_at: new Date().toISOString() }).eq('id', id);
+  }
+  async function updateCreatorFollowers(id, follower_count){
+    await supa.from('creators').update({ follower_count: parseInt(follower_count)||null, updated_at: new Date().toISOString() }).eq('id', id);
   }
   async function updateCreatorStatus(id, status){
     const update = { status, updated_at: new Date().toISOString() };
@@ -1412,18 +1958,31 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
     el.innerHTML = list.map(c => {
       const initials = c.name.split(' ').map(s => s[0]).slice(0,2).join('').toUpperCase();
       const followers = c.follower_count ? formatCount(c.follower_count) : '—';
-      const handle = c.handle ? '@' + c.handle.replace(/^@/,'') : '';
-      const contact = c.email || c.phone || '—';
-      return `<div class="creator-row">
-        <div class="creator-av">${initials}</div>
-        <div>
-          <div class="creator-name">${escapeHtml(c.name)}</div>
-          <div class="creator-handle">${escapeHtml(handle)} ${c.niche ? '· ' + escapeHtml(c.niche) : ''}</div>
+      const following = c.following_count ? formatCount(c.following_count) : null;
+      const handleClean = c.handle ? c.handle.replace(/^@/,'') : '';
+      const profileUrl = c.profile_url || buildProfileUrl(handleClean, c.platform);
+      const platformLabel = ({instagram:'Instagram', tiktok:'TikTok', youtube:'YouTube', multi:'Multi', other:'Other'})[c.platform] || '—';
+      return `<div class="content-card">
+        <div class="content-actions">
+          <button class="row-delete" onclick="deleteCreator('${c.id}')">Delete</button>
         </div>
-        <div class="creator-platform">${escapeHtml(c.platform || '—')}</div>
-        <div class="creator-followers">${followers}</div>
-        <div>
-          <select class="status-pill ${c.status}" style="border:none;padding:4px 10px;font-size:11px;font-weight:600" onchange="updateCreatorStatus('${c.id}', this.value)">
+        <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:12px">
+          <div class="creator-av" style="width:46px;height:46px;font-size:14px">${initials}</div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+              <span style="font-size:16px;font-weight:700;letter-spacing:-.01em">${escapeHtml(c.name)}</span>
+              ${profileUrl ? `<a href="${escapeHtml(profileUrl)}" target="_blank" rel="noopener" style="font-size:13px;color:var(--pheeew);font-weight:500">@${escapeHtml(handleClean)} ↗</a>` : (handleClean ? `<span style="font-size:13px;color:var(--text-tertiary)">@${escapeHtml(handleClean)}</span>` : '')}
+              <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;font-weight:600">${platformLabel}</span>
+              ${c.niche ? `<span style="font-size:12px;color:var(--text-tertiary)">· ${escapeHtml(c.niche)}</span>` : ''}
+            </div>
+            <div style="display:flex;gap:14px;margin-top:8px;font-size:12px;color:var(--text-tertiary);flex-wrap:wrap">
+              <span><strong style="color:var(--text);font-variant-numeric:tabular-nums">${followers}</strong> followers</span>
+              ${following ? `<span><strong style="color:var(--text);font-variant-numeric:tabular-nums">${following}</strong> following</span>` : ''}
+              ${c.email ? `<span>✉ <a href="mailto:${escapeHtml(c.email)}" style="color:var(--text-secondary)">${escapeHtml(c.email)}</a></span>` : ''}
+              ${c.last_contacted_at ? `<span>Last contact ${timeAgo(c.last_contacted_at)}</span>` : ''}
+            </div>
+          </div>
+          <select class="status-pill ${c.status}" style="border:1px solid currentColor;padding:5px 12px;font-size:11px;font-weight:600;background:transparent;cursor:pointer" onchange="updateCreatorStatus('${c.id}', this.value)">
             <option value="discovered" ${c.status==='discovered'?'selected':''}>Discovered</option>
             <option value="contacted" ${c.status==='contacted'?'selected':''}>Contacted</option>
             <option value="replied" ${c.status==='replied'?'selected':''}>Replied</option>
@@ -1432,12 +1991,311 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
             <option value="declined" ${c.status==='declined'?'selected':''}>Declined</option>
           </select>
         </div>
-        <div style="font-size:12px;color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(contact)}</div>
-        <div class="creator-actions">
-          <button class="btn-tiny danger" onclick="deleteCreator('${c.id}')">×</button>
+        <details class="content-expand">
+          <summary>Notes &amp; updates</summary>
+          <div class="expanded-fields" style="grid-template-columns:1fr">
+            <div class="full">
+              <label>Notes (style, fit, why them, last DM, etc.)</label>
+              <textarea rows="3" onblur="updateCreatorNotes('${c.id}', this.value)">${escapeHtml(c.notes || '')}</textarea>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div>
+                <label>Update followers</label>
+                <input type="number" value="${c.follower_count || ''}" onblur="updateCreatorFollowers('${c.id}', this.value)" placeholder="Refresh follower count">
+              </div>
+              <div>
+                <label>Profile link</label>
+                <input type="text" value="${escapeHtml(profileUrl || '')}" readonly style="background:var(--bg-soft)">
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>`;
+    }).join('');
+  }
+
+  /* ====== CONTENT POSTS (Dawon's tracker) ====== */
+  async function addContent(e){
+    e.preventDefault();
+    const title = document.getElementById('ctTitle').value.trim();
+    if(!title) return;
+    const format = document.getElementById('ctFormat').value;
+    const episode = parseInt(document.getElementById('ctEpisode').value) || null;
+    const concept = document.getElementById('ctConcept').value.trim() || null;
+    ['ctTitle','ctEpisode','ctConcept'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('ctFormat').value = 'reel';
+    const { error } = await supa.from('content_posts').insert({
+      title, format, episode_number: episode, concept,
+      status:'planned', added_by: me
+    });
+    if(error) alert('Error adding content: ' + error.message);
+  }
+  async function updateContentField(id, field, value){
+    const update = { updated_at: new Date().toISOString() };
+    if(['views','likes','comments_count','saves','shares'].includes(field)){
+      update[field] = parseInt(value) || null;
+    } else if(field === 'posted_at' || field === 'scheduled_for'){
+      update[field] = value ? new Date(value).toISOString() : null;
+    } else {
+      update[field] = value || null;
+    }
+    if(field === 'status' && value === 'posted' && !state.content_posts.find(p => p.id === id)?.posted_at){
+      update.posted_at = new Date().toISOString();
+    }
+    await supa.from('content_posts').update(update).eq('id', id);
+  }
+  async function deleteContent(id){
+    if(!confirm('Delete this content post?')) return;
+    await supa.from('content_posts').delete().eq('id', id);
+  }
+  function setContentFilter(f, btn){
+    filters.content = f;
+    document.querySelectorAll('[data-cfilter]').forEach(b => {
+      b.style.background = '';
+      b.style.color = '';
+      b.style.borderColor = '';
+    });
+    btn.style.background = 'var(--pheeew)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--pheeew)';
+    renderContent();
+  }
+  function renderContent(){
+    const counts = {
+      planned: state.content_posts.filter(p => p.status === 'planned').length,
+      production: state.content_posts.filter(p => ['scripted','filmed','edited'].includes(p.status)).length,
+      scheduled: state.content_posts.filter(p => p.status === 'scheduled').length,
+      posted: state.content_posts.filter(p => p.status === 'posted').length
+    };
+    document.getElementById('ctStatPlanned').textContent = counts.planned;
+    document.getElementById('ctStatProd').textContent = counts.production;
+    document.getElementById('ctStatScheduled').textContent = counts.scheduled;
+    document.getElementById('ctStatPosted').textContent = counts.posted;
+
+    let list = state.content_posts;
+    if(filters.content !== 'all') list = list.filter(p => p.status === filters.content);
+
+    const el = document.getElementById('contentList');
+    if(list.length === 0){
+      el.innerHTML = '<div class="activity-empty">No content posts in this view.</div>';
+      return;
+    }
+    el.innerHTML = list.map(p => {
+      const epLabel = p.episode_number ? `Ep ${p.episode_number}` : '';
+      const scheduledLocal = p.scheduled_for ? new Date(p.scheduled_for).toISOString().slice(0,16) : '';
+      const postedLocal = p.posted_at ? new Date(p.posted_at).toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'}) : null;
+      return `<div class="content-card">
+        <div class="content-actions">
+          <button class="row-delete" onclick="deleteContent('${p.id}')">Delete</button>
+        </div>
+        <div class="content-card-head">
+          <div style="flex:1;min-width:0">
+            <div class="content-card-meta">
+              ${epLabel ? `<span class="pill" style="background:var(--pheeew-tint);color:var(--pheeew)">${epLabel}</span>` : ''}
+              <span class="pill content-format-${p.format}">${p.format}</span>
+              <select class="content-status content-status-${p.status}" style="border:none;padding:3px 9px;font-weight:600;cursor:pointer" onchange="updateContentField('${p.id}', 'status', this.value)">
+                <option value="planned" ${p.status==='planned'?'selected':''}>Planned</option>
+                <option value="scripted" ${p.status==='scripted'?'selected':''}>Scripted</option>
+                <option value="filmed" ${p.status==='filmed'?'selected':''}>Filmed</option>
+                <option value="edited" ${p.status==='edited'?'selected':''}>Edited</option>
+                <option value="scheduled" ${p.status==='scheduled'?'selected':''}>Scheduled</option>
+                <option value="posted" ${p.status==='posted'?'selected':''}>Posted</option>
+                <option value="archived" ${p.status==='archived'?'selected':''}>Archived</option>
+              </select>
+              ${postedLocal ? `<span class="pill" style="background:#D8EBE0;color:var(--bg-green)">Posted ${postedLocal}</span>` : ''}
+            </div>
+            <div class="content-card-title">${escapeHtml(p.title)}</div>
+            ${p.concept ? `<div class="content-card-body" style="margin-top:6px"><strong>Concept:</strong> ${escapeHtml(p.concept)}</div>` : ''}
+          </div>
+        </div>
+
+        <details class="content-expand">
+          <summary>Caption, schedule, metrics, notes</summary>
+          <div class="expanded-fields">
+            <div class="full">
+              <label>Caption</label>
+              <textarea rows="3" onblur="updateContentField('${p.id}', 'caption', this.value)" placeholder="The Instagram/TikTok caption…">${escapeHtml(p.caption || '')}</textarea>
+            </div>
+            <div class="full">
+              <label>Hashtags</label>
+              <input type="text" value="${escapeHtml(p.hashtags || '')}" onblur="updateContentField('${p.id}', 'hashtags', this.value)" placeholder="#gutfeels #pheeew …">
+            </div>
+            <div>
+              <label>Scheduled for</label>
+              <input type="datetime-local" value="${scheduledLocal}" onblur="updateContentField('${p.id}', 'scheduled_for', this.value)">
+            </div>
+            <div>
+              <label>Post URL (once live)</label>
+              <input type="url" value="${escapeHtml(p.post_url || '')}" onblur="updateContentField('${p.id}', 'post_url', this.value)" placeholder="https://instagram.com/p/…">
+            </div>
+            <div>
+              <label>Views</label>
+              <input type="number" value="${p.views || ''}" onblur="updateContentField('${p.id}', 'views', this.value)">
+            </div>
+            <div>
+              <label>Likes</label>
+              <input type="number" value="${p.likes || ''}" onblur="updateContentField('${p.id}', 'likes', this.value)">
+            </div>
+            <div>
+              <label>Comments</label>
+              <input type="number" value="${p.comments_count || ''}" onblur="updateContentField('${p.id}', 'comments_count', this.value)">
+            </div>
+            <div>
+              <label>Saves</label>
+              <input type="number" value="${p.saves || ''}" onblur="updateContentField('${p.id}', 'saves', this.value)">
+            </div>
+            <div class="full">
+              <label>Notes</label>
+              <textarea rows="2" onblur="updateContentField('${p.id}', 'notes', this.value)" placeholder="What's working, what to change…">${escapeHtml(p.notes || '')}</textarea>
+            </div>
+          </div>
+        </details>
+        <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px">added by ${FOUNDERS[p.added_by]?.short || p.added_by} · ${timeAgo(p.created_at)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  /* ====== ANNOUNCEMENTS ====== */
+  async function addAnnouncement(e){
+    e.preventDefault();
+    const body = document.getElementById('annBody').value.trim();
+    if(!body) return;
+    document.getElementById('annBody').value = '';
+    const { error } = await supa.from('announcements').insert({ author: me, body });
+    if(error) alert('Error posting announcement: ' + error.message);
+  }
+  async function deleteAnnouncement(id){
+    if(!confirm('Delete this announcement?')) return;
+    await supa.from('announcements').delete().eq('id', id);
+  }
+  function renderAnnouncements(){
+    const el = document.getElementById('annList');
+    if(state.announcements.length === 0){
+      el.innerHTML = '<div class="activity-empty">No announcements yet. Be the first.</div>';
+      return;
+    }
+    el.innerHTML = state.announcements.map(a => {
+      const f = FOUNDERS[a.author] || { short:'?', initials:'?' };
+      const isMine = a.author === me;
+      return `<div class="ann-item">
+        ${isMine ? `<button class="row-delete ann-delete" onclick="deleteAnnouncement('${a.id}')">Delete</button>` : ''}
+        <div class="ann-avatar ${a.author}">${f.initials}</div>
+        <div class="ann-body">
+          <div class="ann-meta">
+            <span class="ann-name">${f.short}</span>
+            <span class="ann-time">${timeAgo(a.created_at)}</span>
+          </div>
+          <div class="ann-text">${escapeHtml(a.body)}</div>
         </div>
       </div>`;
     }).join('');
+  }
+
+  /* ====== EVENTS / CALENDAR ====== */
+  async function addEvent(e){
+    e.preventDefault();
+    const title = document.getElementById('evTitle').value.trim();
+    const date = document.getElementById('evDate').value;
+    if(!title || !date) return;
+    const time = document.getElementById('evTime').value;
+    const kind = document.getElementById('evKind').value;
+    const location = document.getElementById('evLocation').value.trim() || null;
+    const description = document.getElementById('evDesc').value.trim() || null;
+    const starts_at = time ? new Date(date + 'T' + time + ':00').toISOString() : new Date(date + 'T09:00:00').toISOString();
+    const all_day = !time;
+    ['evTitle','evDate','evTime','evLocation','evDesc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('evKind').value = 'meeting';
+    const { error } = await supa.from('events').insert({
+      title, kind, description, location, starts_at, all_day, created_by: me
+    });
+    if(error) alert('Error adding event: ' + error.message);
+  }
+  async function deleteEvent(id){
+    if(!confirm('Delete this event?')) return;
+    await supa.from('events').delete().eq('id', id);
+  }
+  function renderEvents(){
+    const now = new Date();
+    const sorted = [...state.events].sort((a,b) => new Date(a.starts_at) - new Date(b.starts_at));
+    const upcoming = sorted.filter(e => new Date(e.starts_at) >= new Date(now.getTime() - 86400000));
+    const past = sorted.filter(e => new Date(e.starts_at) < new Date(now.getTime() - 86400000));
+
+    const el = document.getElementById('eventList');
+    if(sorted.length === 0){
+      el.innerHTML = '<div class="activity-empty">No events yet.</div>';
+      return;
+    }
+    const renderRow = (ev) => {
+      const d = new Date(ev.starts_at);
+      const isPast = d < new Date(now.getTime() - 86400000);
+      const isMine = ev.created_by === me;
+      const month = d.toLocaleDateString('en-US', { month:'short' });
+      const day = d.getDate();
+      const dateStr = d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' });
+      const timeStr = ev.all_day ? 'All day' : d.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
+      return `<div class="event-row ${isPast?'past':''}">
+        <div class="event-date ${isPast?'past':''}">
+          <div class="event-date-month">${month}</div>
+          <div class="event-date-day">${day}</div>
+        </div>
+        <div class="event-body">
+          <div class="event-title">${escapeHtml(ev.title)}</div>
+          <div class="event-meta">
+            <span class="event-kind ${ev.kind}">${ev.kind}</span>
+            <span>${dateStr}</span>
+            <span>${timeStr}</span>
+            ${ev.location ? '<span>· ' + escapeHtml(ev.location) + '</span>' : ''}
+            <span>· by ${FOUNDERS[ev.created_by]?.short || '?'}</span>
+          </div>
+          ${ev.description ? '<div style="font-size:13px;color:var(--text-secondary);margin-top:6px;line-height:1.5">' + escapeHtml(ev.description) + '</div>' : ''}
+        </div>
+        ${isMine ? `<button class="row-delete" onclick="deleteEvent('${ev.id}')">Delete</button>` : ''}
+      </div>`;
+    };
+    let html = '';
+    if(upcoming.length){
+      html += '<div style="font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Upcoming · ' + upcoming.length + '</div>';
+      html += upcoming.map(renderRow).join('');
+    }
+    if(past.length){
+      html += '<div style="font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin:18px 0 8px">Past · ' + past.length + '</div>';
+      html += past.slice(0, 10).map(renderRow).join('');
+    }
+    el.innerHTML = html;
+  }
+
+  function calNav(delta){
+    calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth() + delta, 1);
+    renderCalendar();
+  }
+  function renderCalendar(){
+    const el = document.getElementById('calGrid');
+    if(!el) return;
+    const year = calCursor.getFullYear();
+    const month = calCursor.getMonth();
+    document.getElementById('calMonthTitle').textContent = calCursor.toLocaleDateString('en-US', { month:'long', year:'numeric' });
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month+1, 0).getDate();
+    const today = new Date();
+    const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
+
+    let html = ['Mo','Tu','We','Th','Fr','Sa','Su'].map(d => `<div class="cal-head">${d}</div>`).join('');
+    // Monday-first offset
+    const offset = (firstDay === 0 ? 6 : firstDay - 1);
+    for(let i=0;i<offset;i++) html += '<div class="cal-cell empty"></div>';
+
+    for(let d=1; d<=daysInMonth; d++){
+      const dayDate = new Date(year, month, d);
+      const isToday = isCurrentMonth && today.getDate() === d;
+      const dayEvents = state.events.filter(ev => {
+        const ed = new Date(ev.starts_at);
+        return ed.getFullYear() === year && ed.getMonth() === month && ed.getDate() === d;
+      });
+      const eventHtml = dayEvents.slice(0,3).map(ev => `<div class="cal-event ${ev.kind}" title="${escapeHtml(ev.title)}">${escapeHtml(ev.title)}</div>`).join('');
+      const more = dayEvents.length > 3 ? `<div style="font-size:10px;color:var(--text-tertiary)">+${dayEvents.length-3} more</div>` : '';
+      html += `<div class="cal-cell ${isToday?'today':''}"><div class="cal-num">${d}</div>${eventHtml}${more}</div>`;
+    }
+    el.innerHTML = html;
   }
 
   /* ====== VIEWS ====== */
@@ -1449,6 +2307,7 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
     document.querySelectorAll('.sidebar-nav-item').forEach(item => {
       item.classList.toggle('active', item.getAttribute('data-view') === view);
     });
+    if(view === 'calendar') renderCalendar();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeMobileSidebar();
     location.hash = view;
