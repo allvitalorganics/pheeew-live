@@ -357,6 +357,20 @@ input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
 .conn-status.online .conn-dot{background:#3D8B6E;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 
+/* ONE-LINER SCRIPT CARD · the team's elevator pitch */
+.script-card{background:var(--bg-dark);color:var(--text-on-dark);border-radius:24px;padding:32px;border:none;position:relative;overflow:hidden}
+.script-card::before{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(244,201,93,.2) 0%,transparent 70%);pointer-events:none}
+.script-card .script-tag{font-size:11px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.script-card .script-label{font-size:11px;font-weight:600;color:var(--text-muted-dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;margin-top:14px}
+.script-card .script-label:first-of-type{margin-top:0}
+.script-card .script-value{font-size:18px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#fff}
+.script-card .script-value.lead{font-size:24px}
+.script-card .script-edit{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.5;color:#fff;width:100%;outline:none;font-family:inherit;resize:vertical;transition:border-color .15s;display:block;margin-top:4px}
+.script-card .script-edit:hover{border-color:rgba(255,255,255,.18)}
+.script-card .script-edit:focus{border-color:var(--accent-yellow);background:rgba(255,255,255,.06)}
+.script-card .script-foot{font-size:11px;color:var(--text-muted-dark);margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);line-height:1.55}
+.script-card .script-foot strong{color:#fff}
+
 /* DAWON SPOTLIGHT (Home hero card) */
 .spotlight{display:grid;grid-template-columns:200px 1fr;gap:24px;background:linear-gradient(135deg,var(--accent-yellow-soft) 0%,var(--bg-card) 60%);border:1px solid var(--accent-yellow);border-radius:24px;padding:28px;align-items:center;overflow:hidden;position:relative}
 .spotlight-photo{width:180px;height:180px;border-radius:50%;background:var(--accent-yellow);display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:700;color:var(--text);box-shadow:0 12px 40px rgba(244,201,93,.4);position:relative}
@@ -725,6 +739,24 @@ details.content-expand[open] summary::after{content:" ▴"}
             <div class="stat-value">$50,250</div>
             <div class="stat-meta up">↗ Alex $6,750 + Justin $22K + Jason $15K + Dawon $6,500</div>
             <div class="stat-icon">$</div>
+          </div>
+        </div>
+
+        <!-- BRAND + PRODUCT ONE-LINER · the team's elevator pitch -->
+        <div class="script-card" style="margin-bottom:20px">
+          <div class="script-tag">◆ Team script · use this when anyone asks "what is Pheeew?"</div>
+
+          <div class="script-label">What it is</div>
+          <textarea class="script-edit lead" rows="1" data-meta-key="oneliner_what_it_is" onblur="updateBrandMeta('oneliner_what_it_is', this.value)" style="font-size:22px;font-weight:600">Loading…</textarea>
+
+          <div class="script-label">What's in it</div>
+          <textarea class="script-edit" rows="2" data-meta-key="oneliner_what_in_it" onblur="updateBrandMeta('oneliner_what_in_it', this.value)">Loading…</textarea>
+
+          <div class="script-label">Who it's for</div>
+          <textarea class="script-edit" rows="2" data-meta-key="oneliner_who_for" onblur="updateBrandMeta('oneliner_who_for', this.value)">Loading…</textarea>
+
+          <div class="script-foot">
+            <strong>Edit any line directly</strong> — changes save when you tab/click out, and sync to all four founders' dashboards in real time. Use this card when describing Pheeew to anyone (creators, suppliers, friends, family, future hires). Three lines, in order: <em>what · what's in it · who for</em>.
           </div>
         </div>
 
@@ -1708,20 +1740,39 @@ details.content-expand[open] summary::after{content:" ▴"}
           </div>
         </div>
 
+        <!-- EDITABLE ONE-LINER · same card style as Home for consistency -->
+        <div class="script-card" style="margin-bottom:20px">
+          <div class="script-tag">◆ Team script · the line everyone uses</div>
+
+          <div class="script-label">What it is</div>
+          <textarea class="script-edit lead" rows="1" data-meta-key="oneliner_what_it_is" onblur="updateBrandMeta('oneliner_what_it_is', this.value)" style="font-size:22px;font-weight:600">Loading…</textarea>
+
+          <div class="script-label">What's in it</div>
+          <textarea class="script-edit" rows="2" data-meta-key="oneliner_what_in_it" onblur="updateBrandMeta('oneliner_what_in_it', this.value)">Loading…</textarea>
+
+          <div class="script-label">Who it's for</div>
+          <textarea class="script-edit" rows="2" data-meta-key="oneliner_who_for" onblur="updateBrandMeta('oneliner_who_for', this.value)">Loading…</textarea>
+
+          <div class="script-label">Tagline (placeholder)</div>
+          <textarea class="script-edit lead" rows="1" data-meta-key="tagline" onblur="updateBrandMeta('tagline', this.value)" style="font-size:22px;font-weight:600;color:var(--accent-yellow)">Loading…</textarea>
+
+          <div class="script-label">Mission</div>
+          <textarea class="script-edit" rows="2" data-meta-key="mission" onblur="updateBrandMeta('mission', this.value)">Loading…</textarea>
+
+          <div class="script-foot">
+            <strong>This is the single source of truth.</strong> Any change here syncs across Home, Brand, Product views and to every founder's dashboard. Edit on one device, the rest update in real time.
+          </div>
+        </div>
+
         <div class="grid-2-1" style="margin-bottom:20px">
           <div class="card">
             <div class="card-head">
               <div>
-                <div class="card-title">Positioning</div>
-                <div class="card-subtitle">One paragraph the team agrees on</div>
+                <div class="card-title">Positioning · long form</div>
+                <div class="card-subtitle">The paragraph version for site copy, deck, vendor intros</div>
               </div>
             </div>
-            <p style="font-size:16px;line-height:1.6;color:var(--text)">Pheeew is <strong>a smoothie for your gut.</strong> An 80mL synbiotic puree pouch — real fruit blended with 10g of prebiotic fiber and a clinically-studied probiotic strain — for people who tried doing more for their gut, gave up, and want something they'll actually finish. We're not a juice. We're not a shot. We're not a supplement. We're the food version of the gut routine.</p>
-            <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft)">
-              <div style="font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Tagline (placeholder)</div>
-              <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew)">"Your gut knows."</div>
-              <div style="font-size:12px;color:var(--text-tertiary);margin-top:6px">Final direction: warmer Poppi/Olipop × Suja/Vive feel. Not locked.</div>
-            </div>
+            <p style="font-size:16px;line-height:1.6;color:var(--text)">Pheeew is <strong>a smoothie for your gut.</strong> An 80mL synbiotic puree pouch — real fruit blended with 10g of prebiotic fiber (XOS + Fibersol-2) and 1B CFU of <em>Bacillus coagulans</em> SNZ 1969 — for people who tried doing more for their gut, gave up, and want something they'll actually finish. We're not a juice. We're not a shot. We're not a supplement. We're the food version of the gut routine.</p>
           </div>
 
           <div class="card card-dark">
@@ -1785,6 +1836,20 @@ details.content-expand[open] summary::after{content:" ▴"}
           <div class="view-hero-right">
             <a class="btn-secondary" href="../operating-playbook/#margins" target="_blank">Margin math →</a>
           </div>
+        </div>
+
+        <!-- ONE-LINER · same source of truth -->
+        <div class="script-card" style="margin-bottom:20px">
+          <div class="script-tag">◆ Team script · the product in three lines</div>
+
+          <div class="script-label">What it is</div>
+          <textarea class="script-edit lead" rows="1" data-meta-key="oneliner_what_it_is" onblur="updateBrandMeta('oneliner_what_it_is', this.value)" style="font-size:22px;font-weight:600">Loading…</textarea>
+
+          <div class="script-label">What's in it</div>
+          <textarea class="script-edit" rows="2" data-meta-key="oneliner_what_in_it" onblur="updateBrandMeta('oneliner_what_in_it', this.value)">Loading…</textarea>
+
+          <div class="script-label">Who it's for</div>
+          <textarea class="script-edit" rows="2" data-meta-key="oneliner_who_for" onblur="updateBrandMeta('oneliner_who_for', this.value)">Loading…</textarea>
         </div>
 
         <div class="grid-2-1" style="margin-bottom:20px">
@@ -1856,28 +1921,40 @@ details.content-expand[open] summary::after{content:" ▴"}
         <div class="view-hero">
           <div class="view-hero-left">
             <h1>Launch <span class="accent-name">Timeline</span></h1>
-            <div class="subtitle">Days 0–120. Day 0 is the moment all four founders confirm the restructure in writing.</div>
+            <div class="subtitle">Days 0–120. Editable — anyone on the team can update, mark a step "now," add new beats.</div>
           </div>
           <div class="view-hero-right">
+            <span class="conn-status online"><span class="conn-dot"></span>Real-time sync</span>
             <a class="btn-secondary" href="../operating-playbook/#thirty" target="_blank">Full launch path →</a>
           </div>
         </div>
 
+        <!-- Add new timeline step -->
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><div><div class="card-title">Add a timeline step</div><div class="card-subtitle">Appends at the end · drag-to-reorder coming later · edit position inline</div></div></div>
+          <form class="form-add" onsubmit="addTimelineItem(event)">
+            <input type="text" id="tlDayLabel" placeholder="Day label (e.g., 'Days 60–90')" required style="flex-basis:200px">
+            <input type="text" id="tlTitle" placeholder="Step title" required style="flex:1;min-width:240px">
+            <select id="tlOwner">
+              <option value="any">Anyone</option>
+              <option value="alex">Alex</option>
+              <option value="jason">Jason</option>
+              <option value="justin">Justin</option>
+              <option value="dawon">Dawon</option>
+            </select>
+            <select id="tlStatus">
+              <option value="pending">Pending</option>
+              <option value="now">Now</option>
+              <option value="done">Done</option>
+            </select>
+            <input type="text" id="tlDesc" placeholder="Description (optional)" style="flex:1;min-width:280px">
+            <button type="submit">Add</button>
+          </form>
+        </div>
+
         <div class="card">
-          <div class="tl">
-            <div class="tl-item done"><div class="tl-day">Day −7 → Day 0</div><div class="tl-title">Cap table restructure email confirmations</div><div class="tl-text">All four founders confirm 40/23/17/11.81/8.19 in writing. Justin wires $22K, Jason wires $15K net of his existing $6,750. Dawon's 83(b) is on file (filed April 18, 2026).</div><span class="tl-owner task-tag alex">Alex owns</span></div>
-
-            <div class="tl-item now"><div class="tl-day">Days 0–14</div><div class="tl-title">Manufacturer PO + freight bookings</div><div class="tl-text">Place the 40K Tropical Punch order with the Naju facility. Lock the LCL freight booking. Open the 3PL relationship. Lock final 80mL pouch artwork + FDA-compliant labeling (Nutrition Facts at 10g fiber).</div><span class="tl-owner task-tag justin">Justin owns</span></div>
-
-            <div class="tl-item"><div class="tl-day">Days 14–60</div><div class="tl-title">Pre-launch content sprint · Dawon's episodes 1–8</div><div class="tl-text">Episodes 1–8 of the storyline arc go live as reels + carousels. Waitlist link in every caption. Goal: 5,000+ waitlist signups before launch. Soft creator gifting starts at week 4.</div><span class="tl-owner task-tag dawon">Dawon owns</span></div>
-
-            <div class="tl-item"><div class="tl-day">Days 30–60</div><div class="tl-title">Site, Shopify, Klaviyo, Recharge spin-up</div><div class="tl-text">Production site goes live with waitlist mode. Klaviyo flows: welcome, waitlist drip, abandoned cart, post-purchase. Recharge subscription wired with the 5-pack ladder. Test mode through Day 90.</div><span class="tl-owner task-tag alex">Alex owns</span></div>
-
-            <div class="tl-item"><div class="tl-day">Days 60–90</div><div class="tl-title">Production complete · LCL freight in transit</div><div class="tl-text">Manufacturer ships from Naju → US West Coast (LCL, ~21–30 days). Customs clearance arranged in advance. 3PL receives, racks, palletizes. Episodes 9–12 air.</div><span class="tl-owner task-tag jason">Jason owns</span></div>
-
-            <div class="tl-item"><div class="tl-day">Days 90–115</div><div class="tl-title">Final QA + warehouse intake · Episodes 13–14</div><div class="tl-text">Inventory live in 3PL. QA pull from 3PL → founder sample. Site flips from waitlist to pre-order with delivery dates. Email list warmed to ~5–10K. Episodes 13–14 introduce Pheeew by name.</div><span class="tl-owner task-tag jason">Jason owns</span></div>
-
-            <div class="tl-item"><div class="tl-day">Day 120 · Target Aug 24, 2026</div><div class="tl-title">Public launch · waitlist converts · Episode 15 lands</div><div class="tl-text">Site goes live to public. Waitlist gets the first 48-hour window. Episode 15 lands as the hand-off — from the origin arc to "what's happening now." Paid spend stays at $1K/mo ceiling; the rest of the bucket is held for the first 30 post-launch days.</div><span class="tl-owner task-tag alex">Alex owns</span></div>
+          <div class="tl" id="timelineList">
+            <div class="activity-empty">Loading timeline…</div>
           </div>
         </div>
       </section>
@@ -2083,7 +2160,7 @@ details.content-expand[open] summary::after{content:" ▴"}
   /* ====== STATE ====== */
   let supa = null;
   let me = null; // current founder key
-  let state = { todos:[], requests:[], creators:[], announcements:[], content_posts:[], events:[] };
+  let state = { todos:[], requests:[], creators:[], announcements:[], content_posts:[], events:[], timeline:[], brand_meta:{} };
   let filters = { todo:'all', creator:'all', content:'all' };
   let calCursor = new Date(); // viewed month in calendar
 
@@ -2158,13 +2235,15 @@ details.content-expand[open] summary::after{content:" ▴"}
   async function loadAll(){
     try {
       setConn(false, 'Loading…');
-      const [todos, requests, creators, announcements, content_posts, events] = await Promise.all([
+      const [todos, requests, creators, announcements, content_posts, events, timeline, brand_meta] = await Promise.all([
         supa.from('todos').select('*').order('created_at', { ascending: false }),
         supa.from('requests').select('*').order('created_at', { ascending: false }),
         supa.from('creators').select('*').order('created_at', { ascending: false }),
         supa.from('announcements').select('*').order('created_at', { ascending: false }).limit(50),
         supa.from('content_posts').select('*').order('created_at', { ascending: false }),
-        supa.from('events').select('*').order('starts_at', { ascending: true })
+        supa.from('events').select('*').order('starts_at', { ascending: true }),
+        supa.from('timeline').select('*').order('position', { ascending: true }),
+        supa.from('brand_meta').select('*')
       ]);
       if(todos.error) throw todos.error;
       state.todos = todos.data || [];
@@ -2173,6 +2252,8 @@ details.content-expand[open] summary::after{content:" ▴"}
       state.announcements = announcements.data || [];
       state.content_posts = content_posts.data || [];
       state.events = events.data || [];
+      state.timeline = timeline.data || [];
+      state.brand_meta = (brand_meta.data || []).reduce((acc, r) => { acc[r.key] = r.value; return acc; }, {});
       renderAll();
       setConn(true, 'Live');
     } catch(e){
@@ -2182,7 +2263,7 @@ details.content-expand[open] summary::after{content:" ▴"}
   }
 
   function subscribeAll(){
-    ['todos','requests','creators','announcements','content_posts','events'].forEach(table => {
+    ['todos','requests','creators','announcements','content_posts','events','timeline','brand_meta'].forEach(table => {
       supa.channel('public:' + table)
         .on('postgres_changes', { event: '*', schema: 'public', table }, payload => {
           handleChange(table, payload);
@@ -2192,6 +2273,15 @@ details.content-expand[open] summary::after{content:" ▴"}
   }
 
   function handleChange(table, payload){
+    if(table === 'brand_meta'){
+      if(payload.eventType === 'INSERT' || payload.eventType === 'UPDATE'){
+        state.brand_meta[payload.new.key] = payload.new.value;
+      } else if(payload.eventType === 'DELETE'){
+        delete state.brand_meta[payload.old.key];
+      }
+      renderAll();
+      return;
+    }
     const list = state[table];
     if(payload.eventType === 'INSERT'){
       const exists = list.find(r => r.id === payload.new.id);
@@ -2215,6 +2305,8 @@ details.content-expand[open] summary::after{content:" ▴"}
     renderAnnouncements();
     renderEvents();
     renderCalendar();
+    renderTimeline();
+    renderBrandMeta();
     renderHome();
   }
 
@@ -2800,28 +2892,73 @@ details.content-expand[open] summary::after{content:" ▴"}
     const renderRow = (ev) => {
       const d = new Date(ev.starts_at);
       const isPast = d < new Date(now.getTime() - 86400000);
-      const isMine = ev.created_by === me;
       const month = d.toLocaleDateString('en-US', { month:'short' });
       const day = d.getDate();
       const dateStr = d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' });
       const timeStr = ev.all_day ? 'All day' : d.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
+      // Build local datetime-local input value (YYYY-MM-DDTHH:MM)
+      const pad = n => String(n).padStart(2,'0');
+      const localDt = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
       return `<div class="event-row ${isPast?'past':''}">
         <div class="event-date ${isPast?'past':''}">
           <div class="event-date-month">${month}</div>
           <div class="event-date-day">${day}</div>
         </div>
         <div class="event-body">
-          <div class="event-title">${escapeHtml(ev.title)}</div>
-          <div class="event-meta">
-            <span class="event-kind ${ev.kind}">${ev.kind}</span>
-            <span>${dateStr}</span>
-            <span>${timeStr}</span>
-            ${ev.location ? '<span>· ' + escapeHtml(ev.location) + '</span>' : ''}
-            <span>· by ${FOUNDERS[ev.created_by]?.short || '?'}</span>
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+            <div style="flex:1;min-width:0">
+              <div class="event-title">${escapeHtml(ev.title)}</div>
+              <div class="event-meta">
+                <span class="event-kind ${ev.kind}">${ev.kind}</span>
+                <span>${dateStr}</span>
+                <span>${timeStr}</span>
+                ${ev.location ? '<span>· ' + escapeHtml(ev.location) + '</span>' : ''}
+                <span>· by ${FOUNDERS[ev.created_by]?.short || '?'}</span>
+              </div>
+              ${ev.description ? '<div style="font-size:13px;color:var(--text-secondary);margin-top:6px;line-height:1.5">' + escapeHtml(ev.description) + '</div>' : ''}
+            </div>
+            <button class="row-delete" onclick="deleteEvent('${ev.id}')">Delete</button>
           </div>
-          ${ev.description ? '<div style="font-size:13px;color:var(--text-secondary);margin-top:6px;line-height:1.5">' + escapeHtml(ev.description) + '</div>' : ''}
+          <details class="content-expand" style="margin-top:8px">
+            <summary>Edit event</summary>
+            <div class="expanded-fields">
+              <div class="full">
+                <label>Title</label>
+                <input type="text" value="${escapeHtml(ev.title)}" onblur="updateEventField('${ev.id}', 'title', this.value)">
+              </div>
+              <div>
+                <label>Kind</label>
+                <select onchange="updateEventField('${ev.id}', 'kind', this.value)">
+                  <option value="meeting" ${ev.kind==='meeting'?'selected':''}>Meeting</option>
+                  <option value="milestone" ${ev.kind==='milestone'?'selected':''}>Milestone</option>
+                  <option value="deadline" ${ev.kind==='deadline'?'selected':''}>Deadline</option>
+                  <option value="launch" ${ev.kind==='launch'?'selected':''}>Launch</option>
+                  <option value="reminder" ${ev.kind==='reminder'?'selected':''}>Reminder</option>
+                  <option value="other" ${ev.kind==='other'?'selected':''}>Other</option>
+                </select>
+              </div>
+              <div>
+                <label>Starts at</label>
+                <input type="datetime-local" value="${localDt}" onblur="updateEventField('${ev.id}', 'starts_at', this.value)">
+              </div>
+              <div>
+                <label>All-day</label>
+                <select onchange="updateEventField('${ev.id}', 'all_day', this.value)">
+                  <option value="false" ${!ev.all_day?'selected':''}>No (timed)</option>
+                  <option value="true" ${ev.all_day?'selected':''}>Yes (all day)</option>
+                </select>
+              </div>
+              <div>
+                <label>Location</label>
+                <input type="text" value="${escapeHtml(ev.location || '')}" onblur="updateEventField('${ev.id}', 'location', this.value)">
+              </div>
+              <div class="full">
+                <label>Description</label>
+                <textarea rows="3" onblur="updateEventField('${ev.id}', 'description', this.value)">${escapeHtml(ev.description || '')}</textarea>
+              </div>
+            </div>
+          </details>
         </div>
-        ${isMine ? `<button class="row-delete" onclick="deleteEvent('${ev.id}')">Delete</button>` : ''}
       </div>`;
     };
     let html = '';
@@ -2868,6 +3005,126 @@ details.content-expand[open] summary::after{content:" ▴"}
       html += `<div class="cal-cell ${isToday?'today':''}"><div class="cal-num">${d}</div>${eventHtml}${more}</div>`;
     }
     el.innerHTML = html;
+  }
+
+  /* ====== TIMELINE ====== */
+  async function addTimelineItem(e){
+    e.preventDefault();
+    const day_label = document.getElementById('tlDayLabel').value.trim();
+    const title = document.getElementById('tlTitle').value.trim();
+    if(!day_label || !title) return;
+    const owner = document.getElementById('tlOwner').value;
+    const status = document.getElementById('tlStatus').value;
+    const description = document.getElementById('tlDesc').value.trim() || null;
+    const maxPos = state.timeline.reduce((m, t) => Math.max(m, t.position || 0), 0);
+    ['tlDayLabel','tlTitle','tlDesc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('tlOwner').value = 'any';
+    document.getElementById('tlStatus').value = 'pending';
+    const { error } = await supa.from('timeline').insert({
+      position: maxPos + 1, day_label, title, description, owner, status, created_by: me
+    });
+    if(error) alert('Error adding timeline step: ' + error.message);
+  }
+  async function updateTimelineField(id, field, value){
+    const update = { updated_at: new Date().toISOString() };
+    if(field === 'position') update[field] = parseInt(value) || 1;
+    else update[field] = value || null;
+    await supa.from('timeline').update(update).eq('id', id);
+  }
+  async function deleteTimelineItem(id){
+    if(!confirm('Delete this timeline step?')) return;
+    await supa.from('timeline').delete().eq('id', id);
+  }
+  function renderTimeline(){
+    const el = document.getElementById('timelineList');
+    if(!el) return;
+    const sorted = [...state.timeline].sort((a,b) => (a.position||0) - (b.position||0));
+    if(sorted.length === 0){
+      el.innerHTML = '<div class="activity-empty">No timeline steps yet. Add the first one above.</div>';
+      return;
+    }
+    el.innerHTML = sorted.map(t => {
+      const owner = t.owner || 'any';
+      const ownerLabel = owner === 'any' ? 'Anyone' : (FOUNDERS[owner]?.short || owner);
+      return `<div class="tl-item ${t.status === 'done' ? 'done' : (t.status === 'now' ? 'now' : '')}">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px">
+          <div style="flex:1;min-width:0">
+            <div class="tl-day">${escapeHtml(t.day_label)}</div>
+            <div class="tl-title">${escapeHtml(t.title)}</div>
+            ${t.description ? `<div class="tl-text">${escapeHtml(t.description)}</div>` : ''}
+            <span class="tl-owner task-tag ${owner}">${ownerLabel} owns</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0">
+            <select class="btn-tiny" onchange="updateTimelineField('${t.id}', 'status', this.value)" style="background:var(--bg-card);border:1px solid var(--line-soft);padding:4px 8px;font-size:11px;font-weight:600;cursor:pointer">
+              <option value="pending" ${t.status==='pending'?'selected':''}>Pending</option>
+              <option value="now" ${t.status==='now'?'selected':''}>Now</option>
+              <option value="done" ${t.status==='done'?'selected':''}>Done</option>
+            </select>
+            <button class="row-delete" onclick="deleteTimelineItem('${t.id}')">Delete</button>
+          </div>
+        </div>
+        <details class="content-expand" style="margin-top:8px">
+          <summary>Edit step</summary>
+          <div class="expanded-fields">
+            <div>
+              <label>Day label</label>
+              <input type="text" value="${escapeHtml(t.day_label)}" onblur="updateTimelineField('${t.id}', 'day_label', this.value)">
+            </div>
+            <div>
+              <label>Position</label>
+              <input type="number" value="${t.position || 0}" min="1" onblur="updateTimelineField('${t.id}', 'position', this.value)">
+            </div>
+            <div class="full">
+              <label>Title</label>
+              <input type="text" value="${escapeHtml(t.title)}" onblur="updateTimelineField('${t.id}', 'title', this.value)">
+            </div>
+            <div class="full">
+              <label>Description</label>
+              <textarea rows="3" onblur="updateTimelineField('${t.id}', 'description', this.value)">${escapeHtml(t.description || '')}</textarea>
+            </div>
+            <div>
+              <label>Owner</label>
+              <select onchange="updateTimelineField('${t.id}', 'owner', this.value)">
+                <option value="any" ${owner==='any'?'selected':''}>Anyone</option>
+                <option value="alex" ${owner==='alex'?'selected':''}>Alex</option>
+                <option value="jason" ${owner==='jason'?'selected':''}>Jason</option>
+                <option value="justin" ${owner==='justin'?'selected':''}>Justin</option>
+                <option value="dawon" ${owner==='dawon'?'selected':''}>Dawon</option>
+              </select>
+            </div>
+          </div>
+        </details>
+      </div>`;
+    }).join('');
+  }
+
+  /* ====== BRAND META (editable singletons) ====== */
+  async function updateBrandMeta(key, value){
+    const { error } = await supa.from('brand_meta').upsert({
+      key, value: value || null, updated_by: me, updated_at: new Date().toISOString()
+    });
+    if(error) console.error('Error updating brand meta:', error);
+  }
+  function renderBrandMeta(){
+    // Render the one-liner card wherever it appears (Home, Brand, Product)
+    document.querySelectorAll('[data-meta-key]').forEach(el => {
+      const key = el.getAttribute('data-meta-key');
+      const value = state.brand_meta[key] || '';
+      if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA'){
+        if(document.activeElement !== el) el.value = value;
+      } else {
+        el.textContent = value;
+      }
+    });
+  }
+
+  /* ====== EVENTS · inline edit ====== */
+  async function updateEventField(id, field, value){
+    const update = { updated_at: new Date().toISOString() };
+    if(field === 'starts_at') update[field] = value ? new Date(value).toISOString() : null;
+    else if(field === 'all_day') update[field] = value === 'true' || value === true;
+    else update[field] = value || null;
+    await supa.from('events').update(update).eq('id', id);
   }
 
   /* ====== VIEWS ====== */
