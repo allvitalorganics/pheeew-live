@@ -1,0 +1,1691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pheeew, Inc. — Dawon's Storyline Brief · Season 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Caveat+Brush&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ed; --ink:#1c1a18; --soft:#4a4439; --mute:#8a7e6c;
+  --line:#d8d2c8; --cobalt:#2952b8; --brick:#8b3e1d; --peach:#e8b88d;
+  --peach-soft:#fbeed8; --green:#4a8e5a; --gold:#9a7a3a;
+  --pheeew:#8B4A2C; --pheeew-soft:#f1dccc;
+  --warn-bg:#fdf2f2; --warn-line:#f4cece;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:840px;margin:0 auto;padding:0 32px}
+
+/* GATE */
+.app-gate{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:100}
+.app-gate-box{background:white;border:1px solid var(--line);border-radius:16px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 12px 40px rgba(28,26,24,.06)}
+.editorial-i{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;font-weight:700;color:var(--ink);text-align:center;letter-spacing:-.02em}
+.brushy{font-family:'Caveat Brush',cursive;font-size:18px;color:var(--pheeew);text-align:center;display:block;margin:6px 0 24px}
+.app-gate input{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:.04em;background:var(--cream);color:var(--ink)}
+.app-gate input:focus{outline:none;border-color:var(--cobalt)}
+.app-gate button{width:100%;margin-top:12px;padding:14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer}
+.app-gate button:hover{background:var(--cobalt)}
+.gate-error{font-size:12px;color:var(--brick);margin-top:10px;text-align:center;display:none}
+
+/* HEADER */
+.site-header{position:sticky;top:0;background:rgba(250,246,237,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);z-index:50}
+.site-header-inner{max-width:840px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .lettermark{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink)}
+.brand .pad{font-family:'Caveat Brush',cursive;font-size:13px;color:var(--pheeew)}
+.signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
+.signout:hover{color:var(--ink);border-color:var(--ink)}
+
+.confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
+.confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
+
+/* HERO */
+.hero{padding:56px 0 36px}
+.hero .eyebrow{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pheeew);font-weight:700;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:54px;letter-spacing:-.02em;line-height:1.02;color:var(--ink);margin-bottom:18px}
+.hero h1 .accent{font-style:italic;color:var(--pheeew)}
+.hero .lede{font-size:18px;color:var(--soft);line-height:1.55;max-width:600px}
+.hero .meta{margin-top:18px;font-family:'Special Elite',monospace;font-size:12px;color:var(--mute);letter-spacing:.04em}
+
+/* SECTION */
+section.block{margin-bottom:64px;scroll-margin-top:80px}
+.block-head{margin-bottom:24px}
+.block-head .num{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin-bottom:6px}
+.block-head h2{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:34px;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.block-head .sub{margin-top:10px;color:var(--soft);font-size:15px;line-height:1.6}
+
+h3{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--ink);margin:28px 0 14px;letter-spacing:-.005em}
+h4{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:var(--ink);margin:18px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px;color:var(--ink);font-size:15.5px;line-height:1.7}
+p.lead{font-size:17px;color:var(--soft)}
+ul,ol{margin:0 0 14px 22px;color:var(--ink)}
+ul li,ol li{margin:8px 0;line-height:1.65;font-size:15.5px}
+strong{color:var(--ink);font-weight:700}
+em{color:var(--soft);font-style:italic}
+code{font-family:'Special Elite',monospace;font-size:13px;background:var(--pheeew-soft);padding:2px 8px;border-radius:4px;color:var(--pheeew)}
+
+/* CALLOUTS */
+.callout{padding:18px 22px;border-radius:14px;margin:18px 0}
+.callout .label{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:8px}
+.callout p{font-size:14.5px;line-height:1.65}
+.callout p:last-child{margin-bottom:0}
+
+.warn{background:var(--warn-bg);border:1.5px solid var(--warn-line)}
+.warn .label{color:var(--brick)}
+.note{background:linear-gradient(135deg,#fff8eb 0%,#fbeed8 100%);border-left:4px solid var(--gold)}
+.note .label{color:var(--gold)}
+.rule{background:#f1ece1;border-left:4px solid var(--pheeew)}
+.rule .label{color:var(--pheeew)}
+.green{background:#eaf3ec;border-left:4px solid var(--green)}
+.green .label{color:var(--green)}
+
+/* EPISODE CARDS */
+.ep-card{background:white;border:1px solid var(--line);border-radius:16px;padding:30px 32px;margin:28px 0;box-shadow:0 8px 28px rgba(28,26,24,.04)}
+.ep-head{display:flex;align-items:flex-start;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:18px}
+.ep-num{flex-shrink:0;width:48px;height:48px;border-radius:100px;background:var(--pheeew);color:white;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:14px;font-weight:700;letter-spacing:.04em}
+.ep-meta{flex:1}
+.ep-meta .tag{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:4px}
+.ep-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink);line-height:1.2;letter-spacing:-.01em}
+.ep-section{margin-top:18px}
+.ep-section h5{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--pheeew);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.ep-section h5::before{content:"";display:inline-block;width:18px;height:1px;background:var(--pheeew)}
+
+.beat-list{list-style:none;margin:0;padding:0}
+.beat-list li{display:flex;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14.5px;line-height:1.6}
+.beat-list li:last-child{border-bottom:none}
+.beat-list .time{flex-shrink:0;font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.04em;color:var(--cobalt);font-weight:700;width:60px;padding-top:2px}
+.beat-list .desc{flex:1;color:var(--ink)}
+
+.slide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin:12px 0}
+.slide-box{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px;line-height:1.4;color:var(--soft);min-height:80px;position:relative}
+.slide-box .n{font-family:'Special Elite',monospace;font-size:9px;font-weight:700;color:var(--pheeew);letter-spacing:.1em;margin-bottom:4px;display:block}
+
+.caption{background:#f8f3e6;border:1px dashed var(--peach);border-radius:8px;padding:12px 16px;font-family:'Special Elite',monospace;font-size:13px;color:var(--ink);line-height:1.6;margin:8px 0}
+.caption .hashtag{color:var(--cobalt)}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:14px 0}
+.tbl-wrap table{width:100%;border-collapse:collapse;font-size:14px}
+.tbl-wrap th{background:var(--ink);color:var(--cream);padding:10px 12px;text-align:left;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.tbl-wrap td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl-wrap tr:last-child td{border-bottom:none}
+.tbl-wrap td.num{text-align:right;font-family:'Special Elite',monospace}
+
+/* TOC */
+.toc{background:white;border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin:24px 0 40px}
+.toc h3{margin:0 0 14px;font-size:18px}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:tocc}
+.toc ol li{counter-increment:tocc;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14.5px;display:flex;gap:12px}
+.toc ol li:last-child{border-bottom:none}
+.toc ol li::before{content:counter(tocc,decimal-leading-zero);font-family:'Special Elite',monospace;font-size:11px;font-weight:700;color:var(--pheeew);min-width:28px;padding-top:2px}
+.toc a{color:var(--ink);text-decoration:none;flex:1}
+.toc a:hover{color:var(--pheeew)}
+
+/* DO/DONT */
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.do, .dont{background:white;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.do{border-left:4px solid var(--green)}
+.dont{border-left:4px solid var(--brick)}
+.do h4, .dont h4{margin:0 0 8px;font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.do h4{color:var(--green)}
+.dont h4{color:var(--brick)}
+.do ul, .dont ul{margin:0;padding-left:18px;font-size:14px;line-height:1.6}
+.do li, .dont li{margin:6px 0}
+
+/* HELPLINES BOX */
+.helplines{background:white;border:2px solid var(--brick);border-radius:14px;padding:20px 24px;margin:20px 0}
+.helplines h4{color:var(--brick);font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.helplines p{font-size:14px;line-height:1.65;margin-bottom:6px}
+.helplines strong{color:var(--brick)}
+
+/* FOOTER */
+footer{margin:72px 0 48px;padding-top:32px;border-top:1px solid var(--line);text-align:center}
+footer p{font-family:'Special Elite',monospace;font-size:11px;color:var(--mute);letter-spacing:.06em;line-height:1.7}
+footer p .sig{color:var(--pheeew);font-weight:700}
+
+/* MOBILE */
+@media (max-width:680px){
+  .wrap{padding:0 20px}
+  .site-header-inner{padding:14px 20px}
+  .hero{padding:36px 0 24px}
+  .hero h1{font-size:36px}
+  .hero .lede{font-size:16px}
+  .block-head h2{font-size:26px}
+  .ep-card{padding:22px 20px}
+  .ep-title{font-size:20px}
+  .ep-num{width:40px;height:40px;font-size:13px}
+  .do-dont{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div class="app-gate" id="appGate">
+  <div class="app-gate-box">
+    <div class="editorial-i">Pheeew</div>
+    <span class="brushy">storyline brief</span>
+    <form id="gateForm" onsubmit="checkGate(event)">
+      <input id="gateInput" type="password" placeholder="passcode" autocomplete="off">
+      <button type="submit">Enter</button>
+      <div class="gate-error" id="gateError">Wrong passcode</div>
+    </form>
+  </div>
+</div>
+
+<div id="appContent" style="display:none">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand">
+      <span class="lettermark">Pheeew</span>
+      <span class="pad">storyline brief</span>
+    </div>
+    <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
+  </div>
+</header>
+
+<div class="confidential-banner">
+  <div class="confidential-banner-inner">Confidential · Pheeew, Inc. · Founders Only · Dawon's working brief</div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Season 1 · Origin Arc · v1.0</div>
+    <h1>The <span class="accent">storyline</span> for Pheeew.</h1>
+    <p class="lede">A 15-episode origin season built for Dawon to film as reels first, then expand into carousels. Discovery voice, not teacher voice. Pheeew earns its way into the story — it doesn't lead.</p>
+    <div class="meta">For: Dawon Kim, CBO · Prepared by Alex Kim, CEO · May 14, 2026</div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>What's in this brief</h3>
+    <ol>
+      <li><a href="#how-to-use">How to use this brief</a></li>
+      <li><a href="#voice">Dawon's voice — the rules</a></li>
+      <li><a href="#safety">Safety guardrails &amp; language we don't use</a></li>
+      <li><a href="#arc">The Season 1 arc — 15 episodes at a glance</a></li>
+      <li><a href="#ep1">Episode 1 — "I Was Obsessed With Looking My Best"</a></li>
+      <li><a href="#ep2">Episode 2 — "The Pills I Took Weren't Just Supplements"</a></li>
+      <li><a href="#ep3">Episode 3 — "I Stopped Being Able To Poop"</a></li>
+      <li><a href="#ep4">Episode 4 — "Prune Juice, Laxatives, Anything"</a></li>
+      <li><a href="#ep5">Episode 5 — "Going To LA Saved Me"</a></li>
+      <li><a href="#ep6">Episode 6 — "Trying To Heal Naturally"</a></li>
+      <li><a href="#ep7">Episode 7 — "The 14-Hour Days That Undid Everything"</a></li>
+      <li><a href="#ep8">Episode 8 — "Quitting Without A Plan"</a></li>
+      <li><a href="#ep9">Episode 9 — "The Job That Changed How I Thought"</a></li>
+      <li><a href="#ep10">Episode 10 — "Meeting Alex"</a></li>
+      <li><a href="#ep11">Episode 11 — "The First Idea Was Gummies"</a></li>
+      <li><a href="#ep12">Episode 12 — "Then We Tried Freeze-Dried Fruit Cubes"</a></li>
+      <li><a href="#ep13">Episode 13 — "The Third Time Was The Smoothie"</a></li>
+      <li><a href="#ep14">Episode 14 — "The Word I Didn't Know: Synbiotic"</a></li>
+      <li><a href="#ep15">Episode 15 — "We Pitched Investors But Walked Away"</a></li>
+      <li><a href="#visuals">Visual + production rules</a></li>
+      <li><a href="#cadence">Cadence &amp; the 12-week calendar</a></li>
+      <li><a href="#deps">What Dawon needs from Alex / Jason / Justin</a></li>
+      <li><a href="#graduation">The graduation plan — Season 2 &amp; beyond</a></li>
+    </ol>
+  </div>
+
+  <!-- 0. HOW TO USE -->
+  <section class="block" id="how-to-use">
+    <div class="block-head">
+      <div class="num">§ 00 · how to use</div>
+      <h2>How to read this brief.</h2>
+      <p class="sub">This is a working document, not a script. Dawon adapts every episode to feel like her — the brief sets the boundary, not the words.</p>
+    </div>
+
+    <p>Every episode has the same structure: <strong>emotional beat</strong> (what the audience feels), <strong>reel structure</strong> (30–90 second vertical video, beat-by-beat), <strong>carousel structure</strong> (15–20 static slides expanding the same story), <strong>caption template</strong>, and <strong>safety notes</strong> where the content touches anything sensitive.</p>
+
+    <p>The reel is filmed first. After it lands (or doesn't — both teach), the same story becomes the carousel — more depth, more text, more room to share the parts that didn't fit the video. The carousel always references the reel ("if you saw the reel, here's the part I couldn't fit") so the two formats compound rather than compete.</p>
+
+    <p>Dawon owns final word on every line of her own story. Alex / Jason / Justin can suggest, edit, push back — but Dawon's experience is hers to tell. If she's uncomfortable with how a beat is framed in this brief, the brief is wrong, not her.</p>
+
+    <div class="callout note">
+      <span class="label">A note on this being her story</span>
+      <p>The brief talks about Dawon in third person because Alex is writing it. When she films, it's first person — <em>"I was,"</em> <em>"I tried,"</em> <em>"I found out."</em> Dawon's voice is the only voice the audience hears. Alex, Jason, and Justin appear as people in her story, never as co-narrators.</p>
+    </div>
+  </section>
+
+  <!-- 1. VOICE -->
+  <section class="block" id="voice">
+    <div class="block-head">
+      <div class="num">§ 01 · voice</div>
+      <h2>Dawon's voice — the rules.</h2>
+      <p class="sub">She's not a teacher. She's not a guru. She's a person who tried things, broke a few of them, and is sharing what she found.</p>
+    </div>
+
+    <h3>The posture</h3>
+    <p>Every episode is told from inside the experience, not from above it. The frame is <em>"here's what I tried, and here's what I learned"</em> — never <em>"here's what you should do."</em> The audience is brought along as a witness, not a student.</p>
+
+    <p>This is the difference between Glossier's <em>Into the Gloss</em> ("here's what I use") and a beauty influencer's "10 products you need" video. Pheeew sits firmly on the first side of that line.</p>
+
+    <h3>Sentence-level rules</h3>
+    <div class="do-dont">
+      <div class="do">
+        <h4>Do say</h4>
+        <ul>
+          <li>"Here's what I found out."</li>
+          <li>"In my case, I did X."</li>
+          <li>"I tried Y. It didn't work for me. So I tried Z."</li>
+          <li>"I'm not a doctor. This is just what helped me."</li>
+          <li>"I used to think... and then I learned..."</li>
+          <li>"I don't know if this works for everyone."</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h4>Never say</h4>
+        <ul>
+          <li>"You need to..."</li>
+          <li>"Everyone should..."</li>
+          <li>"The truth is..."</li>
+          <li>"This is the secret..."</li>
+          <li>"It changed my life forever."</li>
+          <li>"The best version of myself."</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>The discovery cadence</h3>
+    <p>Most episodes follow a four-beat structure: <strong>setup</strong> (here's where I was), <strong>turn</strong> (here's what happened or what I tried), <strong>aftermath</strong> (here's what I noticed or felt), <strong>learning</strong> (here's what I take from it now). The learning is small and personal — never universal, never prescriptive.</p>
+
+    <p>Each beat is a moment, not a paragraph. The reel format forces this discipline. The carousel inherits the same discipline — every slide is one beat, not three.</p>
+
+    <h3>Language register</h3>
+    <p>Primary language: English. Korean appears in moments where it's authentic — food memories, family contexts, mom's cooking, what a doctor said. Never as a bilingual gimmick or to flex authenticity. If Korean shows up, English subtitles are mandatory on the reel and on the carousel slide.</p>
+
+    <p>Profanity: avoided. Even when warranted. The brand has to be safe to share with a relative who watches over your shoulder.</p>
+
+    <p>Specificity over generality, always. "I ate one chicken breast and a handful of mushrooms" lands harder than "I undereat." "I tried prune juice, then magnesium, then a doctor-prescribed laxative" lands harder than "I tried everything."</p>
+  </section>
+
+  <!-- 2. SAFETY -->
+  <section class="block" id="safety">
+    <div class="block-head">
+      <div class="num">§ 02 · safety</div>
+      <h2>Safety guardrails &amp; the words we don't use.</h2>
+      <p class="sub">This is not optional content. These rules apply to every episode, every caption, every comment Dawon replies to.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">Read this section before filming any episode</span>
+      <p>Episodes 1–4 touch eating-disorder-adjacent territory and prescription drug misuse. The framing is non-negotiable. If a take feels wrong to Dawon, Alex, or anyone else reviewing — kill it and re-shoot. We can always make more content. We can't unship harm.</p>
+    </div>
+
+    <h3>Words we don't use, ever</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Don't say</th><th>Say instead</th><th>Why</th></tr>
+      <tr><td><strong>Depression</strong></td><td>"Emotional low times" · "I was struggling emotionally" · "I felt heavy" · "It was hard for me mentally"</td><td>Clinical diagnosis. Loaded. Reserved for people speaking about a real diagnosis they have.</td></tr>
+      <tr><td><strong>Eating disorder</strong> (as a label for myself)</td><td>"My relationship with food was broken" · "I wasn't eating well" · "I had a hard time with food"</td><td>Diagnostic label. Same rule.</td></tr>
+      <tr><td><strong>I was anorexic / bulimic</strong></td><td>"I starved myself" · "I restricted what I ate"</td><td>Naming a clinical condition you weren't formally diagnosed with crosses a line.</td></tr>
+      <tr><td><strong>Toxic</strong> (used as a vibe word)</td><td>Reserve only for things that were literally toxic — the diet pills, the cosmetic clinic prescribing pattern.</td><td>Overuse drains its meaning. We use it where it earns its weight.</td></tr>
+      <tr><td><strong>Cured / fixed me</strong></td><td>"Helped me" · "Supported me" · "Made a difference"</td><td>FDA and FTC both care. So does the audience.</td></tr>
+      <tr><td><strong>"My best self" · "looking my best"</strong></td><td>If used: in scare quotes, as the irony — "what I thought was my best."</td><td>Reframing the beauty standard, not endorsing it.</td></tr>
+      <tr><td><strong>Skinny</strong></td><td>"Thin" — sparingly. Better: don't describe weight at all.</td><td>Body-comparison language. Avoid where possible.</td></tr>
+      <tr><td>Naming specific weight in pounds or kilograms</td><td>Don't.</td><td>Triggering. Invites comparison. Adds nothing to the story.</td></tr>
+      <tr><td><strong>"Detox"</strong> (when describing what Pheeew or anything does)</td><td>Don't use. Use specific function language instead — "supports digestion," "feeds beneficial gut bacteria."</td><td>Pseudoscience flag. Regulatory flag.</td></tr>
+    </table></div>
+
+    <h3>The disclaimer block</h3>
+    <p>This appears in the caption of every episode that touches food, body, restriction, or medication. Pinned in episodes 1–4 caption. Linked in every other episode caption.</p>
+
+    <div class="caption">
+      What I share here is my experience — not advice. I'm not a doctor, dietitian, or therapist. If you're struggling with how you feel about food or your body, please reach out to someone qualified to help. I share my story to help people feel less alone, never to suggest what anyone else should do.
+    </div>
+
+    <h3>Helplines we link in captions</h3>
+    <div class="helplines">
+      <h4>Where we point people who are struggling</h4>
+      <p><strong>United States — NEDA Helpline:</strong> 1-800-931-2237 · text "NEDA" to 741741</p>
+      <p><strong>South Korea — 한국청소년상담복지개발원:</strong> 1388 (24-hour youth + young adult counseling)</p>
+      <p><strong>South Korea — 한국정신건강재단:</strong> 1577-0199 (mental health crisis line)</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--mute)">These links are included in the caption of any episode that touches restriction, body, or self-image. They appear before the call-to-action for the waitlist — always.</p>
+    </div>
+
+    <h3>The diet pill framing rule</h3>
+    <p>Episode 2 is the highest-risk episode in the entire arc. The way Dawon talks about the prescription pills she took matters enormously. Three rules:</p>
+
+    <ol>
+      <li><strong>Never name the specific medication.</strong> Even if she remembers the name. The risk of someone searching the name and seeking it out is higher than the storytelling benefit.</li>
+      <li><strong>Frame it as a warning, not a recipe.</strong> The episode is structurally about <em>how unregulated the cosmetic-clinic prescribing pattern was</em>, not what the pills did. The villain is the system, not the substance.</li>
+      <li><strong>The post-pill aftermath is the lesson.</strong> The brain fog, the gut shutdown, the emotional cost — these are what the audience walks away with. The high is not romanticized. The "it worked, I lost weight" beat is told as the tragedy, not the triumph.</li>
+    </ol>
+
+    <div class="callout warn">
+      <span class="label">Disclaimer specific to episode 2</span>
+      <p>This episode requires an additional disclaimer in the caption and as a slide in the carousel: <em>"The pills I describe were prescription medications used cosmetically through skincare clinics. They are dangerous. I am not naming them and not recommending them. If you've been prescribed something for weight loss that you're unsure about, please consult an actual medical doctor — not a cosmetic clinic."</em></p>
+    </div>
+
+    <h3>What never appears on camera</h3>
+    <ul>
+      <li>Before/after weight loss photos of any kind</li>
+      <li>Scale numbers · body measurements · BMI</li>
+      <li>Mirror selfies focused on body changes</li>
+      <li>Food restriction "what I eat in a day" content</li>
+      <li>The actual pills (no pictures, no demonstrations, no packaging)</li>
+      <li>Other people who are recognizably struggling — only Dawon's own story</li>
+    </ul>
+
+    <h3>Comment moderation rules</h3>
+    <p>Episodes 1–4 will attract three kinds of comments: people sharing their own story (mostly), people asking for medical advice (some), people glorifying the restriction (rare but real). Dawon and Alex review and respond to the first within 24 hours, redirect the second to a doctor with empathy, and either ignore or quietly hide the third. We do not engage with restriction-glorifying comments — engagement amplifies them.</p>
+
+    <p>If a comment indicates someone is in active crisis, we DM them privately with the relevant helpline and a short message. Then leave them be. We are not a counseling service. We are a brand that knows when to send someone toward real help.</p>
+  </section>
+
+  <!-- 3. ARC -->
+  <section class="block" id="arc">
+    <div class="block-head">
+      <div class="num">§ 03 · the arc</div>
+      <h2>Season 1 at a glance.</h2>
+      <p class="sub">15 chronological episodes covering 2022 through May 2026. Each one is a standalone reel + carousel pair. Together they form Dawon's origin story — and through her, Pheeew's.</p>
+    </div>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>#</th><th>Episode</th><th>Year</th><th>Beat</th></tr>
+      <tr><td>01</td><td>I Was Obsessed With Looking My Best</td><td>2022–23</td><td>The beauty standard that started it</td></tr>
+      <tr><td>02</td><td>The Pills I Took Weren't Just Supplements</td><td>2022–23</td><td>The cosmetic clinic prescription</td></tr>
+      <tr><td>03</td><td>I Stopped Being Able To Poop</td><td>2022–23</td><td>The gut shutdown</td></tr>
+      <tr><td>04</td><td>Prune Juice, Laxatives, Anything</td><td>2022–23</td><td>What I tried</td></tr>
+      <tr><td>05</td><td>Going To LA Saved Me</td><td>2023</td><td>The healing environment</td></tr>
+      <tr><td>06</td><td>Trying To Heal Naturally</td><td>2023–24</td><td>Learning to listen</td></tr>
+      <tr><td>07</td><td>The 14-Hour Days That Undid Everything</td><td>2024–25</td><td>Burnout pulled me back</td></tr>
+      <tr><td>08</td><td>Quitting Without A Plan</td><td>2025</td><td>The unemployment pause</td></tr>
+      <tr><td>09</td><td>The Job That Changed How I Thought</td><td>Dec 2025</td><td>The supplement startup</td></tr>
+      <tr><td>10</td><td>Meeting Alex</td><td>Jan 2026</td><td>The guide</td></tr>
+      <tr><td>11</td><td>The First Idea Was Gummies</td><td>Jan–Feb 2026</td><td>Pivot one</td></tr>
+      <tr><td>12</td><td>Then We Tried Freeze-Dried Fruit Cubes</td><td>Feb–Mar 2026</td><td>Pivot two</td></tr>
+      <tr><td>13</td><td>The Third Time Was The Smoothie</td><td>Mar–Apr 2026</td><td>Pivot three (the answer)</td></tr>
+      <tr><td>14</td><td>The Word I Didn't Know: Synbiotic</td><td>Apr 2026</td><td>The science that fit</td></tr>
+      <tr><td>15</td><td>We Pitched Investors But Walked Away</td><td>Apr–May 2026</td><td>Choosing independence</td></tr>
+    </table></div>
+
+    <p style="margin-top:18px">Notice the structure: episodes 1–4 are the breakdown. Episodes 5–9 are the rebuilding. Episodes 10–15 are the building of Pheeew itself. <strong>Pheeew is not introduced until Episode 11.</strong> The audience falls in love with Dawon's journey before she introduces the brand — that's by design. If she opened the season with "I'm starting a gut health smoothie company," the story is a pitch. Opening with "I was 22 and obsessed with looking my best," the story is hers.</p>
+
+    <div class="callout rule">
+      <span class="label">Pheeew, Inc. is named in Episode 11 — not before.</span>
+      <p>Before that, Dawon talks about food, body, gut health, her own healing — but never about a brand she's building. The waitlist link in the caption from Episode 1 onward is the only Pheeew presence in the first 10 episodes. Subtle, not absent.</p>
+    </div>
+  </section>
+
+  <!-- EPISODE 1 -->
+  <section class="block" id="ep1">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">01</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 01 · 2022–23 · The Setup</div>
+          <div class="ep-title">"I Was Obsessed With Looking My Best"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>Dawon names the beauty standard she chased — without endorsing it. The episode establishes who she was at 22, what she thought she wanted, and the small ways the obsession showed up before it became a crisis. The audience should feel recognition, not pity. <em>"I wanted to look the way the internet said I should look."</em></p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 45–60 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:03</span><span class="desc"><strong>Hook.</strong> Dawon looking at camera, low light, no makeup. "I want to tell you about the part of my life I don't usually talk about."</span></li>
+          <li><span class="time">0:03–0:15</span><span class="desc"><strong>Setup.</strong> Cut to her hands holding an old phone scrolling Instagram. "I was 22. I thought looking a certain way was the most important thing I could do for myself."</span></li>
+          <li><span class="time">0:15–0:35</span><span class="desc"><strong>The rituals.</strong> Quick cuts of small specifics — the meal she'd eat (one chicken breast, mushrooms), the workout (empty stomach, fasted), the calorie counter app, the mirror check. No body shots.</span></li>
+          <li><span class="time">0:35–0:50</span><span class="desc"><strong>The turn.</strong> "I got what I wanted. And it cost me everything I didn't know I had."</span></li>
+          <li><span class="time">0:50–0:60</span><span class="desc"><strong>Tease forward.</strong> "Tomorrow I want to tell you about the pills." Beat. End card with waitlist link.</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 15 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title slide: "I Was Obsessed With Looking My Best" + small "Ep. 1"</div>
+          <div class="slide-box"><span class="n">02</span>"I'm going to tell you the part of my life I don't usually talk about."</div>
+          <div class="slide-box"><span class="n">03</span>"In 2022 I was 22. I lived in Seoul."</div>
+          <div class="slide-box"><span class="n">04</span>"I thought looking a certain way was the most important thing I could do for myself."</div>
+          <div class="slide-box"><span class="n">05</span>"This is what I ate." — one chicken breast + mushrooms illustration (line drawing, no real food)</div>
+          <div class="slide-box"><span class="n">06</span>"This is how I worked out." — fasted, empty stomach, early morning</div>
+          <div class="slide-box"><span class="n">07</span>"I tracked every calorie. I weighed myself every morning." — no number shown</div>
+          <div class="slide-box"><span class="n">08</span>"I thought I was being disciplined."</div>
+          <div class="slide-box"><span class="n">09</span>"I was punishing myself."</div>
+          <div class="slide-box"><span class="n">10</span>"I got what I wanted."</div>
+          <div class="slide-box"><span class="n">11</span>"And it cost me everything I didn't know I had."</div>
+          <div class="slide-box"><span class="n">12</span>"My body stopped working in ways I'll explain in the next few episodes."</div>
+          <div class="slide-box"><span class="n">13</span>"This is not advice. It's just my story." (Helplines)</div>
+          <div class="slide-box"><span class="n">14</span>"If something here feels familiar, please tell someone qualified to help."</div>
+          <div class="slide-box"><span class="n">15</span>"Episode 2 tomorrow." (Soft CTA + waitlist)</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          Episode 1 of a series I've been wanting to share for a long time.<br><br>
+          I'm not a doctor or a dietitian. I'm a person who got it really wrong before I got it slightly less wrong. Sharing this in case any of it sounds like you.<br><br>
+          If you're struggling with how you feel about food or your body, please talk to someone:<br>
+          🇺🇸 NEDA Helpline 1-800-931-2237 (text "NEDA" to 741741)<br>
+          🇰🇷 청소년상담복지센터 1388<br><br>
+          Episode 2 tomorrow.<br><br>
+          <span class="hashtag">#guthealth #wellnessjourney #honestabouthealth #foundermade</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Safety notes for this episode</h5>
+        <ul>
+          <li>No specific weight numbers, no before/after, no body comparison shots</li>
+          <li>The "I got what I wanted" beat must be delivered as the tragedy, not the triumph — voice flat, no smile, no music swell</li>
+          <li>Helplines are in the caption AND in slide 13. Both, not either</li>
+          <li>If a take feels even slightly like "look how disciplined I was" — kill it and re-shoot</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 2 -->
+  <section class="block" id="ep2">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">02</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 02 · 2022–23 · The Highest-Risk Episode</div>
+          <div class="ep-title">"The Pills I Took Weren't Just Supplements"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The cosmetic clinic prescribing pattern is named — not the pills. The audience learns that the version of "weight loss support" Dawon was offered was prescription-only medication being handed out by skincare clinics for cosmetic reasons. The villain is the system that made this normal, not the substance itself. The aftermath is the lesson — brain fog, gut shutdown, emotional cost.</p>
+      </div>
+
+      <div class="callout warn">
+        <span class="label">Pre-shoot checklist for Episode 2</span>
+        <p>Before filming: (1) the specific medication name is NEVER spoken or shown, (2) the additional disclaimer is in the caption and on a slide, (3) the brain-function impact is hedged as "I felt like" / "I noticed" — never claimed as medical fact, (4) Dawon and Alex both review the final cut before posting. Two-person sign-off, mandatory.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 60–75 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> "The pills I took for weight loss weren't supplements. They were prescription. And I got them at a skincare clinic."</span></li>
+          <li><span class="time">0:04–0:18</span><span class="desc"><strong>The system.</strong> "In Korea, certain medications get prescribed by cosmetic clinics — not doctors treating health conditions, just clinics that also do skin." Hand cuts: paperwork, blurred clinic signage.</span></li>
+          <li><span class="time">0:18–0:35</span><span class="desc"><strong>What they did.</strong> "I didn't sleep. I didn't feel hungry. I had endless energy. I thought that was the medicine working." Tone: flat. Cut to her at her desk at the time, looking exhausted.</span></li>
+          <li><span class="time">0:35–0:55</span><span class="desc"><strong>The aftermath.</strong> "I felt like my brain stopped working the way it used to. I couldn't focus. I'd forget words. My body shut down in ways I'm going to talk about in the next episode."</span></li>
+          <li><span class="time">0:55–1:10</span><span class="desc"><strong>The warning.</strong> "I'm not naming the pills. I'm not telling anyone to find them. I'm telling you this because if a clinic that does facials is offering you something for weight loss, please don't trust it. Talk to a real doctor."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 18 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "The Pills I Took Weren't Just Supplements" / Ep. 2</div>
+          <div class="slide-box"><span class="n">02</span>Disclaimer slide (full text — see safety section)</div>
+          <div class="slide-box"><span class="n">03</span>"They were prescription medication."</div>
+          <div class="slide-box"><span class="n">04</span>"I got them at a skincare clinic. Not a hospital."</div>
+          <div class="slide-box"><span class="n">05</span>"In Korea, cosmetic clinics — places that do skin treatments — were prescribing these for weight loss."</div>
+          <div class="slide-box"><span class="n">06</span>"They were not for any health condition I had. They were cosmetic."</div>
+          <div class="slide-box"><span class="n">07</span>"I didn't know that's not how prescriptions are supposed to work."</div>
+          <div class="slide-box"><span class="n">08</span>"What they did:"</div>
+          <div class="slide-box"><span class="n">09</span>"I didn't sleep."</div>
+          <div class="slide-box"><span class="n">10</span>"I didn't feel hungry."</div>
+          <div class="slide-box"><span class="n">11</span>"I had nonstop energy I couldn't turn off."</div>
+          <div class="slide-box"><span class="n">12</span>"I thought that was the medicine working."</div>
+          <div class="slide-box"><span class="n">13</span>"It was a body breaking down in slow motion."</div>
+          <div class="slide-box"><span class="n">14</span>"I felt like my brain stopped working the way it used to."</div>
+          <div class="slide-box"><span class="n">15</span>"I couldn't focus. I'd forget words."</div>
+          <div class="slide-box"><span class="n">16</span>"I'm not telling you the name of the pills. I'm not telling anyone to look for them."</div>
+          <div class="slide-box"><span class="n">17</span>"If a place that does facials is offering you something for weight loss — please don't trust it. Talk to a real medical doctor."</div>
+          <div class="slide-box"><span class="n">18</span>Helplines + "Episode 3 tomorrow"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The mandatory disclaimer slide (Slide 02)</h5>
+        <div class="caption">
+          The pills I describe in this episode were prescription medications used cosmetically through skincare clinics. They are dangerous. I am not naming them. I am not recommending them.<br><br>
+          If you've been prescribed something for weight loss that you're unsure about, please consult an actual medical doctor — not a cosmetic clinic.<br><br>
+          What I share here is my experience, not advice.
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          The hardest episode of this series to film.<br><br>
+          The pills I describe were prescription medications, used cosmetically, prescribed through skincare clinics in Korea. They are dangerous. I am not naming them. I am not recommending them. If a clinic that does facials is offering you something for weight loss — please don't trust it. Talk to an actual medical doctor.<br><br>
+          🇺🇸 NEDA 1-800-931-2237 (text "NEDA" to 741741)<br>
+          🇰🇷 청소년상담복지센터 1388<br><br>
+          <span class="hashtag">#guthealth #honestwellness #stayinformed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 3 -->
+  <section class="block" id="ep3">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">03</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 03 · 2022–23 · The Body Speaks Back</div>
+          <div class="ep-title">"I Stopped Being Able To Poop"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The first physical symptom that broke through. Dawon names it plainly. The shame of not being able to do something everyone takes for granted. The bloating, the discomfort, the way it changed her relationship with eating altogether. This is the episode where the audience starts to feel her body — not as a thing to look at, but as a thing to live in.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 45–60 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> Direct to camera, plain delivery: "There was a stretch where I couldn't poop for almost two weeks at a time. I want to talk about that."</span></li>
+          <li><span class="time">0:04–0:18</span><span class="desc"><strong>The shame.</strong> "It's not the kind of thing you tell people. Especially when you're trying to look a certain way."</span></li>
+          <li><span class="time">0:18–0:35</span><span class="desc"><strong>The body.</strong> "My stomach felt full all the time. I was bloated. I felt heavy when I should have felt light. The thing I was trying to do — look thinner — was being undone by my body protesting."</span></li>
+          <li><span class="time">0:35–0:50</span><span class="desc"><strong>The realization.</strong> "I was barely eating. I was on medication. I was working out fasted. Of course my gut shut down. But I didn't know what a gut was, really."</span></li>
+          <li><span class="time">0:50–0:60</span><span class="desc"><strong>Tease.</strong> "Tomorrow — everything I tried to fix it. Including the stuff I shouldn't have tried."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 16 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "I Stopped Being Able To Poop" / Ep. 3</div>
+          <div class="slide-box"><span class="n">02</span>"This is the part of my story that's the hardest to say out loud."</div>
+          <div class="slide-box"><span class="n">03</span>"There was a stretch where I couldn't poop for almost two weeks at a time."</div>
+          <div class="slide-box"><span class="n">04</span>"It's not the kind of thing you tell people."</div>
+          <div class="slide-box"><span class="n">05</span>"Especially when you're trying to look a certain way."</div>
+          <div class="slide-box"><span class="n">06</span>"My stomach felt full all the time. Even when I hadn't eaten."</div>
+          <div class="slide-box"><span class="n">07</span>"I was bloated. I felt heavy when I should have felt light."</div>
+          <div class="slide-box"><span class="n">08</span>"The thing I was trying to do — look thinner — was being undone by my body."</div>
+          <div class="slide-box"><span class="n">09</span>"Of course my gut shut down."</div>
+          <div class="slide-box"><span class="n">10</span>"I was barely eating. I was on medication. I was working out fasted."</div>
+          <div class="slide-box"><span class="n">11</span>"But I didn't know what a gut was, really."</div>
+          <div class="slide-box"><span class="n">12</span>"I didn't know it was the thing keeping me alive."</div>
+          <div class="slide-box"><span class="n">13</span>"I thought it was just where food went."</div>
+          <div class="slide-box"><span class="n">14</span>"That ignorance cost me."</div>
+          <div class="slide-box"><span class="n">15</span>"Tomorrow: what I tried to fix it. Some of it was bad."</div>
+          <div class="slide-box"><span class="n">16</span>Helplines + waitlist CTA</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          This is the episode I almost didn't film.<br><br>
+          Gut health is talked about now in a way it wasn't five years ago. When I was struggling, I didn't know what a gut was, really. I thought my body was punishing me for not being disciplined enough. It turns out I was punishing my body for trying to keep me alive.<br><br>
+          Tomorrow: everything I tried to fix it. Some of it shouldn't have happened.<br><br>
+          🇺🇸 NEDA 1-800-931-2237<br>
+          🇰🇷 청소년상담복지센터 1388<br><br>
+          <span class="hashtag">#guthealth #pooptalk #honestabouthealth</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 4 -->
+  <section class="block" id="ep4">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">04</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 04 · 2022–23 · The Things I Tried</div>
+          <div class="ep-title">"Prune Juice, Laxatives, Anything"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The cycle of looking for a fix in all the wrong places. Each thing she tried was a small surrender — to the symptom, to the bloat, to the discomfort. The episode is structured as a list of attempts that didn't address the underlying problem. The audience starts to understand that the obvious fixes weren't the real fixes. <em>"None of it was working because none of it was answering the real question."</em></p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 60 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> "I tried everything to be able to poop. Here's the list."</span></li>
+          <li><span class="time">0:04–0:35</span><span class="desc"><strong>The rapid-fire list.</strong> Quick cuts. "Prune juice. Magnesium powder. Senna tea. Over-the-counter laxatives. Stool softeners. Constipation medication. A doctor's appointment where I was given more medication."</span></li>
+          <li><span class="time">0:35–0:50</span><span class="desc"><strong>The realization.</strong> "Every fix was about not feeling bloated. Not one of them was about making my gut work again. There's a difference."</span></li>
+          <li><span class="time">0:50–0:60</span><span class="desc"><strong>The pivot forward.</strong> "I had to leave Seoul before I started to figure that out. Tomorrow: LA."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 17 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "Prune Juice, Laxatives, Anything" / Ep. 4</div>
+          <div class="slide-box"><span class="n">02</span>"Here's everything I tried."</div>
+          <div class="slide-box"><span class="n">03</span>"Prune juice. Two glasses a day."</div>
+          <div class="slide-box"><span class="n">04</span>"Magnesium powder."</div>
+          <div class="slide-box"><span class="n">05</span>"Senna tea."</div>
+          <div class="slide-box"><span class="n">06</span>"Over-the-counter laxatives."</div>
+          <div class="slide-box"><span class="n">07</span>"Stool softeners."</div>
+          <div class="slide-box"><span class="n">08</span>"Prescribed constipation medication."</div>
+          <div class="slide-box"><span class="n">09</span>"A doctor's appointment that gave me more medication."</div>
+          <div class="slide-box"><span class="n">10</span>"None of it asked the real question."</div>
+          <div class="slide-box"><span class="n">11</span>"The real question was: why is my body shutting down?"</div>
+          <div class="slide-box"><span class="n">12</span>"Every fix was about not feeling bloated."</div>
+          <div class="slide-box"><span class="n">13</span>"Not one of them was about making my gut work again."</div>
+          <div class="slide-box"><span class="n">14</span>"There's a difference."</div>
+          <div class="slide-box"><span class="n">15</span>"It took me leaving Seoul to start seeing it."</div>
+          <div class="slide-box"><span class="n">16</span>"Tomorrow: LA."</div>
+          <div class="slide-box"><span class="n">17</span>Helplines + waitlist</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Safety notes</h5>
+        <ul>
+          <li>The list is delivered factually — no shame attached, no humor. Specific because specific is honest, not because it's relatable content</li>
+          <li>Do NOT show the actual products on camera. Names spoken, products not seen</li>
+          <li>The "doctor visit" beat must not read as "doctors are bad" — the criticism is of <em>symptom-only treatment</em>, not of medicine. We're a wellness brand, not an anti-medicine brand</li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          Every fix I tried was about not feeling bloated. None of them were about making my gut work again. There's a difference. It took me a long time to see it.<br><br>
+          🇺🇸 NEDA 1-800-931-2237<br>
+          🇰🇷 청소년상담복지센터 1388<br><br>
+          Tomorrow: leaving Seoul.<br><br>
+          <span class="hashtag">#guthealth #wellnessjourney #honestabouthealth</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 5 -->
+  <section class="block" id="ep5">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">05</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 05 · 2023 · The Pivot</div>
+          <div class="ep-title">"Going To LA Saved Me"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The turning point of Season 1. Dawon goes to LA as an exchange student and something shifts — not because LA is magic, but because the environment changes. Different friends. Different food. Different pace. The audience starts to see what healing actually looks like when the body is given a chance.</p>
+        <p>This episode is intentionally lighter in tone. After four hard episodes, the audience needs a breath. The lightness isn't fake — it's earned.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 45–60 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> Wide shot, LA palm trees, golden hour. "Going to LA was the first thing in years that made me feel like myself."</span></li>
+          <li><span class="time">0:04–0:20</span><span class="desc"><strong>The change.</strong> "I went as an exchange student. New school. New apartment. People who didn't know any of the rules I was trying to follow."</span></li>
+          <li><span class="time">0:20–0:38</span><span class="desc"><strong>The small things.</strong> "Friends who ate three meals. Avocado on toast. Walking everywhere. Coffee outside. Nobody asking if I was on a diet."</span></li>
+          <li><span class="time">0:38–0:55</span><span class="desc"><strong>The body responds.</strong> "I didn't try to heal. I just stopped doing the things that were hurting me. And slowly, my body started working again."</span></li>
+          <li><span class="time">0:55–0:60</span><span class="desc"><strong>Setup forward.</strong> "Tomorrow: trying to keep it going when I got home."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 14 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "Going To LA Saved Me" / Ep. 5</div>
+          <div class="slide-box"><span class="n">02</span>"I want to be careful with this episode. LA isn't a cure. It was just the right environment."</div>
+          <div class="slide-box"><span class="n">03</span>"I went as an exchange student."</div>
+          <div class="slide-box"><span class="n">04</span>"New school. New apartment. New air."</div>
+          <div class="slide-box"><span class="n">05</span>"Friends who didn't know any of the rules I was following."</div>
+          <div class="slide-box"><span class="n">06</span>"Three meals a day was just what people did."</div>
+          <div class="slide-box"><span class="n">07</span>"Avocado on toast. Walking everywhere. Coffee outside."</div>
+          <div class="slide-box"><span class="n">08</span>"Nobody asked if I was dieting."</div>
+          <div class="slide-box"><span class="n">09</span>"I didn't try to heal."</div>
+          <div class="slide-box"><span class="n">10</span>"I just stopped doing the things that were hurting me."</div>
+          <div class="slide-box"><span class="n">11</span>"My body started working again. Slowly."</div>
+          <div class="slide-box"><span class="n">12</span>"This is the most important thing I learned in LA: I didn't need to fix myself. I needed to stop breaking myself."</div>
+          <div class="slide-box"><span class="n">13</span>"That's a different question."</div>
+          <div class="slide-box"><span class="n">14</span>"Tomorrow: trying to keep it going when I got home."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          The smallest change in environment is sometimes the biggest change in life. I didn't go to LA to heal. I went as a student. Healing was a side effect of being somewhere that didn't reinforce the way I'd been living.<br><br>
+          Episode 6 tomorrow.<br><br>
+          <span class="hashtag">#guthealth #wellnessjourney #la #expat</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Visual note for this episode</h5>
+        <p>LA visuals can lean nostalgic and warm — golden hour, palm trees, simple street shots. <strong>Avoid</strong> the cliché LA fitness aesthetic (running shorts, smoothie bowls in a perfect light, gym selfies). The vibe is healing-through-ordinariness, not influencer LA. Find the moments that look like real life: a window with sunlight, a counter with breakfast, a friend's hands.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 6 -->
+  <section class="block" id="ep6">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">06</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 06 · 2023–24 · The Apprenticeship</div>
+          <div class="ep-title">"Trying To Heal Naturally"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>Back from LA, Dawon tries to keep the momentum. She starts learning — not because she has to, but because she's curious for the first time. She reads, she watches, she changes small things. She doesn't get it all right. But she's listening to her body in a way she never has. The audience should feel her learning the same way they would learn alongside a friend.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 45–60 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> "When I got home from LA, I tried to keep it going. Here's what that actually looked like."</span></li>
+          <li><span class="time">0:04–0:20</span><span class="desc"><strong>The shift.</strong> "I stopped tracking calories. I started cooking. I figured out which foods made me feel good and which ones made me feel bad — by paying attention, not by Googling."</span></li>
+          <li><span class="time">0:20–0:38</span><span class="desc"><strong>The small wins.</strong> "I could poop again. I could think again. I had energy that wasn't from a pill." Beat. "I felt strange because I felt normal."</span></li>
+          <li><span class="time">0:38–0:55</span><span class="desc"><strong>The honest part.</strong> "I want to be clear — I wasn't fully better. I still had moments. I still compared myself to other people. But I had a baseline I'd never had before."</span></li>
+          <li><span class="time">0:55–0:60</span><span class="desc"><strong>Tease.</strong> "Then I got my first real job. And I lost it."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 15 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "Trying To Heal Naturally" / Ep. 6</div>
+          <div class="slide-box"><span class="n">02</span>"Back from LA, I tried to keep it going."</div>
+          <div class="slide-box"><span class="n">03</span>"I stopped tracking calories."</div>
+          <div class="slide-box"><span class="n">04</span>"I started cooking. Not for content. For food."</div>
+          <div class="slide-box"><span class="n">05</span>"I figured out which foods made me feel good and which ones made me feel bad."</div>
+          <div class="slide-box"><span class="n">06</span>"By paying attention. Not by Googling."</div>
+          <div class="slide-box"><span class="n">07</span>"I could poop again."</div>
+          <div class="slide-box"><span class="n">08</span>"I could think again."</div>
+          <div class="slide-box"><span class="n">09</span>"I had energy that wasn't from a pill."</div>
+          <div class="slide-box"><span class="n">10</span>"I felt strange because I felt normal."</div>
+          <div class="slide-box"><span class="n">11</span>"I want to be honest. I wasn't fully better."</div>
+          <div class="slide-box"><span class="n">12</span>"I still compared. I still had moments."</div>
+          <div class="slide-box"><span class="n">13</span>"But I had a baseline I'd never had before."</div>
+          <div class="slide-box"><span class="n">14</span>"Then I got my first real job. And I lost the baseline."</div>
+          <div class="slide-box"><span class="n">15</span>"Episode 7 tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          The hardest part about healing isn't getting to it. It's keeping it. I had a baseline I'd never had before — and I lost it the second life got busy. Episode 7 tomorrow.<br><br>
+          <span class="hashtag">#guthealth #healingjourney #realwellness</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 7 -->
+  <section class="block" id="ep7">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">07</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 07 · 2024–25 · The Backslide</div>
+          <div class="ep-title">"The 14-Hour Days That Undid Everything"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>Healing isn't permanent — that's the lesson of this episode. Dawon gets her first job out of school, and the schedule eats her. The wellness habits go first. The cooking goes. The sleep goes. The gut goes back to where it was. The audience needs to feel the velocity of how fast it slipped — and to recognize the same pattern in their own lives.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 50 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> "I had figured out how to feel okay. Then I got a job that took 14 hours of my day."</span></li>
+          <li><span class="time">0:04–0:18</span><span class="desc"><strong>The schedule.</strong> "Up at 7. At my desk by 8:30. Out at 10pm. Sometimes later. Breakfast was coffee. Lunch was at my desk. Dinner was whatever was open at 11."</span></li>
+          <li><span class="time">0:18–0:38</span><span class="desc"><strong>The slow erosion.</strong> "I didn't notice it happening. The bloating came back. The constipation came back. The brain fog came back. The way I felt about my body came back. I told myself I was just tired."</span></li>
+          <li><span class="time">0:38–0:50</span><span class="desc"><strong>The realization.</strong> "I was rebuilding the exact life that had broken me the first time. Just with a different reason."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 14 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "The 14-Hour Days That Undid Everything" / Ep. 7</div>
+          <div class="slide-box"><span class="n">02</span>"I had figured out how to feel okay."</div>
+          <div class="slide-box"><span class="n">03</span>"Then I got a job that took 14 hours of my day."</div>
+          <div class="slide-box"><span class="n">04</span>"Up at 7. At my desk by 8:30. Out at 10pm."</div>
+          <div class="slide-box"><span class="n">05</span>"Breakfast was coffee."</div>
+          <div class="slide-box"><span class="n">06</span>"Lunch was at my desk."</div>
+          <div class="slide-box"><span class="n">07</span>"Dinner was whatever was open at 11."</div>
+          <div class="slide-box"><span class="n">08</span>"The bloating came back."</div>
+          <div class="slide-box"><span class="n">09</span>"The constipation came back."</div>
+          <div class="slide-box"><span class="n">10</span>"The brain fog came back."</div>
+          <div class="slide-box"><span class="n">11</span>"The way I felt about my body came back."</div>
+          <div class="slide-box"><span class="n">12</span>"I told myself I was just tired."</div>
+          <div class="slide-box"><span class="n">13</span>"I was rebuilding the exact life that had broken me. Just with a different reason."</div>
+          <div class="slide-box"><span class="n">14</span>"Episode 8 tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          Healing isn't permanent. That's the part nobody told me. The exact patterns that broke me the first time — I rebuilt them, just for different reasons. Episode 8 tomorrow.<br><br>
+          <span class="hashtag">#guthealth #burnout #honestwellness</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 8 -->
+  <section class="block" id="ep8">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">08</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 08 · 2025 · The Pause</div>
+          <div class="ep-title">"Quitting Without A Plan"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The break she had to take. Dawon quits the job without a next step lined up. She sits for a stretch. Not productive sitting — actual sitting. The episode is about the necessity of the pause, the strangeness of having no schedule, and the small moment when she starts noticing again. This is the lowest-energy episode in the season. That's deliberate.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 45 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> "I quit my job without a plan. I just sat for a while."</span></li>
+          <li><span class="time">0:04–0:20</span><span class="desc"><strong>The pause.</strong> "I didn't apply for anything for a few weeks. I didn't have a project. I didn't have a goal. I just stopped."</span></li>
+          <li><span class="time">0:20–0:38</span><span class="desc"><strong>What I noticed.</strong> "It was uncomfortable. I thought I was being lazy. But for the first time in a year, my body wasn't being asked to perform something. And it started telling me things again."</span></li>
+          <li><span class="time">0:38–0:45</span><span class="desc"><strong>Setup.</strong> "Then I found the job that changed how I thought about all of this."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 12 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "Quitting Without A Plan" / Ep. 8</div>
+          <div class="slide-box"><span class="n">02</span>"I quit my job. I didn't have a next thing."</div>
+          <div class="slide-box"><span class="n">03</span>"I just sat for a while."</div>
+          <div class="slide-box"><span class="n">04</span>"It felt uncomfortable. I thought I was being lazy."</div>
+          <div class="slide-box"><span class="n">05</span>"I think people who can't sit still are scared of what their bodies will say."</div>
+          <div class="slide-box"><span class="n">06</span>"Mine had a lot to say."</div>
+          <div class="slide-box"><span class="n">07</span>"For the first time in a year, my body wasn't being asked to perform something."</div>
+          <div class="slide-box"><span class="n">08</span>"It started telling me things again."</div>
+          <div class="slide-box"><span class="n">09</span>"That I was tired."</div>
+          <div class="slide-box"><span class="n">10</span>"That I needed real food. Real sleep. Real space."</div>
+          <div class="slide-box"><span class="n">11</span>"Then I found a job that changed how I thought about all of this."</div>
+          <div class="slide-box"><span class="n">12</span>"Episode 9 tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          The most productive thing I did in 2025 was sit still for a few weeks with no plan. People who can't sit still are scared of what their bodies will say. Mine had a lot to say.<br><br>
+          <span class="hashtag">#burnoutrecovery #wellnessjourney</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 9 -->
+  <section class="block" id="ep9">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">09</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 09 · December 2025 · The Education</div>
+          <div class="ep-title">"The Job That Changed How I Thought"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>Dawon takes a job at a supplement startup. She doesn't say which one — that's not the point. The point is what she learned: the actual mechanics of how the body works, what gut bacteria actually do, why fiber matters, what synbiotic means (even if she doesn't fully understand it until much later), the difference between marketing claims and real evidence. The episode is about gaining literacy in a space she only had instincts in before.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 50 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:04</span><span class="desc"><strong>Hook.</strong> "I got a job at a supplement startup in December. I didn't know how much it was going to change the way I thought."</span></li>
+          <li><span class="time">0:04–0:22</span><span class="desc"><strong>What I learned.</strong> "I learned what a gut microbiome actually is. I learned what fiber is for. I learned the difference between a probiotic and a prebiotic. I learned how much of what I'd been told about wellness was marketing."</span></li>
+          <li><span class="time">0:22–0:42</span><span class="desc"><strong>The reframe.</strong> "For years, I thought 'healthy' was about restriction. Eat less. Move more. Cut things out. The job taught me healthy is mostly about adding the right things back in."</span></li>
+          <li><span class="time">0:42–0:50</span><span class="desc"><strong>Setup.</strong> "And then I met someone who'd been thinking about this for longer than I had."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 14 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "The Job That Changed How I Thought" / Ep. 9</div>
+          <div class="slide-box"><span class="n">02</span>"December 2025. I got a job at a supplement startup."</div>
+          <div class="slide-box"><span class="n">03</span>"I'm not going to name it. That's not the point."</div>
+          <div class="slide-box"><span class="n">04</span>"The point is what it taught me."</div>
+          <div class="slide-box"><span class="n">05</span>"I learned what a gut microbiome actually is. Not the social media version."</div>
+          <div class="slide-box"><span class="n">06</span>"I learned what fiber is for."</div>
+          <div class="slide-box"><span class="n">07</span>"I learned the difference between a probiotic and a prebiotic."</div>
+          <div class="slide-box"><span class="n">08</span>"I learned how much of what I'd been told about wellness was marketing."</div>
+          <div class="slide-box"><span class="n">09</span>"For years, I thought 'healthy' was restriction."</div>
+          <div class="slide-box"><span class="n">10</span>"Eat less. Move more. Cut things out."</div>
+          <div class="slide-box"><span class="n">11</span>"Healthy is mostly about adding the right things back in."</div>
+          <div class="slide-box"><span class="n">12</span>"That reframe is what made everything else possible."</div>
+          <div class="slide-box"><span class="n">13</span>"Then I met someone who'd been thinking about this for longer than I had."</div>
+          <div class="slide-box"><span class="n">14</span>"Episode 10 tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          For years I thought "healthy" meant restriction. Eat less, cut things out, move more. The reframe that changed everything: healthy is mostly about adding the right things back in. Episode 10 tomorrow — and finally, the person who'd been thinking about this longer than I had.<br><br>
+          <span class="hashtag">#guthealth #microbiome #supplementindustry</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Safety / accuracy notes</h5>
+        <ul>
+          <li>"Microbiome," "fiber," "probiotic," "prebiotic" are all fine to use — they're well-established categories</li>
+          <li>Do NOT claim specific health outcomes ("fiber cures X")</li>
+          <li>The "much of wellness is marketing" line should not name competitors or specific brands — punch up at the category, not at named players</li>
+          <li>"Synbiotic" is not introduced here on purpose — that's Episode 14's reveal</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 10 -->
+  <section class="block" id="ep10">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">10</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 10 · January 2026 · The Door Opens</div>
+          <div class="ep-title">"Meeting Alex"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The only episode where Alex gets meaningful screen time. Dawon describes meeting him — not as a romantic story, not as a co-founder story, but as a person who had been thinking about clean wellness from a different angle for years. He becomes a guide, then a collaborator. The relationship between them is acknowledged but not centered — the episode is about what he showed her, not who he is to her.</p>
+        <p>This is also where Pheeew, as an unspoken thing, begins to live. The audience doesn't know it yet. Dawon says she "started thinking about whether something could be built." She doesn't say what.</p>
+      </div>
+
+      <div class="callout note">
+        <span class="label">Romantic framing — handle gently</span>
+        <p>Dawon and Alex are partners in life and in the company. The episode acknowledges they work together and that he became important to her — but doesn't dwell on the relationship. The story is hers; he's a meaningful character in it. <strong>"Met him through work" / "he was thinking about a lot of the same things" / "we started spending late nights talking about it"</strong> covers it. We're not building a couple-brand. Save the rest of the relationship story for when Dawon (and Alex) decide it's right.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 55 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:05</span><span class="desc"><strong>Hook.</strong> "I met Alex in January. He'd been thinking about what I was just learning, for years."</span></li>
+          <li><span class="time">0:05–0:22</span><span class="desc"><strong>The introduction.</strong> "We met through work. He was building things in the same space I'd just landed in. The difference was — he'd been at it long enough to have strong opinions, and a few of them were the opposite of what the industry was selling."</span></li>
+          <li><span class="time">0:22–0:42</span><span class="desc"><strong>The conversations.</strong> "We started spending late nights talking about it. What clean actually meant. What the industry was hiding. What we'd both wish existed that didn't."</span></li>
+          <li><span class="time">0:42–0:55</span><span class="desc"><strong>The seed.</strong> "Somewhere in those conversations, I started thinking about whether something could be built. I didn't say it out loud yet."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 14 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "Meeting Alex" / Ep. 10</div>
+          <div class="slide-box"><span class="n">02</span>"January 2026."</div>
+          <div class="slide-box"><span class="n">03</span>"I met Alex through work."</div>
+          <div class="slide-box"><span class="n">04</span>"He'd been thinking about what I was just learning. For years."</div>
+          <div class="slide-box"><span class="n">05</span>"He had strong opinions. Some of them were the opposite of what the wellness industry was selling."</div>
+          <div class="slide-box"><span class="n">06</span>"We started spending late nights talking about it."</div>
+          <div class="slide-box"><span class="n">07</span>"What 'clean' actually meant."</div>
+          <div class="slide-box"><span class="n">08</span>"What the industry was hiding."</div>
+          <div class="slide-box"><span class="n">09</span>"What we'd both wish existed that didn't."</div>
+          <div class="slide-box"><span class="n">10</span>"Somewhere in those conversations, I started thinking about whether something could be built."</div>
+          <div class="slide-box"><span class="n">11</span>"I didn't say it out loud yet."</div>
+          <div class="slide-box"><span class="n">12</span>"He'd already been saying it for a while."</div>
+          <div class="slide-box"><span class="n">13</span>"We started building."</div>
+          <div class="slide-box"><span class="n">14</span>"The first idea didn't work. Tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          The people who change your life are usually the ones you didn't expect to meet. Alex had been thinking about everything I'd just started learning — for years. Late nights talking about what should exist that didn't.<br><br>
+          Tomorrow: the first thing we tried to build.<br><br>
+          <span class="hashtag">#wellnessjourney #foundermade #buildinginpublic</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Visual note</h5>
+        <p>Alex appears on camera for the first time in this episode — briefly. A hand. A laptop screen with two people working. A late-night kitchen scene. No full face shot, no "co-founder reveal" moment. The audience hears about him before they see him fully. We can build that into Season 2 if the audience wants more — but Season 1 is Dawon's face.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 11 -->
+  <section class="block" id="ep11">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">11</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 11 · Jan–Feb 2026 · Pivot One — Pheeew is named here</div>
+          <div class="ep-title">"The First Idea Was Gummies"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>This is the episode where Dawon names what they're building — Pheeew — for the first time. She also names the first failure. Functional gummies were the obvious idea. They tried to jam every ingredient they believed in into one chewable thing. Manufacturers said no. The economics didn't work. The episode is about learning that a clean product isn't just a values choice — it's a manufacturing constraint, a cost constraint, a chemistry constraint.</p>
+      </div>
+
+      <div class="callout rule">
+        <span class="label">Pheeew is named here for the first time</span>
+        <p>Slide 04 of the carousel and around the 0:20 mark in the reel. Casual delivery: "We were calling it Pheeew." Not "I'm starting a company called Pheeew." The audience meets the name the same way Dawon and Alex started using it — informally, in conversation.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 55 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:05</span><span class="desc"><strong>Hook.</strong> "The first thing we tried to make was gummies. It almost ended the company before it started."</span></li>
+          <li><span class="time">0:05–0:20</span><span class="desc"><strong>The idea.</strong> "Gummies felt obvious. Easy to take. Easy to love. Everyone was doing them. We thought we could do them better — with cleaner ingredients, no fillers, no sugar alcohols, real fruit."</span></li>
+          <li><span class="time">0:20–0:25</span><span class="desc"><strong>Naming the brand.</strong> "We were calling it Pheeew."</span></li>
+          <li><span class="time">0:25–0:45</span><span class="desc"><strong>The wall.</strong> "We called manufacturers. We sent them our ingredient list. Most of them just said no. The ones who said yes told us the cost. Each gummy would cost more to make than what we could sell it for."</span></li>
+          <li><span class="time">0:45–0:55</span><span class="desc"><strong>The lesson.</strong> "Clean costs money. That was the first thing we learned. The second was — we couldn't make gummies and be the brand we wanted to be."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 16 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "The First Idea Was Gummies" / Ep. 11</div>
+          <div class="slide-box"><span class="n">02</span>"January 2026. We were calling it Pheeew."</div>
+          <div class="slide-box"><span class="n">03</span>"The first thing we tried to make was gummies."</div>
+          <div class="slide-box"><span class="n">04</span>"It almost ended the company before it started."</div>
+          <div class="slide-box"><span class="n">05</span>"Gummies felt obvious. Easy to take. Easy to love."</div>
+          <div class="slide-box"><span class="n">06</span>"We wanted ours to be different."</div>
+          <div class="slide-box"><span class="n">07</span>"Cleaner ingredients. No fillers. No sugar alcohols. Real fruit. The actives we believed in, at doses that actually did something."</div>
+          <div class="slide-box"><span class="n">08</span>"We called manufacturers."</div>
+          <div class="slide-box"><span class="n">09</span>"Most of them just said no."</div>
+          <div class="slide-box"><span class="n">10</span>"The ones who said yes told us the cost."</div>
+          <div class="slide-box"><span class="n">11</span>"Each gummy would cost more to make than what we could sell it for."</div>
+          <div class="slide-box"><span class="n">12</span>"You can't run a business that loses money on every product. Not even a values-based one."</div>
+          <div class="slide-box"><span class="n">13</span>"Clean costs money. That was the first thing we learned."</div>
+          <div class="slide-box"><span class="n">14</span>"The second was — we couldn't make gummies and be the brand we wanted to be."</div>
+          <div class="slide-box"><span class="n">15</span>"So we tried something else."</div>
+          <div class="slide-box"><span class="n">16</span>"Episode 12 tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          The first thing we tried to make for Pheeew was gummies. Most manufacturers said no. The ones who said yes told us the cost — and each gummy would cost more to make than we could sell it for. Clean costs money. That was lesson one.<br><br>
+          Tomorrow: pivot two.<br><br>
+          <span class="hashtag">#guthealth #pheeew #foundermade #cleanbrand</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Safety / accuracy notes</h5>
+        <ul>
+          <li>Do NOT name specific manufacturers who said no — generic "manufacturers" is fine, named is litigation bait</li>
+          <li>Do NOT name competitor gummy brands as examples of what we didn't want to be</li>
+          <li>"The actives we believed in" is intentionally vague — we don't disclose the formulation here</li>
+          <li>This episode starts inserting the word "Pheeew" subtly — let it land, don't overplay it</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 12 -->
+  <section class="block" id="ep12">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">12</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 12 · Feb–Mar 2026 · Pivot Two</div>
+          <div class="ep-title">"Then We Tried Freeze-Dried Fruit Cubes"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The second attempt — freeze-dried fruit cubes. Functional, clean, novel. Eat them like candy, get fiber and prebiotics from real fruit. The episode shows Dawon and the team getting excited again, then hitting a different wall: the format was beautiful but the texture, the moisture, the daily-use case didn't work. The audience learns that even when the manufacturing is possible, the product still has to <em>fit a life</em> — and freeze-dried cubes didn't fit anyone's morning.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 50 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:05</span><span class="desc"><strong>Hook.</strong> "Pivot two: freeze-dried fruit cubes. We thought we had it."</span></li>
+          <li><span class="time">0:05–0:22</span><span class="desc"><strong>The idea.</strong> "Real fruit, frozen at low temperature so the nutrients stayed. Cut into cubes. Pop them in your mouth like candy. Fiber, prebiotics, no sugar added. We were excited again."</span></li>
+          <li><span class="time">0:22–0:42</span><span class="desc"><strong>The wall.</strong> "We made samples. They tasted good for a minute. Then they got dry on the back of the tongue. The serving size to actually get the gut benefit was too much for one sitting. And they wouldn't survive a humid morning in a bag — they'd absorb moisture and turn weird."</span></li>
+          <li><span class="time">0:42–0:50</span><span class="desc"><strong>The lesson.</strong> "Format matters. A clean product that doesn't fit your morning isn't a product. It's a science project."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 14 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "Then We Tried Freeze-Dried Fruit Cubes" / Ep. 12</div>
+          <div class="slide-box"><span class="n">02</span>"After gummies didn't work, we tried something else."</div>
+          <div class="slide-box"><span class="n">03</span>"Freeze-dried fruit cubes."</div>
+          <div class="slide-box"><span class="n">04</span>"Real fruit. Frozen at low temperature so the nutrients survived. Cut into small cubes."</div>
+          <div class="slide-box"><span class="n">05</span>"Pop one. Eat it like candy."</div>
+          <div class="slide-box"><span class="n">06</span>"Fiber. Prebiotics. No added sugar."</div>
+          <div class="slide-box"><span class="n">07</span>"We were excited again."</div>
+          <div class="slide-box"><span class="n">08</span>"We made samples."</div>
+          <div class="slide-box"><span class="n">09</span>"They tasted good for a minute."</div>
+          <div class="slide-box"><span class="n">10</span>"Then they got dry on the back of the tongue."</div>
+          <div class="slide-box"><span class="n">11</span>"To get the gut benefit, you had to eat a lot of them. Too much for one sitting."</div>
+          <div class="slide-box"><span class="n">12</span>"They wouldn't survive a humid morning in a bag."</div>
+          <div class="slide-box"><span class="n">13</span>"Format matters. A clean product that doesn't fit your morning isn't a product."</div>
+          <div class="slide-box"><span class="n">14</span>"It's a science project. Episode 13 tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          Pivot two: freeze-dried fruit cubes. Real fruit, frozen low so the nutrients survived, eaten like candy. Tasted good for a minute. Dry on the back of the tongue. You'd have to eat too many to feel the difference. Wouldn't survive a humid morning in a bag.<br><br>
+          Format matters. A clean product that doesn't fit your morning is a science project, not a product. Episode 13 tomorrow.<br><br>
+          <span class="hashtag">#pheeew #productdesign #foundermade #guthealth</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 13 -->
+  <section class="block" id="ep13">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">13</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 13 · Mar–Apr 2026 · The Answer</div>
+          <div class="ep-title">"The Third Time Was The Smoothie"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The format that worked. Smoothie. Puree. 100mL pouch. Drink in one sip. Holds the actives we want. Manufacturing works. Cost works. Daily use works. The episode is about how the right answer was the simplest answer the whole time — and they only got there by failing through two harder ones. The audience feels the relief, the snap of fit, the moment of "this could actually work."</p>
+        <p>This is also the episode where Jason and Justin get a brief mention. Jason joining as COO is one slide / one beat. Justin coming in as CGO is another. Each is a single line. They are pinches, not co-stars.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 60 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:05</span><span class="desc"><strong>Hook.</strong> "Two failures in, we were running out of money and runway. Then we tried the smoothie."</span></li>
+          <li><span class="time">0:05–0:20</span><span class="desc"><strong>The idea.</strong> "Real fruit, blended, in a small pouch. One sip. Drinkable. Doesn't need to be chewed, doesn't need to be measured, doesn't need a spoon. The simplest form a fruit serving can take."</span></li>
+          <li><span class="time">0:20–0:35</span><span class="desc"><strong>The fit.</strong> "We could put actives in it that we couldn't put in the other two. The cost worked. The taste worked. The morning worked. The format worked."</span></li>
+          <li><span class="time">0:35–0:48</span><span class="desc"><strong>The team.</strong> "Around the same time, Jason joined as COO — Alex's best friend, who left his job to build this with us. And Justin joined as CGO — Alex's brother, who'd been watching the project and decided to back it."</span></li>
+          <li><span class="time">0:48–0:60</span><span class="desc"><strong>Setup.</strong> "We had a product we believed in. The next thing we needed to learn was what was inside it. Tomorrow: a word I didn't know yet."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 17 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "The Third Time Was The Smoothie" / Ep. 13</div>
+          <div class="slide-box"><span class="n">02</span>"Gummies didn't work. Cubes didn't work."</div>
+          <div class="slide-box"><span class="n">03</span>"We were running out of money. And runway."</div>
+          <div class="slide-box"><span class="n">04</span>"Then we tried the smoothie."</div>
+          <div class="slide-box"><span class="n">05</span>"Real fruit. Blended. In a small pouch."</div>
+          <div class="slide-box"><span class="n">06</span>"One sip."</div>
+          <div class="slide-box"><span class="n">07</span>"Doesn't need to be chewed. Doesn't need a spoon. Doesn't need to be measured."</div>
+          <div class="slide-box"><span class="n">08</span>"The simplest form a fruit serving can take."</div>
+          <div class="slide-box"><span class="n">09</span>"We could put the actives in it that we couldn't put in the other two."</div>
+          <div class="slide-box"><span class="n">10</span>"The cost worked. The taste worked."</div>
+          <div class="slide-box"><span class="n">11</span>"The morning worked."</div>
+          <div class="slide-box"><span class="n">12</span>"Around the same time:"</div>
+          <div class="slide-box"><span class="n">13</span>"Jason joined us. Alex's best friend. Quit his job to build something real."</div>
+          <div class="slide-box"><span class="n">14</span>"Justin joined too. Alex's brother. Believed in what we were building."</div>
+          <div class="slide-box"><span class="n">15</span>"Four of us, building a thing we'd never built before."</div>
+          <div class="slide-box"><span class="n">16</span>"We had a product. Next we needed to understand what was inside it."</div>
+          <div class="slide-box"><span class="n">17</span>"Episode 14 tomorrow: a word I didn't know yet."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          Pivot three: real fruit, blended, in a small pouch. One sip. The simplest form a fruit serving can take.<br><br>
+          Around the same time the team became four — Jason, then Justin. People who left other things to build this with us. I'll let them tell their own stories someday.<br><br>
+          Tomorrow: the science word I learned last, not first.<br><br>
+          <span class="hashtag">#pheeew #guthealth #foundermade #smoothiepouch</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Notes</h5>
+        <ul>
+          <li>The Jason/Justin slides each get ONE slide and ONE line. No deep dive. Their stories aren't ours to tell on this account</li>
+          <li>"100mL pouch" is fine to mention in caption; don't disclose MOQ, supplier, or cost in any beat</li>
+          <li>The "running out of money" line is honest but doesn't get specific. No dollar figures</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 14 -->
+  <section class="block" id="ep14">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">14</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 14 · April 2026 · The Science Reveal</div>
+          <div class="ep-title">"The Word I Didn't Know: Synbiotic"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>Dawon names the science. "Synbiotic" is the word she'd been circling for two years without knowing it. It's the combination of <strong>prebiotic</strong> (fiber that feeds beneficial bacteria) and <strong>probiotic</strong> (the beneficial bacteria themselves). The episode is about how the right name for a thing makes the thing real. She's been trying to fix her gut since 2022; the language finally caught up to what she was looking for.</p>
+        <p>This episode is more science-forward than any other in Season 1. The voice rule still applies — discovery, not lecture. "I didn't know this word until April 2026" is the frame.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 55 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:05</span><span class="desc"><strong>Hook.</strong> "I learned the word 'synbiotic' three years after I started trying to fix my gut."</span></li>
+          <li><span class="time">0:05–0:25</span><span class="desc"><strong>The reveal.</strong> "Synbiotic is what happens when you combine two things: a prebiotic — fiber that feeds the good bacteria in your gut — and a probiotic — the good bacteria themselves. Together they work better than either one alone."</span></li>
+          <li><span class="time">0:25–0:42</span><span class="desc"><strong>The recognition.</strong> "I had been buying probiotics for years. I had been buying fiber for years. I had never been told they worked together. The wellness industry sells them separately because it sells more that way."</span></li>
+          <li><span class="time">0:42–0:55</span><span class="desc"><strong>The reframe.</strong> "When we found a smoothie format that could hold a synbiotic — real fruit fiber as the prebiotic, a specific bacterial strain as the probiotic — the product became something the gummies and cubes never could."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 16 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "The Word I Didn't Know: Synbiotic" / Ep. 14</div>
+          <div class="slide-box"><span class="n">02</span>"I learned this word in April 2026."</div>
+          <div class="slide-box"><span class="n">03</span>"Three years after I started trying to fix my gut."</div>
+          <div class="slide-box"><span class="n">04</span>"Synbiotic = prebiotic + probiotic."</div>
+          <div class="slide-box"><span class="n">05</span>"Prebiotic = the food that the good bacteria in your gut eat."</div>
+          <div class="slide-box"><span class="n">06</span>"Mostly: fiber from real food."</div>
+          <div class="slide-box"><span class="n">07</span>"Probiotic = the good bacteria themselves."</div>
+          <div class="slide-box"><span class="n">08</span>"Together they work better than either one alone."</div>
+          <div class="slide-box"><span class="n">09</span>"I had been buying probiotics for years."</div>
+          <div class="slide-box"><span class="n">10</span>"I had been buying fiber for years."</div>
+          <div class="slide-box"><span class="n">11</span>"Nobody told me they were supposed to be in the same thing."</div>
+          <div class="slide-box"><span class="n">12</span>"The industry sells them separately because it sells more that way."</div>
+          <div class="slide-box"><span class="n">13</span>"When we found a smoothie format that could hold both, the product became something the gummies and cubes never could."</div>
+          <div class="slide-box"><span class="n">14</span>"Real fruit fiber for the prebiotic. A specific bacterial strain for the probiotic."</div>
+          <div class="slide-box"><span class="n">15</span>"That's what Pheeew is."</div>
+          <div class="slide-box"><span class="n">16</span>"Episode 15 tomorrow."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          Synbiotic = prebiotic + probiotic. The fiber that feeds the good bacteria + the good bacteria themselves. Together they work better than either alone. I learned this word in April 2026 — three years after I started looking for what it described.<br><br>
+          That's what Pheeew is.<br><br>
+          <span class="hashtag">#pheeew #synbiotic #guthealth #microbiome #foundermade</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Safety / accuracy notes</h5>
+        <ul>
+          <li>"Synbiotic = prebiotic + probiotic" is the only definition we use. Do NOT include postbiotic — that's a separate category, and pulling it in here confuses people</li>
+          <li>"A specific bacterial strain" is intentionally vague. Don't name SNZ 1969 / Bacillus coagulans / Sanzyme publicly here. Strain disclosure is for the science page on the website, not for an Instagram carousel</li>
+          <li>No medical claims — "works better together" is fine, "cures constipation" is not</li>
+          <li>"The industry sells them separately because it sells more that way" — leave this in. It's the only mild industry critique in the episode and it earns its place</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODE 15 -->
+  <section class="block" id="ep15">
+    <div class="ep-card">
+      <div class="ep-head">
+        <div class="ep-num">15</div>
+        <div class="ep-meta">
+          <div class="tag">Episode 15 · April–May 2026 · The Choice</div>
+          <div class="ep-title">"We Pitched Investors But Walked Away"</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>The emotional beat</h5>
+        <p>The closing episode of Season 1. Dawon describes the choice: pitch a few investors, get interest, almost take the money — and then deliberately not. The episode is about <em>what they didn't do</em>. The audience sees that the team is choosing independence on purpose, not because they couldn't get capital, but because they don't want the version of the company that capital would build.</p>
+        <p>The episode is the foundation for everything Season 2 will be about: building a brand without VC pressure, the slow way, the right way. The audience finishes Season 1 with a clear sense of who Pheeew is and what it is choosing not to become.</p>
+      </div>
+
+      <div class="ep-section">
+        <h5>Reel structure · 60 seconds</h5>
+        <ul class="beat-list">
+          <li><span class="time">0:00–0:05</span><span class="desc"><strong>Hook.</strong> "We had no money. We pitched investors. They said yes. And we said no."</span></li>
+          <li><span class="time">0:05–0:22</span><span class="desc"><strong>The pitch.</strong> "When we had nothing, we made the decks. We took the meetings. We told the story. Some of them got it. A couple wanted to write checks."</span></li>
+          <li><span class="time">0:22–0:42</span><span class="desc"><strong>The choice.</strong> "And we walked away. Not because the money wasn't real — it was. Because when you take money from people who need a return, you stop building a brand and start building a path to give them their return. Margin pressure. Speed pressure. Decisions that aren't yours anymore."</span></li>
+          <li><span class="time">0:42–0:55</span><span class="desc"><strong>The reframe.</strong> "We chose slower. We chose smaller. We chose to fund this ourselves for as long as we could. We may raise later — but on our terms, with a brand that has earned the right to be patient."</span></li>
+          <li><span class="time">0:55–0:60</span><span class="desc"><strong>The close.</strong> "This is what Pheeew is. Season 2 is what we build next."</span></li>
+        </ul>
+      </div>
+
+      <div class="ep-section">
+        <h5>Carousel · 18 slides</h5>
+        <div class="slide-grid">
+          <div class="slide-box"><span class="n">01</span>Title: "We Pitched Investors But Walked Away" / Ep. 15</div>
+          <div class="slide-box"><span class="n">02</span>"We had almost no money."</div>
+          <div class="slide-box"><span class="n">03</span>"We pitched investors."</div>
+          <div class="slide-box"><span class="n">04</span>"Some of them said yes."</div>
+          <div class="slide-box"><span class="n">05</span>"We said no."</div>
+          <div class="slide-box"><span class="n">06</span>"When you take money from people who need a return, the company starts to shape itself around the return."</div>
+          <div class="slide-box"><span class="n">07</span>"Margin pressure. Speed pressure."</div>
+          <div class="slide-box"><span class="n">08</span>"Decisions that aren't yours anymore."</div>
+          <div class="slide-box"><span class="n">09</span>"We had spent three months figuring out who we wanted to be."</div>
+          <div class="slide-box"><span class="n">10</span>"We didn't want to spend the rest of it answering to someone else's spreadsheet."</div>
+          <div class="slide-box"><span class="n">11</span>"So we chose slower."</div>
+          <div class="slide-box"><span class="n">12</span>"We chose smaller."</div>
+          <div class="slide-box"><span class="n">13</span>"We funded it ourselves. The four of us."</div>
+          <div class="slide-box"><span class="n">14</span>"We may raise later. But on our terms."</div>
+          <div class="slide-box"><span class="n">15</span>"With a brand that has earned the right to be patient."</div>
+          <div class="slide-box"><span class="n">16</span>"This is what Pheeew is."</div>
+          <div class="slide-box"><span class="n">17</span>"Thank you for watching Season 1."</div>
+          <div class="slide-box"><span class="n">18</span>"Season 2: what we build next."</div>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Caption template</h5>
+        <div class="caption">
+          We had almost no money. We pitched investors. Some said yes. We said no.<br><br>
+          When you take capital from people who need a return, the company starts to shape itself around the return. Margin pressure. Speed pressure. Decisions that aren't yours anymore. We weren't ready to hand that over.<br><br>
+          We may raise later. On our terms. With a brand that's earned the right to be patient.<br><br>
+          This is what Pheeew is. Season 2 is what we build next. Thank you for watching.<br><br>
+          <span class="hashtag">#pheeew #foundermade #buildinginpublic #independent</span>
+        </div>
+      </div>
+
+      <div class="ep-section">
+        <h5>Strategy notes</h5>
+        <ul>
+          <li>This is the most pitchable episode in Season 1. Brand investors, mission-aligned funds, and press will quote from it. Frame it for that</li>
+          <li>Do NOT name the investors we pitched. Do NOT disclose check sizes or terms</li>
+          <li>The "we may raise later" line is the public version of our locked thesis — not VC for Pheeew. Keep it open without committing publicly to "never"</li>
+          <li>Season 1 closer doubles as a soft asset for the founders' restructure email when Justin/Jason/Dawon want to share it externally with their networks (and as proof to themselves that the choice was right)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL + PRODUCTION RULES -->
+  <section class="block" id="visuals">
+    <div class="block-head">
+      <div class="num">§ 04 · production</div>
+      <h2>Visual + production rules.</h2>
+      <p class="sub">The look has to feel like Dawon. Not a brand video. Not an influencer. A person who decided to share what happened.</p>
+    </div>
+
+    <h3>Visual mood — what we are</h3>
+    <ul>
+      <li><strong>Warm cream-and-brown palette</strong> matched to the Pheeew brand accent (#8B4A2C). Soft, ivory, washed lighting. Natural light wherever possible.</li>
+      <li><strong>Handheld, not stabilized.</strong> Slight motion is honest. A perfectly still shot reads as agency. A small wobble reads as a real person.</li>
+      <li><strong>Real spaces.</strong> Dawon's kitchen, her desk, her walk, her coffee shop. Not a studio. Not a sponsored background. The Pheeew product when it shows up looks at home in a real life.</li>
+      <li><strong>Negative space.</strong> Generous margins. Long exhales between cuts. Don't fill every second of the reel.</li>
+    </ul>
+
+    <h3>Visual anti-mood — what we are not</h3>
+    <ul>
+      <li>No gym selfie aesthetic. No mirror shots focused on the body</li>
+      <li>No "what I eat in a day" framing</li>
+      <li>No bright/cold studio lighting</li>
+      <li>No on-screen text that screams (max 2 lines per text overlay, max 60% screen coverage)</li>
+      <li>No before/after photos of anything personal — body, face, hair, skin, weight</li>
+      <li>No influencer cadence (fast cuts, trending sounds layered over original audio, "Y'all..." openings)</li>
+    </ul>
+
+    <h3>Equipment baseline</h3>
+    <p>Everything in Season 1 can be filmed on an iPhone 14 Pro or newer. No external rigs required. Optional adds: a small clip-on lavalier mic ($30) for clean voice audio, a phone tripod ($20) for static shots. Total kit budget under $100.</p>
+    <p>Editing: CapCut on phone for reels (fast turnaround, free). Adobe Premiere or Final Cut on laptop only when an episode genuinely needs it (Episode 2, Episode 14 might). Carousel design: Figma (Dawon already lives there). Templates to come once first episode is filmed.</p>
+
+    <h3>Typography on overlays + carousels</h3>
+    <ul>
+      <li><strong>Playfair Display Italic</strong> for emotional titles and the episode number</li>
+      <li><strong>Inter Regular/Bold</strong> for body slides</li>
+      <li><strong>Special Elite</strong> (typewriter) for time-stamps, captions, dates</li>
+      <li><strong>Caveat Brush</strong> sparingly, only for the brushy "ep. 01" / "ep. 02" annotations</li>
+    </ul>
+
+    <h3>Music + sound</h3>
+    <ul>
+      <li>Original or royalty-free instrumental only — no trending sounds that pull the algorithm in directions we don't control. The story is the hook, not the audio</li>
+      <li>Quiet under spoken voice. Music can swell on cuts and beats but never over Dawon</li>
+      <li>Silence is allowed. Episodes 3, 7, and 8 should have stretches of no music — the heaviness of the content carries the audio weight</li>
+    </ul>
+
+    <h3>Caption rules across all episodes</h3>
+    <div class="do-dont">
+      <div class="do">
+        <h4>Caption do</h4>
+        <ul>
+          <li>Open with a single sentence that could be the only line read</li>
+          <li>Use line breaks generously — Instagram captions are read in chunks</li>
+          <li>Helplines appear in every caption from Ep 1–4. Pinned in Ep 1</li>
+          <li>End with a soft CTA: "Episode N tomorrow" or "Waitlist in bio"</li>
+          <li>Hashtags at the bottom, max 6, mixed broad + specific</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h4>Caption don't</h4>
+        <ul>
+          <li>Don't repeat the reel script word-for-word — caption adds, doesn't echo</li>
+          <li>Don't include medical claims, dosages, or comparisons to other products</li>
+          <li>Don't sell. Selling lives in the bio link, not in the caption</li>
+          <li>Don't tag Alex, Jason, Justin, or Pheeew's other handles in the first 10 episodes — it pulls focus from her</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Hashtag strategy</h3>
+    <p>Same hashtag set across the season, lightly varied per episode for relevance. Anchor set:</p>
+    <div class="caption">
+      <span class="hashtag">#pheeew #guthealth #honestabouthealth #foundermade #wellnessjourney #microbiome #synbiotic #cleanbrand</span>
+    </div>
+    <p>Per-episode flavor adds (optional, 1–2 max): <code>#burnoutrecovery</code>, <code>#pooptalk</code>, <code>#expat</code>, <code>#la</code>, <code>#buildinginpublic</code>. Avoid weight-loss or diet hashtags entirely — they pull the wrong audience.</p>
+
+    <h3>Approval workflow before posting</h3>
+    <ol>
+      <li>Dawon shoots and edits the reel</li>
+      <li>Dawon shares cut + caption draft in the team thread (Slack / iMessage / wherever the four founders live)</li>
+      <li>Alex reviews within 12 hours for safety + brand fit. Jason and Justin can comment but don't gate</li>
+      <li>For Episodes 1–4 specifically: BOTH Alex AND Dawon must sign off before posting. Mandatory two-person review for the high-risk content</li>
+      <li>Dawon posts. Comments are her domain for the first 24 hours; Alex helps moderate after</li>
+      <li>Carousel built 24–48 hours after reel posts, references the reel in slide 1 ("If you saw the reel, here's the part I couldn't fit")</li>
+    </ol>
+  </section>
+
+  <!-- CADENCE -->
+  <section class="block" id="cadence">
+    <div class="block-head">
+      <div class="num">§ 05 · cadence</div>
+      <h2>The 12-week content calendar.</h2>
+      <p class="sub">15 episodes over ~8 weeks (2 per week, Tuesday + Friday). Then 4 weeks of "interludes" — real-time launch documentation — leading into the actual product launch.</p>
+    </div>
+
+    <h3>Phase 1 · Weeks 1–8 · The Origin Season</h3>
+    <p>Two episodes per week, Tuesday and Friday at 7pm KST (which is 3am PT — but the post-time matters less than the consistency). Reel drops first; carousel drops 24–48 hours later. That gives each episode two days of life on the feed before the next one lands.</p>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Week</th><th>Tue Reel</th><th>Wed/Thu Carousel</th><th>Fri Reel</th><th>Sat/Sun Carousel</th></tr>
+      <tr><td>Wk 1</td><td>Ep 01</td><td>Ep 01 expanded</td><td>Ep 02</td><td>Ep 02 expanded</td></tr>
+      <tr><td>Wk 2</td><td>Ep 03</td><td>Ep 03 expanded</td><td>Ep 04</td><td>Ep 04 expanded</td></tr>
+      <tr><td>Wk 3</td><td>Ep 05</td><td>Ep 05 expanded</td><td>Ep 06</td><td>Ep 06 expanded</td></tr>
+      <tr><td>Wk 4</td><td>Ep 07</td><td>Ep 07 expanded</td><td>Ep 08</td><td>Ep 08 expanded</td></tr>
+      <tr><td>Wk 5</td><td>Ep 09</td><td>Ep 09 expanded</td><td>Ep 10</td><td>Ep 10 expanded</td></tr>
+      <tr><td>Wk 6</td><td>Ep 11</td><td>Ep 11 expanded</td><td>Ep 12</td><td>Ep 12 expanded</td></tr>
+      <tr><td>Wk 7</td><td>Ep 13</td><td>Ep 13 expanded</td><td>Ep 14</td><td>Ep 14 expanded</td></tr>
+      <tr><td>Wk 8</td><td>Ep 15</td><td>Ep 15 expanded</td><td>—</td><td>Season 1 recap reel</td></tr>
+    </table></div>
+
+    <h3>Phase 2 · Weeks 9–12 · Real-time launch interludes</h3>
+    <p>Season 1 is the origin. Once it lands, Dawon shifts to documenting <em>what's happening right now</em> — production, packaging, first batch, first shipments, first customers. These interludes are not numbered. They run as a separate visual signal so the audience knows the season has finished and the live story is starting.</p>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Week</th><th>Theme</th><th>Sample content</th></tr>
+      <tr><td>Wk 9</td><td>The order is placed</td><td>Reel: the moment the wire goes out. Carousel: what the manufacturer is making, why, what it costs us (vague, not numeric).</td></tr>
+      <tr><td>Wk 10</td><td>Production begins</td><td>Reel: a manufacturing line shot (anonymized — no signage). Carousel: what synbiotic means in physical form.</td></tr>
+      <tr><td>Wk 11</td><td>Quality + packaging</td><td>Reel: opening the first sample pouch. Carousel: the small choices behind the design.</td></tr>
+      <tr><td>Wk 12</td><td>Almost shipped</td><td>Reel: the first box of finished product arriving. Carousel: how the waitlist becomes a customer list.</td></tr>
+    </table></div>
+
+    <h3>Posting frequency rules</h3>
+    <ul>
+      <li><strong>Never miss a posted-day.</strong> If Dawon misses Tuesday, she posts Wednesday and shifts the rest of the week. Consistency builds the audience; missed days destroy it.</li>
+      <li><strong>One episode per day, max.</strong> Don't double-post. The audience needs space to process each one.</li>
+      <li><strong>Skip if it isn't ready.</strong> A late episode is better than a bad episode. Especially Episodes 2 and 3 — those can wait an extra week if the cut isn't right.</li>
+    </ul>
+
+    <h3>Platforms — first 8 weeks</h3>
+    <ul>
+      <li><strong>Instagram</strong> — primary. Reels + carousels. Cross-posted to feed and stories.</li>
+      <li><strong>TikTok</strong> — secondary. Same reels, re-cut to TikTok aspect (1080×1920) and re-uploaded natively, not via Instagram link.</li>
+      <li><strong>Threads</strong> — caption excerpts only. One-liner from each episode posted within 12 hours of the reel.</li>
+      <li><strong>YouTube Shorts</strong> — optional, if turnaround allows. Skip if it kills cadence. We can launch a YouTube long-form channel in Season 2.</li>
+      <li><strong>Not yet:</strong> X/Twitter, LinkedIn (Justin can post adjacent professional updates separately), Pinterest, Reddit (we'll seed Reddit organically in launch interludes, not before).</li>
+    </ul>
+  </section>
+
+  <!-- DEPENDENCIES -->
+  <section class="block" id="deps">
+    <div class="block-head">
+      <div class="num">§ 06 · dependencies</div>
+      <h2>What Dawon needs from the team.</h2>
+      <p class="sub">Listed explicit so no episode blocks waiting for an answer that should have been given a week earlier.</p>
+    </div>
+
+    <h3>From Alex (CEO)</h3>
+    <ul>
+      <li><strong>Episode 10 sign-off and visual.</strong> Alex agrees how he wants to appear (hand, laptop screen, kitchen scene — your call) before that episode shoots. Recommended: one 5-minute voice memo from Alex on "what I wished existed before I met Dawon" — Dawon can use anything from that memo as the inspiration for the Alex voice lines, or skip entirely</li>
+      <li><strong>Episode 2 + 3 review.</strong> Two-person sign-off mandatory on every cut and caption. Turnaround target: same day Dawon submits</li>
+      <li><strong>Final review on Episode 15.</strong> The "we walked away from investors" line — Alex confirms framing matches what we'd say in front of an investor we might pitch later. We don't want to publicly close any doors</li>
+      <li><strong>Science page on Pheeew.com</strong> live before Episode 14 posts, so the caption can link people who want the deeper dive on synbiotic + strain to the right place</li>
+    </ul>
+
+    <h3>From Jason (COO)</h3>
+    <ul>
+      <li><strong>Manufacturer-safe visuals.</strong> Confirm what manufacturer footage can be used and how it's framed. No facility signage, no employee faces, no product trade secrets visible</li>
+      <li><strong>Production timeline.</strong> Real dates for Phase 2 interludes — when does Wk 9 "order placed" actually happen, when does the first batch finish, when does product land. Dawon plans content around real milestones, not invented ones</li>
+      <li><strong>One-line bio for Episode 13.</strong> The single Jason slide ("Alex's best friend. Quit his job to build something real.") — Jason confirms the framing</li>
+    </ul>
+
+    <h3>From Justin (CGO)</h3>
+    <ul>
+      <li><strong>One-line bio for Episode 13.</strong> Same as Jason — confirm "Alex's brother. Believed in what we were building."</li>
+      <li><strong>Creator gifting list parallel track.</strong> Justin builds the UGC + collab gifting pipeline that runs alongside Season 1. By Week 6 (when Pheeew is named in Ep 11), the first creator boxes should be on their way out — so when audience curiosity spikes, there are other voices in the wild already talking</li>
+      <li><strong>Press-friendly version of Episode 15.</strong> Once the season closes, Justin packages it into a 1-page brand narrative we can hand to brand journalists, podcast hosts, and investor mentors. Same content, formatted for an inbox not a feed</li>
+    </ul>
+
+    <h3>From everyone</h3>
+    <ul>
+      <li><strong>Hands-off the comments on Dawon's posts.</strong> Don't reply from your own accounts inside her threads in Season 1. The voice has to be hers. If something inflammatory shows up, surface it to her in Slack — she decides whether to engage, ignore, or hide</li>
+      <li><strong>Resharing is welcome, framing is not.</strong> Share her posts to your stories with no caption add — the audience finding her by being curious is more valuable than the audience finding her because you told them she's your co-founder</li>
+      <li><strong>Speak to her before adding new strategy.</strong> If Justin signs a creator deal or Jason changes a launch date, Dawon needs 48 hours notice so the content rhythm doesn't crack</li>
+    </ul>
+  </section>
+
+  <!-- GRADUATION -->
+  <section class="block" id="graduation">
+    <div class="block-head">
+      <div class="num">§ 07 · the graduation plan</div>
+      <h2>How we step away from Dawon as the face.</h2>
+      <p class="sub">We start with Dawon at the center because the brand needs a person to belong to. We plan to detach because the brand needs to be bigger than any one person before it scales.</p>
+    </div>
+
+    <p>This section is for the four of us. It's not in Dawon's working script. It's the strategic horizon — what we're building toward, so every decision in Season 1 is also a decision about Season 4.</p>
+
+    <h3>Season 1 (months 1–3) — Dawon is the face</h3>
+    <ul>
+      <li>Dawon is the only voice on Pheeew's @saypheeew channels</li>
+      <li>Alex, Jason, Justin do not appear on Pheeew's owned media (occasional fleeting appearance allowed; no co-narration)</li>
+      <li>External press requests are routed to Dawon first; Alex backstops for strategy-heavy interviews (where founder/CEO voice is what's being asked for)</li>
+      <li>Goal: build a recognizable brand voice that's emotionally identifiable as Dawon's, with Pheeew quietly underneath</li>
+    </ul>
+
+    <h3>Season 2 (months 4–9) — Voices multiply</h3>
+    <ul>
+      <li>Customer voices enter — real Pheeew drinkers share their gut journey, often in their own reels we re-share with permission</li>
+      <li>Alex emerges as the visible founder/CEO in business-press contexts (podcast appearances, investor mentor interviews, B2B retail buyer conversations) — but stays off the @saypheeew feed</li>
+      <li>Jason and Justin appear in formal team intros (one-pager bios, "meet the founders" carousel — non-narrative, formal) — they don't become content characters</li>
+      <li>Dawon's content shifts from origin storytelling to live documentation + reviews + behind-the-scenes — less "this is who I am," more "this is what we're doing"</li>
+      <li>Goal: distribute the brand voice so it isn't single-points-of-failure on Dawon</li>
+    </ul>
+
+    <h3>Season 3 (months 10–18) — Brand-as-character</h3>
+    <ul>
+      <li>The brand develops its own voice that isn't anchored to any single founder</li>
+      <li>Dawon's appearances become editorial moments (campaign launches, anniversary moments, occasional founder essays) — not weekly</li>
+      <li>UGC and customer-shot content becomes the majority of feed content</li>
+      <li>Pheeew speaks more as a category POV (gut health, clean wellness, synbiotic literacy) — less as one person's biography</li>
+      <li>Goal: Pheeew is identifiable to the audience without Dawon needing to be in the frame. The brand has earned the right to outlast its founders' faces</li>
+    </ul>
+
+    <h3>What we never give up, even at full graduation</h3>
+    <ul>
+      <li>Season 1 stays in the archive. It is the brand's origin and customers will keep finding it. We do not take any of it down</li>
+      <li>Dawon stays on @saypheeew as a credited author of the brand's voice. Detaching from her as the daily face is not the same as removing her from the brand</li>
+      <li>The honesty about gut health + body relationships + the wellness industry stays — that's the bone structure. Whoever speaks for the brand carries that posture</li>
+    </ul>
+
+    <h3>Triggers that move us between seasons</h3>
+    <ul>
+      <li><strong>Move from Season 1 → Season 2:</strong> First 10K customers shipped <em>or</em> 100K Instagram followers, whichever comes first. Both signal there's enough audience to absorb new voices</li>
+      <li><strong>Move from Season 2 → Season 3:</strong> $1M monthly revenue run rate <em>or</em> first retail door (Whole Foods, Sprouts, Erewhon) — either is the moment the brand needs to stand independent of a single face</li>
+      <li><strong>Pull-the-cord scenarios:</strong> if Dawon ever wants out of the public-facing role earlier than these triggers, we accelerate. The plan respects her. She is not contractually bound to her own face</li>
+    </ul>
+
+    <div class="callout green">
+      <span class="label">A note to Dawon, from Alex</span>
+      <p>You're not signing up to be Pheeew's face forever. You're signing up to start the brand off in a way only you can. We've talked about this — the plan is to step you back when it's time, and to do that with intention, not because anyone got tired. The work you do in Season 1 is the part of Pheeew that lasts the longest, even after your face stops being on every post.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Pheeew, Inc. · Delaware C-Corporation</p>
+    <p>Prepared by <span class="sig">Seungjoon Kim, CEO + Sole Director</span> · May 14, 2026</p>
+    <p>Confidential · For the four founders only</p>
+  </footer>
+
+</div>
+</div>
+
+<script>
+  const PASSCODE = 'pheeew-team-2026';
+
+  function checkGate(e){
+    e.preventDefault();
+    const input = document.getElementById('gateInput');
+    const err = document.getElementById('gateError');
+    if(input.value.trim().toLowerCase() === PASSCODE){
+      sessionStorage.setItem('pheeew-storyline-gate', '1');
+      document.getElementById('appGate').style.display = 'none';
+      document.getElementById('appContent').style.display = 'block';
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  function signOut(e){
+    e.preventDefault();
+    sessionStorage.removeItem('pheeew-storyline-gate');
+    location.reload();
+  }
+
+  if(sessionStorage.getItem('pheeew-storyline-gate') === '1'){
+    document.getElementById('appGate').style.display = 'none';
+    document.getElementById('appContent').style.display = 'block';
+  } else {
+    setTimeout(()=>document.getElementById('gateInput').focus(), 100);
+  }
+</script>
+
+</body>
+</html>
