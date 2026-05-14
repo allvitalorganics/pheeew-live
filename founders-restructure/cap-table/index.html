@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pheeew, Inc. — Cap Table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Caveat+Brush&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ed; --ink:#1c1a18; --soft:#4a4439; --mute:#8a7e6c;
+  --line:#d8d2c8; --cobalt:#2952b8; --brick:#8b3e1d; --peach:#e8b88d;
+  --peach-soft:#fbeed8; --green:#4a8e5a; --gold:#9a7a3a;
+  --pheeew:#8B4A2C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:0 32px}
+
+/* GATE */
+.app-gate{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:100}
+.app-gate-box{background:white;border:1px solid var(--line);border-radius:16px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 12px 40px rgba(28,26,24,.06)}
+.editorial-i{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;font-weight:700;color:var(--ink);text-align:center;letter-spacing:-.02em}
+.brushy{font-family:'Caveat Brush',cursive;font-size:18px;color:var(--pheeew);text-align:center;display:block;margin:6px 0 24px}
+.app-gate input{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:.04em;background:var(--cream);color:var(--ink)}
+.app-gate input:focus{outline:none;border-color:var(--cobalt)}
+.app-gate button{width:100%;margin-top:12px;padding:14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer}
+.app-gate button:hover{background:var(--cobalt)}
+.gate-error{font-size:12px;color:var(--brick);margin-top:10px;text-align:center;display:none}
+
+/* HEADER */
+.site-header{position:sticky;top:0;background:rgba(250,246,237,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);z-index:50}
+.site-header-inner{max-width:780px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .lettermark{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink)}
+.brand .pad{font-family:'Caveat Brush',cursive;font-size:13px;color:var(--pheeew)}
+.signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
+.signout:hover{color:var(--ink);border-color:var(--ink)}
+
+.confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
+.confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
+
+/* HERO */
+.hero{padding:56px 0 36px}
+.hero .eyebrow{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pheeew);font-weight:700;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:54px;letter-spacing:-.02em;line-height:1.02;color:var(--ink);margin-bottom:16px}
+.hero h1 .accent{font-style:italic;color:var(--pheeew)}
+.hero .lede{font-size:18px;color:var(--soft);line-height:1.55;max-width:560px}
+.hero .meta{margin-top:18px;font-family:'Special Elite',monospace;font-size:12px;color:var(--mute);letter-spacing:.04em}
+
+/* SECTION */
+section.block{margin-bottom:48px}
+.block-head{margin-bottom:20px}
+.block-head .num{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin-bottom:6px}
+.block-head h2{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:32px;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.block-head .sub{margin-top:8px;color:var(--soft);font-size:15px;line-height:1.55}
+
+/* CAP TABLE VISUAL */
+.cap-card{background:white;border:1px solid var(--line);border-radius:18px;padding:32px 30px;box-shadow:0 12px 40px rgba(28,26,24,.05)}
+.cap-row{display:grid;grid-template-columns:110px 1fr 70px;gap:18px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
+.cap-row:last-child{border-bottom:none}
+.cap-row .name{font-weight:700;color:var(--ink);font-size:15px}
+.cap-row .name .role{display:block;font-weight:400;font-size:11px;color:var(--mute);letter-spacing:.04em;text-transform:uppercase;margin-top:2px;font-family:'Special Elite',monospace}
+.cap-row .bar{height:22px;background:var(--line);border-radius:100px;overflow:hidden;position:relative}
+.cap-row .bar-fill{height:100%;border-radius:100px;display:flex;align-items:center;padding:0 10px;color:white;font-size:11px;font-weight:700;letter-spacing:.05em;font-family:'Special Elite',monospace}
+.cap-row .pct{font-family:'Special Elite',monospace;font-size:15px;font-weight:700;color:var(--ink);text-align:right}
+
+.cap-row.alex .bar-fill{background:var(--pheeew)}
+.cap-row.justin .bar-fill{background:var(--cobalt)}
+.cap-row.jason .bar-fill{background:var(--gold)}
+.cap-row.dawon .bar-fill{background:var(--green)}
+.cap-row.pool .bar-fill{background:var(--mute)}
+
+.cap-total{display:flex;justify-content:space-between;align-items:center;padding-top:20px;margin-top:14px;border-top:2px solid var(--ink);font-family:'Special Elite',monospace;font-size:13px;color:var(--ink)}
+.cap-total strong{font-size:15px;font-weight:700}
+
+/* CASH FLOW CARDS */
+.cash-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cash-card{background:white;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.cash-card .who{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--ink);margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.cash-card .who .dot{width:10px;height:10px;border-radius:100px;display:inline-block}
+.cash-card .role{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.cash-card .total-line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cash-card .total-line.big{border-bottom:none;border-top:2px solid var(--ink);font-weight:700;color:var(--ink);font-size:15px;padding-top:12px;margin-top:4px}
+.cash-card .total-line span:last-child{font-family:'Special Elite',monospace;font-variant-numeric:tabular-nums}
+.cash-card .total-line.muted{color:var(--mute)}
+
+.cash-card.alex .who .dot{background:var(--pheeew)}
+.cash-card.justin .who .dot{background:var(--cobalt)}
+.cash-card.jason .who .dot{background:var(--gold)}
+.cash-card.dawon .who .dot{background:var(--green)}
+
+.cash-total{margin-top:18px;background:var(--peach-soft);border:1.5px solid var(--peach);border-radius:14px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.cash-total .label{font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
+.cash-total .amount{font-family:'Playfair Display',serif;font-style:italic;font-size:32px;font-weight:700;color:var(--ink)}
+
+/* SIMPLE LIST */
+.simple-list{background:white;border:1px solid var(--line);border-radius:14px;padding:24px 28px;list-style:none}
+.simple-list li{padding:12px 0;border-bottom:1px dashed var(--line);display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.6}
+.simple-list li:last-child{border-bottom:none}
+.simple-list li .check{flex-shrink:0;width:22px;height:22px;border-radius:100px;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:2px}
+.simple-list li strong{color:var(--ink);font-weight:700}
+
+/* PULL QUOTE / NOTE */
+.note{background:linear-gradient(135deg,#fff8eb 0%,#fbeed8 100%);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:20px 24px;margin:18px 0}
+.note .label{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;display:block}
+.note p{font-size:15px;line-height:1.65;color:var(--ink)}
+.note strong{color:var(--pheeew);font-weight:700}
+
+/* FOOTER */
+footer{margin:72px 0 48px;padding-top:32px;border-top:1px solid var(--line);text-align:center}
+footer p{font-family:'Special Elite',monospace;font-size:11px;color:var(--mute);letter-spacing:.06em;line-height:1.7}
+footer p .sig{color:var(--pheeew);font-weight:700}
+
+/* MOBILE */
+@media (max-width:680px){
+  .wrap{padding:0 22px}
+  .site-header-inner{padding:14px 22px}
+  .hero h1{font-size:38px}
+  .hero .lede{font-size:16px}
+  .block-head h2{font-size:24px}
+  .cap-row{grid-template-columns:90px 1fr 56px;gap:12px}
+  .cap-row .name{font-size:13px}
+  .cap-row .name .role{font-size:9px}
+  .cap-row .bar-fill{font-size:10px;padding:0 8px}
+  .cap-row .pct{font-size:13px}
+  .cap-card{padding:22px 18px}
+  .cash-grid{grid-template-columns:1fr}
+  .cash-total .amount{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div class="app-gate" id="appGate">
+  <div class="app-gate-box">
+    <div class="editorial-i">Pheeew</div>
+    <span class="brushy">cap table</span>
+    <form id="gateForm" onsubmit="checkGate(event)">
+      <input id="gateInput" type="password" placeholder="passcode" autocomplete="off">
+      <button type="submit">Enter</button>
+      <div class="gate-error" id="gateError">Wrong passcode</div>
+    </form>
+  </div>
+</div>
+
+<div id="appContent" style="display:none">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand">
+      <span class="lettermark">Pheeew</span>
+      <span class="pad">cap table</span>
+    </div>
+    <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
+  </div>
+</header>
+
+<div class="confidential-banner">
+  <div class="confidential-banner-inner">Confidential · Pheeew, Inc. · Founders Only</div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Final Cap Table · v3</div>
+    <h1>The <span class="accent">cap table</span>, in plain English.</h1>
+    <p class="lede">Where the four founders land after the restructure, what each person pays, and why the numbers work out the way they do.</p>
+    <div class="meta">Pheeew, Inc. · Delaware C-Corp · EIN 41-5111005</div>
+  </div>
+
+  <!-- CAP TABLE VISUAL -->
+  <section class="block">
+    <div class="block-head">
+      <div class="num">§ 01 · ownership</div>
+      <h2>Who owns what.</h2>
+      <p class="sub">Fully diluted ownership — meaning if every share including the option pool was issued today, this is the slice each person holds.</p>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-row alex">
+        <div class="name">Alex Kim<span class="role">CEO</span></div>
+        <div class="bar"><div class="bar-fill" style="width:40.5%">40.47%</div></div>
+        <div class="pct">10.07M</div>
+      </div>
+      <div class="cap-row justin">
+        <div class="name">Justin Kim<span class="role">Investing Partner</span></div>
+        <div class="bar"><div class="bar-fill" style="width:20.5%">20.47%</div></div>
+        <div class="pct">5.09M</div>
+      </div>
+      <div class="cap-row jason">
+        <div class="name">Jason Ko<span class="role">COO</span></div>
+        <div class="bar"><div class="bar-fill" style="width:17.5%">17.47%</div></div>
+        <div class="pct">4.35M</div>
+      </div>
+      <div class="cap-row dawon">
+        <div class="name">Dawon Kim<span class="role">CBO / CDO</span></div>
+        <div class="bar"><div class="bar-fill" style="width:11.6%">11.58%</div></div>
+        <div class="pct">2.88M</div>
+      </div>
+      <div class="cap-row pool">
+        <div class="name">Option Pool<span class="role">future / KPI</span></div>
+        <div class="bar"><div class="bar-fill" style="width:10%">10.00%</div></div>
+        <div class="pct">2.49M</div>
+      </div>
+      <div class="cap-total">
+        <span>Total fully diluted shares</span>
+        <strong>24,873,156</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASH BREAKDOWN -->
+  <section class="block">
+    <div class="block-head">
+      <div class="num">§ 02 · cash</div>
+      <h2>Who pays what.</h2>
+      <p class="sub">All cash flows in this round. The "gift to Alex" is each person voluntarily helping fund Alex's refresh — it stays below the $19,000 IRS annual exclusion so no gift tax filings are needed.</p>
+    </div>
+
+    <div class="cash-grid">
+
+      <div class="cash-card alex">
+        <div class="who"><span class="dot"></span>Alex Kim</div>
+        <div class="role">CEO · 40.47%</div>
+        <div class="total-line"><span>Existing investment</span><span>$6,500</span></div>
+        <div class="total-line"><span>New cash this round</span><span>$0</span></div>
+        <div class="total-line muted"><span>Receives in gifts</span><span>$15,631</span></div>
+        <div class="total-line big"><span>Out of pocket</span><span>$0</span></div>
+      </div>
+
+      <div class="cash-card justin">
+        <div class="who"><span class="dot"></span>Justin Kim</div>
+        <div class="role">Investing partner · 20.47%</div>
+        <div class="total-line"><span>Stock purchase</span><span>$11,509</span></div>
+        <div class="total-line"><span>Gift to Alex</span><span>$10,491</span></div>
+        <div class="total-line big"><span>Total contribution</span><span>$22,000</span></div>
+      </div>
+
+      <div class="cash-card jason">
+        <div class="who"><span class="dot"></span>Jason Ko</div>
+        <div class="role">COO · 17.47%</div>
+        <div class="total-line"><span>Existing investment</span><span>$6,750</span></div>
+        <div class="total-line"><span>New stock purchase</span><span>$3,110</span></div>
+        <div class="total-line"><span>Gift to Alex</span><span>$5,140</span></div>
+        <div class="total-line big"><span>Total all-in</span><span>$15,000</span></div>
+      </div>
+
+      <div class="cash-card dawon">
+        <div class="who"><span class="dot"></span>Dawon Kim</div>
+        <div class="role">CBO / CDO · 11.58%</div>
+        <div class="total-line"><span>Existing investment</span><span>$6,500</span></div>
+        <div class="total-line"><span>New cash this round</span><span>$0</span></div>
+        <div class="total-line muted"><span>Shares</span><span>locked</span></div>
+        <div class="total-line big"><span>Out of pocket</span><span>$0</span></div>
+      </div>
+
+    </div>
+
+    <div class="cash-total">
+      <span class="label">Total cash in Pheeew, Inc.</span>
+      <span class="amount">$50,000</span>
+    </div>
+  </section>
+
+  <!-- WHY IT WORKS -->
+  <section class="block">
+    <div class="block-head">
+      <div class="num">§ 03 · sanity check</div>
+      <h2>Why these numbers.</h2>
+      <p class="sub">Every founder asked for something. Here's the version that honors all four asks at once.</p>
+    </div>
+
+    <ul class="simple-list">
+      <li>
+        <span class="check">✓</span>
+        <span><strong>Alex stays above 40%.</strong> Lands at 40.47% — the founder/CEO floor everyone agreed on for VC-readiness and decision authority.</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span><strong>Justin lands above 20%.</strong> Reaches 20.47% — reflecting his $22,000 commitment and the lift he's giving to Alex's refresh.</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span><strong>Jason gets at least 17%.</strong> Lands at 17.47% — credit for being the first risk capital in January, plus the $8,250 he's adding now.</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span><strong>Dawon naturally rises to 11.58%.</strong> Her 2,880,000 shares are locked from April's 83(b) filing. With less new cash entering the company, her existing slice becomes proportionally bigger — answering part of her dilution concern without anyone having to give anything up.</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span><strong>10% option pool reserved.</strong> Available for future hires, advisors, and performance-based grants to any founder (Dawon, Jason, Justin) on KPI milestones.</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span><strong>Alex puts in zero new cash.</strong> Operating capital comes from Justin and Jason; Alex's refresh is fully funded through their gifts.</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span><strong>No gift tax filings.</strong> Both gifts to Alex stay below the $19,000 IRS annual exclusion. No Form 709, no tax events, no external paperwork.</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span><strong>$50,000 in the company.</strong> Pheeew now has $50,000 in real operating capital — enough to start formulation, brand work, and Phase 1 manufacturing prep.</span>
+      </li>
+    </ul>
+
+    <div class="note">
+      <span class="label">A note on Dawon's 11.58%</span>
+      <p>This isn't a special grant or favor — it's pure math. Dawon's 2,880,000 shares were locked back in April. The total cap table is smaller this round because less new cash is going in, so her fixed shares occupy a slightly bigger slice. The optionality for her to earn more equity through performance milestones (via the 10% pool) is still open. <strong>The same path is available to Justin and Jason.</strong></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Pheeew, Inc. · Delaware C-Corporation</p>
+    <p>Prepared by <span class="sig">Seungjoon Kim, CEO</span> · May 14, 2026</p>
+    <p>This document is confidential and intended only for the four founders.</p>
+  </footer>
+
+</div>
+</div>
+
+<script>
+  const PASSCODE = 'pheeew-team-2026';
+
+  function checkGate(e){
+    e.preventDefault();
+    const input = document.getElementById('gateInput');
+    const err = document.getElementById('gateError');
+    if(input.value.trim().toLowerCase() === PASSCODE){
+      sessionStorage.setItem('pheeew-gate', '1');
+      document.getElementById('appGate').style.display = 'none';
+      document.getElementById('appContent').style.display = 'block';
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  function signOut(e){
+    e.preventDefault();
+    sessionStorage.removeItem('pheeew-gate');
+    location.reload();
+  }
+
+  if(sessionStorage.getItem('pheeew-gate') === '1'){
+    document.getElementById('appGate').style.display = 'none';
+    document.getElementById('appContent').style.display = 'block';
+  } else {
+    setTimeout(()=>document.getElementById('gateInput').focus(), 100);
+  }
+</script>
+
+</body>
+</html>
