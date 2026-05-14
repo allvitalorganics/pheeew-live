@@ -2206,7 +2206,7 @@ details.content-expand[open] summary::after{content:" ▴"}
         email,
         options: {
           emailRedirectTo: REDIRECT_URL,
-          shouldCreateUser: true
+          shouldCreateUser: false   // founders are pre-created in auth.users; reject unknowns cleanly
         }
       });
       if(error) throw error;
@@ -2217,7 +2217,12 @@ details.content-expand[open] summary::after{content:" ▴"}
       document.getElementById('codeInput').focus();
     } catch(err){
       console.error(err);
-      showError('emailError', 'Could not send the code: ' + (err.message || 'unknown error') + '. Check the email or try again.');
+      const msg = (err.message || '').toLowerCase();
+      if(msg.includes('signups not allowed') || msg.includes('user not found') || msg.includes('user_not_found')){
+        showError('emailError', 'That email isn\'t on the founder list. Only the four Pheeew founders can sign in. Double-check the spelling, or contact Alex.');
+      } else {
+        showError('emailError', 'Could not send the code: ' + (err.message || 'unknown error') + '. Try again in a moment.');
+      }
     } finally {
       btn.disabled = false; btn.textContent = 'Send sign-in code';
     }
@@ -2330,8 +2335,27 @@ details.content-expand[open] summary::after{content:" ▴"}
     supa.auth.getSession().then(({ data }) => {
       if(data?.session){
         enterApp();
+        return;
       }
-      // else: gate stays visible, user signs in
+      // Check for error coming back from a failed magic-link redirect
+      // Supabase sticks the error in the URL hash fragment like:
+      //   #error=access_denied&error_code=otp_expired&error_description=...
+      const hash = window.location.hash || '';
+      if(hash.includes('error=')){
+        const params = new URLSearchParams(hash.replace(/^#/, ''));
+        const code = params.get('error_code') || params.get('error') || 'unknown';
+        const desc = (params.get('error_description') || '').replace(/\+/g, ' ');
+        let msg = 'The magic-link click didn\'t work — ';
+        if(code.includes('otp_expired') || code === 'access_denied'){
+          msg += 'the link expired (some email clients pre-scan links, which uses up the token). ';
+        } else {
+          msg += '(' + escapeHtml(code) + ') ' + escapeHtml(desc) + '. ';
+        }
+        msg += 'Request a fresh sign-in code below and use the 6-digit code instead — it works regardless of redirect setup.';
+        // Strip the hash so a reload doesn't re-show this
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+        showError('emailError', msg);
+      }
     });
   }
   function setConn(online, label){
