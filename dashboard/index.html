@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pheeew Founders · Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%238B4A2C'/%3E%3C/svg%3E">
+<style>
+:root{
+  /* Brand */
+  --pheeew:#8B4A2C;
+  --pheeew-deep:#6B3520;
+  --pheeew-tint:rgba(139,74,44,.08);
+  /* Surfaces */
+  --bg-page:#FAF6ED;
+  --bg-card:#FFFFFF;
+  --bg-sidebar:#F5F1E6;
+  --bg-soft:#FCFAF3;
+  --bg-dark:#1A1A1A;
+  --bg-dark-card:#232323;
+  --bg-green:#1F3D33;
+  --bg-green-card:#264A3E;
+  /* Accents */
+  --accent-yellow:#F4C95D;
+  --accent-yellow-soft:#FCE9A6;
+  --accent-coral:#E8745A;
+  --accent-coral-soft:#FCD9CF;
+  --accent-mint:#A8D5BA;
+  --accent-sky:#B8D4E3;
+  /* Text */
+  --text:#1A1A1A;
+  --text-secondary:#4A4A4A;
+  --text-tertiary:#888;
+  --text-on-dark:#FAF6ED;
+  --text-muted-dark:#9A9A9A;
+  /* Lines */
+  --line:#E8E0D0;
+  --line-soft:#F0E9D9;
+  --line-dark:#3A3A3A;
+  /* Type */
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Pretendard","Noto Sans KR",sans-serif;
+  --font-mono:ui-monospace,"SF Mono",Menlo,Monaco,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--font);background:var(--bg-page);color:var(--text);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{color:var(--pheeew);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:14px;color:inherit}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-tertiary)}
+
+/* PASSCODE GATE */
+.app-gate{position:fixed;inset:0;background:var(--bg-page);display:flex;align-items:center;justify-content:center;z-index:200}
+.app-gate-box{max-width:380px;text-align:center;padding:40px}
+.app-gate .logo{font-size:42px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew);margin-bottom:8px}
+.app-gate .tag{font-size:14px;color:var(--text-tertiary);margin-bottom:32px;letter-spacing:.04em;text-transform:uppercase;font-weight:500}
+.app-gate input{width:100%;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--bg-card);font-size:15px;margin-bottom:12px;outline:none;transition:border-color .15s}
+.app-gate input:focus{border-color:var(--pheeew)}
+.app-gate button{width:100%;padding:14px;background:var(--pheeew);color:#fff;border-radius:12px;font-size:15px;font-weight:600;transition:background .15s}
+.app-gate button:hover{background:var(--pheeew-deep)}
+.gate-error{color:var(--accent-coral);font-size:13px;margin-top:10px;display:none}
+
+/* FOUNDER PICKER */
+.founder-picker{position:fixed;inset:0;background:rgba(250,246,237,.95);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;z-index:180}
+.founder-picker.open{display:flex}
+.founder-picker-box{max-width:600px;width:90%;background:var(--bg-card);border:1px solid var(--line);border-radius:24px;padding:36px;box-shadow:0 24px 64px rgba(0,0,0,.08)}
+.founder-picker h2{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.founder-picker p{color:var(--text-tertiary);font-size:14px;margin-bottom:24px}
+.founder-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.founder-card{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg-soft);text-align:left;transition:all .15s ease;display:flex;align-items:center;gap:14px}
+.founder-card:hover{border-color:var(--pheeew);background:var(--pheeew-tint)}
+.founder-card .avatar{width:44px;height:44px;border-radius:50%;background:var(--pheeew);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0}
+.founder-card .name{font-weight:600;font-size:15px}
+.founder-card .role{font-size:12px;color:var(--text-tertiary)}
+
+/* APP SHELL */
+.app-shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh;background:var(--bg-page)}
+
+/* TOP BAR */
+.top-bar{position:sticky;top:0;background:rgba(250,246,237,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);z-index:50;grid-column:1 / -1}
+.top-bar-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 28px}
+.top-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:-.01em}
+.top-brand .dot{width:12px;height:12px;border-radius:50%;background:var(--pheeew)}
+.top-brand-doc{color:var(--text-tertiary);font-weight:500;margin-left:4px}
+.top-bar-actions{display:flex;align-items:center;gap:8px}
+.top-search{display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--bg-card);border:1px solid var(--line);border-radius:24px;font-size:13px;color:var(--text-tertiary);min-width:240px;transition:border-color .15s}
+.top-search:focus-within{border-color:var(--pheeew)}
+.top-search input{flex:1;border:none;background:transparent;outline:none;font-size:13px}
+.top-search .icon{opacity:.5}
+.icon-btn{width:36px;height:36px;border-radius:50%;background:var(--bg-card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .15s;position:relative}
+.icon-btn:hover{border-color:var(--pheeew);color:var(--pheeew)}
+.icon-btn .badge{position:absolute;top:6px;right:8px;width:7px;height:7px;background:var(--accent-coral);border-radius:50%;border:1.5px solid var(--bg-card)}
+.profile-pill{display:flex;align-items:center;gap:10px;padding:5px 14px 5px 5px;background:var(--bg-card);border:1px solid var(--line);border-radius:28px;font-size:13px;font-weight:500;transition:border-color .15s}
+.profile-pill:hover{border-color:var(--pheeew)}
+.profile-avatar{width:30px;height:30px;border-radius:50%;background:var(--pheeew);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.menu-toggle{width:36px;height:36px;border-radius:8px;display:none;align-items:center;justify-content:center;font-size:18px;background:var(--bg-card);border:1px solid var(--line)}
+
+/* SIDEBAR */
+.sidebar{background:var(--bg-sidebar);border-right:1px solid var(--line);position:sticky;top:57px;align-self:flex-start;height:calc(100vh - 57px);overflow-y:auto;padding:24px 14px;z-index:40}
+.sidebar-section-label{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.08em;padding:0 14px;margin:20px 0 6px}
+.sidebar-section-label:first-child{margin-top:0}
+.sidebar-nav{display:flex;flex-direction:column;gap:1px}
+.sidebar-nav-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--text);font-size:14px;font-weight:500;transition:background .15s ease,color .15s ease;line-height:1.3;cursor:pointer}
+.sidebar-nav-item:hover{background:rgba(139,74,44,.06);color:var(--pheeew);text-decoration:none}
+.sidebar-nav-item.active{background:var(--pheeew);color:#fff}
+.sidebar-nav-item.active:hover{background:var(--pheeew-deep);color:#fff}
+.sidebar-nav-icon{font-size:16px;width:20px;display:flex;align-items:center;justify-content:center}
+.sidebar-nav-count{margin-left:auto;font-size:11px;background:var(--pheeew-tint);color:var(--pheeew);padding:2px 8px;border-radius:10px;font-weight:600;font-variant-numeric:tabular-nums}
+.sidebar-nav-item.active .sidebar-nav-count{background:rgba(255,255,255,.2);color:#fff}
+.sidebar-footer{margin-top:32px;padding:16px 14px;border-top:1px solid var(--line);font-size:12px;color:var(--text-tertiary);line-height:1.5}
+.sidebar-footer strong{color:var(--text-secondary);font-weight:600}
+.sidebar-footer a{color:var(--text-secondary);font-weight:500}
+.sidebar-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:35;opacity:0;transition:opacity .2s}
+.sidebar-backdrop.open{display:block;opacity:1}
+
+/* MAIN CONTENT */
+.main{min-width:0}
+.main-inner{max-width:1280px;margin:0 auto;padding:28px 32px 80px}
+
+/* VIEWS */
+.view{display:none}
+.view.active{display:block}
+
+/* HERO */
+.view-hero{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+.view-hero-left{flex:1;min-width:300px}
+.view-hero h1{font-size:38px;font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:6px}
+.view-hero h1 .accent-name{color:var(--pheeew)}
+.view-hero .subtitle{color:var(--text-tertiary);font-size:15px;font-weight:500}
+.view-hero-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.btn-primary{padding:10px 18px;background:var(--bg-dark);color:#fff;border-radius:24px;font-size:13px;font-weight:600;transition:background .15s;border:none;display:inline-flex;align-items:center;gap:6px}
+.btn-primary:hover{background:#000}
+.btn-secondary{padding:10px 18px;background:var(--bg-card);color:var(--text);border:1px solid var(--line);border-radius:24px;font-size:13px;font-weight:600;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
+.btn-secondary:hover{border-color:var(--pheeew);color:var(--pheeew)}
+.btn-tiny{padding:6px 12px;background:transparent;border:1px solid var(--line);border-radius:8px;font-size:12px;font-weight:500;color:var(--text-secondary);transition:all .15s}
+.btn-tiny:hover{border-color:var(--pheeew);color:var(--pheeew)}
+.btn-tiny.danger{color:var(--accent-coral)}
+.btn-tiny.danger:hover{border-color:var(--accent-coral);color:var(--accent-coral)}
+
+/* GRID LAYOUTS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.grid-1-2{display:grid;grid-template-columns:1fr 2fr;gap:20px}
+.grid-stats-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.row-gap-20{display:flex;flex-direction:column;gap:20px}
+
+/* CARD */
+.card{background:var(--bg-card);border-radius:20px;padding:24px;border:1px solid var(--line-soft);transition:box-shadow .15s}
+.card-soft{background:var(--bg-soft)}
+.card-dark{background:var(--bg-dark);color:var(--text-on-dark);border:none}
+.card-green{background:var(--bg-green);color:var(--text-on-dark);border:none}
+.card-yellow{background:var(--accent-yellow-soft);border:1px solid var(--accent-yellow)}
+.card-coral{background:var(--accent-coral-soft);border:1px solid var(--accent-coral)}
+
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+.card-title{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.card-subtitle{font-size:13px;color:var(--text-tertiary);margin-top:2px}
+.card-action{font-size:13px;color:var(--text-tertiary);display:flex;align-items:center;gap:4px}
+.card-action:hover{color:var(--pheeew)}
+.card-dark .card-title,.card-green .card-title{color:#fff}
+.card-dark .card-subtitle,.card-green .card-subtitle{color:var(--text-muted-dark)}
+.card-dark .card-action,.card-green .card-action{color:var(--text-muted-dark)}
+
+/* STAT CARD */
+.stat{padding:20px;border-radius:18px;background:var(--bg-card);border:1px solid var(--line-soft);position:relative;overflow:hidden}
+.stat-label{font-size:12px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.stat-value{font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat-meta{font-size:12px;color:var(--text-tertiary);margin-top:6px;display:flex;align-items:center;gap:4px}
+.stat-meta.up{color:#3D8B6E}
+.stat-meta.down{color:var(--accent-coral)}
+.stat-icon{position:absolute;top:18px;right:18px;width:38px;height:38px;background:var(--pheeew-tint);color:var(--pheeew);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+.stat.dark{background:var(--bg-dark);color:var(--text-on-dark);border:none}
+.stat.dark .stat-label{color:var(--text-muted-dark)}
+.stat.dark .stat-meta{color:var(--text-muted-dark)}
+.stat.dark .stat-icon{background:rgba(255,255,255,.08);color:var(--accent-yellow)}
+.stat.yellow{background:var(--accent-yellow);color:var(--text)}
+.stat.yellow .stat-label{color:rgba(0,0,0,.6)}
+
+/* DOC CARDS */
+.doc-card{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;transition:all .2s;cursor:pointer;min-height:180px;position:relative;overflow:hidden}
+.doc-card:hover{border-color:var(--pheeew);transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.04);text-decoration:none}
+.doc-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:8px}
+.doc-card-icon.brown{background:var(--pheeew-tint);color:var(--pheeew)}
+.doc-card-icon.yellow{background:var(--accent-yellow-soft);color:#8B6914}
+.doc-card-icon.green{background:#D8EBE0;color:var(--bg-green)}
+.doc-card-icon.coral{background:var(--accent-coral-soft);color:#A0432F}
+.doc-card-title{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.doc-card-desc{font-size:13px;color:var(--text-tertiary);line-height:1.45;flex:1}
+.doc-card-meta{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;font-weight:600;display:flex;align-items:center;gap:8px;margin-top:8px}
+.doc-card-meta::after{content:"→";margin-left:auto;font-size:14px;color:var(--pheeew);transition:transform .15s}
+.doc-card:hover .doc-card-meta::after{transform:translateX(4px)}
+
+/* ACTIVITY FEED */
+.activity-list{display:flex;flex-direction:column}
+.activity-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.activity-item:last-child{border-bottom:none}
+.activity-avatar{width:32px;height:32px;border-radius:50%;background:var(--pheeew);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.activity-avatar.alex{background:var(--pheeew)}
+.activity-avatar.jason{background:var(--bg-green)}
+.activity-avatar.justin{background:var(--accent-coral)}
+.activity-avatar.dawon{background:var(--accent-yellow);color:var(--text)}
+.activity-body{flex:1;min-width:0}
+.activity-header{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.activity-name{font-weight:600;font-size:13px}
+.activity-time{font-size:11px;color:var(--text-tertiary)}
+.activity-text{font-size:13px;color:var(--text-secondary);line-height:1.5;margin-top:2px}
+.activity-empty{padding:24px 0;text-align:center;color:var(--text-tertiary);font-size:13px}
+
+/* TASK */
+.task-row{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.task-row:last-child{border-bottom:none}
+.task-checkbox{width:20px;height:20px;border:2px solid var(--line);border-radius:6px;flex-shrink:0;margin-top:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;background:#fff}
+.task-checkbox:hover{border-color:var(--pheeew)}
+.task-checkbox.checked{background:var(--pheeew);border-color:var(--pheeew);color:#fff}
+.task-checkbox.checked::after{content:"✓";font-size:13px;font-weight:700}
+.task-body{flex:1;min-width:0}
+.task-title{font-size:14px;font-weight:500;line-height:1.4}
+.task-row.done .task-title{text-decoration:line-through;color:var(--text-tertiary)}
+.task-desc{font-size:12px;color:var(--text-tertiary);margin-top:4px;line-height:1.45}
+.task-meta{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:11px;color:var(--text-tertiary)}
+.task-tag{padding:2px 8px;border-radius:8px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:10px}
+.task-tag.alex{background:var(--pheeew-tint);color:var(--pheeew)}
+.task-tag.jason{background:#D8EBE0;color:var(--bg-green)}
+.task-tag.justin{background:var(--accent-coral-soft);color:#A0432F}
+.task-tag.dawon{background:var(--accent-yellow-soft);color:#8B6914}
+.task-tag.any{background:#EFEFEF;color:var(--text-secondary)}
+.task-tag.high{background:var(--accent-coral-soft);color:#A0432F}
+.task-tag.med{background:var(--accent-yellow-soft);color:#8B6914}
+.task-tag.low{background:#EFEFEF;color:var(--text-secondary)}
+.task-delete{opacity:0;transition:opacity .15s;font-size:12px;color:var(--text-tertiary);padding:4px 8px;border-radius:6px}
+.task-row:hover .task-delete{opacity:1}
+.task-delete:hover{background:#FCD9CF;color:var(--accent-coral)}
+
+/* FORM */
+.form-add{display:flex;gap:10px;padding:14px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:14px;margin-bottom:16px;flex-wrap:wrap}
+.form-add input,.form-add select,.form-add textarea{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);outline:none;transition:border-color .15s;font-size:13px}
+.form-add input:focus,.form-add select:focus,.form-add textarea:focus{border-color:var(--pheeew)}
+.form-add input[type="text"]{flex:1;min-width:200px}
+.form-add select{min-width:110px;cursor:pointer}
+.form-add button{padding:10px 18px;background:var(--pheeew);color:#fff;border-radius:10px;font-size:13px;font-weight:600;transition:background .15s}
+.form-add button:hover{background:var(--pheeew-deep)}
+
+/* FOUNDER CARD (cap table grid) */
+.founder-grid-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.founder-display{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:18px;padding:22px;text-align:left;position:relative;overflow:hidden}
+.founder-display .av{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;margin-bottom:14px}
+.founder-display.alex .av{background:var(--pheeew)}
+.founder-display.jason .av{background:var(--bg-green)}
+.founder-display.justin .av{background:var(--accent-coral)}
+.founder-display.dawon .av{background:var(--accent-yellow);color:var(--text)}
+.founder-display .nm{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.founder-display .rl{font-size:12px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.founder-display .eq{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:14px;font-variant-numeric:tabular-nums}
+.founder-display .eq-label{font-size:11px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.founder-display .invest{font-size:12px;color:var(--text-secondary);margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft)}
+
+/* CAP TABLE BAR */
+.captable-bar{display:flex;height:32px;border-radius:8px;overflow:hidden;margin:16px 0 12px}
+.captable-bar-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
+.captable-bar-seg.alex{background:var(--pheeew)}
+.captable-bar-seg.justin{background:var(--accent-coral)}
+.captable-bar-seg.jason{background:var(--bg-green)}
+.captable-bar-seg.dawon{background:var(--accent-yellow);color:var(--text)}
+.captable-bar-seg.pool{background:#A8A8A8;color:#fff}
+.captable-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:12px}
+.captable-legend-item{display:flex;align-items:center;gap:6px;color:var(--text-secondary)}
+.captable-legend-dot{width:10px;height:10px;border-radius:3px}
+
+/* R&R MATRIX */
+.rr-table{width:100%;border-collapse:collapse;font-size:13px}
+.rr-table th,.rr-table td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.rr-table th{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;background:var(--bg-soft)}
+.rr-table th:first-child{border-top-left-radius:10px}
+.rr-table th:last-child{border-top-right-radius:10px}
+.rr-table tr:last-child td{border-bottom:none}
+.rr-table .owner-cell{font-weight:600;display:flex;align-items:center;gap:6px}
+.rr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.rr-dot.alex{background:var(--pheeew)}
+.rr-dot.jason{background:var(--bg-green)}
+.rr-dot.justin{background:var(--accent-coral)}
+.rr-dot.dawon{background:var(--accent-yellow)}
+
+/* FINANCE STAT */
+.finance-stat{padding:24px;border-radius:18px}
+.finance-stat .label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.finance-stat .value{font-size:36px;font-weight:700;letter-spacing:-.02em;line-height:1.05;font-variant-numeric:tabular-nums}
+.finance-stat .sub{font-size:12px;margin-top:6px}
+.finance-stat.cogs{background:var(--bg-card);border:1px solid var(--line-soft)}
+.finance-stat.cogs .label{color:var(--text-tertiary)}
+.finance-stat.margin{background:var(--bg-green);color:var(--text-on-dark)}
+.finance-stat.margin .label{color:var(--accent-mint)}
+.finance-stat.margin .sub{color:var(--text-muted-dark)}
+.finance-stat.budget{background:var(--accent-yellow);color:var(--text)}
+.finance-stat.budget .label{color:rgba(0,0,0,.55)}
+
+/* CHANNEL TABLE */
+.ch-table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.ch-table th,.ch-table td{padding:12px 14px;border-bottom:1px solid var(--line-soft);text-align:right}
+.ch-table th{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;background:var(--bg-soft);text-align:right}
+.ch-table th:first-child,.ch-table td:first-child{text-align:left}
+.ch-table tr:hover td{background:var(--bg-soft)}
+.ch-table .pos{color:#3D8B6E;font-weight:600}
+.ch-table .neg{color:var(--accent-coral);font-weight:600}
+.ch-table .channel-name{font-weight:600}
+
+/* INVESTMENT TRACKER */
+.inv-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.inv-row:last-child{border-bottom:none}
+.inv-row .av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px;flex-shrink:0}
+.inv-row.alex .av{background:var(--pheeew)}
+.inv-row.jason .av{background:var(--bg-green)}
+.inv-row.justin .av{background:var(--accent-coral)}
+.inv-row.dawon .av{background:var(--accent-yellow);color:var(--text)}
+.inv-row .name{font-size:14px;font-weight:600}
+.inv-row .sub{font-size:12px;color:var(--text-tertiary)}
+.inv-row .amount{margin-left:auto;font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* CREATOR ROW */
+.creator-row{display:grid;grid-template-columns:32px 1.5fr 1fr 1fr 1fr 1fr auto;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line-soft);align-items:center;font-size:13px}
+.creator-row.head{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;background:var(--bg-soft);border-radius:10px 10px 0 0;padding-top:14px;padding-bottom:14px}
+.creator-row .creator-av{width:32px;height:32px;border-radius:50%;background:var(--pheeew-tint);color:var(--pheeew);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px}
+.creator-row .creator-name{font-weight:600}
+.creator-row .creator-handle{font-size:11px;color:var(--text-tertiary)}
+.status-pill{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:inline-block}
+.status-pill.discovered{background:#EFEFEF;color:var(--text-secondary)}
+.status-pill.contacted{background:var(--accent-yellow-soft);color:#8B6914}
+.status-pill.replied{background:var(--accent-coral-soft);color:#A0432F}
+.status-pill.sample_sent{background:var(--pheeew-tint);color:var(--pheeew)}
+.status-pill.posted{background:#D8EBE0;color:var(--bg-green)}
+.status-pill.declined{background:#E0E0E0;color:#666}
+.creator-platform{font-size:11px;color:var(--text-tertiary)}
+.creator-followers{font-variant-numeric:tabular-nums;font-weight:600}
+.creator-actions{display:flex;gap:6px}
+
+/* DOC IFRAME */
+.iframe-wrap{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;height:680px}
+.iframe-wrap iframe{width:100%;height:100%;border:none}
+
+/* EMPTY STATE */
+.empty-state{padding:48px 24px;text-align:center;color:var(--text-tertiary)}
+.empty-state .icon{font-size:32px;opacity:.4;margin-bottom:8px}
+.empty-state .title{font-size:14px;font-weight:600;color:var(--text-secondary);margin-bottom:4px}
+.empty-state .sub{font-size:13px}
+
+/* CONNECTION STATUS */
+.conn-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-tertiary);padding:4px 10px;border-radius:20px;background:var(--bg-soft);border:1px solid var(--line-soft)}
+.conn-status .conn-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-coral)}
+.conn-status.online .conn-dot{background:#3D8B6E;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* MOBILE */
+@media (max-width: 980px){
+  .app-shell{grid-template-columns:1fr}
+  .menu-toggle{display:flex}
+  .sidebar{position:fixed;left:0;top:57px;bottom:0;width:280px;transform:translateX(-100%);transition:transform .25s ease;z-index:45;height:calc(100vh - 57px)}
+  .sidebar.open{transform:translateX(0)}
+  .main-inner{padding:22px 18px 80px}
+  .top-search{display:none}
+  .top-bar-inner{padding:10px 16px}
+  .view-hero h1{font-size:30px}
+  .grid-2,.grid-3,.grid-4,.grid-2-1,.grid-1-2,.grid-stats-3,.founder-grid-row{grid-template-columns:1fr}
+  .grid-4,.grid-stats-3{grid-template-columns:1fr 1fr}
+  .form-add{flex-direction:column}
+  .form-add input[type="text"]{min-width:0}
+  .creator-row{grid-template-columns:1fr;gap:6px}
+  .creator-row.head{display:none}
+  .ch-table{font-size:12px}
+  .ch-table th,.ch-table td{padding:10px 8px}
+}
+</style>
+</head>
+<body>
+
+<!-- PASSCODE GATE -->
+<div class="app-gate" id="appGate">
+  <div class="app-gate-box">
+    <div class="logo">Pheeew</div>
+    <div class="tag">Founders Dashboard</div>
+    <form id="gateForm" onsubmit="checkGate(event)">
+      <input id="gateInput" type="password" placeholder="passcode" autocomplete="off" autofocus>
+      <button type="submit">Enter</button>
+      <div class="gate-error" id="gateError">Wrong passcode</div>
+    </form>
+  </div>
+</div>
+
+<!-- FOUNDER PICKER -->
+<div class="founder-picker" id="founderPicker">
+  <div class="founder-picker-box">
+    <h2>Welcome to the dashboard.</h2>
+    <p>Which founder are you? This personalizes your greeting and tracks who creates which to-dos, requests, and posts.</p>
+    <div class="founder-grid">
+      <button class="founder-card" onclick="pickFounder('alex')">
+        <div class="avatar">AK</div>
+        <div><div class="name">Alex Kim</div><div class="role">CEO + Sole Director</div></div>
+      </button>
+      <button class="founder-card" onclick="pickFounder('jason')">
+        <div class="avatar" style="background:var(--bg-green)">JK</div>
+        <div><div class="name">Jason Ko</div><div class="role">COO</div></div>
+      </button>
+      <button class="founder-card" onclick="pickFounder('justin')">
+        <div class="avatar" style="background:var(--accent-coral)">JK</div>
+        <div><div class="name">Justin Kim</div><div class="role">CGO</div></div>
+      </button>
+      <button class="founder-card" onclick="pickFounder('dawon')">
+        <div class="avatar" style="background:var(--accent-yellow);color:var(--text)">DK</div>
+        <div><div class="name">Dawon Kim</div><div class="role">CBO</div></div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- APP CONTENT -->
+<div id="appContent" style="display:none">
+
+<div class="app-shell">
+
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      <div class="top-brand">
+        <span class="dot"></span>
+        <span>Pheeew</span>
+        <span class="top-brand-doc">Founders</span>
+      </div>
+      <div class="top-bar-actions">
+        <div class="top-search">
+          <span class="icon">⌕</span>
+          <input type="text" placeholder="Search docs, tasks, creators..." id="globalSearch">
+        </div>
+        <span class="conn-status" id="connStatus"><span class="conn-dot"></span><span id="connLabel">Connecting…</span></span>
+        <button class="profile-pill" onclick="signOut(event)">
+          <span class="profile-avatar" id="profileAvatar">??</span>
+          <span id="profileName">Sign out</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BACKDROP for mobile sidebar -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section-label">Main</div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item active" data-view="home" onclick="switchView('home', event)">
+        <span class="sidebar-nav-icon">⌂</span>
+        <span class="sidebar-nav-label">Home</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="team" onclick="switchView('team', event)">
+        <span class="sidebar-nav-icon">◐</span>
+        <span class="sidebar-nav-label">Team &amp; Cap</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="finance" onclick="switchView('finance', event)">
+        <span class="sidebar-nav-icon">$</span>
+        <span class="sidebar-nav-label">Finance</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-section-label">Work</div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" data-view="tasks" onclick="switchView('tasks', event)">
+        <span class="sidebar-nav-icon">✓</span>
+        <span class="sidebar-nav-label">Tasks</span>
+        <span class="sidebar-nav-count" id="navCountTasks">0</span>
+      </a>
+      <a class="sidebar-nav-item" data-view="creators" onclick="switchView('creators', event)">
+        <span class="sidebar-nav-icon">◉</span>
+        <span class="sidebar-nav-label">Creators</span>
+        <span class="sidebar-nav-count" id="navCountCreators">0</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-section-label">Documents</div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="../operating-playbook/" target="_blank">
+        <span class="sidebar-nav-icon">📘</span>
+        <span class="sidebar-nav-label">Operating Playbook</span>
+      </a>
+      <a class="sidebar-nav-item" href="../storyline-brief/" target="_blank">
+        <span class="sidebar-nav-icon">📖</span>
+        <span class="sidebar-nav-label">Storyline Brief</span>
+      </a>
+      <a class="sidebar-nav-item" href="../founders-restructure/cap-table/" target="_blank">
+        <span class="sidebar-nav-icon">📊</span>
+        <span class="sidebar-nav-label">Cap Table Page</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <strong>Pheeew, Inc.</strong><br>
+      Founders Dashboard v1<br>
+      <span id="founderLabelFooter" style="color:var(--text-tertiary)"></span>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-inner">
+
+      <!-- VIEW: HOME -->
+      <section class="view active" id="view-home">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Hi, <span class="accent-name" id="heroName">Founder</span>!</h1>
+            <div class="subtitle" id="heroSubtitle">Let's run Pheeew today.</div>
+          </div>
+          <div class="view-hero-right">
+            <button class="btn-secondary" onclick="switchView('tasks')">+ New To-Do</button>
+            <button class="btn-primary" onclick="switchView('creators')">Add Creator</button>
+          </div>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="grid-4" style="margin-bottom:20px">
+          <div class="stat">
+            <div class="stat-label">Open To-Dos</div>
+            <div class="stat-value" id="statOpenTodos">0</div>
+            <div class="stat-meta" id="statOpenTodosMeta">across the team</div>
+            <div class="stat-icon">✓</div>
+          </div>
+          <div class="stat yellow">
+            <div class="stat-label">Active Creators</div>
+            <div class="stat-value" id="statActiveCreators">0</div>
+            <div class="stat-meta" id="statActiveCreatorsMeta">contacted or beyond</div>
+          </div>
+          <div class="stat dark">
+            <div class="stat-label">Days to Launch</div>
+            <div class="stat-value" id="statDaysLaunch">120</div>
+            <div class="stat-meta">target window late Aug–Sep 2026</div>
+            <div class="stat-icon">◷</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Total Raised (Founders)</div>
+            <div class="stat-value">$36,500</div>
+            <div class="stat-meta up">↗ vs $6,750 pre-restructure</div>
+            <div class="stat-icon">$</div>
+          </div>
+        </div>
+
+        <!-- Doc cards + activity -->
+        <div class="grid-2-1" style="margin-bottom:20px">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Living documents</div>
+                <div class="card-subtitle">The three docs we're keeping current</div>
+              </div>
+              <a class="card-action" onclick="switchView('docs')">Open all →</a>
+            </div>
+            <div class="grid-3">
+              <a class="doc-card" href="../operating-playbook/" target="_blank">
+                <div class="doc-card-icon brown">📘</div>
+                <div class="doc-card-title">Operating Playbook</div>
+                <div class="doc-card-desc">How we run the company — modes, R&amp;R, KPIs, launch path, margins, references.</div>
+                <div class="doc-card-meta">14 sections · v5.1</div>
+              </a>
+              <a class="doc-card" href="../storyline-brief/" target="_blank">
+                <div class="doc-card-icon yellow">📖</div>
+                <div class="doc-card-title">Storyline Brief</div>
+                <div class="doc-card-desc">Dawon's 15-episode origin arc — voice, safety guardrails, every reel and carousel.</div>
+                <div class="doc-card-meta">24 sections · v4</div>
+              </a>
+              <a class="doc-card" href="../founders-restructure/cap-table/" target="_blank">
+                <div class="doc-card-icon green">📊</div>
+                <div class="doc-card-title">Cap Table</div>
+                <div class="doc-card-desc">The locked 40/23/17/11.81/8.19 split with $36,500 raised across four founders.</div>
+                <div class="doc-card-meta">Locked May 2026</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Recent activity</div>
+                <div class="card-subtitle">What the team posted</div>
+              </div>
+            </div>
+            <div class="activity-list" id="recentActivity">
+              <div class="activity-empty">No activity yet — head to Tasks or Creators to add the first item.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's focus -->
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Today's focus · your open to-dos</div>
+              <div class="card-subtitle" id="focusSubtitle">Top open items assigned to you or anyone</div>
+            </div>
+            <a class="card-action" onclick="switchView('tasks')">All tasks →</a>
+          </div>
+          <div id="todayFocusList">
+            <div class="activity-empty">No to-dos yet.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: TEAM & CAP -->
+      <section class="view" id="view-team">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Team &amp; <span class="accent-name">Cap Table</span></h1>
+            <div class="subtitle">The four of us — who owns what, what we own, what we put in.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../founders-restructure/cap-table/" target="_blank">Full cap table page →</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Equity distribution</div>
+              <div class="card-subtitle">24,382,236 shares fully diluted · 10% option pool reserved</div>
+            </div>
+            <div class="card-action">Pheeew, Inc. · Delaware C-Corp</div>
+          </div>
+          <div class="captable-bar">
+            <div class="captable-bar-seg alex" style="flex:40">40%</div>
+            <div class="captable-bar-seg justin" style="flex:23">23%</div>
+            <div class="captable-bar-seg jason" style="flex:17">17%</div>
+            <div class="captable-bar-seg dawon" style="flex:11.81">11.8%</div>
+            <div class="captable-bar-seg pool" style="flex:8.19">8.2%</div>
+          </div>
+          <div class="captable-legend">
+            <span class="captable-legend-item"><span class="captable-legend-dot" style="background:var(--pheeew)"></span>Alex · 40% · 9,752,894 sh</span>
+            <span class="captable-legend-item"><span class="captable-legend-dot" style="background:var(--accent-coral)"></span>Justin · 23% · 5,607,914 sh</span>
+            <span class="captable-legend-item"><span class="captable-legend-dot" style="background:var(--bg-green)"></span>Jason · 17% · 4,144,980 sh</span>
+            <span class="captable-legend-item"><span class="captable-legend-dot" style="background:var(--accent-yellow)"></span>Dawon · 11.81% · 2,880,000 sh</span>
+            <span class="captable-legend-item"><span class="captable-legend-dot" style="background:#A8A8A8"></span>Option pool · 8.19% · 1,996,448 sh</span>
+          </div>
+        </div>
+
+        <div class="founder-grid-row" style="margin-bottom:20px">
+          <div class="founder-display alex">
+            <div class="av">AK</div>
+            <div class="nm">Alex Kim</div>
+            <div class="rl">CEO · Sole Director</div>
+            <div class="eq-label" style="margin-top:14px">Equity</div>
+            <div class="eq">40%</div>
+            <div class="invest"><strong>$6,750</strong> in · brand, story, decisions</div>
+          </div>
+          <div class="founder-display justin">
+            <div class="av">JK</div>
+            <div class="nm">Justin Kim</div>
+            <div class="rl">CGO</div>
+            <div class="eq-label" style="margin-top:14px">Equity</div>
+            <div class="eq">23%</div>
+            <div class="invest"><strong>$22,000</strong> in · growth, partners, ops</div>
+          </div>
+          <div class="founder-display jason">
+            <div class="av">JK</div>
+            <div class="nm">Jason Ko</div>
+            <div class="rl">COO</div>
+            <div class="eq-label" style="margin-top:14px">Equity</div>
+            <div class="eq">17%</div>
+            <div class="invest"><strong>$15,000</strong> in · finance, legal, vendor</div>
+          </div>
+          <div class="founder-display dawon">
+            <div class="av">DK</div>
+            <div class="nm">Dawon Kim</div>
+            <div class="rl">CBO</div>
+            <div class="eq-label" style="margin-top:14px">Equity</div>
+            <div class="eq">11.81%</div>
+            <div class="invest">Sweat · creative, voice, content</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Roles &amp; responsibilities</div>
+              <div class="card-subtitle">Each function has one owner. Others advise, don't override.</div>
+            </div>
+          </div>
+          <table class="rr-table">
+            <thead>
+              <tr><th style="width:22%">Function</th><th style="width:18%">Owner</th><th>What it covers</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Brand &amp; story</strong></td><td><div class="owner-cell"><span class="rr-dot alex"></span>Alex</div></td><td>Positioning, voice, deck, all founder narratives, public messaging.</td></tr>
+              <tr><td><strong>Content &amp; creative</strong></td><td><div class="owner-cell"><span class="rr-dot dawon"></span>Dawon</div></td><td>Reels, carousels, episode films, day-to-day content. Reports through Alex for voice gates.</td></tr>
+              <tr><td><strong>Finance &amp; accounting</strong></td><td><div class="owner-cell"><span class="rr-dot jason"></span>Jason</div></td><td>Books, taxes, vendor payments, monthly burn, runway model.</td></tr>
+              <tr><td><strong>Legal &amp; compliance</strong></td><td><div class="owner-cell"><span class="rr-dot jason"></span>Jason</div></td><td>Contracts, FDA labeling, CA + DE filings, founder agreements.</td></tr>
+              <tr><td><strong>Growth &amp; partners</strong></td><td><div class="owner-cell"><span class="rr-dot justin"></span>Justin</div></td><td>Wholesale leads, creator partnerships, retail intros, distribution.</td></tr>
+              <tr><td><strong>Ops &amp; supply chain</strong></td><td><div class="owner-cell"><span class="rr-dot justin"></span>Justin</div></td><td>좋은영농 relationship, freight, 3PL, inventory, shipping.</td></tr>
+              <tr><td><strong>Site, e-commerce, CRM</strong></td><td><div class="owner-cell"><span class="rr-dot alex"></span>Alex</div></td><td>Shopify, Klaviyo, Recharge, waitlist, retention, dashboards.</td></tr>
+              <tr><td><strong>Decisions &amp; cadence</strong></td><td><div class="owner-cell"><span class="rr-dot alex"></span>Alex</div></td><td>Sole Director. Weekly cadence, escalation, hiring, fundraising decisions.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- VIEW: FINANCE -->
+      <section class="view" id="view-finance">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Finance &amp; <span class="accent-name">Margins</span></h1>
+            <div class="subtitle">Landed cost, channel economics, what each founder put in, what we have to spend.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../operating-playbook/#margins" target="_blank">Full margin section →</a>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-bottom:20px">
+          <div class="finance-stat cogs">
+            <div class="label">Landed COGS / pouch</div>
+            <div class="value">$1.09</div>
+            <div class="sub">1,150 KRW ex-factory + freight + 3PL + Section 122 10% tariff</div>
+          </div>
+          <div class="finance-stat margin">
+            <div class="label">Subscriber Gross Margin</div>
+            <div class="value">63%</div>
+            <div class="sub">@ Committed 60-pack subscription, $2.32 per pouch</div>
+          </div>
+          <div class="finance-stat budget">
+            <div class="label">Monthly Paid Ceiling</div>
+            <div class="value">$1,000</div>
+            <div class="sub">Hard cap through early stage · discipline is "win without needing to"</div>
+          </div>
+        </div>
+
+        <div class="grid-2-1" style="margin-bottom:20px">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Channel margins</div>
+                <div class="card-subtitle">Per-pouch economics at each pack size</div>
+              </div>
+              <div class="card-action">5 SKU ladder</div>
+            </div>
+            <table class="ch-table">
+              <thead>
+                <tr><th>Pack</th><th>OT $</th><th>Sub $</th><th>$/pouch (sub)</th><th>GM% (sub)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="channel-name">Tester · 10</td><td>$34</td><td>—</td><td>$3.40</td><td class="pos">68%</td></tr>
+                <tr><td class="channel-name">Starter · 20</td><td>$59</td><td>$49</td><td>$2.45</td><td class="pos">55%</td></tr>
+                <tr><td class="channel-name">Core · 30</td><td>$99</td><td>$72</td><td>$2.40</td><td class="pos">54%</td></tr>
+                <tr><td class="channel-name">Committed · 60</td><td>$179</td><td>$139</td><td>$2.32</td><td class="pos">53%</td></tr>
+                <tr><td class="channel-name">Household · 120</td><td>$329</td><td>$259</td><td>$2.16</td><td class="pos">50%</td></tr>
+              </tbody>
+            </table>
+            <div style="font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.5">GM is gross — before Shopify Payments (2.9% + $0.30), Klaviyo, Recharge (1.49%), 3PL pick &amp; pack, packaging, and shipping costs. Contribution margin runs 30–40 points below GM at this stage.</div>
+          </div>
+
+          <div class="card card-dark">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Founder investments</div>
+                <div class="card-subtitle">Cash in to date</div>
+              </div>
+            </div>
+            <div class="inv-row alex"><div class="av">AK</div><div><div class="name">Alex Kim</div><div class="sub">35% issued · 40% post-pool</div></div><div class="amount">$6,750</div></div>
+            <div class="inv-row justin"><div class="av">JK</div><div><div class="name">Justin Kim</div><div class="sub">23% post-pool</div></div><div class="amount">$22,000</div></div>
+            <div class="inv-row jason"><div class="av">JK</div><div><div class="name">Jason Ko</div><div class="sub">17% post-pool</div></div><div class="amount">$15,000</div></div>
+            <div class="inv-row dawon"><div class="av">DK</div><div><div class="name">Dawon Kim</div><div class="sub">11.81% post-pool · sweat</div></div><div class="amount">$0</div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;margin-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:13px"><span style="color:var(--text-muted-dark);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Total in</span><span style="font-size:22px;font-weight:700">$43,750</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Monthly burn anchors</div>
+              <div class="card-subtitle">Recurring spend we know we'll have once tools are live</div>
+            </div>
+          </div>
+          <table class="ch-table">
+            <thead>
+              <tr><th>Tool / line</th><th style="text-align:left">Vendor</th><th>Monthly</th><th>Trigger</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="channel-name">E-commerce</td><td style="text-align:left">Shopify Basic</td><td>$29</td><td style="text-align:left">Live now</td></tr>
+              <tr><td class="channel-name">Email</td><td style="text-align:left">Klaviyo (500 → 10K contacts)</td><td>$20 → $150</td><td style="text-align:left">Pre-launch</td></tr>
+              <tr><td class="channel-name">Subscriptions</td><td style="text-align:left">Recharge Standard</td><td>$99 + 1.49%</td><td style="text-align:left">Launch</td></tr>
+              <tr><td class="channel-name">3PL</td><td style="text-align:left">TBD West Coast 3PL</td><td>$300–$800</td><td style="text-align:left">Inventory arrives</td></tr>
+              <tr><td class="channel-name">Paid spend ceiling</td><td style="text-align:left">Meta + TikTok</td><td>$1,000</td><td style="text-align:left">Hard cap</td></tr>
+              <tr><td class="channel-name">Domains, SSL, misc</td><td style="text-align:left">Vercel, Google Workspace, etc.</td><td>~$50</td><td style="text-align:left">Live now</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- VIEW: TASKS -->
+      <section class="view" id="view-tasks">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Tasks &amp; <span class="accent-name">Requests</span></h1>
+            <div class="subtitle">Shared to-dos and founder-to-founder asks. Live across all four of us.</div>
+          </div>
+          <div class="view-hero-right">
+            <span class="conn-status online"><span class="conn-dot"></span>Real-time sync</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- To-Dos -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">To-Do list</div>
+                <div class="card-subtitle"><span id="todoOpenCount">0</span> open · <span id="todoDoneCount">0</span> done</div>
+              </div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <button class="btn-tiny" onclick="setTodoFilter('all', this)" data-filter="all" style="background:var(--pheeew);color:#fff;border-color:var(--pheeew)">All</button>
+                <button class="btn-tiny" onclick="setTodoFilter('open', this)" data-filter="open">Open</button>
+                <button class="btn-tiny" onclick="setTodoFilter('done', this)" data-filter="done">Done</button>
+              </div>
+            </div>
+
+            <form class="form-add" onsubmit="addTodo(event)">
+              <input type="text" id="todoInput" placeholder="What needs doing?" required>
+              <select id="todoOwner">
+                <option value="any">Anyone</option>
+                <option value="alex">Alex</option>
+                <option value="jason">Jason</option>
+                <option value="justin">Justin</option>
+                <option value="dawon">Dawon</option>
+              </select>
+              <select id="todoPriority">
+                <option value="med">Med</option>
+                <option value="high">High</option>
+                <option value="low">Low</option>
+              </select>
+              <button type="submit">Add</button>
+            </form>
+
+            <div id="todoList">
+              <div class="activity-empty">No to-dos yet. Add the first one above.</div>
+            </div>
+          </div>
+
+          <!-- Requests -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Requests between founders</div>
+                <div class="card-subtitle"><span id="reqOpenCount">0</span> open · <span id="reqDoneCount">0</span> done</div>
+              </div>
+            </div>
+
+            <form class="form-add" onsubmit="addRequest(event)">
+              <input type="text" id="reqTitle" placeholder="What are you asking for?" required style="flex-basis:100%">
+              <select id="reqTo" required>
+                <option value="">→ ask…</option>
+                <option value="alex">Alex</option>
+                <option value="jason">Jason</option>
+                <option value="justin">Justin</option>
+                <option value="dawon">Dawon</option>
+              </select>
+              <input type="text" id="reqDesc" placeholder="(optional context)" style="flex:1">
+              <button type="submit">Send</button>
+            </form>
+
+            <div id="reqList">
+              <div class="activity-empty">No requests yet.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: CREATORS -->
+      <section class="view" id="view-creators">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>UGC <span class="accent-name">Creators</span></h1>
+            <div class="subtitle">Our creator CRM — discover, contact, send samples, track posts.</div>
+          </div>
+          <div class="view-hero-right">
+            <span class="conn-status online"><span class="conn-dot"></span>Real-time sync</span>
+          </div>
+        </div>
+
+        <div class="grid-4" style="margin-bottom:20px">
+          <div class="stat">
+            <div class="stat-label">Discovered</div>
+            <div class="stat-value" id="crStatDiscovered">0</div>
+            <div class="stat-meta">in the pool</div>
+          </div>
+          <div class="stat yellow">
+            <div class="stat-label">Contacted</div>
+            <div class="stat-value" id="crStatContacted">0</div>
+            <div class="stat-meta">reaching out</div>
+          </div>
+          <div class="stat dark">
+            <div class="stat-label">Sample Sent</div>
+            <div class="stat-value" id="crStatSample">0</div>
+            <div class="stat-meta">product on the way</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Posted</div>
+            <div class="stat-value" id="crStatPosted">0</div>
+            <div class="stat-meta up">↗ converted</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Creator pool</div>
+              <div class="card-subtitle">Add new, update status, log contact. Visible to all four founders.</div>
+            </div>
+            <div style="display:flex;gap:6px">
+              <button class="btn-tiny" onclick="setCreatorFilter('all', this)" data-filter="all" style="background:var(--pheeew);color:#fff;border-color:var(--pheeew)">All</button>
+              <button class="btn-tiny" onclick="setCreatorFilter('discovered', this)" data-filter="discovered">Discovered</button>
+              <button class="btn-tiny" onclick="setCreatorFilter('contacted', this)" data-filter="contacted">Contacted</button>
+              <button class="btn-tiny" onclick="setCreatorFilter('sample_sent', this)" data-filter="sample_sent">Sample</button>
+              <button class="btn-tiny" onclick="setCreatorFilter('posted', this)" data-filter="posted">Posted</button>
+            </div>
+          </div>
+
+          <form class="form-add" onsubmit="addCreator(event)">
+            <input type="text" id="crName" placeholder="Name" required>
+            <input type="text" id="crHandle" placeholder="@handle">
+            <select id="crPlatform">
+              <option value="instagram">Instagram</option>
+              <option value="tiktok">TikTok</option>
+              <option value="youtube">YouTube</option>
+              <option value="multi">Multi</option>
+              <option value="other">Other</option>
+            </select>
+            <input type="number" id="crFollowers" placeholder="Followers">
+            <input type="text" id="crNiche" placeholder="Niche (gut, wellness, food…)">
+            <input type="email" id="crEmail" placeholder="Email">
+            <button type="submit">Add</button>
+          </form>
+
+          <div id="creatorTable">
+            <div class="creator-row head">
+              <div></div>
+              <div>Creator</div>
+              <div>Platform</div>
+              <div>Followers</div>
+              <div>Status</div>
+              <div>Contact</div>
+              <div></div>
+            </div>
+            <div id="creatorRows">
+              <div class="activity-empty">No creators yet — add the first one above.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: DOCS (placeholder for v2 — iframes) -->
+      <section class="view" id="view-docs">
+        <div class="view-hero">
+          <div class="view-hero-left">
+            <h1>Living <span class="accent-name">Documents</span></h1>
+            <div class="subtitle">Embedded reads of the three docs that change weekly.</div>
+          </div>
+          <div class="view-hero-right">
+            <a class="btn-secondary" href="../" target="_blank">Open repo index →</a>
+          </div>
+        </div>
+        <div class="row-gap-20">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Operating Playbook</div>
+                <div class="card-subtitle">v5.1 · last updated May 14, 2026</div>
+              </div>
+              <a class="btn-secondary" href="../operating-playbook/" target="_blank">Open full screen ↗</a>
+            </div>
+            <div class="iframe-wrap"><iframe src="../operating-playbook/" title="Operating Playbook" loading="lazy"></iframe></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Storyline Brief</div>
+                <div class="card-subtitle">v4 · 15-episode origin arc for Dawon</div>
+              </div>
+              <a class="btn-secondary" href="../storyline-brief/" target="_blank">Open full screen ↗</a>
+            </div>
+            <div class="iframe-wrap"><iframe src="../storyline-brief/" title="Storyline Brief" loading="lazy"></iframe></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Cap Table page</div>
+                <div class="card-subtitle">Locked May 2026 · 40/23/17/11.81/8.19</div>
+              </div>
+              <a class="btn-secondary" href="../founders-restructure/cap-table/" target="_blank">Open full screen ↗</a>
+            </div>
+            <div class="iframe-wrap"><iframe src="../founders-restructure/cap-table/" title="Cap Table" loading="lazy"></iframe></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+</div><!-- /appContent -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  /* ====== CONFIG ====== */
+  const PASSCODE = 'pheeew-team-2026';
+  const SUPABASE_URL = 'https://qukcnnmupijlnfiojtet.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_vMSTwwTUOo59oAreu6Wtkg_L0SADbMc';
+  const FOUNDERS = {
+    alex:   { name:'Alex Kim',   short:'Alex',   role:'CEO + Sole Director', initials:'AK' },
+    jason:  { name:'Jason Ko',   short:'Jason',  role:'COO',                  initials:'JK' },
+    justin: { name:'Justin Kim', short:'Justin', role:'CGO',                  initials:'JK' },
+    dawon:  { name:'Dawon Kim',  short:'Dawon',  role:'CBO',                  initials:'DK' }
+  };
+
+  /* ====== STATE ====== */
+  let supa = null;
+  let me = null; // current founder key
+  let state = { todos:[], requests:[], creators:[], announcements:[] };
+  let filters = { todo:'all', creator:'all' };
+
+  /* ====== GATE ====== */
+  function checkGate(e){
+    e.preventDefault();
+    const input = document.getElementById('gateInput');
+    const err = document.getElementById('gateError');
+    if(input.value.trim().toLowerCase() === PASSCODE){
+      sessionStorage.setItem('pheeew-dashboard-gate', '1');
+      document.getElementById('appGate').style.display = 'none';
+      enterApp();
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  function signOut(e){
+    if(e) e.preventDefault();
+    sessionStorage.removeItem('pheeew-dashboard-gate');
+    localStorage.removeItem('pheeew-dashboard-founder');
+    location.reload();
+  }
+
+  /* ====== FOUNDER PICKER ====== */
+  function pickFounder(key){
+    localStorage.setItem('pheeew-dashboard-founder', key);
+    me = key;
+    document.getElementById('founderPicker').classList.remove('open');
+    afterFounderPicked();
+  }
+  function enterApp(){
+    const saved = localStorage.getItem('pheeew-dashboard-founder');
+    if(saved && FOUNDERS[saved]){
+      me = saved;
+      document.getElementById('appContent').style.display = 'block';
+      afterFounderPicked();
+    } else {
+      document.getElementById('appContent').style.display = 'block';
+      document.getElementById('founderPicker').classList.add('open');
+    }
+  }
+  function afterFounderPicked(){
+    const f = FOUNDERS[me];
+    document.getElementById('heroName').textContent = f.short;
+    document.getElementById('profileName').textContent = f.short;
+    document.getElementById('profileAvatar').textContent = f.initials;
+    document.getElementById('founderLabelFooter').textContent = 'Signed in as ' + f.short;
+    initSupabase();
+  }
+
+  /* ====== SUPABASE ====== */
+  function initSupabase(){
+    if(!window.supabase){
+      console.error('Supabase JS not loaded');
+      setConn(false, 'Library not loaded');
+      return;
+    }
+    supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+      realtime: { params: { eventsPerSecond: 5 } }
+    });
+    loadAll();
+    subscribeAll();
+  }
+  function setConn(online, label){
+    const el = document.getElementById('connStatus');
+    el.classList.toggle('online', online);
+    document.getElementById('connLabel').textContent = label || (online ? 'Live' : 'Offline');
+  }
+
+  async function loadAll(){
+    try {
+      setConn(false, 'Loading…');
+      const [todos, requests, creators, announcements] = await Promise.all([
+        supa.from('todos').select('*').order('created_at', { ascending: false }),
+        supa.from('requests').select('*').order('created_at', { ascending: false }),
+        supa.from('creators').select('*').order('created_at', { ascending: false }),
+        supa.from('announcements').select('*').order('created_at', { ascending: false }).limit(20)
+      ]);
+      if(todos.error) throw todos.error;
+      state.todos = todos.data || [];
+      state.requests = requests.data || [];
+      state.creators = creators.data || [];
+      state.announcements = announcements.data || [];
+      renderAll();
+      setConn(true, 'Live');
+    } catch(e){
+      console.error('Load error', e);
+      setConn(false, 'Connection error');
+    }
+  }
+
+  function subscribeAll(){
+    ['todos','requests','creators','announcements'].forEach(table => {
+      supa.channel('public:' + table)
+        .on('postgres_changes', { event: '*', schema: 'public', table }, payload => {
+          handleChange(table, payload);
+        })
+        .subscribe();
+    });
+  }
+
+  function handleChange(table, payload){
+    const list = state[table];
+    if(payload.eventType === 'INSERT'){
+      const exists = list.find(r => r.id === payload.new.id);
+      if(!exists) list.unshift(payload.new);
+    } else if(payload.eventType === 'UPDATE'){
+      const idx = list.findIndex(r => r.id === payload.new.id);
+      if(idx >= 0) list[idx] = payload.new;
+    } else if(payload.eventType === 'DELETE'){
+      const idx = list.findIndex(r => r.id === payload.old.id);
+      if(idx >= 0) list.splice(idx, 1);
+    }
+    renderAll();
+  }
+
+  /* ====== RENDER ====== */
+  function renderAll(){
+    renderTodos();
+    renderRequests();
+    renderCreators();
+    renderHome();
+  }
+
+  /* Home */
+  function renderHome(){
+    const openTodos = state.todos.filter(t => t.status === 'open');
+    const activeCreators = state.creators.filter(c => ['contacted','replied','sample_sent','posted'].includes(c.status));
+    document.getElementById('statOpenTodos').textContent = openTodos.length;
+    document.getElementById('statActiveCreators').textContent = activeCreators.length;
+    document.getElementById('navCountTasks').textContent = openTodos.length + state.requests.filter(r => r.status !== 'done').length;
+    document.getElementById('navCountCreators').textContent = state.creators.length;
+
+    // Days to launch (target Aug 24, 2026)
+    const target = new Date('2026-08-24');
+    const today = new Date();
+    const ms = target - today;
+    const days = Math.max(0, Math.ceil(ms / 86400000));
+    document.getElementById('statDaysLaunch').textContent = days;
+
+    // Recent activity = recent todos + creator status changes + requests
+    const activity = [];
+    state.todos.slice(0,5).forEach(t => activity.push({
+      type: 'todo',
+      who: t.created_by,
+      when: t.created_at,
+      text: 'added a to-do: ' + escapeHtml(t.title)
+    }));
+    state.requests.slice(0,5).forEach(r => activity.push({
+      type: 'request',
+      who: r.from_founder,
+      when: r.created_at,
+      text: 'asked ' + FOUNDERS[r.to_founder].short + ' to: ' + escapeHtml(r.title)
+    }));
+    state.creators.slice(0,5).forEach(c => activity.push({
+      type: 'creator',
+      who: c.added_by,
+      when: c.created_at,
+      text: 'added creator <strong>' + escapeHtml(c.name) + '</strong>'
+    }));
+    activity.sort((a,b) => new Date(b.when) - new Date(a.when));
+    const top = activity.slice(0, 8);
+
+    const feed = document.getElementById('recentActivity');
+    if(top.length === 0){
+      feed.innerHTML = '<div class="activity-empty">No activity yet.</div>';
+    } else {
+      feed.innerHTML = top.map(a => {
+        const f = FOUNDERS[a.who] || { short: '?', initials:'?' };
+        return `<div class="activity-item">
+          <div class="activity-avatar ${a.who}">${f.initials}</div>
+          <div class="activity-body">
+            <div class="activity-header">
+              <span class="activity-name">${f.short}</span>
+              <span class="activity-time">${timeAgo(a.when)}</span>
+            </div>
+            <div class="activity-text">${a.text}</div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    // Today's focus = my open todos (or any-assigned open)
+    const focus = state.todos
+      .filter(t => t.status === 'open' && (t.owner === me || t.owner === 'any'))
+      .slice(0, 5);
+    const focusEl = document.getElementById('todayFocusList');
+    if(focus.length === 0){
+      focusEl.innerHTML = '<div class="activity-empty">No open to-dos for you. Use Tasks to add or browse all.</div>';
+    } else {
+      focusEl.innerHTML = focus.map(renderTodoRow).join('');
+    }
+  }
+
+  /* Todos */
+  async function addTodo(e){
+    e.preventDefault();
+    const title = document.getElementById('todoInput').value.trim();
+    if(!title) return;
+    const owner = document.getElementById('todoOwner').value;
+    const priority = document.getElementById('todoPriority').value;
+    document.getElementById('todoInput').value = '';
+    const { error } = await supa.from('todos').insert({
+      title, owner, priority, created_by: me, status:'open'
+    });
+    if(error) alert('Error adding to-do: ' + error.message);
+  }
+  async function toggleTodo(id, currentStatus){
+    const next = currentStatus === 'open' ? 'done' : 'open';
+    const completed_at = next === 'done' ? new Date().toISOString() : null;
+    await supa.from('todos').update({ status: next, completed_at }).eq('id', id);
+  }
+  async function deleteTodo(id){
+    if(!confirm('Delete this to-do?')) return;
+    await supa.from('todos').delete().eq('id', id);
+  }
+  function setTodoFilter(f, btn){
+    filters.todo = f;
+    document.querySelectorAll('[data-filter]').forEach(b => {
+      if(b.closest('.card')?.querySelector('#todoList')){
+        b.style.background = '';
+        b.style.color = '';
+        b.style.borderColor = '';
+      }
+    });
+    btn.style.background = 'var(--pheeew)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--pheeew)';
+    renderTodos();
+  }
+  function renderTodoRow(t){
+    const ownerLabel = t.owner === 'any' ? 'Anyone' : (FOUNDERS[t.owner]?.short || t.owner);
+    return `<div class="task-row ${t.status === 'done' ? 'done' : ''}">
+      <div class="task-checkbox ${t.status === 'done' ? 'checked' : ''}" onclick="toggleTodo('${t.id}', '${t.status}')"></div>
+      <div class="task-body">
+        <div class="task-title">${escapeHtml(t.title)}</div>
+        ${t.description ? '<div class="task-desc">' + escapeHtml(t.description) + '</div>' : ''}
+        <div class="task-meta">
+          <span class="task-tag ${t.owner}">${ownerLabel}</span>
+          <span class="task-tag ${t.priority}">${t.priority}</span>
+          <span>· added by ${FOUNDERS[t.created_by]?.short || t.created_by} · ${timeAgo(t.created_at)}</span>
+        </div>
+      </div>
+      <button class="task-delete" onclick="deleteTodo('${t.id}')">Delete</button>
+    </div>`;
+  }
+  function renderTodos(){
+    const open = state.todos.filter(t => t.status === 'open').length;
+    const done = state.todos.filter(t => t.status === 'done').length;
+    document.getElementById('todoOpenCount').textContent = open;
+    document.getElementById('todoDoneCount').textContent = done;
+
+    let list = state.todos;
+    if(filters.todo === 'open') list = list.filter(t => t.status === 'open');
+    if(filters.todo === 'done') list = list.filter(t => t.status === 'done');
+
+    const el = document.getElementById('todoList');
+    if(list.length === 0){
+      el.innerHTML = '<div class="activity-empty">No to-dos in this view.</div>';
+    } else {
+      el.innerHTML = list.map(renderTodoRow).join('');
+    }
+  }
+
+  /* Requests */
+  async function addRequest(e){
+    e.preventDefault();
+    const title = document.getElementById('reqTitle').value.trim();
+    const to = document.getElementById('reqTo').value;
+    const desc = document.getElementById('reqDesc').value.trim();
+    if(!title || !to) return;
+    if(to === me){
+      if(!confirm("You're asking yourself? That's fine but unusual. Continue?")) return;
+    }
+    document.getElementById('reqTitle').value = '';
+    document.getElementById('reqDesc').value = '';
+    document.getElementById('reqTo').value = '';
+    const { error } = await supa.from('requests').insert({
+      from_founder: me, to_founder: to, title, description: desc || null, status:'open'
+    });
+    if(error) alert('Error adding request: ' + error.message);
+  }
+  async function updateRequestStatus(id, status){
+    const resolved_at = status === 'done' ? new Date().toISOString() : null;
+    await supa.from('requests').update({ status, resolved_at }).eq('id', id);
+  }
+  async function deleteRequest(id){
+    if(!confirm('Delete this request?')) return;
+    await supa.from('requests').delete().eq('id', id);
+  }
+  function renderRequests(){
+    const open = state.requests.filter(r => r.status !== 'done').length;
+    const done = state.requests.filter(r => r.status === 'done').length;
+    document.getElementById('reqOpenCount').textContent = open;
+    document.getElementById('reqDoneCount').textContent = done;
+
+    const el = document.getElementById('reqList');
+    if(state.requests.length === 0){
+      el.innerHTML = '<div class="activity-empty">No requests yet.</div>';
+      return;
+    }
+    el.innerHTML = state.requests.map(r => {
+      const fromF = FOUNDERS[r.from_founder];
+      const toF = FOUNDERS[r.to_founder];
+      const isForMe = r.to_founder === me;
+      return `<div class="task-row ${r.status === 'done' ? 'done' : ''}">
+        <div class="task-body">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;font-size:11px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:.04em">
+            <span class="task-tag ${r.from_founder}">${fromF?.short}</span>
+            <span>→</span>
+            <span class="task-tag ${r.to_founder}">${toF?.short}</span>
+            ${isForMe && r.status === 'open' ? '<span style="color:var(--accent-coral)">· for you</span>' : ''}
+          </div>
+          <div class="task-title">${escapeHtml(r.title)}</div>
+          ${r.description ? '<div class="task-desc">' + escapeHtml(r.description) + '</div>' : ''}
+          <div class="task-meta" style="gap:6px">
+            <span>${timeAgo(r.created_at)}</span>
+            ${r.status === 'open' ? `<button class="btn-tiny" onclick="updateRequestStatus('${r.id}', 'in_progress')">In progress</button>` : ''}
+            ${r.status !== 'done' ? `<button class="btn-tiny" onclick="updateRequestStatus('${r.id}', 'done')">Mark done</button>` : '<span class="task-tag" style="background:#D8EBE0;color:var(--bg-green)">Done</span>'}
+            <button class="task-delete" onclick="deleteRequest('${r.id}')">Delete</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  /* Creators */
+  async function addCreator(e){
+    e.preventDefault();
+    const name = document.getElementById('crName').value.trim();
+    if(!name) return;
+    const handle = document.getElementById('crHandle').value.trim() || null;
+    const platform = document.getElementById('crPlatform').value;
+    const followers = parseInt(document.getElementById('crFollowers').value) || null;
+    const niche = document.getElementById('crNiche').value.trim() || null;
+    const email = document.getElementById('crEmail').value.trim() || null;
+    ['crName','crHandle','crFollowers','crNiche','crEmail'].forEach(id => document.getElementById(id).value = '');
+    const { error } = await supa.from('creators').insert({
+      name, handle, platform, follower_count: followers, niche, email,
+      status:'discovered', added_by: me
+    });
+    if(error) alert('Error adding creator: ' + error.message);
+  }
+  async function updateCreatorStatus(id, status){
+    const update = { status, updated_at: new Date().toISOString() };
+    if(status === 'contacted') update.last_contacted_at = new Date().toISOString();
+    await supa.from('creators').update(update).eq('id', id);
+  }
+  async function deleteCreator(id){
+    if(!confirm('Delete this creator?')) return;
+    await supa.from('creators').delete().eq('id', id);
+  }
+  function setCreatorFilter(f, btn){
+    filters.creator = f;
+    document.querySelectorAll('[data-filter]').forEach(b => {
+      if(b.closest('.card')?.querySelector('#creatorTable')){
+        b.style.background = '';
+        b.style.color = '';
+        b.style.borderColor = '';
+      }
+    });
+    btn.style.background = 'var(--pheeew)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--pheeew)';
+    renderCreators();
+  }
+  function renderCreators(){
+    const byStatus = (s) => state.creators.filter(c => c.status === s).length;
+    document.getElementById('crStatDiscovered').textContent = byStatus('discovered');
+    document.getElementById('crStatContacted').textContent = byStatus('contacted') + byStatus('replied');
+    document.getElementById('crStatSample').textContent = byStatus('sample_sent');
+    document.getElementById('crStatPosted').textContent = byStatus('posted');
+
+    let list = state.creators;
+    if(filters.creator !== 'all') list = list.filter(c => c.status === filters.creator);
+
+    const el = document.getElementById('creatorRows');
+    if(list.length === 0){
+      el.innerHTML = '<div class="activity-empty">No creators in this view.</div>';
+      return;
+    }
+    el.innerHTML = list.map(c => {
+      const initials = c.name.split(' ').map(s => s[0]).slice(0,2).join('').toUpperCase();
+      const followers = c.follower_count ? formatCount(c.follower_count) : '—';
+      const handle = c.handle ? '@' + c.handle.replace(/^@/,'') : '';
+      const contact = c.email || c.phone || '—';
+      return `<div class="creator-row">
+        <div class="creator-av">${initials}</div>
+        <div>
+          <div class="creator-name">${escapeHtml(c.name)}</div>
+          <div class="creator-handle">${escapeHtml(handle)} ${c.niche ? '· ' + escapeHtml(c.niche) : ''}</div>
+        </div>
+        <div class="creator-platform">${escapeHtml(c.platform || '—')}</div>
+        <div class="creator-followers">${followers}</div>
+        <div>
+          <select class="status-pill ${c.status}" style="border:none;padding:4px 10px;font-size:11px;font-weight:600" onchange="updateCreatorStatus('${c.id}', this.value)">
+            <option value="discovered" ${c.status==='discovered'?'selected':''}>Discovered</option>
+            <option value="contacted" ${c.status==='contacted'?'selected':''}>Contacted</option>
+            <option value="replied" ${c.status==='replied'?'selected':''}>Replied</option>
+            <option value="sample_sent" ${c.status==='sample_sent'?'selected':''}>Sample sent</option>
+            <option value="posted" ${c.status==='posted'?'selected':''}>Posted</option>
+            <option value="declined" ${c.status==='declined'?'selected':''}>Declined</option>
+          </select>
+        </div>
+        <div style="font-size:12px;color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(contact)}</div>
+        <div class="creator-actions">
+          <button class="btn-tiny danger" onclick="deleteCreator('${c.id}')">×</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  /* ====== VIEWS ====== */
+  function switchView(view, ev){
+    if(ev) ev.preventDefault();
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    const el = document.getElementById('view-' + view);
+    if(el) el.classList.add('active');
+    document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+      item.classList.toggle('active', item.getAttribute('data-view') === view);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMobileSidebar();
+    location.hash = view;
+  }
+
+  function openMobileSidebar(){
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('sidebarBackdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileSidebar(){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarBackdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ====== UTILS ====== */
+  function escapeHtml(s){
+    return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function timeAgo(ts){
+    if(!ts) return '';
+    const d = new Date(ts);
+    const diff = (Date.now() - d.getTime()) / 1000;
+    if(diff < 60) return 'just now';
+    if(diff < 3600) return Math.floor(diff/60) + 'm ago';
+    if(diff < 86400) return Math.floor(diff/3600) + 'h ago';
+    if(diff < 604800) return Math.floor(diff/86400) + 'd ago';
+    return d.toLocaleDateString('en-US', { month:'short', day:'numeric' });
+  }
+  function formatCount(n){
+    if(n >= 1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'') + 'M';
+    if(n >= 1e3) return (n/1e3).toFixed(1).replace(/\.0$/,'') + 'K';
+    return String(n);
+  }
+
+  /* ====== INIT ====== */
+  document.getElementById('menuToggle').addEventListener('click', openMobileSidebar);
+  document.getElementById('sidebarBackdrop').addEventListener('click', closeMobileSidebar);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMobileSidebar(); });
+
+  // Hash-based view routing
+  window.addEventListener('hashchange', () => {
+    const view = location.hash.replace('#','') || 'home';
+    if(document.getElementById('view-' + view)) switchView(view);
+  });
+
+  if(sessionStorage.getItem('pheeew-dashboard-gate') === '1'){
+    document.getElementById('appGate').style.display = 'none';
+    enterApp();
+    const initial = location.hash.replace('#','') || 'home';
+    if(document.getElementById('view-' + initial)) switchView(initial);
+  }
+</script>
+
+</body>
+</html>
