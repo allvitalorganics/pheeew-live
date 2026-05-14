@@ -33,12 +33,46 @@ html,body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-seri
 
 /* HEADER */
 .site-header{position:sticky;top:0;background:rgba(250,246,237,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);z-index:50}
-.site-header-inner{max-width:860px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}
+.site-header-inner{max-width:860px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .brand .lettermark{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink)}
 .brand .pad{font-family:'Caveat Brush',cursive;font-size:13px;color:var(--pheeew)}
+.header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .signout{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:100px}
 .signout:hover{color:var(--ink);border-color:var(--ink)}
+
+/* SECTION NAV BUTTON */
+.section-nav-btn{display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--pheeew-soft);color:var(--pheeew);border-radius:100px;font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;border:1px solid transparent;transition:border-color .15s ease;line-height:1}
+.section-nav-btn:hover{border-color:var(--pheeew)}
+.section-nav-btn .arrow{font-size:8px;display:inline-block;transform:translateY(-1px)}
+.section-nav-btn .section-label{font-weight:700}
+
+/* NAV OVERLAY */
+.nav-overlay{position:fixed;inset:0;background:rgba(28,26,24,.6);backdrop-filter:blur(8px);z-index:60;display:none;align-items:flex-start;justify-content:center;padding:72px 20px 32px;overflow-y:auto}
+.nav-overlay.open{display:flex}
+.nav-overlay-box{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:32px 28px;max-width:560px;width:100%;max-height:calc(100vh - 100px);overflow-y:auto;box-shadow:0 24px 60px rgba(28,26,24,.2)}
+.nav-overlay-box .nav-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.nav-overlay-box .nav-head h3{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--ink);margin:0;letter-spacing:-.005em}
+.nav-overlay-box .nav-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--mute);padding:4px 8px;line-height:1;font-weight:300}
+.nav-overlay-box .nav-close:hover{color:var(--ink)}
+.nav-overlay-box ol{list-style:none;margin:0;padding:0;counter-reset:navc}
+.nav-overlay-box li{counter-increment:navc;border-bottom:1px dashed var(--line)}
+.nav-overlay-box li:last-child{border-bottom:none}
+.nav-overlay-box li a{display:flex;gap:14px;align-items:flex-start;padding:12px 4px;font-size:15px;line-height:1.4;color:var(--ink);text-decoration:none;border-radius:6px;transition:background .12s ease}
+.nav-overlay-box li a:hover{background:var(--pheeew-soft);color:var(--pheeew);padding-left:10px;padding-right:10px}
+.nav-overlay-box li a::before{content:counter(navc,decimal-leading-zero);font-family:'Special Elite',monospace;font-size:11px;font-weight:700;color:var(--pheeew);min-width:28px;padding-top:3px;flex-shrink:0}
+.nav-overlay-box li a.active{color:var(--pheeew);font-weight:700;background:var(--pheeew-soft);padding-left:10px;padding-right:10px}
+
+/* BACK TO TOP */
+.back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;background:var(--ink);color:var(--cream);border-radius:100px;display:none;align-items:center;justify-content:center;font-size:22px;cursor:pointer;box-shadow:0 8px 24px rgba(28,26,24,.25);z-index:55;border:none;transition:transform .2s ease,background .2s ease;font-weight:700;line-height:1;padding-bottom:4px}
+.back-to-top.visible{display:flex}
+.back-to-top:hover{transform:translateY(-2px);background:var(--pheeew)}
+
+/* SECTION DIVIDER */
+.section-divider{height:1px;background:linear-gradient(to right,transparent 0%,var(--line) 30%,var(--line) 70%,transparent 100%);margin:96px auto 56px;max-width:280px}
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--pheeew);z-index:55;width:0;transition:width .12s ease;pointer-events:none}
 
 .confidential-banner{background:#fdf2f2;border-bottom:1px solid #f4cece;padding:10px 0;text-align:center}
 .confidential-banner-inner{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);font-weight:700}
@@ -172,7 +206,11 @@ footer p .sig{color:var(--pheeew);font-weight:700}
 /* MOBILE */
 @media (max-width:680px){
   .wrap{padding:0 20px}
-  .site-header-inner{padding:14px 20px}
+  .site-header-inner{padding:12px 16px;gap:8px}
+  .brand .pad{display:none}
+  .section-nav-btn{padding:6px 10px;font-size:9px;letter-spacing:.1em}
+  .section-nav-btn .section-label-prefix{display:none}
+  .signout{padding:5px 9px;font-size:9px;letter-spacing:.1em}
   .hero{padding:36px 0 24px}
   .hero h1{font-size:36px}
   .hero .lede{font-size:16px}
@@ -184,6 +222,10 @@ footer p .sig{color:var(--pheeew);font-weight:700}
   .tool-grid{grid-template-columns:1fr}
   .day-row{flex-direction:column;gap:4px}
   .day-row .day-owner{width:auto;text-align:left}
+  .nav-overlay{padding:60px 14px 24px}
+  .nav-overlay-box{padding:24px 20px}
+  .back-to-top{bottom:18px;right:18px;width:42px;height:42px;font-size:20px}
+  .section-divider{margin:64px auto 40px}
 }
 </style>
 </head>
@@ -204,6 +246,9 @@ footer p .sig{color:var(--pheeew);font-weight:700}
 
 <div id="appContent" style="display:none">
 
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- HEADER -->
 <header class="site-header">
   <div class="site-header-inner">
@@ -211,9 +256,44 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <span class="lettermark">Pheeew</span>
       <span class="pad">operating playbook</span>
     </div>
-    <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
+    <div class="header-actions">
+      <button class="section-nav-btn" onclick="toggleNav()" aria-label="Open section menu">
+        <span class="section-label-prefix">Section</span>
+        <span class="section-label" id="currentSection">00</span>
+        <span class="arrow">▼</span>
+      </button>
+      <a href="#" class="signout" onclick="signOut(event)">Sign out</a>
+    </div>
   </div>
 </header>
+
+<!-- NAV OVERLAY -->
+<div class="nav-overlay" id="navOverlay" onclick="if(event.target===this) toggleNav()">
+  <div class="nav-overlay-box">
+    <div class="nav-head">
+      <h3>Jump to section</h3>
+      <button class="nav-close" onclick="toggleNav()" aria-label="Close section menu">×</button>
+    </div>
+    <ol id="navList">
+      <li><a href="#how-to-use" data-section="how-to-use">How to use this playbook + the core principle</a></li>
+      <li><a href="#team" data-section="team">The team — who owns what</a></li>
+      <li><a href="#modes" data-section="modes">The four operating modes</a></li>
+      <li><a href="#functions" data-section="functions">Functional ownership — eight functions</a></li>
+      <li><a href="#cadence" data-section="cadence">The weekly cadence</a></li>
+      <li><a href="#decisions" data-section="decisions">Decision authority matrix</a></li>
+      <li><a href="#kpis" data-section="kpis">KPI dashboards</a></li>
+      <li><a href="#thirty" data-section="thirty">First 30 days — day-by-day</a></li>
+      <li><a href="#risks" data-section="risks">Risk register + crisis playbooks</a></li>
+      <li><a href="#tools" data-section="tools">Tooling + vendor stack</a></li>
+      <li><a href="#syllabus" data-section="syllabus">Learning syllabus</a></li>
+      <li><a href="#margins" data-section="margins">Marketing economics — margins, ad spend, UGC</a></li>
+      <li><a href="#not-here" data-section="not-here">What's not in this doc</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 
 <div class="confidential-banner">
   <div class="confidential-banner-inner">Confidential · Pheeew, Inc. · Founders Only · Living document</div>
@@ -244,6 +324,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <li><a href="#risks">Risk register + crisis playbooks</a></li>
       <li><a href="#tools">Tooling + vendor stack</a></li>
       <li><a href="#syllabus">The learning syllabus — what each of us studies</a></li>
+      <li><a href="#margins">Marketing economics — margins, ad spend, near-zero-budget playbook</a></li>
       <li><a href="#not-here">What's not in this doc (and where to find it)</a></li>
     </ol>
   </div>
@@ -1707,10 +1788,456 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </div>
   </section>
 
-  <!-- 11. WHAT'S NOT IN THIS DOC -->
+  <!-- 11. MARKETING ECONOMICS -->
+  <section class="block" id="margins">
+    <div class="block-head">
+      <div class="num">§ 11 · marketing economics</div>
+      <h2>Margins, ad spend, and the near-zero-budget marketing playbook.</h2>
+      <p class="sub">We have a hard ceiling of <strong>$1,000/month all-in for paid spend</strong> in our early stage. That constraint shapes every marketing decision in this section. The discipline isn't "spend more"; it's "win without needing to."</p>
+    </div>
+
+    <!-- Mini sub-TOC for this section -->
+    <div class="callout note">
+      <span class="label">In this section</span>
+      <p><a href="#margins-cogs" style="color:var(--pheeew);font-weight:700;text-decoration:none">A. Landed COGS per pouch</a> · <a href="#margins-channels" style="color:var(--pheeew);font-weight:700;text-decoration:none">B. Per-tier contribution margin (DTC OT + sub)</a> · <a href="#margins-other-channels" style="color:var(--pheeew);font-weight:700;text-decoration:none">C. Wholesale, Amazon, B2B margin math</a> · <a href="#margins-adspend" style="color:var(--pheeew);font-weight:700;text-decoration:none">D. Ad spend math at $1,000/month</a> · <a href="#margins-stack" style="color:var(--pheeew);font-weight:700;text-decoration:none">E. The near-zero-budget marketing stack</a> · <a href="#margins-ugc" style="color:var(--pheeew);font-weight:700;text-decoration:none">F. The raw UGC creator playbook</a> · <a href="#margins-storytelling" style="color:var(--pheeew);font-weight:700;text-decoration:none">G. Why narrative is the highest-leverage spend</a></p>
+    </div>
+
+    <!-- A. COGS -->
+    <h3 id="margins-cogs">A · The landed COGS per pouch</h3>
+    <p>Every margin calculation starts here. Before we can talk about what we can afford to spend on acquisition, we have to know what a pouch actually costs us by the time it's sitting in a 3PL warehouse ready to ship.</p>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Cost layer</th><th class="num">$/pouch</th><th>Notes</th></tr>
+      <tr><td>Manufacturer ex-factory (Korea)</td><td class="num">$1.00</td><td>Average across MOQ tiers; locked at production. Includes formulation, packaging materials, fill, seal, case-pack.</td></tr>
+      <tr><td>International freight + duty</td><td class="num">$0.20</td><td>Ocean freight from Korea to US West Coast port; tariff classification: dietary supplement / functional food; duty rate variable but ~3-5%. Includes customs broker fees amortized.</td></tr>
+      <tr><td>Inland US to 3PL</td><td class="num">$0.05</td><td>Truck from port to 3PL warehouse; intake processing fee per pouch.</td></tr>
+      <tr><td>Returns reserve (allocated)</td><td class="num">$0.05</td><td>Average across all returns + damaged inventory write-offs.</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total landed COGS</strong></td><td class="num"><strong>$1.30</strong></td><td><strong>Per pouch, at our launch MOQ</strong></td></tr>
+    </table></div>
+
+    <div class="callout warn">
+      <span class="label">These numbers are modeled, not actual</span>
+      <p>Every number in this section is a working estimate based on the manufacturer quote and standard DTC operations math. Real numbers won't be known until first orders flow. The discipline is to use these as a planning floor and update the section the moment actuals diverge by more than 10%.</p>
+    </div>
+
+    <!-- B. Per-tier contribution margin -->
+    <h3 id="margins-channels">B · Per-tier contribution margin — DTC direct</h3>
+    <p>Contribution margin per order is the single most important DTC metric. It tells us what's left after we've paid for everything that scales with an order — and therefore what we can afford to spend on acquiring that customer. Below: full margin math for each of our five tiers, both one-time and subscription.</p>
+
+    <h4>Per-order cost stack (applies to all tiers, varies by size)</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Cost</th><th>Logic</th></tr>
+      <tr><td>Pouches × $1.30</td><td>Landed COGS × order quantity</td></tr>
+      <tr><td>Packaging</td><td>$1.50 (Tester) → $4.00 (Household); box, void fill, label, shipping documents</td></tr>
+      <tr><td>Outbound shipping</td><td>$6 (Tester) → $15 (Household); 3PL-negotiated UPS/USPS ground</td></tr>
+      <tr><td>Payment processing</td><td>2.9% of revenue + $0.30 per transaction (Shopify Payments standard)</td></tr>
+      <tr><td>3PL pick-pack</td><td>$2.50 (small) → $6 (large multi-box); volume discounts kick in at 1K+ orders/mo</td></tr>
+      <tr><td>Customer service amortized</td><td>$0.50/order; rises if ticket volume rises</td></tr>
+      <tr><td>Returns reserve</td><td>3% of revenue (5% on Tester since trial); covers refunds, replacements, damages</td></tr>
+    </table></div>
+
+    <h4>Tester 10 · $34 one-time</h4>
+    <p>Designed as a trial pack. Low barrier, low margin. The Tester is intentionally a small-margin loss-leader bet on conversion to Starter or Core after trial.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">$</th></tr>
+      <tr><td>Revenue</td><td class="num">$34.00</td></tr>
+      <tr><td>COGS (10 × $1.30)</td><td class="num">−$13.00</td></tr>
+      <tr><td>Packaging</td><td class="num">−$1.50</td></tr>
+      <tr><td>Shipping</td><td class="num">−$6.00</td></tr>
+      <tr><td>Payment processing (2.9% + $0.30)</td><td class="num">−$1.29</td></tr>
+      <tr><td>3PL pick-pack</td><td class="num">−$2.50</td></tr>
+      <tr><td>Customer service amortized</td><td class="num">−$0.50</td></tr>
+      <tr><td>Returns reserve (5%)</td><td class="num">−$1.70</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$7.51 · 22.1%</strong></td></tr>
+    </table></div>
+
+    <h4>Starter 20 · $59 one-time / $49 subscription</h4>
+    <p>The default first-purchase tier for non-trial buyers. Margin tightens significantly on subscription — by design, to encourage subscriber LTV.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">OT ($59)</th><th class="num">Sub ($49)</th></tr>
+      <tr><td>Revenue</td><td class="num">$59.00</td><td class="num">$49.00</td></tr>
+      <tr><td>COGS (20 × $1.30)</td><td class="num">−$26.00</td><td class="num">−$26.00</td></tr>
+      <tr><td>Packaging</td><td class="num">−$2.00</td><td class="num">−$2.00</td></tr>
+      <tr><td>Shipping</td><td class="num">−$7.00</td><td class="num">−$7.00</td></tr>
+      <tr><td>Payment processing</td><td class="num">−$2.01</td><td class="num">−$1.72</td></tr>
+      <tr><td>3PL pick-pack</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
+      <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
+      <tr><td>Returns reserve (3%)</td><td class="num">−$1.77</td><td class="num">−$1.47</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$16.72 · 28.3%</strong></td><td class="num"><strong>$7.31 · 14.9%</strong></td></tr>
+    </table></div>
+
+    <h4>Core 30 · $99 one-time / $72 subscription</h4>
+    <p>The "main pack" — best margin-to-volume balance. The tier we want the median customer to land on.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">OT ($99)</th><th class="num">Sub ($72)</th></tr>
+      <tr><td>Revenue</td><td class="num">$99.00</td><td class="num">$72.00</td></tr>
+      <tr><td>COGS (30 × $1.30)</td><td class="num">−$39.00</td><td class="num">−$39.00</td></tr>
+      <tr><td>Packaging</td><td class="num">−$2.50</td><td class="num">−$2.50</td></tr>
+      <tr><td>Shipping</td><td class="num">−$8.00</td><td class="num">−$8.00</td></tr>
+      <tr><td>Payment processing</td><td class="num">−$3.17</td><td class="num">−$2.39</td></tr>
+      <tr><td>3PL pick-pack</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
+      <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
+      <tr><td>Returns reserve (3%)</td><td class="num">−$2.97</td><td class="num">−$2.16</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$39.86 · 40.3%</strong></td><td class="num"><strong>$14.45 · 20.1%</strong></td></tr>
+    </table></div>
+
+    <h4>Committed 60 · $179 one-time / $139 subscription</h4>
+    <p>Power user pack. Higher margin per order because fixed per-order costs (packaging, shipping, pick-pack) get amortized over more units.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">OT ($179)</th><th class="num">Sub ($139)</th></tr>
+      <tr><td>Revenue</td><td class="num">$179.00</td><td class="num">$139.00</td></tr>
+      <tr><td>COGS (60 × $1.30)</td><td class="num">−$78.00</td><td class="num">−$78.00</td></tr>
+      <tr><td>Packaging</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
+      <tr><td>Shipping</td><td class="num">−$10.00</td><td class="num">−$10.00</td></tr>
+      <tr><td>Payment processing</td><td class="num">−$5.49</td><td class="num">−$4.33</td></tr>
+      <tr><td>3PL pick-pack</td><td class="num">−$4.00</td><td class="num">−$4.00</td></tr>
+      <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
+      <tr><td>Returns reserve (3%)</td><td class="num">−$5.37</td><td class="num">−$4.17</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$72.64 · 40.6%</strong></td><td class="num"><strong>$35.00 · 25.2%</strong></td></tr>
+    </table></div>
+
+    <h4>Household 120 · $329 one-time / $259 subscription</h4>
+    <p>Family / two-person pack. Best absolute margin per order; lower percentage than Core/Committed because shipping cost rises with weight.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">OT ($329)</th><th class="num">Sub ($259)</th></tr>
+      <tr><td>Revenue</td><td class="num">$329.00</td><td class="num">$259.00</td></tr>
+      <tr><td>COGS (120 × $1.30)</td><td class="num">−$156.00</td><td class="num">−$156.00</td></tr>
+      <tr><td>Packaging</td><td class="num">−$4.00</td><td class="num">−$4.00</td></tr>
+      <tr><td>Shipping</td><td class="num">−$15.00</td><td class="num">−$15.00</td></tr>
+      <tr><td>Payment processing</td><td class="num">−$9.84</td><td class="num">−$7.81</td></tr>
+      <tr><td>3PL pick-pack</td><td class="num">−$6.00</td><td class="num">−$6.00</td></tr>
+      <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
+      <tr><td>Returns reserve (3%)</td><td class="num">−$9.87</td><td class="num">−$7.77</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$127.79 · 38.8%</strong></td><td class="num"><strong>$61.92 · 23.9%</strong></td></tr>
+    </table></div>
+
+    <h4>Summary — DTC contribution margin per tier</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tier</th><th class="num">Revenue (OT)</th><th class="num">Margin (OT)</th><th class="num">% (OT)</th><th class="num">Revenue (Sub)</th><th class="num">Margin (Sub)</th><th class="num">% (Sub)</th></tr>
+      <tr><td>Tester 10</td><td class="num">$34</td><td class="num">$7.51</td><td class="num">22.1%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+      <tr><td>Starter 20</td><td class="num">$59</td><td class="num">$16.72</td><td class="num">28.3%</td><td class="num">$49</td><td class="num">$7.31</td><td class="num">14.9%</td></tr>
+      <tr><td>Core 30</td><td class="num">$99</td><td class="num">$39.86</td><td class="num">40.3%</td><td class="num">$72</td><td class="num">$14.45</td><td class="num">20.1%</td></tr>
+      <tr><td>Committed 60</td><td class="num">$179</td><td class="num">$72.64</td><td class="num">40.6%</td><td class="num">$139</td><td class="num">$35.00</td><td class="num">25.2%</td></tr>
+      <tr><td>Household 120</td><td class="num">$329</td><td class="num">$127.79</td><td class="num">38.8%</td><td class="num">$259</td><td class="num">$61.92</td><td class="num">23.9%</td></tr>
+    </table></div>
+
+    <div class="callout rule">
+      <span class="label">Three things to internalize from this table</span>
+      <p><strong>1. Subscription margins are roughly half of one-time margins.</strong> The discount we offer to encourage subscription is a real cost. The math only works if subscribers stay long enough — see LTV section below.<br><br><strong>2. Tester is a loss-leader, not a profit center.</strong> $7.51 margin × 5% returns × $30 acquisition cost = barely break-even at best, often negative. We accept this because the Tester's job is to convert trial users to higher tiers within 30 days. <em>If Tester conversion to Starter+ falls below 30%, the entire tier strategy needs rethinking.</em><br><br><strong>3. Core 30 is the tier we should push hardest.</strong> Best absolute margin among non-Household tiers, lowest barrier-to-entry among multi-month commitments, simplest first-time purchase decision. Marketing, on-site merchandising, and email lifecycle should all guide customers toward Core 30 as the default.</p>
+    </div>
+
+    <h4>Subscription LTV math</h4>
+    <p>Per-order margin is half the story. What makes subscription work is the recurring contribution over a customer's lifetime. Assumed average subscription length: 4 months at launch (conservative; mature DTC CPG averages 6–9 months).</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tier</th><th class="num">Sub margin/order</th><th class="num">4-mo LTV</th><th class="num">8-mo LTV (mature)</th><th class="num">12-mo LTV (best case)</th></tr>
+      <tr><td>Starter 20</td><td class="num">$7.31</td><td class="num">$29.24</td><td class="num">$58.48</td><td class="num">$87.72</td></tr>
+      <tr><td>Core 30</td><td class="num">$14.45</td><td class="num">$57.80</td><td class="num">$115.60</td><td class="num">$173.40</td></tr>
+      <tr><td>Committed 60</td><td class="num">$35.00</td><td class="num">$140.00</td><td class="num">$280.00</td><td class="num">$420.00</td></tr>
+      <tr><td>Household 120</td><td class="num">$61.92</td><td class="num">$247.68</td><td class="num">$495.36</td><td class="num">$743.04</td></tr>
+    </table></div>
+    <p>Read across: a Core 30 subscriber who stays 8 months produces $115.60 of contribution margin. That's the number we can afford to spend acquiring them, in total, across their lifetime, before paid acquisition becomes a losing trade.</p>
+
+    <!-- C. Other channels -->
+    <h3 id="margins-other-channels">C · Margin math for non-DTC channels</h3>
+
+    <h4>Wholesale / retail (when active)</h4>
+    <p>Retail margins are brutal. Brick-and-mortar retailers expect 40–50% off the DTC retail price; if a broker is involved, another 5–10% goes to them; if a distributor is involved, another 25–30%. The net retail price the brand sees is often 30–40% of DTC.</p>
+    <p>Modeled for a single pouch sold through Whole Foods (~50% retailer margin, no distributor since direct, ~5% broker on national contract):</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">$/pouch</th></tr>
+      <tr><td>Suggested retail price (SRP)</td><td class="num">$3.99</td></tr>
+      <tr><td>Retailer margin (50%)</td><td class="num">−$2.00</td></tr>
+      <tr><td>Broker commission (5%)</td><td class="num">−$0.10</td></tr>
+      <tr><td>Net to Pheeew</td><td class="num">$1.89</td></tr>
+      <tr><td>COGS (landed to retailer DC)</td><td class="num">−$1.30</td></tr>
+      <tr><td>Outbound freight to retailer DC (amortized)</td><td class="num">−$0.10</td></tr>
+      <tr><td>Slotting / promotional reserve</td><td class="num">−$0.15</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$0.34 · 9%</strong></td></tr>
+    </table></div>
+    <p>Wholesale margin is roughly <strong>1/4 of DTC margin per pouch</strong>. We do not enter retail to make per-pouch profit; we enter retail to drive brand awareness and volume that amortizes fixed costs.</p>
+    <p><strong>Pricing implication:</strong> our DTC SRP needs to be set with retail headroom in mind from day one. If we price DTC too aggressively, we have no room to enter retail later. Current DTC pouch pricing range ($2.16–$3.40 per pouch) leaves us room to price retail at a higher SRP ($3.99–$4.49) — retail customers pay a convenience premium for being on shelf.</p>
+
+    <h4>Amazon (decision pending)</h4>
+    <p>Amazon takes 15% referral fee + FBA fees if we fulfill through them ($3–5/order) + ad spend if we want visibility. Estimated:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">Core 30 ($99 SRP on Amazon)</th></tr>
+      <tr><td>Revenue</td><td class="num">$99.00</td></tr>
+      <tr><td>Amazon referral fee (15%)</td><td class="num">−$14.85</td></tr>
+      <tr><td>FBA pick-pack-ship</td><td class="num">−$8.00</td></tr>
+      <tr><td>COGS (30 × $1.30)</td><td class="num">−$39.00</td></tr>
+      <tr><td>Amazon ads (assumed 10% ACOS)</td><td class="num">−$9.90</td></tr>
+      <tr><td>Other (returns, packaging)</td><td class="num">−$4.00</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$23.25 · 23.5%</strong></td></tr>
+    </table></div>
+    <p>Amazon margin is roughly <strong>60% of DTC OT margin</strong>. The decision isn't economic — it's strategic. Amazon controls the customer relationship; we lose direct contact, retention email rights, and brand-building leverage. Default position: <strong>don't sell on Amazon for the first 12 months</strong>. Reconsider once DTC is operating at scale and brand identity is bulletproof.</p>
+
+    <h4>B2B / corporate wellness (future channel)</h4>
+    <p>Bulk orders to corporate wellness programs, hotels, gyms, subscription boxes. Typical structure: bulk discount of 25–35% off DTC SRP, no shipping (bulk delivery to corporate location), longer payment terms (Net 30 or Net 60).</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Line</th><th class="num">300-pouch corporate order</th></tr>
+      <tr><td>Revenue (300 × $2.50 bulk price)</td><td class="num">$750.00</td></tr>
+      <tr><td>COGS (300 × $1.30)</td><td class="num">−$390.00</td></tr>
+      <tr><td>Bulk shipping (palletized)</td><td class="num">−$25.00</td></tr>
+      <tr><td>Payment terms financing cost (Net 30)</td><td class="num">−$10.00</td></tr>
+      <tr><td>Account management amortized</td><td class="num">−$15.00</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$310.00 · 41.3%</strong></td></tr>
+    </table></div>
+    <p>B2B margin per order is excellent. Risk: account concentration. Lose one big corporate account and revenue drops materially. Lane to develop in months 6–12 alongside DTC.</p>
+
+    <!-- D. Ad spend math -->
+    <h3 id="margins-adspend">D · Ad spend math at $1,000/month</h3>
+    <p>Hard budget cap: <strong>$1,000/month all-in for paid acquisition</strong>. That's $33/day. The first instinct is to use it for cold prospecting (Meta interest targeting, TikTok creative testing). The instinct is wrong at this scale.</p>
+
+    <h4>Why cold prospecting doesn't work at $33/day</h4>
+    <p>At cold prospecting CAC (typical $30–60 for our category), $1,000/month buys 17–33 new customers. With Core 30 OT margin of $39.86, that's $678–$1,326 of first-order contribution. After paid spend: <strong>net contribution from cold paid acquisition: roughly break-even to slightly negative on first order alone</strong>. Without subscription conversion, this is a money-losing motion.</p>
+    <p>Worse: at $33/day, Meta's algorithm doesn't have enough budget to find good audiences. You burn 60–80% of the spend before the algorithm starts performing. Sub-scale spend on a "smart" platform is a worst-of-both-worlds situation.</p>
+
+    <h4>The retargeting reframe</h4>
+    <p>Instead of cold prospecting, the $33/day should go to <strong>retargeting</strong>: showing ads to people who already encountered Pheeew through Dawon's organic content, the website, or creator posts.</p>
+    <p>Retargeting math is fundamentally different from cold:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Metric</th><th class="num">Cold prospecting</th><th class="num">Retargeting</th></tr>
+      <tr><td>Typical CPM (cost per 1000 impressions)</td><td class="num">$8–$15</td><td class="num">$5–$10</td></tr>
+      <tr><td>Typical CTR</td><td class="num">0.8–1.5%</td><td class="num">2.5–5%</td></tr>
+      <tr><td>Conversion rate</td><td class="num">1–2%</td><td class="num">4–8%</td></tr>
+      <tr><td>Typical CAC</td><td class="num">$30–$60</td><td class="num">$10–$25</td></tr>
+      <tr><td>Customers/month at $1K budget</td><td class="num">17–33</td><td class="num">40–100</td></tr>
+    </table></div>
+    <p><strong>Retargeting produces 2–4× the customers per dollar at our budget level.</strong> It only works if there's organic traffic and brand awareness to retarget — which is exactly what Dawon's storyline brief produces.</p>
+
+    <h4>The $1,000/month allocation</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Channel</th><th class="num">$/month</th><th class="num">$/day</th><th>Purpose</th></tr>
+      <tr><td>Meta retargeting (Instagram + Facebook)</td><td class="num">$500</td><td class="num">$16.50</td><td>Retarget Pheeew.com visitors, Instagram engagers, email list members who haven't bought</td></tr>
+      <tr><td>TikTok retargeting (only after first organic traction)</td><td class="num">$250</td><td class="num">$8.25</td><td>Retarget TikTok video viewers, Pheeew.com visitors from TikTok referral</td></tr>
+      <tr><td>Google Brand Search (defensive)</td><td class="num">$150</td><td class="num">$5.00</td><td>Bid on "Pheeew" + brand variants so we control the SERP for our own name</td></tr>
+      <tr><td>Reserve / experimentation</td><td class="num">$100</td><td class="num">$3.30</td><td>Test new creative, new audiences, new platforms. Never deploy as ongoing spend.</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total</strong></td><td class="num"><strong>$1,000</strong></td><td class="num"><strong>$33</strong></td><td></td></tr>
+    </table></div>
+
+    <h4>Triggers to increase the budget</h4>
+    <ul>
+      <li><strong>$1,000 → $2,500/mo:</strong> When retargeting CAC stabilizes under $20 AND subscription conversion is at or above 40%. The math has earned the doubling.</li>
+      <li><strong>$2,500 → $5,000/mo:</strong> When LTV/CAC ratio is sustainably above 3:1 measured at 6 months out. We've earned the right to spend.</li>
+      <li><strong>Cold prospecting layer turns on:</strong> When organic traffic is high enough that retargeting saturates (we've shown the ad to all the warm audience and are no longer scaling reach). Probably month 6–9.</li>
+    </ul>
+
+    <h4>Triggers to pause paid spend</h4>
+    <ul>
+      <li>CAC rises above first-order contribution margin for 3 consecutive weeks</li>
+      <li>Cash runway drops below 6 months</li>
+      <li>Inventory shortage that paid traffic would worsen</li>
+      <li>Any operational issue that affects fulfillment quality (we don't pay to acquire customers we can't serve well)</li>
+    </ul>
+
+    <div class="callout warn">
+      <span class="label">A real risk we should name</span>
+      <p>Paid retargeting works only if there's an audience to retarget. If Dawon's organic content doesn't land — if Episode 1 of the storyline arc gets 200 views instead of 20,000 — the retargeting layer has nothing to spend against. <strong>Paid budget should only deploy when organic content has produced a retargetable audience of at least 5,000 website visitors and 10,000 social engagers over the past 30 days.</strong> Until then, the paid budget sits unspent. Patience.</p>
+    </div>
+
+    <!-- E. Near-zero-budget marketing stack -->
+    <h3 id="margins-stack">E · The near-zero-budget marketing stack</h3>
+    <p>If paid budget is capped at $1,000/month, the other ~95% of customer acquisition has to come from channels that cost time or product, not cash. Below: every channel we run that does not require meaningful paid spend. Listed in order of expected contribution to total customer acquisition in our first 6 months.</p>
+
+    <h4>1. Organic content — Dawon's storyline arc (highest leverage)</h4>
+    <p>Cost: ~$0 cash (Dawon's time). Production setup under $100 (phone tripod, lavalier mic). <strong>This is the single biggest acquisition channel at our stage.</strong> See <a href="../storyline-brief/" style="color:var(--pheeew);font-weight:700;text-decoration:none">storyline brief</a> for full execution. Expected contribution: 40–60% of first 6 months' acquisitions.</p>
+
+    <h4>2. Creator gifting (raw UGC) — Justin's outreach</h4>
+    <p>Cost: product COGS per box (~$15–25 per Starter 20 box, $25–40 per Core 30 box). At 15 boxes/month: ~$300–600/month in product cost. Drives third-party authentic content + community trust. Full playbook below in subsection F. Expected contribution: 20–30% of first 6 months' acquisitions.</p>
+
+    <h4>3. Email + SMS lifecycle (retention, not acquisition)</h4>
+    <p>Cost: Klaviyo subscription ($30–$200/month depending on contact count). Drives repeat purchases, subscription conversion, reactivation of dormant subscribers. <strong>Not technically an acquisition channel — but it's the channel that makes acquisition profitable</strong> by extending the customer lifetime. Worth more than paid spend dollar-for-dollar.</p>
+
+    <h4>4. Referral program</h4>
+    <p>Cost: variable — only pays out on actual conversions. Structure: existing customer refers a friend, friend gets 15% off first order, referrer gets $10 store credit on referrer's next reorder. Powered by ReferralCandy or Shopify-native ($25–$50/month tool cost). Expected contribution: 5–10% of acquisitions, scaling with customer base size.</p>
+
+    <h4>5. Community seeding (Reddit, Discord, niche forums)</h4>
+    <p>Cost: $0. Time only. Subreddits like r/gutHealth, r/probiotics, r/BabyBumps (postpartum digestion), r/GLP1 (Ozempic users dealing with bloating), niche health Discords. <strong>Rules:</strong> never spam, never disclose without disclosing, always be a community member before being a marketer. Justin owns this; Dawon does her own organic participation where her story fits naturally.</p>
+
+    <h4>6. PR + podcast outreach</h4>
+    <p>Cost: $0–$500/month (PR-tier tools like Muck Rack optional). Justin builds a list of ~50 outlets / podcasts segmented by tier. Pitches when there's a real story (Dawon's narrative, the no-VC story, a specific milestone). <strong>The story is the asset.</strong> Episode 15 of the storyline arc — "We pitched investors but walked away" — is podcast-bait. Expected contribution: low volume, high quality leads + long-term brand compounding.</p>
+
+    <h4>7. Cross-brand partnerships</h4>
+    <p>Cost: $0–$500 in product exchanges. Examples: bundle Pheeew Starter 20 with a clean skincare brand's product as a co-marketed limited edition; cross-promote with a wellness app that shares our audience. Justin scopes; partnerships require Tier 2 sign-off ($5K threshold). Expected contribution: 2–5% of acquisitions but disproportionate brand value.</p>
+
+    <h4>8. SEO + content (long-tail)</h4>
+    <p>Cost: $0 initially; Pheeew.com optimization. Long-term: 5–10 cornerstone articles ("what is a synbiotic," "how long until probiotics work," "real food vs. supplement debate") that rank for high-intent search terms. <strong>Dawon may not write these — long-form blog ≠ founder voice on Instagram.</strong> A separate content writer or AI-assisted draft + Alex review pattern works. Compound returns over 6–12 months.</p>
+
+    <h4>9. LinkedIn for B2B + retail buyer warming</h4>
+    <p>Cost: $0. Justin connects with retail buyers, brokers, corporate wellness program leads. Builds visibility before pitching. <strong>Don't pitch on LinkedIn — warm the relationship by liking + commenting thoughtfully on their posts for 2–3 months, then introduce.</strong> No outbound DMs. Expected contribution: doesn't drive DTC revenue, drives retail + B2B revenue 6–18 months out.</p>
+
+    <h4>10. Founder-led press (no PR firm)</h4>
+    <p>Cost: $0. Alex, Justin, and Dawon each pitch their own networks for podcast appearances, brand-feature interviews, conference speaking slots. Authentic founder voice is more valuable than agency-driven PR at our stage. No PR firm until at least Series A (if ever).</p>
+
+    <h4>Total spend on the entire organic stack</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Channel</th><th class="num">$/month</th></tr>
+      <tr><td>Klaviyo (Email + SMS lifecycle)</td><td class="num">$30–$200</td></tr>
+      <tr><td>Referral program tool</td><td class="num">$25–$50</td></tr>
+      <tr><td>Creator gifting (15 boxes/month avg)</td><td class="num">$300–$600 in product COGS</td></tr>
+      <tr><td>Cross-brand partnerships (product exchanges)</td><td class="num">$100–$300 in product COGS</td></tr>
+      <tr><td>Time (4 founders, organic execution)</td><td class="num">~$0 cash; ~50% of marketing team capacity</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total cash + product</strong></td><td class="num"><strong>~$500–$1,200/month</strong></td></tr>
+    </table></div>
+
+    <p>Combined with the $1,000 paid budget, our all-in marketing spend lands at <strong>~$1,500–$2,200/month</strong>. At Core 30 OT margins of ~$40, that's a break-even threshold of ~40–55 new customers per month. Below that, marketing is a net loss; above, marketing is a net positive.</p>
+
+    <!-- F. UGC playbook -->
+    <h3 id="margins-ugc">F · The raw UGC creator playbook</h3>
+    <p>This is Justin's primary growth motion. The discipline here is what separates "free marketing" from "wasted product." Built carefully, the UGC pipeline produces both customer acquisition AND a stable of authentic third-party voices that make the brand feel populated.</p>
+
+    <h4>Raw UGC vs. influencer marketing — the distinction</h4>
+    <div class="do-dont">
+      <div class="do">
+        <h4>Raw UGC creators</h4>
+        <ul>
+          <li>1K–50K followers (sweet spot 2K–25K)</li>
+          <li>5–15% engagement rate (real, not bought)</li>
+          <li>Document/journal-style content</li>
+          <li>No agency, no rate card</li>
+          <li>Often paid in product only</li>
+          <li>Audience trusts them as a real person</li>
+          <li>Posts feel like recommendations, not ads</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h4>Influencers (skip for now)</h4>
+        <ul>
+          <li>100K+ followers</li>
+          <li>1–3% engagement rate</li>
+          <li>High-production content</li>
+          <li>Agency-managed, rate card $1K–$50K per post</li>
+          <li>Cash payment expected</li>
+          <li>Audience knows it's paid</li>
+          <li>Posts feel like ads (because they are)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Selection criteria for Pheeew UGC creators</h4>
+    <ul>
+      <li><strong>Niche overlap:</strong> gut health, clean wellness, fitness recovery, women's health, postpartum, perimenopause, beauty-from-within, GLP-1 community, anxiety + wellness, fasting recovery</li>
+      <li><strong>Follower range:</strong> 2K–50K (under 2K too small to move needles; over 50K starts behaving like an influencer)</li>
+      <li><strong>Engagement rate:</strong> 5%+ on recent posts (a 10K-follower creator with 7% engagement out-converts a 100K-follower influencer with 1.5% engagement, every time)</li>
+      <li><strong>Content style:</strong> handheld, real, journal-style. Not polished studio. Not "morning routine influencer." Looks like a friend, not a brand.</li>
+      <li><strong>Voice match:</strong> vulnerable, honest, anti-prescriptive. Same tone as Dawon's storyline. If they sound like a wellness coach, skip.</li>
+      <li><strong>Geography:</strong> US primary (target market), Korea secondary. EU and UK on the radar for future expansion.</li>
+      <li><strong>Anti-criteria — automatic skip:</strong> diet culture content, before/after weight loss photos, prescription medication promotion, "miracle" language, multi-level marketing affiliations, recent controversy</li>
+    </ul>
+
+    <h4>The pipeline — 30 creators in 90 days</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Month</th><th>Action</th><th>Volume</th></tr>
+      <tr><td>Month 1</td><td>Build creator list (research, Instagram + TikTok scraping by hand)</td><td>50 candidates identified</td></tr>
+      <tr><td>Month 1–2</td><td>Outreach (personal DMs only, no mass templates)</td><td>30 outreach messages sent</td></tr>
+      <tr><td>Month 2</td><td>Gifting boxes shipped to creators who responded</td><td>~15 boxes (50% response rate target)</td></tr>
+      <tr><td>Month 2–3</td><td>Follow-up + relationship building</td><td>Check-ins, no posting pressure</td></tr>
+      <tr><td>Month 3</td><td>Organic posts from creators who chose to post</td><td>~5–8 posts (33–50% conversion from box to post)</td></tr>
+    </table></div>
+
+    <h4>Outreach script — the personal DM</h4>
+    <div class="caption" style="font-family:inherit;background:#f8f3e6;border:1px dashed var(--peach);border-radius:8px;padding:14px 18px;font-size:13.5px;line-height:1.7">
+      <strong>Hi [name]</strong>,<br><br>
+      I just watched your post about [specific topic from a recent post — gut bloat, postpartum recovery, GLP-1 side effects, whatever's relevant]. The way you talked about [specific thing they said] really stuck with me — most people in this space talk around it instead of through it.<br><br>
+      I'm Justin, and I'm part of a small team building a brand called Pheeew. It's a daily synbiotic smoothie pouch — real fruit, prebiotic fiber, a specific probiotic strain that actually survives. We made it because someone on our team had been trying to fix her own gut for three years before realizing the answer wasn't a supplement, it was food.<br><br>
+      I'd love to send you a Starter 20 box, no expectations. If it doesn't fit your life, that's totally fine. If you love it, we'd be honored if you mentioned it — but only if it feels real.<br><br>
+      Either way, I think you'd like the team. Reply if you're game and I'll get a box out.<br><br>
+      — Justin / Pheeew
+    </div>
+
+    <p><strong>Why this script works:</strong> First sentence proves we actually watched their content. Second sentence speaks their language. Third introduces the brand without pitching. Fourth makes the ask without pressure. Fifth respects their autonomy. The cost of writing this for each creator is 10 minutes; the cost of NOT writing it (sending a generic template) is the difference between a 50% response rate and a 5% one.</p>
+
+    <h4>Gifting box composition</h4>
+    <div class="tbl-wrap"><table>
+      <tr><th>Item</th><th>Cost</th><th>Notes</th></tr>
+      <tr><td>Starter 20 pouches (or Core 30 for higher-fit creators)</td><td class="num">$26–$39 COGS</td><td>The product is the gift</td></tr>
+      <tr><td>Hand-written note from Dawon</td><td class="num">$0</td><td>Personal, short. Single page. References Dawon's story briefly.</td></tr>
+      <tr><td>One-pager: ingredient breakdown + suggested ways to try</td><td class="num">$0.50 printing</td><td>Not a sales pitch; an explanation. Useful information they can reference.</td></tr>
+      <tr><td>Optional: small branded extra (Pheeew tote, kitchen towel, sticker pack)</td><td class="num">$3–$8</td><td>Skip if budget is tight; include if it adds delight</td></tr>
+      <tr><td>Custom packaging tape with Pheeew brand</td><td class="num">$0.20</td><td>Small thing; creators photograph unboxings; pays off in production value</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total per box</strong></td><td class="num"><strong>~$30–$48</strong></td><td></td></tr>
+    </table></div>
+
+    <h4>Relationship cadence post-box</h4>
+    <ol>
+      <li><strong>Week 1 (box arrives):</strong> Short DM — "your box should land today/tomorrow, no rush, would love to hear your honest thoughts whenever they happen"</li>
+      <li><strong>Week 2:</strong> Soft check-in — "any first impressions?" If they've posted, thank them genuinely. If they haven't, no pressure.</li>
+      <li><strong>Week 3–4:</strong> Engage with their non-Pheeew content. Like posts, leave thoughtful comments. Build the relationship beyond the transaction.</li>
+      <li><strong>Month 2:</strong> Re-stock offer — "would love to send you another Starter 20, no strings, just wanted to keep you stocked"</li>
+      <li><strong>Month 3+:</strong> If they're a strong fit, invite to "Pheeew founder circle" — a small private Discord or Slack where Dawon, Justin, and the inner-tier creators talk shop, share what's working, get sneak peeks of Phase 2 SKU. Builds long-term loyalty.</li>
+    </ol>
+
+    <h4>Tracking + ROI</h4>
+    <p>Maintain a single spreadsheet (Notion database) per creator with: name, handle, follower count, engagement rate, niche, outreach date, response, gifting date, post date(s), post link(s), unique discount code (e.g., DAWON15), code-attributed orders, code-attributed revenue, gifting cost. Calculate cost-per-attributed-conversion per creator.</p>
+
+    <p>Target: <strong>cost per measured conversion below $30</strong>. This compares favorably to paid retargeting CAC ($10–$25) when you factor in the brand impression value of authentic content. Creators who consistently produce above-target ROI become candidates for the founder circle and potentially paid partnerships down the line.</p>
+
+    <h4>What to NEVER do in the UGC pipeline</h4>
+    <div class="do-dont">
+      <div class="dont">
+        <h4>Hard nos</h4>
+        <ul>
+          <li>Mass-template DMs (kill response rate; brand-damaging)</li>
+          <li>Asking for a post in exchange for product (turns gift into transaction)</li>
+          <li>Sending product to creators we haven't researched (waste)</li>
+          <li>Following up more than twice if they don't respond (annoying)</li>
+          <li>Sending pre-written captions ("please use this language")</li>
+          <li>Sending product to creators on the anti-criteria list</li>
+          <li>Treating the box as the relationship's endpoint</li>
+        </ul>
+      </div>
+      <div class="do">
+        <h4>Always</h4>
+        <ul>
+          <li>Personalize every outreach (10 min/creator min)</li>
+          <li>Send no-strings boxes (let them decide)</li>
+          <li>Honor "no thanks" with no follow-up</li>
+          <li>Track every box and every post</li>
+          <li>Thank publicly when they post (their account, their voice)</li>
+          <li>Build long relationships, not one-shot gifting</li>
+          <li>Refresh the pipeline (new candidates monthly)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- G. Storytelling -->
+    <h3 id="margins-storytelling">G · Why narrative storytelling is the highest-leverage spend</h3>
+    <p>Looking at the channels in subsection E, ranked by expected acquisition contribution: Dawon's organic storyline arc is #1, creator gifting is #2, email lifecycle is #3 (retention not acquisition, but extends LTV which makes everything else work). All three are cash-light, time-heavy, and compounding over time.</p>
+
+    <p>Paid acquisition is #4 at best, capped at $1,000/month, and intentionally a retargeting layer rather than a primary engine. The economics make sense only because the first three channels are doing the heavy lifting.</p>
+
+    <p>This means: <strong>Dawon's time on storytelling is the single highest-ROI hour in the company.</strong> She's not "doing marketing" — she's running our largest acquisition channel at zero cash cost. When we calculate her contribution to revenue (which we should, internally, for our own clarity even though no one writes her a paycheck for it), the math is:</p>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Channel</th><th class="num">Expected % of first 6 months' acquisitions</th><th class="num">Equivalent cash value if we bought it via paid</th></tr>
+      <tr><td>Dawon's storyline arc (organic)</td><td class="num">40–60%</td><td class="num">$8K–$15K/mo equivalent</td></tr>
+      <tr><td>Creator gifting</td><td class="num">20–30%</td><td class="num">$4K–$7K/mo equivalent</td></tr>
+      <tr><td>Email + SMS retention</td><td class="num">N/A (extends LTV)</td><td class="num">$3K–$8K/mo equivalent in LTV uplift</td></tr>
+      <tr><td>Paid retargeting</td><td class="num">5–15%</td><td class="num">$1K/mo actual spend</td></tr>
+      <tr><td>Referral, community, partnerships, PR</td><td class="num">5–15%</td><td class="num">$2K–$4K/mo equivalent</td></tr>
+    </table></div>
+
+    <p>If we tried to replace Dawon's storyline arc with paid spend, we'd need a marketing budget 10–15× larger than what we have. And it would underperform — paid traffic is rented, audience is borrowed. Dawon's storyline is owned, compounding, and ours.</p>
+
+    <h4>Operating implications</h4>
+    <ul>
+      <li><strong>Don't pull Dawon into ops emergencies.</strong> If something breaks in the supply chain, Jason handles it. If something breaks in customer service, Jason handles it. Dawon's storytelling cadence is critical infrastructure.</li>
+      <li><strong>Don't burden Dawon with non-creative work.</strong> Even when she has spare cycles, that spare time should be content production or relationship-building, not bookkeeping or vendor management.</li>
+      <li><strong>Protect her review windows.</strong> She reviews creative for Justin's email campaigns and creator outreach. Those reviews are the brand integrity layer. Make sure she has the time to do them well.</li>
+      <li><strong>When she says "this doesn't fit the brand,"</strong> default to believing her even if no one can articulate why. Her instinct on the brand is calibrated harder than ours; trust it.</li>
+      <li><strong>Track storyline arc performance weekly.</strong> Views, engagement, comment quality, website traffic from social. These are leading indicators for everything else.</li>
+    </ul>
+
+    <div class="callout green">
+      <span class="label">The compound math</span>
+      <p>Every week Dawon publishes Episode N + Carousel N, she's building two things at once: short-term audience reach (this week's traffic) and long-term brand equity (people 6 months from now finding Episode 3 and binging the arc). The compound math means episode quality from week 1 matters in week 26. That's why the storyline brief sets the discipline high — the work she does now is the foundation for everything we sell five years from now.</p>
+    </div>
+  </section>
+
+  <!-- 12. WHAT'S NOT IN THIS DOC -->
   <section class="block" id="not-here">
     <div class="block-head">
-      <div class="num">§ 11 · what's not in this doc</div>
+      <div class="num">§ 12 · what's not in this doc</div>
       <h2>The modules we'll build separately.</h2>
       <p class="sub">This playbook is the operating constitution. The deeper how-to documents for specific functions live (or will live) as separate modules. Listed here so you know what we don't yet have, and where each will end up.</p>
     </div>
@@ -1775,6 +2302,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       document.getElementById('appGate').style.display = 'none';
       document.getElementById('appContent').style.display = 'block';
       err.style.display = 'none';
+      initNav();
     } else {
       err.style.display = 'block';
       input.value = '';
@@ -1788,9 +2316,118 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     location.reload();
   }
 
+  /* ===== NAVIGATION ===== */
+  const sectionMap = {
+    'how-to-use': '00',
+    'team': '01',
+    'modes': '02',
+    'functions': '03',
+    'cadence': '04',
+    'decisions': '05',
+    'kpis': '06',
+    'thirty': '07',
+    'risks': '08',
+    'tools': '09',
+    'syllabus': '10',
+    'margins': '11',
+    'not-here': '12'
+  };
+
+  function toggleNav(){
+    const overlay = document.getElementById('navOverlay');
+    overlay.classList.toggle('open');
+    if(overlay.classList.contains('open')){
+      document.body.style.overflow = 'hidden';
+      updateActiveNavLink();
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  function scrollToTop(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateActiveNavLink(){
+    const current = getCurrentSection();
+    document.querySelectorAll('#navList a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('data-section') === current);
+    });
+  }
+
+  function getCurrentSection(){
+    const sections = document.querySelectorAll('section.block');
+    let current = 'how-to-use';
+    const triggerLine = window.innerHeight * 0.3;
+    sections.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      if(rect.top <= triggerLine) current = s.id;
+    });
+    return current;
+  }
+
+  function onScroll(){
+    // Scroll progress bar
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const progressPct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+    const progressBar = document.getElementById('scrollProgress');
+    if(progressBar) progressBar.style.width = progressPct + '%';
+
+    // Back-to-top visibility
+    const btn = document.getElementById('backToTop');
+    if(btn) btn.classList.toggle('visible', scrolled > 600);
+
+    // Current section indicator in header
+    const current = getCurrentSection();
+    const label = document.getElementById('currentSection');
+    if(label) label.textContent = sectionMap[current] || '00';
+  }
+
+  function smoothScrollLinks(){
+    // Intercept clicks on TOC + nav overlay links to smooth-scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if(target){
+          e.preventDefault();
+          // Close nav overlay if open
+          const overlay = document.getElementById('navOverlay');
+          if(overlay && overlay.classList.contains('open')){
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+          // Smooth scroll with header offset
+          const headerHeight = document.querySelector('.site-header')?.offsetHeight || 60;
+          const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  function initNav(){
+    smoothScrollLinks();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // ESC closes nav overlay
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape'){
+        const overlay = document.getElementById('navOverlay');
+        if(overlay && overlay.classList.contains('open')){
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+    onScroll();
+  }
+
+  /* ===== INIT ===== */
   if(sessionStorage.getItem('pheeew-playbook-gate') === '1'){
     document.getElementById('appGate').style.display = 'none';
     document.getElementById('appContent').style.display = 'block';
+    initNav();
   } else {
     setTimeout(()=>document.getElementById('gateInput').focus(), 100);
   }
