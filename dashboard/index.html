@@ -540,23 +540,12 @@ details.content-expand[open] summary::after{content:" ▴"}
     <div class="logo">Pheeew</div>
     <div class="tag">Founders Dashboard</div>
 
-    <!-- Step 1: email entry -->
-    <form id="emailForm" onsubmit="requestOtp(event)">
-      <div class="sub">Enter your founder email. We'll send you a 6-digit code (and a one-click link).</div>
-      <input id="emailInput" type="email" placeholder="you@example.com" autocomplete="email" required autofocus>
-      <button type="submit" id="emailSubmit">Send sign-in code</button>
-      <div class="gate-error" id="emailError"></div>
-    </form>
-
-    <!-- Step 2: code entry (shown after request) -->
-    <form id="codeForm" onsubmit="verifyOtp(event)" style="display:none">
-      <div class="gate-info show">
-        <strong>Check your inbox.</strong> We sent a 6-digit code to <span id="codeEmail" style="font-weight:600"></span>. Paste it below — or click the link in the email and you'll be signed in automatically. Expires in 10 minutes.
-      </div>
-      <input id="codeInput" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000" autocomplete="one-time-code" class="code" required autofocus>
-      <button type="submit" id="codeSubmit">Verify &amp; sign in</button>
-      <button type="button" class="link-btn" onclick="resetSignIn()">← Use a different email</button>
-      <div class="gate-error" id="codeError"></div>
+    <form id="loginForm" onsubmit="signInPassword(event)">
+      <div class="sub">Sign in with your founder email and password.</div>
+      <input id="emailInput" type="email" placeholder="you@pheeew.com" autocomplete="email" required autofocus>
+      <input id="passwordInput" type="password" placeholder="Password" autocomplete="current-password" required>
+      <button type="submit" id="loginSubmit">Sign in</button>
+      <div class="gate-error" id="loginError"></div>
     </form>
   </div>
 </div>
@@ -2147,7 +2136,6 @@ details.content-expand[open] summary::after{content:" ▴"}
   /* ====== CONFIG ====== */
   const SUPABASE_URL = 'https://qukcnnmupijlnfiojtet.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_vMSTwwTUOo59oAreu6Wtkg_L0SADbMc';
-  const REDIRECT_URL = 'https://allvitalorganics.github.io/pheeew-live/dashboard/';
   const FOUNDERS = {
     alex:   { name:'Alex Kim',   short:'Alex',   role:'CEO + Sole Director', initials:'AK' },
     jason:  { name:'Jason Ko',   short:'Jason',  role:'COO',                  initials:'JK' },
@@ -2173,10 +2161,7 @@ details.content-expand[open] summary::after{content:" ▴"}
   let filters = { todo:'all', creator:'all', content:'all' };
   let calCursor = new Date(); // viewed month in calendar
 
-  /* ====== AUTH (Supabase magic link + OTP) ====== */
-  // pending email between request + verify
-  let pendingEmail = null;
-
+  /* ====== AUTH (Supabase email + password) ====== */
   function showError(elId, msg){
     const e = document.getElementById(elId);
     e.textContent = msg;
@@ -2185,68 +2170,29 @@ details.content-expand[open] summary::after{content:" ▴"}
   function clearErrors(){
     document.querySelectorAll('.gate-error').forEach(el => { el.style.display = 'none'; el.textContent = ''; });
   }
-  function resetSignIn(){
-    pendingEmail = null;
-    clearErrors();
-    document.getElementById('codeForm').style.display = 'none';
-    document.getElementById('emailForm').style.display = 'block';
-    document.getElementById('codeInput').value = '';
-    document.getElementById('emailInput').focus();
-  }
 
-  async function requestOtp(e){
+  async function signInPassword(e){
     e.preventDefault();
     clearErrors();
     const email = document.getElementById('emailInput').value.trim().toLowerCase();
-    if(!email) return;
-    const btn = document.getElementById('emailSubmit');
-    btn.disabled = true; btn.textContent = 'Sending…';
+    const password = document.getElementById('passwordInput').value;
+    if(!email || !password) return;
+    const btn = document.getElementById('loginSubmit');
+    btn.disabled = true; btn.textContent = 'Signing in…';
     try {
-      const { error } = await supa.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: REDIRECT_URL,
-          shouldCreateUser: false   // founders are pre-created in auth.users; reject unknowns cleanly
-        }
-      });
+      const { error } = await supa.auth.signInWithPassword({ email, password });
       if(error) throw error;
-      pendingEmail = email;
-      document.getElementById('codeEmail').textContent = email;
-      document.getElementById('emailForm').style.display = 'none';
-      document.getElementById('codeForm').style.display = 'block';
-      document.getElementById('codeInput').focus();
+      // onAuthStateChange listener will fire SIGNED_IN and call enterApp()
     } catch(err){
       console.error(err);
       const msg = (err.message || '').toLowerCase();
-      if(msg.includes('signups not allowed') || msg.includes('user not found') || msg.includes('user_not_found')){
-        showError('emailError', 'That email isn\'t on the founder list. Only the four Pheeew founders can sign in. Double-check the spelling, or contact Alex.');
+      if(msg.includes('invalid login') || msg.includes('invalid_credentials')){
+        showError('loginError', 'Wrong email or password. Double-check both, or ask Alex to reset.');
       } else {
-        showError('emailError', 'Could not send the code: ' + (err.message || 'unknown error') + '. Try again in a moment.');
+        showError('loginError', 'Sign-in failed: ' + (err.message || 'unknown error'));
       }
-    } finally {
-      btn.disabled = false; btn.textContent = 'Send sign-in code';
-    }
-  }
-
-  async function verifyOtp(e){
-    e.preventDefault();
-    clearErrors();
-    const token = document.getElementById('codeInput').value.trim();
-    if(!pendingEmail || !token) return;
-    const btn = document.getElementById('codeSubmit');
-    btn.disabled = true; btn.textContent = 'Verifying…';
-    try {
-      const { data, error } = await supa.auth.verifyOtp({
-        email: pendingEmail,
-        token,
-        type: 'email'
-      });
-      if(error) throw error;
-      // Successful sign-in fires onAuthStateChange below, which calls enterApp().
-    } catch(err){
-      console.error(err);
-      showError('codeError', 'That code didn\'t work — double-check or request a new one.');
-      btn.disabled = false; btn.textContent = 'Verify & sign in';
+      document.getElementById('passwordInput').value = '';
+      btn.disabled = false; btn.textContent = 'Sign in';
     }
   }
 
@@ -2291,8 +2237,8 @@ details.content-expand[open] summary::after{content:" ▴"}
   function showUnauthorized(email){
     document.getElementById('appGate').style.display = 'flex';
     document.getElementById('appContent').style.display = 'none';
-    document.getElementById('emailForm').style.display = 'none';
-    document.getElementById('codeForm').style.display = 'none';
+    const loginForm = document.getElementById('loginForm');
+    if(loginForm) loginForm.style.display = 'none';
     const box = document.querySelector('.app-gate-box');
     box.innerHTML = `
       <div class="logo">Pheeew</div>
@@ -2315,8 +2261,7 @@ details.content-expand[open] summary::after{content:" ▴"}
       auth: {
         persistSession: true,
         autoRefreshToken: true,
-        detectSessionInUrl: true,    // handles magic-link callback hash
-        flowType: 'pkce'
+        detectSessionInUrl: false
       },
       realtime: { params: { eventsPerSecond: 5 } }
     });
@@ -2331,31 +2276,10 @@ details.content-expand[open] summary::after{content:" ▴"}
       }
     });
 
-    // On load: check existing session
+    // On load: if a session already exists, enter the app
     supa.auth.getSession().then(({ data }) => {
-      if(data?.session){
-        enterApp();
-        return;
-      }
-      // Check for error coming back from a failed magic-link redirect
-      // Supabase sticks the error in the URL hash fragment like:
-      //   #error=access_denied&error_code=otp_expired&error_description=...
-      const hash = window.location.hash || '';
-      if(hash.includes('error=')){
-        const params = new URLSearchParams(hash.replace(/^#/, ''));
-        const code = params.get('error_code') || params.get('error') || 'unknown';
-        const desc = (params.get('error_description') || '').replace(/\+/g, ' ');
-        let msg = 'The magic-link click didn\'t work — ';
-        if(code.includes('otp_expired') || code === 'access_denied'){
-          msg += 'the link expired (some email clients pre-scan links, which uses up the token). ';
-        } else {
-          msg += '(' + escapeHtml(code) + ') ' + escapeHtml(desc) + '. ';
-        }
-        msg += 'Request a fresh sign-in code below and use the 6-digit code instead — it works regardless of redirect setup.';
-        // Strip the hash so a reload doesn't re-show this
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-        showError('emailError', msg);
-      }
+      if(data?.session) enterApp();
+      // else: gate stays visible, user signs in
     });
   }
   function setConn(online, label){
