@@ -4,100 +4,219 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Pheeew · Founders Portal</title>
+<title>Pheeew · A smoothie for your gut.</title>
+<meta name="description" content="An 80mL synbiotic puree pouch with 10g of fiber and 1B CFU of Bacillus coagulans. A daily gut habit you'll actually finish.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%238B4A2C'/%3E%3C/svg%3E">
-<style>
-:root{
-  --pheeew:#8B4A2C;
-  --pheeew-deep:#6B3520;
-  --pheeew-tint:rgba(139,74,44,.08);
-  --bg-page:#FAF6ED;
-  --bg-card:#FFFFFF;
-  --bg-soft:#FCFAF3;
-  --bg-dark:#1A1A1A;
-  --text:#1A1A1A;
-  --text-secondary:#4A4A4A;
-  --text-tertiary:#888;
-  --line:#E8E0D0;
-  --line-soft:#F0E9D9;
-  --accent-yellow:#F4C95D;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Pretendard","Noto Sans KR",sans-serif;
-  background:var(--bg-page);
-  color:var(--text);
-  font-size:16px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-}
-.shell{
-  max-width:680px;
-  width:100%;
-  background:var(--bg-card);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:48px;
-  box-shadow:0 24px 64px rgba(0,0,0,.04);
-}
-.brand{display:flex;align-items:center;gap:14px;margin-bottom:8px}
-.dot{width:14px;height:14px;border-radius:50%;background:var(--pheeew)}
-.lettermark{font-size:34px;font-weight:700;letter-spacing:-.025em;color:var(--pheeew)}
-.tag{font-size:12px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:36px}
-h1{font-size:30px;font-weight:700;letter-spacing:-.025em;line-height:1.2;margin-bottom:14px}
-.lede{font-size:16px;color:var(--text-secondary);line-height:1.6;margin-bottom:32px;max-width:540px}
-.primary-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;background:var(--bg-dark);color:#fff;border-radius:28px;font-size:14px;font-weight:600;text-decoration:none;transition:background .15s;margin-bottom:32px}
-.primary-cta:hover{background:#000}
-.primary-cta::after{content:"→";font-weight:500}
-.doc-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:32px}
-.doc-link{padding:14px 16px;border:1px solid var(--line-soft);border-radius:14px;background:var(--bg-soft);text-decoration:none;color:inherit;transition:all .15s;display:flex;flex-direction:column;gap:2px}
-.doc-link:hover{border-color:var(--pheeew);background:var(--pheeew-tint);transform:translateY(-1px)}
-.doc-link .num{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em}
-.doc-link .name{font-size:14px;font-weight:600;color:var(--text)}
-.foot{padding-top:24px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--text-tertiary);line-height:1.6}
-.foot strong{color:var(--text-secondary);font-weight:600}
-.foot a{color:var(--text-secondary);text-decoration:underline}
-@media (max-width:560px){.shell{padding:32px 24px}h1{font-size:24px}.lede{font-size:15px}}
-</style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-<div class="shell">
-  <div class="brand">
-    <span class="dot"></span>
-    <span class="lettermark">Pheeew</span>
-  </div>
-  <div class="tag">Founders Portal</div>
 
-  <h1>Internal portal for the four of us.</h1>
-  <p class="lede">This URL is the entry point for the Pheeew operating tools — the founders dashboard, the playbook, Dawon's storyline brief, and the cap table page. The public consumer site is being rebuilt.</p>
-
-  <a href="dashboard/" class="primary-cta">Open the Founders Dashboard</a>
-
-  <div class="doc-row">
-    <a class="doc-link" href="operating-playbook/">
-      <span class="num">01</span>
-      <span class="name">Operating Playbook</span>
-    </a>
-    <a class="doc-link" href="storyline-brief/">
-      <span class="num">02</span>
-      <span class="name">Storyline Brief</span>
-    </a>
-    <a class="doc-link" href="founders-restructure/cap-table/">
-      <span class="num">03</span>
-      <span class="name">Cap Table</span>
-    </a>
-  </div>
-
-  <div class="foot">
-    <strong>Pheeew, Inc.</strong> · Delaware C-Corporation · For the four founders only.<br>
-    Public website rebuild in progress. The consumer-facing pheeew.com will return when ready.
+<!-- PASSCODE GATE -->
+<div class="gate" id="siteGate" style="display:none">
+  <div class="gate-box">
+    <div class="gate-logo">Pheeew</div>
+    <div class="gate-tag">Preview · pre-launch</div>
+    <p class="gate-sub">This site is in soft preview before launch. Enter the passcode to continue.</p>
+    <form id="siteGateForm">
+      <input id="siteGateInput" class="gate-input" type="password" placeholder="passcode" autocomplete="off">
+      <button class="gate-btn" type="submit">Enter</button>
+      <div class="gate-error" id="siteGateError">Wrong passcode</div>
+    </form>
   </div>
 </div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/pheeew-live/" class="nav-brand"><span class="dot"></span>Pheeew</a>
+    <div class="nav-links">
+      <a href="shop/">Shop</a>
+      <a href="story/">Story</a>
+      <a href="science/">Science</a>
+      <a href="faq/">FAQ</a>
+      <a href="contact/">Contact</a>
+    </div>
+    <a href="shop/" class="nav-cta">Get the pouch</a>
+    <button class="nav-mobile-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">◆ Mojave Sunrise · Phase 1</span>
+  <h1>A smoothie for<br>your <em>gut.</em></h1>
+  <p class="hero-sub">An 80mL synbiotic puree pouch with 10g of prebiotic fiber and 1 billion CFU of <em>Bacillus coagulans</em> SNZ 1969. Real fruit. Daily. The food version of the gut routine.</p>
+  <div class="hero-ctas">
+    <a href="shop/" class="btn btn-primary">Shop the pouch</a>
+    <a href="science/" class="btn btn-secondary">Read the science</a>
+  </div>
+</section>
+
+<!-- HERO PRODUCT IMAGE -->
+<section class="section-tight" style="padding-top:0">
+  <div class="section-wide">
+    <div class="product-img sunrise wide" style="aspect-ratio:16/8;max-height:520px">
+      <div class="pouch" style="width:auto;height:80%;aspect-ratio:3/4;padding:24px">
+        <div class="pouch-vol">80mL · single serve</div>
+        <div class="pouch-name">Mojave<br>Sunrise</div>
+        <div class="pouch-tagline">Tropical · Mango · Banana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE 3 BLOCKS · what's in it -->
+<section class="section section-soft">
+  <div class="section-wide">
+    <div class="eyebrow">Three things, doing three jobs</div>
+    <h2 class="big">A short ingredient list <em>that earns its place.</em></h2>
+    <div class="grid-3" style="margin-top:48px">
+      <div class="card">
+        <div class="stat-num">10g</div>
+        <div class="stat-label">Prebiotic fiber</div>
+        <h3 style="margin-top:18px">XOS + Fibersol-2</h3>
+        <p>Xylo-oligosaccharide feeds Bifidobacteria selectively. Fibersol-2® is a clinically-studied soluble resistant maltodextrin that supports regularity. Combined per pouch — roughly 30–40% of the FDA's daily fiber recommendation.</p>
+      </div>
+      <div class="card">
+        <div class="stat-num">1B</div>
+        <div class="stat-label">Live probiotic · CFU</div>
+        <h3 style="margin-top:18px">Bacillus coagulans SNZ 1969®</h3>
+        <p>Spore-form. Survives stomach acid, bile, and the heat of manufacturing. Backed by 30+ clinical studies on gut motility, regularity, and immune support. Stable through an 18-month shelf life.</p>
+      </div>
+      <div class="card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Things you can't pronounce</div>
+        <h3 style="margin-top:18px">Real fruit puree</h3>
+        <p>Tropical fruit · mango · banana. The pouch is hot-filled — no refrigeration, no preservatives, no synthetic sweeteners. Shake, sip, done. Drink it cold for a slushy moment or freeze it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAILY USE BLOCK -->
+<section class="section">
+  <div class="section-wide">
+    <div class="grid-2-1" style="gap:80px">
+      <div>
+        <div class="eyebrow">Daily routine</div>
+        <h2 class="big">Built for the <em>habit,</em> not the hack.</h2>
+        <p class="lede">Most gut routines die in the first month because they ask too much of you. Powders to mix. Capsules to swallow on an empty stomach. Drinks that taste like a punishment. Pheeew is one pouch, one sip, room temperature, anywhere — your fridge, your bag, your desk drawer. The pouch is the point.</p>
+        <p>We're not asking you to overhaul your diet. We're asking you to give your gut 30 seconds, every day, for the next eight weeks. The fiber and probiotic compound; the routine stops being a thought. By day 30 your gut starts running on autopilot. That's the whole product.</p>
+      </div>
+      <div class="card card-dark">
+        <div class="eyebrow" style="color:var(--sunrise)">When to drink it</div>
+        <h3 style="color:#fff;font-size:28px;margin-bottom:18px">Anytime, but mornings are the magic.</h3>
+        <p style="color:var(--text-muted-dark);margin-bottom:16px">A pouch with breakfast. Or with coffee. Or right before lunch. There's no wrong time — but a consistent time builds the habit faster.</p>
+        <p style="color:var(--text-muted-dark);margin-bottom:0"><strong style="color:#fff">Cold</strong> tastes like a slushy. <strong style="color:#fff">Frozen</strong> tastes like a popsicle. <strong style="color:#fff">Room temp</strong> tastes like a smoothie you forgot in your car. All three work for your gut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFIT TIMELINE -->
+<section class="section section-deep">
+  <div class="section-wide">
+    <div class="eyebrow">What changes, and when</div>
+    <h2 class="big">The first 60 days, <em>honestly.</em></h2>
+    <div class="grid-4" style="margin-top:48px">
+      <div class="card card-soft">
+        <div class="stat-label">Week 1</div>
+        <h4 style="margin-top:8px">You'll feel something.</h4>
+        <p style="margin-top:8px">Most people notice their gut waking up — more frequent, more comfortable. Some adjustment is normal as the fiber gets to work.</p>
+      </div>
+      <div class="card card-soft">
+        <div class="stat-label">Week 2–3</div>
+        <h4 style="margin-top:8px">Predictability shows up.</h4>
+        <p style="margin-top:8px">The morning routine starts settling into something you can plan around. Less guesswork, less bloat, less "what is happening down there."</p>
+      </div>
+      <div class="card card-soft">
+        <div class="stat-label">Week 4–6</div>
+        <h4 style="margin-top:8px">The compound effect.</h4>
+        <p style="margin-top:8px">The probiotic population is established. Skin, energy, and mood often follow — gut signals reach beyond the gut. This is the part everyone wants and few products deliver.</p>
+      </div>
+      <div class="card card-soft">
+        <div class="stat-label">Week 8+</div>
+        <h4 style="margin-top:8px">You stop thinking about it.</h4>
+        <p style="margin-top:8px">When a product disappears into your routine, it's working. By week 8 the pouch isn't a project — it's a habit. That's where the brand wants you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY TEASE -->
+<section class="section">
+  <div class="section-narrow" style="text-align:center">
+    <div class="eyebrow">The Story</div>
+    <h2 class="big">Built by people <em>whose guts gave up</em> too.</h2>
+    <p class="lede" style="margin-left:auto;margin-right:auto">Pheeew started when one of us — Dawon, our CBO — couldn't poop for two weeks at a time. After diet pills, after restriction, after the body broke. The brand exists because no daily gut product existed for the person she was trying to become.</p>
+    <a href="story/" class="btn btn-secondary" style="margin-top:18px">Read the full story</a>
+  </div>
+</section>
+
+<!-- WAITLIST CTA -->
+<section class="section section-dark">
+  <div class="section-narrow" style="text-align:center">
+    <span class="eyebrow" style="color:var(--sunrise)">Pre-launch</span>
+    <h2 class="big" style="color:#fff">Get the pouch before <em style="color:var(--sunrise)">everyone else.</em></h2>
+    <p class="lede" style="margin-left:auto;margin-right:auto;color:var(--text-muted-dark);max-width:540px">Mojave Sunrise ships late August 2026. Waitlist members get a 48-hour early window, founder pricing on the Committed 60-pack, and a hand-written note from Dawon when their first pouch lands.</p>
+    <form class="waitlist" data-waitlist style="margin-left:auto;margin-right:auto;justify-content:center">
+      <input type="email" placeholder="your@email" required>
+      <button type="submit">Join the list</button>
+    </form>
+    <p class="waitlist-note" style="color:var(--text-muted-dark);text-align:center">No spam. One launch email, period.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="dot"></span>Pheeew</div>
+        <p class="footer-tag">A smoothie for your gut. 80mL synbiotic puree pouch made in Korea, distributed by Pheeew, Inc.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="shop/">Mojave Sunrise</a>
+        <a href="shop/#packs">Pack sizes</a>
+        <a href="shop/#subscribe">Subscribe &amp; save</a>
+      </div>
+      <div class="footer-col">
+        <h5>Brand</h5>
+        <a href="story/">Story</a>
+        <a href="science/">Science</a>
+        <a href="faq/">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="contact/">General</a>
+        <a href="contact/#wholesale">Wholesale</a>
+        <a href="contact/#affiliate">Affiliate</a>
+        <a href="contact/#find-us">Find us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="legal/privacy/">Privacy</a>
+        <a href="legal/terms/">Terms</a>
+        <a href="legal/refund/">Refund</a>
+        <a href="legal/shipping/">Shipping</a>
+        <a href="legal/subscription/">Subscription</a>
+        <a href="legal/accessibility/">Accessibility</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Pheeew, Inc. · Distributed by Pheeew, Inc. · Made in Korea.</div>
+      <div>
+        <a href="legal/ccpa/">CCPA</a> ·
+        <a href="legal/prop65/">Prop 65</a> ·
+        <a href="legal/cookies/">Cookies</a> ·
+        <a href="legal/dmca/">DMCA</a> ·
+        <a href="legal/in-person-legal/">In-person legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
 </body>
 </html>
