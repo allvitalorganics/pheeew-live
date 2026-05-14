@@ -561,31 +561,7 @@ details.content-expand[open] summary::after{content:" ▴"}
   </div>
 </div>
 
-<!-- FOUNDER PICKER -->
-<div class="founder-picker" id="founderPicker">
-  <div class="founder-picker-box">
-    <h2>Welcome to the dashboard.</h2>
-    <p>Which founder are you? This personalizes your greeting and tracks who creates which to-dos, requests, and posts.</p>
-    <div class="founder-grid">
-      <button class="founder-card" onclick="pickFounder('alex')">
-        <div class="avatar">AK</div>
-        <div><div class="name">Alex Kim</div><div class="role">CEO + Sole Director</div></div>
-      </button>
-      <button class="founder-card" onclick="pickFounder('jason')">
-        <div class="avatar" style="background:var(--bg-green)">JK</div>
-        <div><div class="name">Jason Ko</div><div class="role">COO</div></div>
-      </button>
-      <button class="founder-card" onclick="pickFounder('justin')">
-        <div class="avatar" style="background:var(--accent-coral)">JK</div>
-        <div><div class="name">Justin Kim</div><div class="role">CGO</div></div>
-      </button>
-      <button class="founder-card" onclick="pickFounder('dawon')">
-        <div class="avatar" style="background:var(--accent-yellow);color:var(--text)">DK</div>
-        <div><div class="name">Dawon Kim</div><div class="role">CBO</div></div>
-      </button>
-    </div>
-  </div>
-</div>
+<!-- Founder picker removed in v6 — identity now auto-detected from authenticated email -->
 
 <!-- APP CONTENT -->
 <div id="appContent" style="display:none">
@@ -2178,6 +2154,17 @@ details.content-expand[open] summary::after{content:" ▴"}
     justin: { name:'Justin Kim', short:'Justin', role:'CGO',                  initials:'JK' },
     dawon:  { name:'Dawon Kim',  short:'Dawon',  role:'CBO',                  initials:'DK' }
   };
+  const EMAIL_TO_FOUNDER = {
+    'hello@pheeew.com':    'alex',
+    'jason@pheeew.com':    'jason',
+    'justin@pheeew.com':   'justin',
+    'dawon@pheeew.com':    'dawon',
+    'ksjoon1203@gmail.com':'alex'   // Alex's personal as recovery fallback
+  };
+  function founderFromEmail(email){
+    if(!email) return null;
+    return EMAIL_TO_FOUNDER[email.trim().toLowerCase()] || null;
+  }
 
   /* ====== STATE ====== */
   let supa = null;
@@ -2266,14 +2253,8 @@ details.content-expand[open] summary::after{content:" ▴"}
     location.reload();
   }
 
-  /* ====== FOUNDER PICKER ====== */
-  function pickFounder(key){
-    localStorage.setItem('pheeew-dashboard-founder', key);
-    me = key;
-    document.getElementById('founderPicker').classList.remove('open');
-    afterFounderPicked();
-  }
-  function afterFounderPicked(){
+  /* ====== ENTER APP (auto-detect founder from authed email) ====== */
+  function applyFounderUI(){
     const f = FOUNDERS[me];
     document.getElementById('heroName').textContent = f.short;
     document.getElementById('profileName').textContent = f.short;
@@ -2283,16 +2264,39 @@ details.content-expand[open] summary::after{content:" ▴"}
     subscribeAll();
   }
 
-  function enterApp(){
+  async function enterApp(){
+    // Pull the active session and resolve which founder this is
+    const { data } = await supa.auth.getUser();
+    const email = data?.user?.email || '';
+    const founderKey = founderFromEmail(email);
+
+    if(!founderKey){
+      // Email authed but not in allowlist — Supabase RLS will also block, but
+      // we surface a clean message and a sign-out path instead of a broken app.
+      showUnauthorized(email);
+      return;
+    }
+
+    me = founderKey;
     document.getElementById('appGate').style.display = 'none';
     document.getElementById('appContent').style.display = 'block';
-    const saved = localStorage.getItem('pheeew-dashboard-founder');
-    if(saved && FOUNDERS[saved]){
-      me = saved;
-      afterFounderPicked();
-    } else {
-      document.getElementById('founderPicker').classList.add('open');
-    }
+    applyFounderUI();
+  }
+
+  function showUnauthorized(email){
+    document.getElementById('appGate').style.display = 'flex';
+    document.getElementById('appContent').style.display = 'none';
+    document.getElementById('emailForm').style.display = 'none';
+    document.getElementById('codeForm').style.display = 'none';
+    const box = document.querySelector('.app-gate-box');
+    box.innerHTML = `
+      <div class="logo">Pheeew</div>
+      <div class="tag">Not on the founder list</div>
+      <div class="sub" style="margin-bottom:20px;line-height:1.55">
+        You're signed in as <strong style="color:var(--text)">${escapeHtml(email)}</strong> but this email isn't in the Pheeew founders allowlist. Only the four founders can access this dashboard.
+      </div>
+      <button type="button" onclick="signOut(event)">Sign out &amp; try another email</button>
+    `;
   }
 
   /* ====== SUPABASE (auth-bootstrapped) ====== */
