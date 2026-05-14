@@ -533,7 +533,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <div class="fn-section">
         <h5>What this actually means at a CPG company</h5>
         <p>Product is the function that owns <em>what we make</em> — the formula, the form factor, the packaging, the regulatory profile, the unit economics of the SKU itself. At a mature CPG company this is a Director of Product or VP R&D, working with a regulatory team, a packaging team, and a QA team. The function decides what goes in the product, what doesn't, what the dose is, what the format is, how it survives shipping, how it tastes, how it looks on shelf, how it complies with FDA and state-level law, and how much it costs to make per unit.</p>
-        <p>It is also the function that owns the <strong>product roadmap</strong> — what SKUs come next, when, in what order. For Pheeew, the locked roadmap is: Phase 1 Gut + Energy → Phase 2 Gut + Digestion → Phase 3 Gut + Immunity. Product owns the formulation development for each.</p>
+        <p>It is also the function that owns the <strong>product roadmap</strong> — what SKUs come next, when, in what order. <strong>Pheeew launches with a single SKU: Phase 1 Gut + Energy</strong> (berry-forward — 블루베리·사과·딸기·크랜베리·엘더베리). Phase 2 Gut + Digestion (the tropical-fruit formulation, working name "Tropical Punch" — being renamed for launch) and Phase 3 Gut + Immunity (ginger-pear) sit on the roadmap as paced follow-on SKUs, released only when Phase 1 has earned the right to expand. <strong>The roadmap is sequential by deliberate discipline — not by calendar.</strong></p>
       </div>
 
       <div class="fn-section">
@@ -546,7 +546,8 @@ footer p .sig{color:var(--pheeew);font-weight:700}
         <ul>
           <li><strong>The Phase 1 SKU is locked.</strong> Gut + Energy, 100mL puree pouch, synbiotic (prebiotic fiber + Bacillus coagulans spore-form probiotic). MOQ committed, packaging finalized, regulatory cleared, COGS documented.</li>
           <li><strong>Quality assurance protocol documented.</strong> What we test for in incoming batches (probiotic CFU count, microbial contamination, heavy metals, label accuracy), who tests, what we do when a batch fails. Owned by Jason.</li>
-          <li><strong>Phase 2 formulation kicked off.</strong> Even before Phase 1 ships, formulation work for Phase 2 (Gut + Digestion / Tropical Punch) begins. Lead time from concept to manufacturer-ready sample is 8–12 weeks; we can't wait.</li>
+          <li><strong>Phase 2 formulation work explicitly NOT kicked off in the first 90 days.</strong> The single-SKU discipline matters more than a calendar. Phase 2 development begins only when Phase 1 meets defined traction signals (e.g., sustained reorder rate, subscription conversion target, customer feedback validating product-market fit). The decision to start Phase 2 formulation is a Tier 3 (all-hands) decision, made deliberately — not by default.</li>
+          <li><strong>Phase 2 working knowledge maintained, not built.</strong> We retain the manufacturer relationship, the formulation concept (Gut + Digestion, the tropical-fruit puree currently called "Tropical Punch" — name being finalized), the per-unit cost reference point (~1,150 KRW ex-factory, see § 11 A), and the regulatory pathway. When the green light comes, we're not starting from zero — we're starting from a paused state.</li>
           <li><strong>Regulatory file built.</strong> FDA labeling compliance (Supplement Facts panel, claims substantiation file, allergen disclosures), state-level (California Prop 65 if applicable), import/export documentation. Owned by Jason with outside regulatory consultant when needed.</li>
           <li><strong>The supplier diversification question answered.</strong> If our manufacturing partner has a problem, what's our backup plan? Document the answer even if the answer is "we don't have one yet."</li>
         </ul>
@@ -1808,16 +1809,24 @@ footer p .sig{color:var(--pheeew);font-weight:700}
 
     <div class="tbl-wrap"><table>
       <tr><th>Cost layer</th><th class="num">$/pouch</th><th>Notes</th></tr>
-      <tr><td>Manufacturer ex-factory (Korea)</td><td class="num">$1.00</td><td>Average across MOQ tiers; locked at production. Includes formulation, packaging materials, fill, seal, case-pack.</td></tr>
-      <tr><td>International freight + duty</td><td class="num">$0.20</td><td>Ocean freight from Korea to US West Coast port; tariff classification: dietary supplement / functional food; duty rate variable but ~3-5%. Includes customs broker fees amortized.</td></tr>
-      <tr><td>Inland US to 3PL</td><td class="num">$0.05</td><td>Truck from port to 3PL warehouse; intake processing fee per pouch.</td></tr>
-      <tr><td>Returns reserve (allocated)</td><td class="num">$0.05</td><td>Average across all returns + damaged inventory write-offs.</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total landed COGS</strong></td><td class="num"><strong>$1.30</strong></td><td><strong>Per pouch, at our launch MOQ</strong></td></tr>
+      <tr><td>Manufacturer ex-factory (Korea)</td><td class="num">$0.83</td><td><strong>1,150 KRW per pouch</strong> at assumed ~$1,380 KRW/USD. <strong>Confirmed for Phase 2 SKU</strong> (Gut + Digestion / "Tropical Punch" — name being renamed for launch). Phase 1 (Gut + Energy, berry-forward) presumed comparable, to be confirmed at first production batch. Update this row when actual Phase 1 invoice lands.</td></tr>
+      <tr><td>Ocean freight (LCL early stage)</td><td class="num">$0.10</td><td>Korea → US West Coast; Less-than-Container-Load rate at launch MOQ. Drops to ~$0.03–$0.05/pouch with Full-Container-Load at month 6+.</td></tr>
+      <tr><td>US Customs duty</td><td class="num">$0.05</td><td>HTSUS 2106.90.99 (food preparations not elsewhere specified) — ~6.4% of declared ex-factory value. Final classification to be confirmed by customs broker at first shipment.</td></tr>
+      <tr><td>Customs broker fees (amortized)</td><td class="num">$0.01</td><td>~$200 per shipment, amortized across the 40K–120K unit MOQ.</td></tr>
+      <tr><td>Inland US to 3PL</td><td class="num">$0.03</td><td>Truck/drayage from port to 3PL warehouse.</td></tr>
+      <tr><td>3PL intake + storage allocated</td><td class="num">$0.05</td><td>Per-pouch allocation of warehouse intake fee + monthly storage. Recalculate quarterly as volumes change.</td></tr>
+      <tr><td>Returns / damage reserve</td><td class="num">$0.05</td><td>Average across all returns, damaged shipments, and inventory write-offs.</td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total landed COGS</strong></td><td class="num"><strong>$1.12</strong></td><td><strong>Per pouch, at launch MOQ. Working figure for all margin tables below.</strong></td></tr>
     </table></div>
 
     <div class="callout warn">
-      <span class="label">These numbers are modeled, not actual</span>
-      <p>Every number in this section is a working estimate based on the manufacturer quote and standard DTC operations math. Real numbers won't be known until first orders flow. The discipline is to use these as a planning floor and update the section the moment actuals diverge by more than 10%.</p>
+      <span class="label">These numbers are part-confirmed, part-modeled</span>
+      <p>The manufacturer ex-factory figure (1,150 KRW) is confirmed for the Phase 2 SKU. Phase 1 SKU is assumed comparable but the actual invoice number replaces this row when first production lands. Every other line item is a working estimate based on standard DTC operations math; real numbers won't be known until first orders flow. The discipline is to use these as a planning floor and update the section the moment actuals diverge by more than 10%.</p>
+    </div>
+
+    <div class="callout note">
+      <span class="label">FX rate assumption — update quarterly</span>
+      <p>All USD figures derived from KRW invoicing assume a working rate of <strong>1 USD = 1,380 KRW</strong>. The actual rate floats — at 1,300 KRW/USD the ex-factory rises to ~$0.88; at 1,450 KRW/USD it falls to ~$0.79. The cap table forecast model needs to carry FX sensitivity as a real risk line, especially as we approach larger reorders. Lock FX via forward contract once monthly KRW outflow exceeds ~$25K to manage exposure.</p>
     </div>
 
     <!-- B. Per-tier contribution margin -->
@@ -1827,7 +1836,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <h4>Per-order cost stack (applies to all tiers, varies by size)</h4>
     <div class="tbl-wrap"><table>
       <tr><th>Cost</th><th>Logic</th></tr>
-      <tr><td>Pouches × $1.30</td><td>Landed COGS × order quantity</td></tr>
+      <tr><td>Pouches × $1.12</td><td>Landed COGS × order quantity</td></tr>
       <tr><td>Packaging</td><td>$1.50 (Tester) → $4.00 (Household); box, void fill, label, shipping documents</td></tr>
       <tr><td>Outbound shipping</td><td>$6 (Tester) → $15 (Household); 3PL-negotiated UPS/USPS ground</td></tr>
       <tr><td>Payment processing</td><td>2.9% of revenue + $0.30 per transaction (Shopify Payments standard)</td></tr>
@@ -1837,33 +1846,33 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     </table></div>
 
     <h4>Tester 10 · $34 one-time</h4>
-    <p>Designed as a trial pack. Low barrier, low margin. The Tester is intentionally a small-margin loss-leader bet on conversion to Starter or Core after trial.</p>
+    <p>Designed as a trial pack. Modest margin per order, but the Tester's real job is conversion: trial users moving up to Starter, Core, or higher within 30 days of first delivery.</p>
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">$</th></tr>
       <tr><td>Revenue</td><td class="num">$34.00</td></tr>
-      <tr><td>COGS (10 × $1.30)</td><td class="num">−$13.00</td></tr>
+      <tr><td>COGS (10 × $1.12)</td><td class="num">−$11.20</td></tr>
       <tr><td>Packaging</td><td class="num">−$1.50</td></tr>
       <tr><td>Shipping</td><td class="num">−$6.00</td></tr>
       <tr><td>Payment processing (2.9% + $0.30)</td><td class="num">−$1.29</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$2.50</td></tr>
       <tr><td>Customer service amortized</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (5%)</td><td class="num">−$1.70</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$7.51 · 22.1%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$9.31 · 27.4%</strong></td></tr>
     </table></div>
 
     <h4>Starter 20 · $59 one-time / $49 subscription</h4>
-    <p>The default first-purchase tier for non-trial buyers. Margin tightens significantly on subscription — by design, to encourage subscriber LTV.</p>
+    <p>The default first-purchase tier for non-trial buyers. Margin tightens on subscription — by design, to encourage subscriber LTV — but still positive even at the discounted price.</p>
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($59)</th><th class="num">Sub ($49)</th></tr>
       <tr><td>Revenue</td><td class="num">$59.00</td><td class="num">$49.00</td></tr>
-      <tr><td>COGS (20 × $1.30)</td><td class="num">−$26.00</td><td class="num">−$26.00</td></tr>
+      <tr><td>COGS (20 × $1.12)</td><td class="num">−$22.40</td><td class="num">−$22.40</td></tr>
       <tr><td>Packaging</td><td class="num">−$2.00</td><td class="num">−$2.00</td></tr>
       <tr><td>Shipping</td><td class="num">−$7.00</td><td class="num">−$7.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$2.01</td><td class="num">−$1.72</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$1.77</td><td class="num">−$1.47</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$16.72 · 28.3%</strong></td><td class="num"><strong>$7.31 · 14.9%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$20.32 · 34.4%</strong></td><td class="num"><strong>$10.91 · 22.3%</strong></td></tr>
     </table></div>
 
     <h4>Core 30 · $99 one-time / $72 subscription</h4>
@@ -1871,14 +1880,14 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($99)</th><th class="num">Sub ($72)</th></tr>
       <tr><td>Revenue</td><td class="num">$99.00</td><td class="num">$72.00</td></tr>
-      <tr><td>COGS (30 × $1.30)</td><td class="num">−$39.00</td><td class="num">−$39.00</td></tr>
+      <tr><td>COGS (30 × $1.12)</td><td class="num">−$33.60</td><td class="num">−$33.60</td></tr>
       <tr><td>Packaging</td><td class="num">−$2.50</td><td class="num">−$2.50</td></tr>
       <tr><td>Shipping</td><td class="num">−$8.00</td><td class="num">−$8.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$3.17</td><td class="num">−$2.39</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$2.97</td><td class="num">−$2.16</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$39.86 · 40.3%</strong></td><td class="num"><strong>$14.45 · 20.1%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$45.26 · 45.7%</strong></td><td class="num"><strong>$19.85 · 27.6%</strong></td></tr>
     </table></div>
 
     <h4>Committed 60 · $179 one-time / $139 subscription</h4>
@@ -1886,56 +1895,56 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($179)</th><th class="num">Sub ($139)</th></tr>
       <tr><td>Revenue</td><td class="num">$179.00</td><td class="num">$139.00</td></tr>
-      <tr><td>COGS (60 × $1.30)</td><td class="num">−$78.00</td><td class="num">−$78.00</td></tr>
+      <tr><td>COGS (60 × $1.12)</td><td class="num">−$67.20</td><td class="num">−$67.20</td></tr>
       <tr><td>Packaging</td><td class="num">−$3.00</td><td class="num">−$3.00</td></tr>
       <tr><td>Shipping</td><td class="num">−$10.00</td><td class="num">−$10.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$5.49</td><td class="num">−$4.33</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$4.00</td><td class="num">−$4.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$5.37</td><td class="num">−$4.17</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$72.64 · 40.6%</strong></td><td class="num"><strong>$35.00 · 25.2%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$83.44 · 46.6%</strong></td><td class="num"><strong>$45.80 · 32.9%</strong></td></tr>
     </table></div>
 
     <h4>Household 120 · $329 one-time / $259 subscription</h4>
-    <p>Family / two-person pack. Best absolute margin per order; lower percentage than Core/Committed because shipping cost rises with weight.</p>
+    <p>Family / two-person pack. Best absolute margin per order; slightly lower percentage than Core/Committed because shipping cost rises with weight.</p>
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">OT ($329)</th><th class="num">Sub ($259)</th></tr>
       <tr><td>Revenue</td><td class="num">$329.00</td><td class="num">$259.00</td></tr>
-      <tr><td>COGS (120 × $1.30)</td><td class="num">−$156.00</td><td class="num">−$156.00</td></tr>
+      <tr><td>COGS (120 × $1.12)</td><td class="num">−$134.40</td><td class="num">−$134.40</td></tr>
       <tr><td>Packaging</td><td class="num">−$4.00</td><td class="num">−$4.00</td></tr>
       <tr><td>Shipping</td><td class="num">−$15.00</td><td class="num">−$15.00</td></tr>
       <tr><td>Payment processing</td><td class="num">−$9.84</td><td class="num">−$7.81</td></tr>
       <tr><td>3PL pick-pack</td><td class="num">−$6.00</td><td class="num">−$6.00</td></tr>
       <tr><td>Customer service</td><td class="num">−$0.50</td><td class="num">−$0.50</td></tr>
       <tr><td>Returns reserve (3%)</td><td class="num">−$9.87</td><td class="num">−$7.77</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$127.79 · 38.8%</strong></td><td class="num"><strong>$61.92 · 23.9%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$149.39 · 45.4%</strong></td><td class="num"><strong>$83.52 · 32.3%</strong></td></tr>
     </table></div>
 
     <h4>Summary — DTC contribution margin per tier</h4>
     <div class="tbl-wrap"><table>
       <tr><th>Tier</th><th class="num">Revenue (OT)</th><th class="num">Margin (OT)</th><th class="num">% (OT)</th><th class="num">Revenue (Sub)</th><th class="num">Margin (Sub)</th><th class="num">% (Sub)</th></tr>
-      <tr><td>Tester 10</td><td class="num">$34</td><td class="num">$7.51</td><td class="num">22.1%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
-      <tr><td>Starter 20</td><td class="num">$59</td><td class="num">$16.72</td><td class="num">28.3%</td><td class="num">$49</td><td class="num">$7.31</td><td class="num">14.9%</td></tr>
-      <tr><td>Core 30</td><td class="num">$99</td><td class="num">$39.86</td><td class="num">40.3%</td><td class="num">$72</td><td class="num">$14.45</td><td class="num">20.1%</td></tr>
-      <tr><td>Committed 60</td><td class="num">$179</td><td class="num">$72.64</td><td class="num">40.6%</td><td class="num">$139</td><td class="num">$35.00</td><td class="num">25.2%</td></tr>
-      <tr><td>Household 120</td><td class="num">$329</td><td class="num">$127.79</td><td class="num">38.8%</td><td class="num">$259</td><td class="num">$61.92</td><td class="num">23.9%</td></tr>
+      <tr><td>Tester 10</td><td class="num">$34</td><td class="num">$9.31</td><td class="num">27.4%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+      <tr><td>Starter 20</td><td class="num">$59</td><td class="num">$20.32</td><td class="num">34.4%</td><td class="num">$49</td><td class="num">$10.91</td><td class="num">22.3%</td></tr>
+      <tr><td>Core 30</td><td class="num">$99</td><td class="num">$45.26</td><td class="num">45.7%</td><td class="num">$72</td><td class="num">$19.85</td><td class="num">27.6%</td></tr>
+      <tr><td>Committed 60</td><td class="num">$179</td><td class="num">$83.44</td><td class="num">46.6%</td><td class="num">$139</td><td class="num">$45.80</td><td class="num">32.9%</td></tr>
+      <tr><td>Household 120</td><td class="num">$329</td><td class="num">$149.39</td><td class="num">45.4%</td><td class="num">$259</td><td class="num">$83.52</td><td class="num">32.3%</td></tr>
     </table></div>
 
     <div class="callout rule">
       <span class="label">Three things to internalize from this table</span>
-      <p><strong>1. Subscription margins are roughly half of one-time margins.</strong> The discount we offer to encourage subscription is a real cost. The math only works if subscribers stay long enough — see LTV section below.<br><br><strong>2. Tester is a loss-leader, not a profit center.</strong> $7.51 margin × 5% returns × $30 acquisition cost = barely break-even at best, often negative. We accept this because the Tester's job is to convert trial users to higher tiers within 30 days. <em>If Tester conversion to Starter+ falls below 30%, the entire tier strategy needs rethinking.</em><br><br><strong>3. Core 30 is the tier we should push hardest.</strong> Best absolute margin among non-Household tiers, lowest barrier-to-entry among multi-month commitments, simplest first-time purchase decision. Marketing, on-site merchandising, and email lifecycle should all guide customers toward Core 30 as the default.</p>
+      <p><strong>1. Subscription margins are roughly 60-70% of one-time margins.</strong> The discount we offer to encourage subscription is a real cost — but at the new landed COGS of $1.12, subscription is meaningfully profitable on first order across all tiers (not just on aggregated LTV). The math gets even better as subscribers stay — see LTV section below.<br><br><strong>2. Tester is a low-margin trial, not a loss-leader.</strong> $9.31 margin per order at 27.4% beats most CPG trial-pack benchmarks. With paid retargeting CAC of ~$15–25 (see Section D), the Tester now lands roughly break-even on first order alone — anything beyond that conversion is pure upside. <em>If Tester conversion to Starter+ falls below 30%, the entire tier strategy still warrants rethinking, but the downside risk is lower than originally modeled.</em><br><br><strong>3. Core 30 is the tier we should push hardest.</strong> At 45.7% OT contribution margin and 27.6% sub margin, Core 30 is the most profitable single tier when blended across the customer base. Lowest barrier-to-entry among multi-month commitments, simplest first-time purchase decision. Marketing, on-site merchandising, and email lifecycle should all guide customers toward Core 30 as the default.</p>
     </div>
 
     <h4>Subscription LTV math</h4>
     <p>Per-order margin is half the story. What makes subscription work is the recurring contribution over a customer's lifetime. Assumed average subscription length: 4 months at launch (conservative; mature DTC CPG averages 6–9 months).</p>
     <div class="tbl-wrap"><table>
       <tr><th>Tier</th><th class="num">Sub margin/order</th><th class="num">4-mo LTV</th><th class="num">8-mo LTV (mature)</th><th class="num">12-mo LTV (best case)</th></tr>
-      <tr><td>Starter 20</td><td class="num">$7.31</td><td class="num">$29.24</td><td class="num">$58.48</td><td class="num">$87.72</td></tr>
-      <tr><td>Core 30</td><td class="num">$14.45</td><td class="num">$57.80</td><td class="num">$115.60</td><td class="num">$173.40</td></tr>
-      <tr><td>Committed 60</td><td class="num">$35.00</td><td class="num">$140.00</td><td class="num">$280.00</td><td class="num">$420.00</td></tr>
-      <tr><td>Household 120</td><td class="num">$61.92</td><td class="num">$247.68</td><td class="num">$495.36</td><td class="num">$743.04</td></tr>
+      <tr><td>Starter 20</td><td class="num">$10.91</td><td class="num">$43.64</td><td class="num">$87.28</td><td class="num">$130.92</td></tr>
+      <tr><td>Core 30</td><td class="num">$19.85</td><td class="num">$79.40</td><td class="num">$158.80</td><td class="num">$238.20</td></tr>
+      <tr><td>Committed 60</td><td class="num">$45.80</td><td class="num">$183.20</td><td class="num">$366.40</td><td class="num">$549.60</td></tr>
+      <tr><td>Household 120</td><td class="num">$83.52</td><td class="num">$334.08</td><td class="num">$668.16</td><td class="num">$1,002.24</td></tr>
     </table></div>
-    <p>Read across: a Core 30 subscriber who stays 8 months produces $115.60 of contribution margin. That's the number we can afford to spend acquiring them, in total, across their lifetime, before paid acquisition becomes a losing trade.</p>
+    <p>Read across: a Core 30 subscriber who stays 8 months produces $158.80 of contribution margin. That's the number we can afford to spend acquiring them, in total, across their lifetime, before paid acquisition becomes a losing trade. At our retargeting CAC of ~$15–25, the payback period on Core subscribers is roughly 1–2 orders — meaning the third order onward is pure profit contribution for the runway.</p>
 
     <!-- C. Other channels -->
     <h3 id="margins-other-channels">C · Margin math for non-DTC channels</h3>
@@ -1949,12 +1958,12 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <tr><td>Retailer margin (50%)</td><td class="num">−$2.00</td></tr>
       <tr><td>Broker commission (5%)</td><td class="num">−$0.10</td></tr>
       <tr><td>Net to Pheeew</td><td class="num">$1.89</td></tr>
-      <tr><td>COGS (landed to retailer DC)</td><td class="num">−$1.30</td></tr>
+      <tr><td>COGS (landed to retailer DC)</td><td class="num">−$1.12</td></tr>
       <tr><td>Outbound freight to retailer DC (amortized)</td><td class="num">−$0.10</td></tr>
       <tr><td>Slotting / promotional reserve</td><td class="num">−$0.15</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$0.34 · 9%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$0.52 · 13.0%</strong></td></tr>
     </table></div>
-    <p>Wholesale margin is roughly <strong>1/4 of DTC margin per pouch</strong>. We do not enter retail to make per-pouch profit; we enter retail to drive brand awareness and volume that amortizes fixed costs.</p>
+    <p>Wholesale margin is roughly <strong>1/3 of DTC margin per pouch</strong> — meaningfully better than the original modeling at the prior COGS assumption, but still well below DTC. We do not enter retail to make per-pouch profit; we enter retail to drive brand awareness and volume that amortizes fixed costs.</p>
     <p><strong>Pricing implication:</strong> our DTC SRP needs to be set with retail headroom in mind from day one. If we price DTC too aggressively, we have no room to enter retail later. Current DTC pouch pricing range ($2.16–$3.40 per pouch) leaves us room to price retail at a higher SRP ($3.99–$4.49) — retail customers pay a convenience premium for being on shelf.</p>
 
     <h4>Amazon (decision pending)</h4>
@@ -1964,33 +1973,33 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <tr><td>Revenue</td><td class="num">$99.00</td></tr>
       <tr><td>Amazon referral fee (15%)</td><td class="num">−$14.85</td></tr>
       <tr><td>FBA pick-pack-ship</td><td class="num">−$8.00</td></tr>
-      <tr><td>COGS (30 × $1.30)</td><td class="num">−$39.00</td></tr>
+      <tr><td>COGS (30 × $1.12)</td><td class="num">−$33.60</td></tr>
       <tr><td>Amazon ads (assumed 10% ACOS)</td><td class="num">−$9.90</td></tr>
       <tr><td>Other (returns, packaging)</td><td class="num">−$4.00</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$23.25 · 23.5%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$28.65 · 28.9%</strong></td></tr>
     </table></div>
-    <p>Amazon margin is roughly <strong>60% of DTC OT margin</strong>. The decision isn't economic — it's strategic. Amazon controls the customer relationship; we lose direct contact, retention email rights, and brand-building leverage. Default position: <strong>don't sell on Amazon for the first 12 months</strong>. Reconsider once DTC is operating at scale and brand identity is bulletproof.</p>
+    <p>Amazon margin is roughly <strong>63% of DTC OT margin</strong>. The decision isn't economic — it's strategic. Amazon controls the customer relationship; we lose direct contact, retention email rights, and brand-building leverage. Default position: <strong>don't sell on Amazon for the first 12 months</strong>. Reconsider once DTC is operating at scale and brand identity is bulletproof.</p>
 
     <h4>B2B / corporate wellness (future channel)</h4>
     <p>Bulk orders to corporate wellness programs, hotels, gyms, subscription boxes. Typical structure: bulk discount of 25–35% off DTC SRP, no shipping (bulk delivery to corporate location), longer payment terms (Net 30 or Net 60).</p>
     <div class="tbl-wrap"><table>
       <tr><th>Line</th><th class="num">300-pouch corporate order</th></tr>
       <tr><td>Revenue (300 × $2.50 bulk price)</td><td class="num">$750.00</td></tr>
-      <tr><td>COGS (300 × $1.30)</td><td class="num">−$390.00</td></tr>
+      <tr><td>COGS (300 × $1.12)</td><td class="num">−$336.00</td></tr>
       <tr><td>Bulk shipping (palletized)</td><td class="num">−$25.00</td></tr>
       <tr><td>Payment terms financing cost (Net 30)</td><td class="num">−$10.00</td></tr>
       <tr><td>Account management amortized</td><td class="num">−$15.00</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$310.00 · 41.3%</strong></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Contribution margin</strong></td><td class="num"><strong>$364.00 · 48.5%</strong></td></tr>
     </table></div>
-    <p>B2B margin per order is excellent. Risk: account concentration. Lose one big corporate account and revenue drops materially. Lane to develop in months 6–12 alongside DTC.</p>
+    <p>B2B margin per order is excellent — among the highest contribution rates in the entire channel mix. Risk: account concentration. Lose one big corporate account and revenue drops materially. Lane to develop in months 6–12 alongside DTC.</p>
 
     <!-- D. Ad spend math -->
     <h3 id="margins-adspend">D · Ad spend math at $1,000/month</h3>
     <p>Hard budget cap: <strong>$1,000/month all-in for paid acquisition</strong>. That's $33/day. The first instinct is to use it for cold prospecting (Meta interest targeting, TikTok creative testing). The instinct is wrong at this scale.</p>
 
     <h4>Why cold prospecting doesn't work at $33/day</h4>
-    <p>At cold prospecting CAC (typical $30–60 for our category), $1,000/month buys 17–33 new customers. With Core 30 OT margin of $39.86, that's $678–$1,326 of first-order contribution. After paid spend: <strong>net contribution from cold paid acquisition: roughly break-even to slightly negative on first order alone</strong>. Without subscription conversion, this is a money-losing motion.</p>
-    <p>Worse: at $33/day, Meta's algorithm doesn't have enough budget to find good audiences. You burn 60–80% of the spend before the algorithm starts performing. Sub-scale spend on a "smart" platform is a worst-of-both-worlds situation.</p>
+    <p>At cold prospecting CAC (typical $30–60 for our category), $1,000/month buys 17–33 new customers. With Core 30 OT margin of $45.26, that's $769–$1,494 of first-order contribution. After paid spend: <strong>net contribution from cold paid acquisition: marginal to slightly positive on first order alone</strong>. The math is no longer cleanly negative at the new COGS — but it's still fragile, because it requires near-perfect creative + targeting to clear $30 CAC at this budget level.</p>
+    <p>Worse: at $33/day, Meta's algorithm doesn't have enough budget to find good audiences. You burn 60–80% of the spend before the algorithm starts performing. Sub-scale spend on a "smart" platform is a worst-of-both-worlds situation. The improved per-customer margin at the new COGS doesn't fix the audience-discovery problem; it just makes the math less ugly when it works and equally ugly when it doesn't.</p>
 
     <h4>The retargeting reframe</h4>
     <p>Instead of cold prospecting, the $33/day should go to <strong>retargeting</strong>: showing ads to people who already encountered Pheeew through Dawon's organic content, the website, or creator posts.</p>
@@ -2043,7 +2052,7 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <p>Cost: ~$0 cash (Dawon's time). Production setup under $100 (phone tripod, lavalier mic). <strong>This is the single biggest acquisition channel at our stage.</strong> See <a href="../storyline-brief/" style="color:var(--pheeew);font-weight:700;text-decoration:none">storyline brief</a> for full execution. Expected contribution: 40–60% of first 6 months' acquisitions.</p>
 
     <h4>2. Creator gifting (raw UGC) — Justin's outreach</h4>
-    <p>Cost: product COGS per box (~$15–25 per Starter 20 box, $25–40 per Core 30 box). At 15 boxes/month: ~$300–600/month in product cost. Drives third-party authentic content + community trust. Full playbook below in subsection F. Expected contribution: 20–30% of first 6 months' acquisitions.</p>
+    <p>Cost: product COGS per box (~$22 per Starter 20 box, ~$34 per Core 30 box, plus ~$3–8 in inserts/packaging extras). At 15 boxes/month: ~$340–600/month in product cost. Drives third-party authentic content + community trust. Full playbook below in subsection F. Expected contribution: 20–30% of first 6 months' acquisitions.</p>
 
     <h4>3. Email + SMS lifecycle (retention, not acquisition)</h4>
     <p>Cost: Klaviyo subscription ($30–$200/month depending on contact count). Drives repeat purchases, subscription conversion, reactivation of dormant subscribers. <strong>Not technically an acquisition channel — but it's the channel that makes acquisition profitable</strong> by extending the customer lifetime. Worth more than paid spend dollar-for-dollar.</p>
@@ -2074,13 +2083,13 @@ footer p .sig{color:var(--pheeew);font-weight:700}
       <tr><th>Channel</th><th class="num">$/month</th></tr>
       <tr><td>Klaviyo (Email + SMS lifecycle)</td><td class="num">$30–$200</td></tr>
       <tr><td>Referral program tool</td><td class="num">$25–$50</td></tr>
-      <tr><td>Creator gifting (15 boxes/month avg)</td><td class="num">$300–$600 in product COGS</td></tr>
+      <tr><td>Creator gifting (15 boxes/month avg)</td><td class="num">$340–$600 in product COGS</td></tr>
       <tr><td>Cross-brand partnerships (product exchanges)</td><td class="num">$100–$300 in product COGS</td></tr>
       <tr><td>Time (4 founders, organic execution)</td><td class="num">~$0 cash; ~50% of marketing team capacity</td></tr>
       <tr class="total" style="background:var(--peach-soft)"><td><strong>Total cash + product</strong></td><td class="num"><strong>~$500–$1,200/month</strong></td></tr>
     </table></div>
 
-    <p>Combined with the $1,000 paid budget, our all-in marketing spend lands at <strong>~$1,500–$2,200/month</strong>. At Core 30 OT margins of ~$40, that's a break-even threshold of ~40–55 new customers per month. Below that, marketing is a net loss; above, marketing is a net positive.</p>
+    <p>Combined with the $1,000 paid budget, our all-in marketing spend lands at <strong>~$1,500–$2,200/month</strong>. At Core 30 OT margins of ~$45, that's a break-even threshold of <strong>~33–49 new customers per month</strong>. Below that, marketing is a net loss; above, marketing is a net positive. The new lower COGS shaves about 6–10 customers off the monthly break-even line — a real but modest improvement.</p>
 
     <!-- F. UGC playbook -->
     <h3 id="margins-ugc">F · The raw UGC creator playbook</h3>
@@ -2150,12 +2159,12 @@ footer p .sig{color:var(--pheeew);font-weight:700}
     <h4>Gifting box composition</h4>
     <div class="tbl-wrap"><table>
       <tr><th>Item</th><th>Cost</th><th>Notes</th></tr>
-      <tr><td>Starter 20 pouches (or Core 30 for higher-fit creators)</td><td class="num">$26–$39 COGS</td><td>The product is the gift</td></tr>
+      <tr><td>Starter 20 pouches (or Core 30 for higher-fit creators)</td><td class="num">$22–$34 COGS</td><td>The product is the gift</td></tr>
       <tr><td>Hand-written note from Dawon</td><td class="num">$0</td><td>Personal, short. Single page. References Dawon's story briefly.</td></tr>
       <tr><td>One-pager: ingredient breakdown + suggested ways to try</td><td class="num">$0.50 printing</td><td>Not a sales pitch; an explanation. Useful information they can reference.</td></tr>
       <tr><td>Optional: small branded extra (Pheeew tote, kitchen towel, sticker pack)</td><td class="num">$3–$8</td><td>Skip if budget is tight; include if it adds delight</td></tr>
       <tr><td>Custom packaging tape with Pheeew brand</td><td class="num">$0.20</td><td>Small thing; creators photograph unboxings; pays off in production value</td></tr>
-      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total per box</strong></td><td class="num"><strong>~$30–$48</strong></td><td></td></tr>
+      <tr class="total" style="background:var(--peach-soft)"><td><strong>Total per box</strong></td><td class="num"><strong>~$26–$43</strong></td><td></td></tr>
     </table></div>
 
     <h4>Relationship cadence post-box</h4>
