@@ -73,7 +73,9 @@ a:hover{text-decoration:underline}
 .step{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px;margin-bottom:8px;display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:start}
 .step.done{background:rgba(61,139,110,.05);border-color:rgba(61,139,110,.25)}
 .step.now{background:rgba(244,201,93,.08);border-color:var(--accent-yellow);box-shadow:0 0 0 3px rgba(244,201,93,.1)}
-.step-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;font-size:13px;font-weight:700;color:transparent;transition:all .15s}
+.step-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;font-size:13px;font-weight:700;color:transparent;transition:all .15s;cursor:pointer;user-select:none}
+.step-check:hover{border-color:var(--pheeew);transform:scale(1.08);box-shadow:0 0 0 4px var(--pheeew-tint)}
+.step.done .step-check:hover{border-color:#1F5D43;background:#2D6E54}
 .step.done .step-check{background:var(--accent-green);border-color:var(--accent-green);color:#fff}
 .step.done .step-check::after{content:"✓"}
 .step.now .step-check{background:var(--accent-yellow);border-color:var(--accent-yellow);color:var(--text)}
@@ -187,10 +189,16 @@ a:hover{text-decoration:underline}
 
 <!-- SUMMARY -->
 <div class="summary">
-  <div class="sum-card"><div class="sum-num done" id="cDone">2</div><div class="sum-label">Done</div></div>
-  <div class="sum-card"><div class="sum-num now" id="cNow">20</div><div class="sum-label">Docs drafted · awaiting signature</div></div>
-  <div class="sum-card"><div class="sum-num todo" id="cTodo">27</div><div class="sum-label">Steps to do</div></div>
-  <div class="sum-card"><div class="sum-num" id="cTotal">29</div><div class="sum-label">Total steps</div></div>
+  <div class="sum-card"><div class="sum-num done" id="cDone">3</div><div class="sum-label">Done</div></div>
+  <div class="sum-card"><div class="sum-num now" id="cNow">6</div><div class="sum-label">In progress (current focus)</div></div>
+  <div class="sum-card"><div class="sum-num todo" id="cTodo">21</div><div class="sum-label">Steps to do</div></div>
+  <div class="sum-card"><div class="sum-num" id="cTotal">30</div><div class="sum-label">Total steps</div></div>
+</div>
+
+<!-- PROGRESS HINT -->
+<div style="display:flex;align-items:center;justify-content:space-between;gap:14px;margin:-20px 0 28px;padding:12px 16px;background:var(--bg-soft);border:1px dashed var(--line);border-radius:10px;font-size:12px;color:var(--text-secondary)">
+  <div><strong>Tap the circle</strong> at the left of any step to mark it complete · progress is saved on this device (localStorage) · counters update live</div>
+  <button id="resetProgress" style="background:none;border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:600;color:var(--text-tertiary);cursor:pointer;font-family:inherit;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap" onmouseover="this.style.color='var(--accent-coral)';this.style.borderColor='var(--accent-coral)'" onmouseout="this.style.color='var(--text-tertiary)';this.style.borderColor='var(--line)'">Reset progress</button>
 </div>
 
 <!-- MONEY FLOW -->
@@ -1059,6 +1067,155 @@ Alex</div></div>
     document.getElementById('content').style.display = 'block';
   }
   document.getElementById('lastUpdate').textContent = new Date().toLocaleString('en-US', { dateStyle:'medium', timeStyle:'short' });
+
+  // ===== PROGRESS TRACKING =====
+  const PROGRESS_KEY = 'pheeew-closing-progress-v1';
+
+  function getStepId(step) {
+    const title = step.querySelector('.step-title');
+    if (!title) return null;
+    const match = title.textContent.trim().match(/^([0-9A-Za-z\-—]+)\s*·/);
+    return match ? match[1].trim() : null;
+  }
+
+  function loadProgress() {
+    try { return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); }
+    catch { return {}; }
+  }
+
+  function saveProgress(p) {
+    try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch {}
+  }
+
+  function updateSummary() {
+    const steps = document.querySelectorAll('.step');
+    let done = 0, now = 0, todo = 0;
+    steps.forEach(step => {
+      if (step.classList.contains('done')) done++;
+      else if (step.classList.contains('now')) now++;
+      else todo++;
+    });
+    const elDone = document.getElementById('cDone');
+    const elNow = document.getElementById('cNow');
+    const elTodo = document.getElementById('cTodo');
+    const elTotal = document.getElementById('cTotal');
+    if (elDone) elDone.textContent = done;
+    if (elNow) elNow.textContent = now;
+    if (elTodo) elTodo.textContent = todo;
+    if (elTotal) elTotal.textContent = steps.length;
+  }
+
+  function syncTagToState(step) {
+    // keep the right-side status tag in sync with state for clarity
+    const isDone = step.classList.contains('done');
+    const isNow = step.classList.contains('now');
+    const actions = step.querySelector('.step-actions');
+    if (!actions) return;
+    const tag = actions.querySelector('.tag.todo, .tag.now, .tag.done');
+    if (!tag) return;
+    if (isDone) {
+      tag.className = 'tag done';
+      tag.textContent = 'DONE';
+    } else if (isNow) {
+      tag.className = 'tag now';
+      tag.textContent = tag.textContent === 'DRAFT' ? 'DRAFT' : 'NOW';
+    } else {
+      tag.className = 'tag todo';
+      tag.textContent = 'TO DO';
+    }
+  }
+
+  function initProgress() {
+    const progress = loadProgress();
+    const steps = document.querySelectorAll('.step');
+
+    steps.forEach(step => {
+      const id = getStepId(step);
+      if (!id) return;
+
+      // capture original state from HTML once (used for "reset")
+      if (!step.dataset.originalState) {
+        if (step.classList.contains('done')) step.dataset.originalState = 'done';
+        else if (step.classList.contains('now')) step.dataset.originalState = 'now';
+        else step.dataset.originalState = 'todo';
+      }
+
+      // apply saved state if present
+      if (progress[id] === 'done') {
+        step.classList.add('done');
+        step.classList.remove('now');
+      } else if (progress[id] === 'todo') {
+        step.classList.remove('done');
+        step.classList.remove('now');
+      }
+      // if not in saved state, leave original HTML state
+
+      syncTagToState(step);
+
+      // wire click handler on the step-check
+      const check = step.querySelector('.step-check');
+      if (check && !check.dataset.wired) {
+        check.dataset.wired = '1';
+        check.addEventListener('click', () => {
+          const isDone = step.classList.contains('done');
+          const p = loadProgress();
+          if (isDone) {
+            step.classList.remove('done');
+            // if it was originally .now, restore that visual
+            if (step.dataset.originalState === 'now') {
+              step.classList.add('now');
+              p[id] = 'now';
+            } else {
+              p[id] = 'todo';
+            }
+          } else {
+            step.classList.add('done');
+            step.classList.remove('now');
+            p[id] = 'done';
+          }
+          saveProgress(p);
+          syncTagToState(step);
+          updateSummary();
+        });
+      }
+    });
+
+    updateSummary();
+  }
+
+  function resetProgress() {
+    if (!confirm('Reset all checkboxes to their starting state? This clears your progress on this device.')) return;
+    localStorage.removeItem(PROGRESS_KEY);
+    document.querySelectorAll('.step').forEach(step => {
+      const orig = step.dataset.originalState;
+      step.classList.remove('done');
+      step.classList.remove('now');
+      if (orig === 'done') step.classList.add('done');
+      if (orig === 'now') step.classList.add('now');
+      syncTagToState(step);
+    });
+    updateSummary();
+  }
+
+  // wait for content to be visible (after gate) before binding
+  function bootProgress() {
+    if (document.getElementById('content').style.display !== 'none') {
+      initProgress();
+      const btn = document.getElementById('resetProgress');
+      if (btn && !btn.dataset.wired) {
+        btn.dataset.wired = '1';
+        btn.addEventListener('click', resetProgress);
+      }
+    } else {
+      // bind a one-time hook to the gate form so we init right after passcode entry
+      const gateForm = document.querySelector('#gate form');
+      if (gateForm && !gateForm.dataset.progressWired) {
+        gateForm.dataset.progressWired = '1';
+        gateForm.addEventListener('submit', () => setTimeout(bootProgress, 50));
+      }
+    }
+  }
+  bootProgress();
 </script>
 
 </body>
