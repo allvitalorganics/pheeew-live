@@ -70,7 +70,7 @@ a:hover{text-decoration:underline}
 .phase-deadline{margin-left:auto;font-size:12px;color:var(--text-tertiary);font-weight:500}
 
 /* STEP */
-.step{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px;margin-bottom:8px;display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:center}
+.step{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px;margin-bottom:8px;display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:start}
 .step.done{background:rgba(61,139,110,.05);border-color:rgba(61,139,110,.25)}
 .step.now{background:rgba(244,201,93,.08);border-color:var(--accent-yellow);box-shadow:0 0 0 3px rgba(244,201,93,.1)}
 .step-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;font-size:13px;font-weight:700;color:transparent;transition:all .15s}
@@ -93,6 +93,19 @@ a:hover{text-decoration:underline}
 .tag.jason{background:#D8EBE0;color:var(--bg-green)}
 .tag.dawon{background:rgba(244,201,93,.2);color:#8B6914}
 .tag.all{background:#EFEFEF;color:var(--text-secondary)}
+
+/* EXEC DETAILS — per-step execution instructions */
+.exec{margin-top:12px;padding:12px 14px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:8px;display:grid;grid-template-columns:88px 1fr;gap:6px 14px;font-size:12px;line-height:1.5}
+.exec-label{font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em;font-size:10px;padding-top:2px}
+.exec-value{color:var(--text-secondary)}
+.exec-value strong{color:var(--text)}
+.exec-value code{background:var(--bg-deep);padding:1px 6px;border-radius:4px;font-size:11px;font-family:ui-monospace,"SF Mono",monospace;color:var(--text)}
+.exec-value .pill{display:inline-block;padding:1px 8px;border-radius:8px;font-size:10px;font-weight:700;letter-spacing:.04em;margin-right:4px;vertical-align:middle}
+.exec-value .pill.ext{background:rgba(232,116,90,.15);color:#A0432F}
+.exec-value .pill.int{background:rgba(61,139,110,.12);color:var(--accent-green)}
+.exec-value .pill.reply{background:rgba(244,201,93,.2);color:#8B6914}
+.exec-value .pill.noreply{background:var(--bg-deep);color:var(--text-tertiary)}
+@media (max-width:740px){.exec{grid-template-columns:1fr;gap:2px 0}.exec-label{margin-top:6px}}
 
 /* DOCS LIST */
 .docs{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:14px;padding:24px;margin-top:32px}
@@ -203,6 +216,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">02 · Collect founder intake info (all 4)</div>
       <div class="step-meta"><span class="owner">Each founder</span><span>Founder_Intake_Form.docx is generated. Distribute, return within 48 hours.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason, Dawon (separately or BCC). Subject: <code>Pheeew, Inc. · Founder Intake Form · please complete within 48 hours</code>. Attach: <code>Founder_Intake_Form.docx</code>. Body: brief — explains the form feeds RSPA, 83(b), and Co-Founder Agreement; ask each to fill, sign, return.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">No — Alex doesn't sign. Each founder signs their own form.</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 per form · each founder signs their own</strong> (4 forms total, one per founder including Alex)</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>signed PDF back to Alex within 48 hours</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>sent to founders · returned forms saved to <code>/Pheeew/Closing/_intake_returns/</code></div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag now">NOW</span><span class="tag all">All 4</span></div>
   </div>
@@ -211,6 +231,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">03 · Confirm Pheeew Mercury account ready to receive wires</div>
       <div class="step-meta"><span class="owner">Alex</span><span>Confirm account number, routing, instructions ready to forward to Justin + Jason</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — internal check by Alex inside Mercury dashboard</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span></div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>captures the actual account/routing/wire numbers into <code>13_Wire_Instructions_Packet.docx</code> before Step 17</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -224,6 +251,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">3a · Sole Director Written Consent · Amendment authorization</div>
       <div class="step-meta"><span class="owner">Alex (signs)</span><span>Doc 0a · Alex declares amendment advisable, recommends to stockholders, authorizes filing. DGCL § 141(f) action by written consent.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — Alex signs in private; doc is internal corporate record</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — Alex is the only signer</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Alex Kim (Seungjoon Kim) as Sole Director</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span></div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>filed in corporate book · serves as the predicate to 3b (stockholder consent) and 3c (Cert of Amendment)</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag now">DRAFT</span><span class="tag alex">Alex</span></div>
   </div>
@@ -232,6 +266,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">3b · Stockholder Written Consent · Approve amendment</div>
       <div class="step-meta"><span class="owner">Alex + Jason + Dawon (sign)</span><span>Doc 0b · Holders of majority of outstanding shares approve the amendment. DGCL § 228 written consent. All 3 should sign even though any 2 = majority.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Jason, Dawon. Subject: <code>Pheeew, Inc. · Stockholder Consent · please sign within 24 hours</code>. Attach: <code>0b_Stockholder_Written_Consent_Amendment.docx</code> with Alex's signature already on it. Body: explain this is the stockholder approval to increase authorized shares from 10M to 30M; majority needed but get all 3 for cleanliness.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs first</strong> as a current stockholder (his 3.15M makes him one of the 3 existing holders)</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>3 stockholders — Alex (3,150,000), Jason (2,970,000), Dawon (2,880,000).</strong> Note: Justin does NOT sign here — he's not a stockholder yet (his shares are issued AFTER the Amendment).</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>signed PDF from both Jason and Dawon. Aim for same-day turnaround so 3c/3d can proceed.</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>filed in corporate book · NOT filed with DE</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag now">DRAFT</span><span class="tag all">3 stockholders</span></div>
   </div>
@@ -240,6 +281,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">3c · Certificate of Amendment · Wet sign + flatten to PDF</div>
       <div class="step-meta"><span class="owner">Alex (signs as CEO · "Seungjoon Kim")</span><span>Doc 0c · Amends <strong>Article IV</strong>: 10,000,000 → 30,000,000 Common Stock at <strong>$0.00001 par</strong> (verified · DE File 10559164). <strong>Wet ink (black/blue ballpoint) → scan 300 DPI via iPhone Notes → Preview · Export · "Reduce File Size" flattens it.</strong> Confirm flat by trying to drag the signature in Preview — shouldn't move.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — this doc only leaves the building via the DE Document Upload Service (Step 3d), NOT via email</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as CEO, wet ink.</strong> Print → sign with black/blue ballpoint → scan via iPhone Notes at 300 DPI → flatten in Preview (File → Export → Reduce File Size)</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Seungjoon Kim as Chief Executive Officer</strong> (matches the legal name on Cert of Inc)</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span></div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>uploaded to DE Secretary of State in Step 3d · keep the unsigned-but-flat-PDF in <code>/Pheeew/Closing/_signed/</code></div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag now">DRAFT</span><span class="tag alex">Alex</span></div>
   </div>
@@ -248,6 +296,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">3d · File 0c via DE Document Upload Service</div>
       <div class="step-meta"><span class="owner">Alex</span><span>URL: corp.delaware.gov · Document Upload Service. Document Type = <strong>Amendment</strong>. Entity Name = <strong>Pheeew, Inc.</strong> File Number = <strong>10559164</strong>. Upload flattened 0c PDF. Recommend 24-hour expedited (+$100).</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — submitted via web form at <code>corp.delaware.gov</code> Document Upload Service. Submitter email field will receive the DE invoice.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">Already done in 3c</div>
+        <div class="exec-label">Signers</div><div class="exec-value">Already signed</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>DE returns stamped Cert via FedEx or mail (Step 3f)</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>state filing · submitter portal will retain a receipt</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -256,6 +311,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">3e · Pay DE filing fee (~$303)</div>
       <div class="step-meta"><span class="owner">Alex</span><span>$194 filing fee + $9 receiving + $100 24-hour expedite + $50 certified copy ≈ $353. Charged after processing. Invoice emailed.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — DE will email an invoice to the submitter email after processing</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — payment by CC or ACH at processing</div>
+        <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>just pay the invoice</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>save DE invoice PDF + payment confirmation to <code>/Pheeew/Closing/_de_filing/</code></div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -264,6 +326,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">3f · Receive stamped Cert of Amendment · Authorized = 30M effective</div>
       <div class="step-meta"><span class="owner">Alex (logs in corporate book)</span><span>Save stamped PDF to corporate book. From this point forward authorized = 30,000,000 shares. Now Phase 01 + Phase 02 issuances can proceed.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason, Dawon. Subject: <code>Pheeew, Inc. · Cert of Amendment filed · authorized = 30M effective</code>. Attach: stamped Cert of Amendment PDF. Body: short — confirms DE accepted the filing, RSPAs + 83(b)s can now proceed.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — DE has signed/stamped it</div>
+        <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>informational broadcast to the team</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>stamped Cert filed in corporate book · also save the certified copy</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -277,6 +346,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">04 · Sole Director Written Consent (issuance authorization)</div>
       <div class="step-meta"><span class="owner">Alex (signs)</span><span>Doc 01 · authorizes EIP adoption, option pool, and the 13,385,919 new share issuances. <strong>Effective only after Cert of Amendment in 3f is filed.</strong></span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None to founders for signature. Optional FYI broadcast after signing: <code>Sole Director Consent executed · EIP adopted · share issuances authorized</code> attached</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — Alex is the only signer</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Alex as Sole Director</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span></div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>filed in corporate book · this Consent + EIP (05) are the predicates for RSPAs (06–08)</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag now">DRAFT</span><span class="tag alex">Alex</span></div>
   </div>
@@ -285,6 +361,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">05 · 2026 Equity Incentive Plan</div>
       <div class="step-meta"><span class="owner">Alex (signs as Sole Director)</span><span>Draft generated · 17 sections, ~10 pages, single-trigger Change of Control acceleration, 10-year plan term · awaiting Alex's signature</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">FYI broadcast to all 4 founders AFTER Alex signs. Subject: <code>Pheeew, Inc. · 2026 Equity Incentive Plan adopted</code>. Attach: signed <code>02_2026_Equity_Incentive_Plan.docx</code>. Body: informational — the Plan they'll be granted options under.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">Alex signs first as Sole Director · no other signatures required</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Alex as Sole Director (adopts the Plan)</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>informational only</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>filed in corporate book · referenced by every future option grant</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag now">DRAFT</span><span class="tag alex">Alex</span></div>
   </div>
@@ -298,6 +381,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">06 · RSPA · Alex Kim (6,602,801 refresh shares @ $0.00226)</div>
       <div class="step-meta"><span class="owner">Alex (signs)</span><span>Subscription: $14,920.15 · 4-year vest, 1-year cliff on refresh shares</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — Alex signs both sides (Company + Purchaser). No counterparty email needed.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">Alex signs as Company first (as CEO/Sole Director), then as Purchaser on the same doc</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>2 sig lines, same person · Alex as Company + Alex as Purchaser</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span></div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>filed in corporate book + Alex's personal file</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -306,6 +396,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">07 · RSPA · Justin Kim (5,607,861 shares @ $0.00226)</div>
       <div class="step-meta"><span class="owner">Justin (signs)</span><span>Subscription: $12,673.77 · 4-year vest, 1-year cliff</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Justin. Subject: <code>Pheeew, Inc. RSPA · Junhyuk Kim · 5,607,861 shares · please sign + return</code>. Attach: <code>04_RSPA_Junhyuk_Kim_(Justin).docx</code> with Alex's Company-side signature already on it + the wire instructions for Wire #1 ($12,673.77 to Mercury). Body: short — explains share count, price, vesting, 83(b) deadline, wire deadline.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Send pre-signed PDF to Justin for his Purchaser signature.</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Alex (Company) + Junhyuk "Justin" Kim (Purchaser)</strong> · plus Spousal Consent (Exhibit A) if Justin is married</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin returns fully signed PDF + Spousal Consent + confirms 83(b) plan + confirms wire timing</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>sent to Justin · fully executed copy filed in corporate book + copy to Justin</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag justin">Justin</span></div>
   </div>
@@ -314,6 +411,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">08 · RSPA · Jason Ko (1,175,257 new shares @ $0.00226)</div>
       <div class="step-meta"><span class="owner">Jason (signs)</span><span>Subscription: $2,656.08 · 4-year vest, 1-year cliff on new shares only</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Jason. Subject: <code>Pheeew, Inc. RSPA · Jason Ko · 1,175,257 new shares · please sign + return</code>. Attach: <code>05_RSPA_Jason_Ko_(New_Shares).docx</code> with Alex's Company-side signature already on it + Wire #3 instructions ($2,656.08 to Mercury). Body: short — clarifies these are NEW shares on top of his existing 2,970,000; existing shares' terms unchanged.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Send pre-signed PDF to Jason for his Purchaser signature.</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Alex (Company) + Jason Ko (Purchaser)</strong> · plus Spousal Consent if Jason is married</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Jason returns fully signed PDF + Spousal Consent + confirms 83(b) plan + confirms wire timing</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>sent to Jason · fully executed copy filed in corporate book + copy to Jason</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag jason">Jason</span></div>
   </div>
@@ -327,6 +431,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">09 · 83(b) Election · Alex (refresh shares) — IRS Rev. Proc. 2012-29 format</div>
       <div class="step-meta"><span class="owner">Alex (signs + mails)</span><span>Doc 06 · USPS Certified w/ Return Receipt to Alex's IRS service center · staple Doc 08b filing instructions cover sheet · within 30 days of RSPA date</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — Alex files personally with the IRS</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">Alex signs his own form. Print Doc 06, fill in SSN + address + transfer date (= RSPA Effective Date in 06), wet-sign.</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Alex Kim only</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>USPS Certified Mail Return Receipt is the proof — keep it</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>mailed to IRS service center for Alex's state of residence (CA = Fresno per IRS lookup) · also: 1 copy to Pheeew corporate book, 1 to Alex's tax file, 1 to attach to 2026 Form 1040</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -335,6 +446,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">10 · 83(b) Election · Justin — IRS Rev. Proc. 2012-29 format</div>
       <div class="step-meta"><span class="owner">Justin (signs + mails)</span><span>Doc 07 · USPS Certified w/ Return Receipt · staple Doc 08b filing instructions cover sheet · within 30 days of RSPA date</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Justin. Subject: <code>Pheeew, Inc. · 83(b) Election · file within 30 days of RSPA</code>. Attach: <code>07_83b_Election_Junhyuk_Kim.docx</code> + <code>08b_83b_Filing_Instructions_Cover_Sheet.docx</code>. Body: bullet the 30-day deadline, USPS Certified Mail requirement, and "send the tracking number + scanned signed PDF back to <code>hello@pheeew.com</code>."</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">No — Justin signs his own form personally</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Junhyuk "Justin" Kim only</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin sends Alex: (a) scanned signed PDF, (b) USPS Certified Mail tracking number, (c) mailing date</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>Justin mails to his state's IRS service center · Pheeew keeps a copy</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag justin">Justin</span></div>
   </div>
@@ -343,6 +461,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">11 · 83(b) Election · Jason — IRS Rev. Proc. 2012-29 format</div>
       <div class="step-meta"><span class="owner">Jason (signs + mails)</span><span>Doc 08 · USPS Certified w/ Return Receipt · staple Doc 08b filing instructions cover sheet · within 30 days of RSPA date</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Jason. Subject: <code>Pheeew, Inc. · 83(b) Election (new shares) · file within 30 days of RSPA</code>. Attach: <code>08_83b_Election_Jason_Ko.docx</code> + <code>08b_83b_Filing_Instructions_Cover_Sheet.docx</code>. Body: clarifies this is ONLY for the 1,175,257 new shares; his original 2,970,000 are already covered by his April 15 filing.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">No — Jason signs his own form personally</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Jason Ko only</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Jason sends Alex: (a) scanned signed PDF, (b) USPS Certified Mail tracking number, (c) mailing date</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>Jason mails to his state's IRS service center · Pheeew keeps a copy</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag jason">Jason</span></div>
   </div>
@@ -350,7 +475,7 @@ a:hover{text-decoration:underline}
     <div class="step-check"></div>
     <div class="step-body">
       <div class="step-title">— · 83(b) Election · Dawon (covered)</div>
-      <div class="step-meta"><span class="owner">Already done</span><span>Filed April 18, 2026 for existing 2,880,000 shares · no new 83(b) needed</span></div>
+      <div class="step-meta"><span class="owner">Already done</span><span>Filed April 20, 2026 for existing 2,880,000 shares · no new 83(b) needed</span></div>
     </div>
     <div class="step-actions"><span class="tag done">DONE</span><span class="tag dawon">Dawon</span></div>
   </div>
@@ -364,6 +489,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">12 · Gift Letter · Justin → Alex ($9,326.23)</div>
       <div class="step-meta"><span class="owner">Justin + Alex (sign)</span><span>Under $19K IRS annual exclusion · no Form 709 · personal transaction, not corporate</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Justin (personal email — this is a personal-to-personal letter, not a Pheeew doc). Subject: <code>Gift Letter · Justin → Alex · $9,326.23</code>. Attach: <code>09_Gift_Letter_Justin_to_Alex.docx</code> (unsigned — Justin signs as Donor first). Body: paired with Wire #2; explains gift is gratuitous and unrelated to Pheeew equity.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>No — Justin (Donor) signs first.</strong> Alex signs the Acknowledgement of Recipient block AFTER Justin sends back signed.</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Justin Kim (Donor) signs first, then Alex Kim (Recipient acknowledges)</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin returns Donor-signed PDF · Alex then signs Recipient block · final PDF goes to both personal files</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span><strong>PERSONAL not corporate</strong> — Pheeew, Inc. is NOT a party · do NOT file in corporate book · save to each person's personal records for tax-trail purposes</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag justin">Justin</span></div>
   </div>
@@ -372,6 +504,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">13 · Gift Letter · Jason → Alex ($5,593.92)</div>
       <div class="step-meta"><span class="owner">Jason + Alex (sign)</span><span>Under $19K IRS annual exclusion · no Form 709 · personal transaction, not corporate</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Jason (personal email). Subject: <code>Gift Letter · Jason → Alex · $5,593.92</code>. Attach: <code>10_Gift_Letter_Jason_to_Alex.docx</code> (unsigned). Body: paired with Wire #4; explains gratuitous nature.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>No — Jason (Donor) signs first.</strong> Alex signs Recipient block AFTER Jason returns.</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Jason Ko (Donor) signs first, then Alex Kim (Recipient acknowledges)</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Jason returns Donor-signed PDF · Alex signs Recipient block · final PDF to both personal files</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span><strong>PERSONAL not corporate</strong> — save to personal records for tax trail</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag jason">Jason</span></div>
   </div>
@@ -385,6 +524,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">14 · Co-Founder Agreement v3</div>
       <div class="step-meta"><span class="owner">All 4 founders sign + company</span><span>Codifies roles, vesting, IP assignment, confidentiality. Replaces any prior co-founder agreements.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason, Dawon (all 4 incl. Alex on CC if convenient). Subject: <code>Pheeew, Inc. Co-Founder Agreement v3 · please sign + return</code>. Attach: <code>11_Co_Founder_Agreement_v3.docx</code> with Alex's Company-side signature already on it. Body: bullet roles + vesting + IP + non-compete + JAMS arbitration; ask for return within 5 business days.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Then circulate to all 4 founders for their Founder signatures (Alex also signs as a Founder on a separate line).</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>5 sig lines · 4 unique people · Alex (Company) + Alex (Founder) + Justin + Jason + Dawon</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>each of Justin/Jason/Dawon returns signed PDF · Alex aggregates all 4 sigs + Company sig into one final executed PDF</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>fully executed PDF filed in corporate book + copy to each founder. See Step 21 — final aggregation.</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
   </div>
@@ -393,6 +539,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">15 · Voting Agreement</div>
       <div class="step-meta"><span class="owner">All 4 founders sign + company</span><span>Drag-along, tag-along, founder voting protocol on major actions</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">Bundle WITH Step 14 for efficiency — same recipients (Justin, Jason, Dawon). Subject: <code>Pheeew, Inc. Founders' Voting Agreement · sign + return</code>. Attach: <code>12_Voting_Agreement.docx</code> with Alex's Company-side signature already on it.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Then all 4 founders sign their stockholder sig lines.</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>5 sig lines · 4 unique people · Alex (Company) + Alex (Stockholder) + Justin + Jason + Dawon</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>each of Justin/Jason/Dawon returns signed PDF · Alex aggregates</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>fully executed PDF filed in corporate book + copy to each founder</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
   </div>
@@ -419,6 +572,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">17 · Wire instructions emailed to each founder</div>
       <div class="step-meta"><span class="owner">Alex</span><span>Mercury account info for Pheeew + Alex's personal bank info for gifts</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason (the only people sending wires besides Alex). Subject: <code>Pheeew, Inc. · Wire Instructions Packet · please initiate within 5 business days</code>. Attach: <code>13_Wire_Instructions_Packet.docx</code> (with Mercury account info + Alex's personal bank info filled in by Alex BEFORE sending). Body: warn never to act on wire-info changes from unverified emails; confirm with phone.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — not a signed doc</div>
+        <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin + Jason each confirm receipt + planned wire date</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>filled packet kept in corporate book · use SECURE channel (Signal / Mercury portal / encrypted email) when distributing the version with real account numbers</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -427,6 +587,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">18 · 5 wires execute (per the flow card above)</div>
       <div class="step-meta"><span class="owner">Each founder</span><span>Justin × 2, Jason × 2, Alex × 1 · log confirmation numbers here</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">Inbound only — Justin and Jason forward their wire confirmation receipts to <code>hello@pheeew.com</code>. Subject expected: <code>Wire Confirmation · [Name] · Wire #[#]</code>.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — bank wire</div>
+        <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Alex confirms back to each sender once funds land in Mercury / his personal account · then logs in Closing Tracker</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>wire confirmations from each founder · Mercury statements · Alex's personal bank statements. Sequence: Justin → Pheeew + Justin → Alex first; Jason → Pheeew + Jason → Alex second; Alex → Pheeew LAST (funded by the two gifts).</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
   </div>
@@ -440,6 +607,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">19 · 83(b) elections mailed USPS Certified w/ Return Receipt</div>
       <div class="step-meta"><span class="owner">Alex, Justin, Jason each</span><span>Each to their own IRS service center based on state of residence</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">Inbound only — each founder forwards their USPS Certified Mail tracking number + mailing-date receipt to <code>hello@pheeew.com</code> after mailing. Subject expected: <code>83(b) Election Filed · [Name]</code>.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">Already done in Step 09/10/11</div>
+        <div class="exec-label">Signers</div><div class="exec-value">Already signed</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Alex confirms back to each founder once tracking + scan are logged</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>each founder's 83(b) lands at their state's IRS Service Center · tracking + scanned signed PDF stored in <code>/Pheeew/Closing/_83b_filed/</code></div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">3 of 4</span></div>
   </div>
@@ -448,6 +622,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">20 · Certified Mail tracking numbers logged</div>
       <div class="step-meta"><span class="owner">Alex (aggregates)</span><span>Audit trail · proves on-time filing. Numbers attached to each founder's record.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — internal record-keeping. Optional: weekly status note to founders if any tracking still missing.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span></div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>Stock Ledger (Doc 15) lots L-004/L-005/L-006 updated with each tracking number · this is what proves "on-time filing" if IRS ever asks</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -461,6 +642,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">21 · Co-Founder Agreement counter-signed by all 4</div>
       <div class="step-meta"><span class="owner">All 4 founders</span><span>Final corporate record. Filed with Pheeew, Inc. corporate book.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">TO: all 4 founders (incl. Alex on CC). Subject: <code>Pheeew, Inc. · Co-Founder Agreement v3 + Voting Agreement · fully executed copies</code>. Attach: the two final aggregated PDFs (Docs 11 and 12 with all signatures).</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">Already done — Step 14 / Step 15</div>
+        <div class="exec-label">Signers</div><div class="exec-value">Already 5 sig lines on each, fully executed</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>informational broadcast — confirms the closing book is complete</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>filed in corporate book + <span class="pill ext">EXTERNAL</span>copy to each founder's personal records</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
   </div>
@@ -469,6 +657,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">22 · Stock Ledger filled in &amp; filed in corporate book</div>
       <div class="step-meta"><span class="owner">Alex (Sole Director)</span><span>Doc 15 · log certificate numbers + 83(b) Certified Mail tracking numbers in the ledger lots L-002 through L-006. This is the official record of who owns what.</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">None — internal corporate-book record. Optional: send final executed Stock Ledger PDF to all 4 founders for transparency.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">Alex signs the Attestation block at the bottom of Doc 15 once filled in</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Alex as CEO and Sole Director (Attestation)</strong></div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span></div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill int">INTERNAL</span>filed in corporate book · this is what acquirers/investors/auditors will ask for first</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
   </div>
@@ -477,6 +672,13 @@ a:hover{text-decoration:underline}
     <div class="step-body">
       <div class="step-title">23 · KPI workshop · option grant agreements drafted</div>
       <div class="step-meta"><span class="owner">All 4 workshop · Alex drafts</span><span>Lock the KPIs together · ~0.64% per grant × 3 grants = up to 1.91% per non-Alex founder · draft Option Grant Agreements last</span></div>
+      <div class="exec">
+        <div class="exec-label">Email</div><div class="exec-value">Workshop scheduling email to all 4 founders. Subject: <code>Pheeew, Inc. · KPI Workshop · lock the first option-grant milestones</code>. After the workshop: individual emails to Justin, Jason, Dawon with their customized Option Grant Agreement (one each) based on Doc 14 TEMPLATE.</div>
+        <div class="exec-label">Pre-sign</div><div class="exec-value">After workshop, Alex signs each grant as Company first, then sends to grantee</div>
+        <div class="exec-label">Signers</div><div class="exec-value"><strong>2 per grant · Alex (Company) + grantee (Participant).</strong> Up to 3 grants per non-Alex founder over time.</div>
+        <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>each grantee returns signed Grant Agreement</div>
+        <div class="exec-label">Record</div><div class="exec-value"><span class="pill ext">EXTERNAL</span>signed grants filed in corporate book + copy to each grantee · update Stock Ledger reservations</div>
+      </div>
     </div>
     <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
   </div>
