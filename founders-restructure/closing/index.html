@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Closing tracker · Pheeew, Inc. founder restructure</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%238B4A2C'/%3E%3C/svg%3E">
+<style>
+:root{
+  --pheeew:#8B4A2C;
+  --pheeew-deep:#6B3520;
+  --pheeew-tint:rgba(139,74,44,.08);
+  --bg-page:#FAF6ED;
+  --bg-card:#FFFFFF;
+  --bg-soft:#FCFAF3;
+  --bg-deep:#F2EBD9;
+  --bg-dark:#1A1A1A;
+  --text:#1A1A1A;
+  --text-secondary:#4A4A4A;
+  --text-tertiary:#888;
+  --text-muted-dark:#9A9A9A;
+  --line:#E8E0D0;
+  --line-soft:#F0E9D9;
+  --accent-green:#3D8B6E;
+  --accent-coral:#E8745A;
+  --accent-yellow:#F4C95D;
+  --bg-green:#1F3D33;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Pretendard","Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg-page);color:var(--text);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--pheeew);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* GATE */
+.gate{position:fixed;inset:0;background:var(--bg-page);display:flex;align-items:center;justify-content:center;z-index:200;padding:24px}
+.gate-box{max-width:420px;width:100%;text-align:center;padding:40px;background:var(--bg-card);border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 64px rgba(0,0,0,.06)}
+.gate-logo{font-size:42px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew);margin-bottom:8px}
+.gate-tag{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:24px}
+.gate input{width:100%;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--bg-soft);font-size:15px;margin-bottom:12px;outline:none}
+.gate input:focus{border-color:var(--pheeew)}
+.gate button{width:100%;padding:14px;background:var(--pheeew);color:#fff;border-radius:12px;font-size:15px;font-weight:600;border:none;cursor:pointer}
+.gate-error{color:var(--accent-coral);font-size:13px;margin-top:10px;display:none}
+
+.wrap{max-width:1080px;margin:0 auto;padding:32px 28px 80px}
+
+/* HEADER */
+.hdr{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.hdr-tag{display:inline-block;padding:5px 12px;background:var(--accent-green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;border-radius:14px;margin-bottom:14px}
+.hdr h1{font-size:36px;font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:8px}
+.hdr .sub{font-size:15px;color:var(--text-secondary);max-width:680px;line-height:1.55}
+.hdr-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:var(--text-tertiary)}
+.hdr-meta strong{color:var(--text-secondary);font-weight:600}
+
+/* SUMMARY */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+.sum-card{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:14px;padding:18px}
+.sum-num{font-size:28px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew);line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.sum-num.done{color:var(--accent-green)}
+.sum-num.now{color:var(--accent-yellow)}
+.sum-num.todo{color:var(--text-tertiary)}
+.sum-label{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em}
+
+/* PHASE */
+.phase{margin-bottom:32px}
+.phase-head{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--pheeew-tint)}
+.phase-num{font-size:11px;font-weight:700;color:var(--pheeew);text-transform:uppercase;letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.phase-title{font-size:20px;font-weight:700;letter-spacing:-.015em}
+.phase-deadline{margin-left:auto;font-size:12px;color:var(--text-tertiary);font-weight:500}
+
+/* STEP */
+.step{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px;margin-bottom:8px;display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:center}
+.step.done{background:rgba(61,139,110,.05);border-color:rgba(61,139,110,.25)}
+.step.now{background:rgba(244,201,93,.08);border-color:var(--accent-yellow);box-shadow:0 0 0 3px rgba(244,201,93,.1)}
+.step-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;font-size:13px;font-weight:700;color:transparent;transition:all .15s}
+.step.done .step-check{background:var(--accent-green);border-color:var(--accent-green);color:#fff}
+.step.done .step-check::after{content:"✓"}
+.step.now .step-check{background:var(--accent-yellow);border-color:var(--accent-yellow);color:var(--text)}
+.step.now .step-check::after{content:"•";font-size:22px;line-height:0}
+.step-num{font-size:11px;color:var(--text-tertiary);font-weight:700;font-variant-numeric:tabular-nums;text-align:center;margin-top:4px}
+.step-body{min-width:0}
+.step-title{font-size:14px;font-weight:600;line-height:1.4}
+.step-meta{font-size:12px;color:var(--text-tertiary);margin-top:4px;line-height:1.5;display:flex;gap:12px;flex-wrap:wrap}
+.step-meta .owner{font-weight:600;color:var(--text-secondary)}
+.step-actions{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.tag{padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600;letter-spacing:.04em}
+.tag.done{background:rgba(61,139,110,.12);color:var(--accent-green)}
+.tag.now{background:rgba(244,201,93,.2);color:#8B6914}
+.tag.todo{background:var(--bg-soft);color:var(--text-tertiary)}
+.tag.alex{background:var(--pheeew-tint);color:var(--pheeew)}
+.tag.justin{background:#FCD9CF;color:#A0432F}
+.tag.jason{background:#D8EBE0;color:var(--bg-green)}
+.tag.dawon{background:rgba(244,201,93,.2);color:#8B6914}
+.tag.all{background:#EFEFEF;color:var(--text-secondary)}
+
+/* DOCS LIST */
+.docs{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:14px;padding:24px;margin-top:32px}
+.docs h3{font-size:14px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+.docs-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}
+.doc-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:10px;font-size:13px;color:var(--text-secondary)}
+.doc-row strong{color:var(--text)}
+.doc-row.live{background:rgba(61,139,110,.08);border-color:rgba(61,139,110,.3)}
+.doc-row.live::before{content:"✓ ";color:var(--accent-green);font-weight:700}
+.doc-row.pending::before{content:"○ ";color:var(--text-tertiary)}
+.doc-row a{margin-left:auto;font-size:12px;font-weight:600}
+
+/* MONEY FLOW */
+.flow{background:var(--bg-dark);color:#fff;border-radius:18px;padding:24px;margin-bottom:24px}
+.flow h3{font-size:13px;font-weight:700;color:var(--accent-yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.flow-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px}
+.flow-card .who{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.flow-card .amt{font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--accent-yellow);font-variant-numeric:tabular-nums;margin-bottom:2px}
+.flow-card .dest{font-size:11px;color:var(--text-muted-dark);line-height:1.45}
+
+.footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--text-tertiary);line-height:1.55}
+.footer a{color:var(--pheeew)}
+
+@media (max-width:740px){
+  .summary{grid-template-columns:1fr 1fr}
+  .step{grid-template-columns:36px 1fr;gap:12px}
+  .step-actions{grid-column:2;justify-content:flex-start;margin-top:4px}
+  .phase-head{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <div class="gate-logo">Pheeew</div>
+    <div class="gate-tag">Founders only · Closing tracker</div>
+    <form onsubmit="checkGate(event)">
+      <input id="gateInput" type="password" placeholder="passcode" autocomplete="off" autofocus>
+      <button type="submit">Enter</button>
+      <div class="gate-error" id="gateError">Wrong passcode</div>
+    </form>
+  </div>
+</div>
+
+<div id="content" style="display:none">
+<div class="wrap">
+
+<div class="hdr">
+  <div class="hdr-tag">✓ CAP TABLE CONFIRMED · MAY 14–15, 2026</div>
+  <h1>Closing tracker</h1>
+  <p class="sub">All four founders confirmed the restructure in writing. This page tracks every document and process from "confirmed" to "fully closed." Updated as steps complete.</p>
+  <div class="hdr-meta">
+    <span><strong>Target window:</strong> May 15 → May 25, 2026</span>
+    <span><strong>83(b) deadline:</strong> 30 days from share issuance · MAILED CERTIFIED</span>
+    <span><strong>Approach:</strong> Founder-led, no outside counsel or accountant</span>
+    <span><strong>Last update:</strong> <time id="lastUpdate"></time></span>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <div class="sum-card"><div class="sum-num done" id="cDone">1</div><div class="sum-label">Done</div></div>
+  <div class="sum-card"><div class="sum-num now" id="cNow">1</div><div class="sum-label">In progress</div></div>
+  <div class="sum-card"><div class="sum-num todo" id="cTodo">20</div><div class="sum-label">To do</div></div>
+  <div class="sum-card"><div class="sum-num" id="cTotal">22</div><div class="sum-label">Total steps</div></div>
+</div>
+
+<!-- MONEY FLOW -->
+<div class="flow">
+  <h3>The 5 wires + 2 gifts</h3>
+  <div class="flow-grid">
+    <div class="flow-card"><div class="who">Justin → Pheeew Mercury</div><div class="amt">$12,673.77</div><div class="dest">For 5,607,861 shares · subscription wire</div></div>
+    <div class="flow-card"><div class="who">Justin → Alex (personal)</div><div class="amt">$9,326.23</div><div class="dest">Gift · under $19K IRS annual exclusion · no Form 709</div></div>
+    <div class="flow-card"><div class="who">Jason → Pheeew Mercury</div><div class="amt">$2,656.08</div><div class="dest">For 1,175,257 new shares · subscription wire</div></div>
+    <div class="flow-card"><div class="who">Jason → Alex (personal)</div><div class="amt">$5,593.92</div><div class="dest">Gift · under $19K IRS annual exclusion · no Form 709</div></div>
+    <div class="flow-card"><div class="who">Alex → Pheeew Mercury</div><div class="amt">$14,920.15</div><div class="dest">For 6,602,801 refresh shares · funded by gifts above</div></div>
+  </div>
+</div>
+
+<!-- PHASE 0 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 00</span><span class="phase-title">Setup</span><span class="phase-deadline">Today</span></div>
+  <div class="step done">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">01 · Lock cap-table state in dashboard</div>
+      <div class="step-meta"><span class="owner">Alex</span><span>Done · Dashboard shows the locked cap table with confirmation badge.</span></div>
+    </div>
+    <div class="step-actions"><span class="tag done">DONE</span><span class="tag alex">Alex</span></div>
+  </div>
+  <div class="step now">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">02 · Collect founder intake info (all 4)</div>
+      <div class="step-meta"><span class="owner">Each founder</span><span>Founder_Intake_Form.docx is generated. Distribute, return within 48 hours.</span></div>
+    </div>
+    <div class="step-actions"><span class="tag now">NOW</span><span class="tag all">All 4</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">03 · Confirm Pheeew Mercury account ready to receive wires</div>
+      <div class="step-meta"><span class="owner">Alex</span><span>Confirm account number, routing, instructions ready to forward to Justin + Jason</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
+  </div>
+</div>
+
+<!-- PHASE 1 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 01</span><span class="phase-title">Corporate resolutions</span><span class="phase-deadline">Day 1</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">04 · Sole Director Written Consent</div>
+      <div class="step-meta"><span class="owner">Alex (signs)</span><span>Authorizes: new share issuances, 2026 Equity Incentive Plan adoption, option pool sizing, related actions</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">05 · 2026 Equity Incentive Plan</div>
+      <div class="step-meta"><span class="owner">Alex (signs as Sole Director)</span><span>Formal plan creating the 1,996,317-share option pool. Allows future KPI grants.</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
+  </div>
+</div>
+
+<!-- PHASE 2 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 02</span><span class="phase-title">Securities issuance</span><span class="phase-deadline">Day 1–2</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">06 · RSPA · Alex Kim (6,602,801 refresh shares @ $0.00226)</div>
+      <div class="step-meta"><span class="owner">Alex (signs)</span><span>Subscription: $14,920.15 · 4-year vest, 1-year cliff on refresh shares</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">07 · RSPA · Justin Kim (5,607,861 shares @ $0.00226)</div>
+      <div class="step-meta"><span class="owner">Justin (signs)</span><span>Subscription: $12,673.77 · 4-year vest, 1-year cliff</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag justin">Justin</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">08 · RSPA · Jason Ko (1,175,257 new shares @ $0.00226)</div>
+      <div class="step-meta"><span class="owner">Jason (signs)</span><span>Subscription: $2,656.08 · 4-year vest, 1-year cliff on new shares only</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag jason">Jason</span></div>
+  </div>
+</div>
+
+<!-- PHASE 3 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 03</span><span class="phase-title">Tax elections · 83(b)</span><span class="phase-deadline">Day 1–25 · STRICT 30-DAY WINDOW</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">09 · 83(b) Election · Alex (refresh shares)</div>
+      <div class="step-meta"><span class="owner">Alex (signs + mails)</span><span>USPS Certified w/ Return Receipt to Alex's IRS service center · within 30 days of RSPA date</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">10 · 83(b) Election · Justin</div>
+      <div class="step-meta"><span class="owner">Justin (signs + mails)</span><span>USPS Certified w/ Return Receipt · within 30 days of RSPA date</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag justin">Justin</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">11 · 83(b) Election · Jason</div>
+      <div class="step-meta"><span class="owner">Jason (signs + mails)</span><span>USPS Certified w/ Return Receipt · within 30 days of RSPA date</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag jason">Jason</span></div>
+  </div>
+  <div class="step done">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">— · 83(b) Election · Dawon (covered)</div>
+      <div class="step-meta"><span class="owner">Already done</span><span>Filed April 18, 2026 for existing 2,880,000 shares · no new 83(b) needed</span></div>
+    </div>
+    <div class="step-actions"><span class="tag done">DONE</span><span class="tag dawon">Dawon</span></div>
+  </div>
+</div>
+
+<!-- PHASE 4 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 04</span><span class="phase-title">Personal gift documentation</span><span class="phase-deadline">Day 1–2</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">12 · Gift Letter · Justin → Alex ($9,326.23)</div>
+      <div class="step-meta"><span class="owner">Justin + Alex (sign)</span><span>Under $19K IRS annual exclusion · no Form 709 · personal transaction, not corporate</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag justin">Justin</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">13 · Gift Letter · Jason → Alex ($5,593.92)</div>
+      <div class="step-meta"><span class="owner">Jason + Alex (sign)</span><span>Under $19K IRS annual exclusion · no Form 709 · personal transaction, not corporate</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag jason">Jason</span></div>
+  </div>
+</div>
+
+<!-- PHASE 5 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 05</span><span class="phase-title">Founder coordination</span><span class="phase-deadline">Day 3–5</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">14 · Co-Founder Agreement v3</div>
+      <div class="step-meta"><span class="owner">All 4 founders sign + company</span><span>Codifies roles, vesting, IP assignment, confidentiality. Replaces any prior co-founder agreements.</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">15 · Voting Agreement</div>
+      <div class="step-meta"><span class="owner">All 4 founders sign + company</span><span>Drag-along, tag-along, founder voting protocol on major actions</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
+  </div>
+</div>
+
+<!-- PHASE 6 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 06</span><span class="phase-title">State filings</span><span class="phase-deadline">Day 3–5 · only if needed</span></div>
+  <div class="step done">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">16 · Certificate of Amendment, DE Sec of State — NOT NEEDED</div>
+      <div class="step-meta"><span class="owner">Alex</span><span>22,385,919 issued + 1,996,317 pool = 24,382,236 fully diluted · within 30M already authorized · all Common Stock · no amendment required</span></div>
+    </div>
+    <div class="step-actions"><span class="tag done">SKIP</span><span class="tag alex">Alex</span></div>
+  </div>
+</div>
+
+<!-- PHASE 7 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 07</span><span class="phase-title">Wires</span><span class="phase-deadline">Day 2–7</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">17 · Wire instructions emailed to each founder</div>
+      <div class="step-meta"><span class="owner">Alex</span><span>Mercury account info for Pheeew + Alex's personal bank info for gifts</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">18 · 5 wires execute (per the flow card above)</div>
+      <div class="step-meta"><span class="owner">Each founder</span><span>Justin × 2, Jason × 2, Alex × 1 · log confirmation numbers here</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
+  </div>
+</div>
+
+<!-- PHASE 8 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 08</span><span class="phase-title">IRS mailings</span><span class="phase-deadline">Day 7–25 · 83(b) hard deadline</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">19 · 83(b) elections mailed USPS Certified w/ Return Receipt</div>
+      <div class="step-meta"><span class="owner">Alex, Justin, Jason each</span><span>Each to their own IRS service center based on state of residence</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">3 of 4</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">20 · Certified Mail tracking numbers logged</div>
+      <div class="step-meta"><span class="owner">Alex (aggregates)</span><span>Audit trail · proves on-time filing. Numbers attached to each founder's record.</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag alex">Alex</span></div>
+  </div>
+</div>
+
+<!-- PHASE 9 -->
+<div class="phase">
+  <div class="phase-head"><span class="phase-num">Phase 09</span><span class="phase-title">Post-close</span><span class="phase-deadline">Week 2+</span></div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">21 · Co-Founder Agreement counter-signed by all 4</div>
+      <div class="step-meta"><span class="owner">All 4 founders</span><span>Final corporate record. Filed with Pheeew, Inc. corporate book.</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
+  </div>
+  <div class="step">
+    <div class="step-check"></div>
+    <div class="step-body">
+      <div class="step-title">22 · KPI workshop · option grant agreements drafted</div>
+      <div class="step-meta"><span class="owner">All 4 workshop · Alex drafts</span><span>Lock the KPIs together · ~0.64% per grant × 3 grants = up to 1.91% per non-Alex founder · draft Option Grant Agreements last</span></div>
+    </div>
+    <div class="step-actions"><span class="tag todo">TO DO</span><span class="tag all">All 4</span></div>
+  </div>
+</div>
+
+<!-- DOCS -->
+<div class="docs">
+  <h3>Documents · 12 to generate</h3>
+  <div class="docs-list">
+    <div class="doc-row live">Founder Intake Form (.docx) <a href="../../Pheeew/Closing/Founder_Intake_Form.docx">file ↗</a></div>
+    <div class="doc-row pending">Sole Director Written Consent</div>
+    <div class="doc-row pending">2026 Equity Incentive Plan</div>
+    <div class="doc-row pending">RSPA · Alex</div>
+    <div class="doc-row pending">RSPA · Justin</div>
+    <div class="doc-row pending">RSPA · Jason</div>
+    <div class="doc-row pending">83(b) Election · Alex</div>
+    <div class="doc-row pending">83(b) Election · Justin</div>
+    <div class="doc-row pending">83(b) Election · Jason</div>
+    <div class="doc-row pending">Gift Letter · Justin → Alex</div>
+    <div class="doc-row pending">Gift Letter · Jason → Alex</div>
+    <div class="doc-row pending">Co-Founder Agreement v3</div>
+    <div class="doc-row pending">Voting Agreement</div>
+    <div class="doc-row pending">Wire Instructions packet</div>
+    <div class="doc-row pending">KPI Option Grant template (Phase 9)</div>
+  </div>
+</div>
+
+<div class="footer">
+  Confidential · Pheeew, Inc. founder restructure closing · For the four founders only.<br>
+  Documents in this closing are generated from publicly-available templates (YC, Cooley GO, NVCA, IRS-published 83(b) format). Per founder direction: closing proceeds without outside counsel or outside accountant. Templates are not legal advice. Founders sign at their own discretion.
+</div>
+
+</div>
+</div>
+
+<script>
+  const PASSCODE = 'pheeew-team-2026';
+  function checkGate(e){
+    e.preventDefault();
+    const v = document.getElementById('gateInput').value.trim().toLowerCase();
+    if(v === PASSCODE){
+      sessionStorage.setItem('pheeew-closing-gate', '1');
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    } else {
+      document.getElementById('gateError').style.display = 'block';
+      document.getElementById('gateInput').value = '';
+    }
+  }
+  if(sessionStorage.getItem('pheeew-closing-gate') === '1'){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  }
+  document.getElementById('lastUpdate').textContent = new Date().toLocaleString('en-US', { dateStyle:'medium', timeStyle:'short' });
+</script>
+
+</body>
+</html>
