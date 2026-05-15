@@ -107,6 +107,11 @@ a:hover{text-decoration:underline}
 .exec-value .pill.noreply{background:var(--bg-deep);color:var(--text-tertiary)}
 @media (max-width:740px){.exec{grid-template-columns:1fr;gap:2px 0}.exec-label{margin-top:6px}}
 
+/* EMAIL BODY — copy-paste-ready */
+.email-body{margin-top:10px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:8px;font-family:ui-monospace,"SF Mono","Menlo",monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;color:var(--text);overflow-x:auto;position:relative}
+.email-body .email-meta{font-size:11px;color:var(--text-tertiary);margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.email-body .copy-hint{position:absolute;top:8px;right:10px;font-size:10px;font-family:var(--font);color:var(--text-tertiary);font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--bg-soft);padding:2px 8px;border-radius:6px;border:1px solid var(--line-soft)}
+
 /* DOCS LIST */
 .docs{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:14px;padding:24px;margin-top:32px}
 .docs h3{font-size:14px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
@@ -217,7 +222,28 @@ a:hover{text-decoration:underline}
       <div class="step-title">02 · Collect founder intake info (all 4)</div>
       <div class="step-meta"><span class="owner">Each founder</span><span>Founder_Intake_Form.docx is generated. Distribute, return within 48 hours.</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason, Dawon (separately or BCC). Subject: <code>Pheeew, Inc. · Founder Intake Form · please complete within 48 hours</code>. Attach: <code>Founder_Intake_Form.docx</code>. Body: brief — explains the form feeds RSPA, 83(b), and Co-Founder Agreement; ask each to fill, sign, return.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send separately to Justin, Jason, Dawon · attach <code>Founder_Intake_Form.docx</code>
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: [Justin / Jason / Dawon] · personal email
+SUBJECT: Pheeew, Inc. · Founder Intake Form · please complete within 48 hours
+ATTACH: Founder_Intake_Form.docx</div>Hi [name],
+
+We're at the final stretch of the founder restructure. Before I can finalize your RSPA, 83(b) Election, and Co-Founder Agreement, I need a few pieces of personal info from you.
+
+Please complete the attached Founder Intake Form (7 short sections, ~5 minutes) and send back as a signed PDF within 48 hours.
+
+What we need:
+  1. Legal name (as on government ID), DOB, citizenship status, SSN/ITIN
+  2. Residential and mailing address
+  3. Personal email + @pheeew.com email + mobile phone
+  4. State you file personal income taxes in
+  5. Bank info for receiving wires and gifts
+  6. Title, start date, expected hours per week
+  7. Sign + date the confirmation block
+
+Send it back to hello@pheeew.com or reply to this email with the PDF attached.
+
+Talk soon,
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">No — Alex doesn't sign. Each founder signs their own form.</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>1 per form · each founder signs their own</strong> (4 forms total, one per founder including Alex)</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>signed PDF back to Alex within 48 hours</div>
@@ -267,7 +293,27 @@ a:hover{text-decoration:underline}
       <div class="step-title">3b · Stockholder Written Consent · Approve amendment</div>
       <div class="step-meta"><span class="owner">Alex + Jason + Dawon (sign)</span><span>Doc 0b · Holders of majority of outstanding shares approve the amendment. DGCL § 228 written consent. All 3 should sign even though any 2 = majority.</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Jason, Dawon. Subject: <code>Pheeew, Inc. · Stockholder Consent · please sign within 24 hours</code>. Attach: <code>0b_Stockholder_Written_Consent_Amendment.docx</code> with Alex's signature already on it. Body: explain this is the stockholder approval to increase authorized shares from 10M to 30M; majority needed but get all 3 for cleanliness.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send separately to Jason and Dawon · attach <code>0b_Stockholder_Written_Consent_Amendment.docx</code> with Alex's signature already on it
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: [Jason / Dawon]
+SUBJECT: Pheeew, Inc. · Stockholder Consent · please sign within 24 hours
+ATTACH: 0b_Stockholder_Written_Consent_Amendment.docx (pre-signed by Alex)</div>Hi [Jason / Dawon],
+
+Our restructure is going to push Pheeew past the 10 million authorized share count we set at incorporation. To bring on Justin and refresh the cap table to the locked 24.4M fully-diluted plan, we need to amend the Certificate of Incorporation to increase authorized shares from 10,000,000 to 30,000,000.
+
+Under Delaware law (DGCL § 242), a Certificate of Amendment requires both Board approval (done — my Sole Director Written Consent on file) AND stockholder approval from holders of at least a majority of outstanding shares.
+
+You + me + Dawon (or + Jason, whichever you're not) = 100% of stockholders today. Even though any two of us would already be a majority, I'm getting all three signatures so the record is clean.
+
+The attached Stockholder Written Consent is short — one page of recitals plus your signature block. I've already signed it as one of the stockholders. Please:
+
+  1. Review it
+  2. Sign your block (wet ink, scanned, or e-sign all fine for this internal doc)
+  3. Send the signed PDF back to me at hello@pheeew.com within 24 hours
+
+Once I have both signatures, I sign the Certificate of Amendment, flatten it, and file it with the Delaware Secretary of State. Once DE accepts (24-hour expedited), the rest of the restructure can proceed.
+
+Thanks,
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs first</strong> as a current stockholder (his 3.15M makes him one of the 3 existing holders)</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>3 stockholders — Alex (3,150,000), Jason (2,970,000), Dawon (2,880,000).</strong> Note: Justin does NOT sign here — he's not a stockholder yet (his shares are issued AFTER the Amendment).</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>signed PDF from both Jason and Dawon. Aim for same-day turnaround so 3c/3d can proceed.</div>
@@ -327,7 +373,24 @@ a:hover{text-decoration:underline}
       <div class="step-title">3f · Receive stamped Cert of Amendment · Authorized = 30M effective</div>
       <div class="step-meta"><span class="owner">Alex (logs in corporate book)</span><span>Save stamped PDF to corporate book. From this point forward authorized = 30,000,000 shares. Now Phase 01 + Phase 02 issuances can proceed.</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason, Dawon. Subject: <code>Pheeew, Inc. · Cert of Amendment filed · authorized = 30M effective</code>. Attach: stamped Cert of Amendment PDF. Body: short — confirms DE accepted the filing, RSPAs + 83(b)s can now proceed.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to all 3 founders (Justin, Jason, Dawon) once DE returns the stamped Cert · attach the stamped PDF
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin, Jason, Dawon
+SUBJECT: Pheeew, Inc. · Cert of Amendment filed · authorized = 30M effective
+ATTACH: stamped Certificate of Amendment PDF (from DE)</div>Hi all,
+
+Good news — Delaware has accepted our Certificate of Amendment. Pheeew, Inc.'s authorized Common Stock is now 30,000,000 shares (up from 10,000,000), same $0.00001 par value. Stamped Cert attached for your records.
+
+This unblocks the rest of the restructure:
+  · RSPAs for Alex refresh + Justin + Jason new shares
+  · 83(b) Elections for each
+  · Wire transfers
+  · Co-Founder Agreement v3 + Voting Agreement
+  · Stock Ledger update
+
+I'll be sending out the RSPAs and wire instructions shortly. Expect to receive your packet within the next day.
+
+Talk soon,
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — DE has signed/stamped it</div>
         <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>informational broadcast to the team</div>
@@ -362,7 +425,25 @@ a:hover{text-decoration:underline}
       <div class="step-title">05 · 2026 Equity Incentive Plan</div>
       <div class="step-meta"><span class="owner">Alex (signs as Sole Director)</span><span>Draft generated · 17 sections, ~10 pages, single-trigger Change of Control acceleration, 10-year plan term · awaiting Alex's signature</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">FYI broadcast to all 4 founders AFTER Alex signs. Subject: <code>Pheeew, Inc. · 2026 Equity Incentive Plan adopted</code>. Attach: signed <code>02_2026_Equity_Incentive_Plan.docx</code>. Body: informational — the Plan they'll be granted options under.</div>
+        <div class="exec-label">Email</div><div class="exec-value">FYI broadcast to all 3 other founders AFTER Alex signs · attach signed <code>02_2026_Equity_Incentive_Plan.docx</code>
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin, Jason, Dawon
+SUBJECT: Pheeew, Inc. · 2026 Equity Incentive Plan adopted
+ATTACH: 02_2026_Equity_Incentive_Plan.docx (signed by Alex as Sole Director)</div>Hi all,
+
+I've adopted the Pheeew, Inc. 2026 Equity Incentive Plan as Sole Director (signed copy attached for your records).
+
+Quick summary:
+  · 1,996,317 shares reserved for future equity grants (8.19% of fully-diluted cap)
+  · 10-year term (expires May 15, 2036)
+  · Single-trigger 100% acceleration of vesting upon Change of Control
+  · Covers ISOs, NSOs, Restricted Stock, RSUs, Stock Bonus Awards
+
+Your KPI-based option grants (when we get to those) will be issued under this Plan.
+
+No action needed — this is informational.
+
+Talk soon,
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">Alex signs first as Sole Director · no other signatures required</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Alex as Sole Director (adopts the Plan)</strong></div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>informational only</div>
@@ -397,7 +478,33 @@ a:hover{text-decoration:underline}
       <div class="step-title">07 · RSPA · Justin Kim (5,607,861 shares @ $0.00226)</div>
       <div class="step-meta"><span class="owner">Justin (signs)</span><span>Subscription: $12,673.77 · 4-year vest, 1-year cliff</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Justin. Subject: <code>Pheeew, Inc. RSPA · Junhyuk Kim · 5,607,861 shares · please sign + return</code>. Attach: <code>04_RSPA_Junhyuk_Kim_(Justin).docx</code> with Alex's Company-side signature already on it + the wire instructions for Wire #1 ($12,673.77 to Mercury). Body: short — explains share count, price, vesting, 83(b) deadline, wire deadline.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to Justin · attach pre-signed RSPA + Wire #1 instructions
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin (junhyuk@pheeew.com + personal email)
+SUBJECT: Pheeew, Inc. RSPA · Junhyuk Kim · 5,607,861 shares · please sign + return
+ATTACH: 04_RSPA_Junhyuk_Kim_(Justin).docx (Alex's Company-side sig already on it) + Wire #1 instructions</div>Hi Justin,
+
+Attached is your Restricted Stock Purchase Agreement (RSPA) for Pheeew, Inc., already signed by me on the Company side. This is the official purchase agreement for your founder equity.
+
+Key facts:
+  · Shares: 5,607,861 of Common Stock (23.00% fully-diluted)
+  · Per-share price: $0.00226
+  · Total subscription: $12,673.77 (you wire this to Pheeew Mercury — see Wire #1 in the wire packet)
+  · Vesting: 4 years from May 15, 2026 · 1-year cliff · monthly thereafter
+  · Acceleration: 100% single-trigger upon Change of Control
+  · 83(b) deadline: file within 30 days of the Effective Date you write on the RSPA
+
+What I need from you:
+  1. Read the full RSPA (and Exhibit A · Consent of Spouse — if applicable to you)
+  2. Wet-sign or e-sign the Purchaser block + fill in your address/email/phone/date
+  3. If married + community-property state: sign the Spousal Consent. Otherwise: mark "N/A"
+  4. Send back as signed PDF to hello@pheeew.com
+  5. Plan the wire within 5 business days — instructions in a separate email
+
+The 83(b) Election form (separate doc) is coming in a separate email. That one you mail to the IRS yourself via USPS Certified Mail within 30 days.
+
+Welcome aboard, partner.
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Send pre-signed PDF to Justin for his Purchaser signature.</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Alex (Company) + Junhyuk "Justin" Kim (Purchaser)</strong> · plus Spousal Consent (Exhibit A) if Justin is married</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin returns fully signed PDF + Spousal Consent + confirms 83(b) plan + confirms wire timing</div>
@@ -412,7 +519,33 @@ a:hover{text-decoration:underline}
       <div class="step-title">08 · RSPA · Jason Ko (1,175,257 new shares @ $0.00226)</div>
       <div class="step-meta"><span class="owner">Jason (signs)</span><span>Subscription: $2,656.08 · 4-year vest, 1-year cliff on new shares only</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Jason. Subject: <code>Pheeew, Inc. RSPA · Jason Ko · 1,175,257 new shares · please sign + return</code>. Attach: <code>05_RSPA_Jason_Ko_(New_Shares).docx</code> with Alex's Company-side signature already on it + Wire #3 instructions ($2,656.08 to Mercury). Body: short — clarifies these are NEW shares on top of his existing 2,970,000; existing shares' terms unchanged.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to Jason · attach pre-signed RSPA + Wire #3 instructions
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Jason (jason@pheeew.com + personal email)
+SUBJECT: Pheeew, Inc. RSPA · Jason Ko · 1,175,257 NEW shares · please sign + return
+ATTACH: 05_RSPA_Jason_Ko_(New_Shares).docx (Alex's Company-side sig already on it) + Wire #3 instructions</div>Hi Jason,
+
+Attached is your second RSPA — covers ONLY the 1,175,257 new shares from this restructure. Your existing 2,970,000 shares stay on their original terms (vesting from April 13, 2026) — those are not affected.
+
+Key facts on the NEW shares:
+  · Shares: 1,175,257 of Common Stock (additional issuance)
+  · Per-share price: $0.00226
+  · Total subscription: $2,656.08 (you wire this to Pheeew Mercury — see Wire #3 in the wire packet)
+  · Vesting: 4 years from May 15, 2026 · 1-year cliff · monthly thereafter · separate clock from your original shares
+  · Acceleration: 100% single-trigger upon Change of Control
+  · 83(b) deadline: file within 30 days of the Effective Date you write on the RSPA
+
+I've already signed the Company side. Your part:
+  1. Read the RSPA + Spousal Consent
+  2. Wet-sign or e-sign as Purchaser, fill in your details
+  3. Spousal Consent: sign if married + community-property state, otherwise mark "N/A"
+  4. Send back as signed PDF to hello@pheeew.com
+  5. Plan the wire within 5 business days — instructions in a separate email
+
+A separate 83(b) for these new shares is coming. It is ONLY for these 1.18M shares — your original April 15 filing covers the existing 2.97M.
+
+Total post-restructure: 4,145,257 shares (17.00% fully-diluted).
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Send pre-signed PDF to Jason for his Purchaser signature.</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Alex (Company) + Jason Ko (Purchaser)</strong> · plus Spousal Consent if Jason is married</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Jason returns fully signed PDF + Spousal Consent + confirms 83(b) plan + confirms wire timing</div>
@@ -447,7 +580,27 @@ a:hover{text-decoration:underline}
       <div class="step-title">10 · 83(b) Election · Justin — IRS Rev. Proc. 2012-29 format</div>
       <div class="step-meta"><span class="owner">Justin (signs + mails)</span><span>Doc 07 · USPS Certified w/ Return Receipt · staple Doc 08b filing instructions cover sheet · within 30 days of RSPA date</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Justin. Subject: <code>Pheeew, Inc. · 83(b) Election · file within 30 days of RSPA</code>. Attach: <code>07_83b_Election_Junhyuk_Kim.docx</code> + <code>08b_83b_Filing_Instructions_Cover_Sheet.docx</code>. Body: bullet the 30-day deadline, USPS Certified Mail requirement, and "send the tracking number + scanned signed PDF back to <code>hello@pheeew.com</code>."</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to Justin · attach 83(b) form + filing instructions
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin
+SUBJECT: Pheeew, Inc. · 83(b) Election · file within 30 days of your RSPA
+ATTACH: 07_83b_Election_Junhyuk_Kim.docx + 08b_83b_Filing_Instructions_Cover_Sheet.docx</div>Hi Justin,
+
+Attached is your 83(b) Election form (IRS Rev. Proc. 2012-29 format) along with step-by-step filing instructions. This is YOUR personal tax filing — Pheeew, Inc. does not file it for you.
+
+What it does: locks in your cost basis NOW (at the $0.00226 per-share price you paid) so any future increase in Pheeew's value is taxed as long-term capital gain when you sell, NOT as ordinary income when each tranche vests. Without this filing, every vesting tranche becomes a taxable event at then-current FMV.
+
+CRITICAL deadline: must be received by the IRS within 30 days of the RSPA Effective Date. No extensions. Missed deadlines cannot be cured.
+
+Steps (full detail in the cover sheet):
+  1. Fill in your name, address, SSN/ITIN, transfer date (= RSPA Effective Date), and sign.
+  2. Make 4 printed copies: (a) for the IRS, (b) for your records, (c) for Pheeew, (d) for your 2026 Form 1040.
+  3. Mail the original via USPS Certified Mail with Return Receipt to the IRS Service Center that processes your state's Form 1040. Look up the address here: https://www.irs.gov/filing/where-to-file-paper-tax-returns-with-or-without-a-payment
+  4. Save the USPS Certified Mail tracking number + the green Return Receipt.
+  5. Email me a scan of the signed form + the tracking number + the date you mailed it.
+
+If you need a hand with step 1 or 3, ping me.
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">No — Justin signs his own form personally</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Junhyuk "Justin" Kim only</strong></div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin sends Alex: (a) scanned signed PDF, (b) USPS Certified Mail tracking number, (c) mailing date</div>
@@ -462,7 +615,23 @@ a:hover{text-decoration:underline}
       <div class="step-title">11 · 83(b) Election · Jason — IRS Rev. Proc. 2012-29 format</div>
       <div class="step-meta"><span class="owner">Jason (signs + mails)</span><span>Doc 08 · USPS Certified w/ Return Receipt · staple Doc 08b filing instructions cover sheet · within 30 days of RSPA date</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Jason. Subject: <code>Pheeew, Inc. · 83(b) Election (new shares) · file within 30 days of RSPA</code>. Attach: <code>08_83b_Election_Jason_Ko.docx</code> + <code>08b_83b_Filing_Instructions_Cover_Sheet.docx</code>. Body: clarifies this is ONLY for the 1,175,257 new shares; his original 2,970,000 are already covered by his April 15 filing.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to Jason · attach 83(b) form (new shares only) + filing instructions
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Jason
+SUBJECT: Pheeew, Inc. · 83(b) Election (NEW shares only) · file within 30 days of your RSPA
+ATTACH: 08_83b_Election_Jason_Ko.docx + 08b_83b_Filing_Instructions_Cover_Sheet.docx</div>Hi Jason,
+
+Same drill as your original April 15 83(b) — but this one is ONLY for the 1,175,257 NEW shares from this restructure. Your existing 2,970,000 are already covered by your April 15 filing — no second filing needed for those.
+
+CRITICAL deadline: must be received by the IRS within 30 days of the new RSPA Effective Date. No extensions.
+
+Steps:
+  1. Fill in your name, address, SSN, transfer date (= new RSPA Effective Date), and sign.
+  2. Make 4 printed copies: (a) IRS, (b) your records, (c) Pheeew, (d) your 2026 Form 1040.
+  3. Mail the original via USPS Certified Mail with Return Receipt to your state's IRS Service Center (same address you used in April).
+  4. Save the tracking number + Return Receipt.
+  5. Email me the scanned signed form + tracking number + mailing date.
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">No — Jason signs his own form personally</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>1 · Jason Ko only</strong></div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Jason sends Alex: (a) scanned signed PDF, (b) USPS Certified Mail tracking number, (c) mailing date</div>
@@ -490,7 +659,27 @@ a:hover{text-decoration:underline}
       <div class="step-title">12 · Gift Letter · Justin → Alex ($9,326.23)</div>
       <div class="step-meta"><span class="owner">Justin + Alex (sign)</span><span>Under $19K IRS annual exclusion · no Form 709 · personal transaction, not corporate</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Justin (personal email — this is a personal-to-personal letter, not a Pheeew doc). Subject: <code>Gift Letter · Justin → Alex · $9,326.23</code>. Attach: <code>09_Gift_Letter_Justin_to_Alex.docx</code> (unsigned — Justin signs as Donor first). Body: paired with Wire #2; explains gift is gratuitous and unrelated to Pheeew equity.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send from Alex's PERSONAL email to Justin's PERSONAL email · attach unsigned gift letter
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">FROM: Alex personal email (NOT @pheeew.com — this is between individuals)
+TO: Justin personal email
+SUBJECT: Gift Letter · Justin → Alex · $9,326.23
+ATTACH: 09_Gift_Letter_Justin_to_Alex.docx (unsigned)</div>Hey Justin,
+
+As we discussed, attached is the Gift Letter for the $9,326.23 personal gift you're sending me. This is paired with Wire #2 in the restructure flow — the money lands in my personal account, NOT Pheeew's Mercury.
+
+A few important things on the document:
+  · This is between us personally — Pheeew, Inc. is NOT a party
+  · The Gift is gratuitous: no consideration, no loan, no equity, no future obligation
+  · Amount ($9,326.23) is under the 2026 IRS annual exclusion of $19,000 per donee, so no Form 709
+  · Governed by California law
+
+You sign first as Donor. Once you send back, I sign the Recipient Acknowledgement block. Final copy goes to each of our personal files (NOT corporate records).
+
+Please:
+  1. Sign the Donor block (wet ink or e-sign fine)
+  2. Send back as signed PDF (reply to this email)
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>No — Justin (Donor) signs first.</strong> Alex signs the Acknowledgement of Recipient block AFTER Justin sends back signed.</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Justin Kim (Donor) signs first, then Alex Kim (Recipient acknowledges)</strong></div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin returns Donor-signed PDF · Alex then signs Recipient block · final PDF goes to both personal files</div>
@@ -505,7 +694,27 @@ a:hover{text-decoration:underline}
       <div class="step-title">13 · Gift Letter · Jason → Alex ($5,593.92)</div>
       <div class="step-meta"><span class="owner">Jason + Alex (sign)</span><span>Under $19K IRS annual exclusion · no Form 709 · personal transaction, not corporate</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Jason (personal email). Subject: <code>Gift Letter · Jason → Alex · $5,593.92</code>. Attach: <code>10_Gift_Letter_Jason_to_Alex.docx</code> (unsigned). Body: paired with Wire #4; explains gratuitous nature.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send from Alex's PERSONAL email to Jason's PERSONAL email · attach unsigned gift letter
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">FROM: Alex personal email (NOT @pheeew.com)
+TO: Jason personal email
+SUBJECT: Gift Letter · Jason → Alex · $5,593.92
+ATTACH: 10_Gift_Letter_Jason_to_Alex.docx (unsigned)</div>Hey Jason,
+
+Attached is the Gift Letter for the $5,593.92 personal gift you're sending me. This pairs with Wire #4 — money lands in my personal account, not Pheeew's Mercury.
+
+Important:
+  · This is between us personally — Pheeew, Inc. is NOT a party
+  · Gift is gratuitous: no consideration, loan, equity, or future obligation
+  · Amount is under the 2026 IRS annual exclusion of $19,000 per donee, so no Form 709
+  · Governed by California law
+
+You sign first as Donor. After you send back, I sign the Recipient Acknowledgement. Final copy goes to each of our personal files (not corporate).
+
+Please:
+  1. Sign Donor block
+  2. Send back as signed PDF
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>No — Jason (Donor) signs first.</strong> Alex signs Recipient block AFTER Jason returns.</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>2 · Jason Ko (Donor) signs first, then Alex Kim (Recipient acknowledges)</strong></div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Jason returns Donor-signed PDF · Alex signs Recipient block · final PDF to both personal files</div>
@@ -525,7 +734,35 @@ a:hover{text-decoration:underline}
       <div class="step-title">14 · Co-Founder Agreement v3</div>
       <div class="step-meta"><span class="owner">All 4 founders sign + company</span><span>Codifies roles, vesting, IP assignment, confidentiality. Replaces any prior co-founder agreements.</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason, Dawon (all 4 incl. Alex on CC if convenient). Subject: <code>Pheeew, Inc. Co-Founder Agreement v3 · please sign + return</code>. Attach: <code>11_Co_Founder_Agreement_v3.docx</code> with Alex's Company-side signature already on it. Body: bullet roles + vesting + IP + non-compete + JAMS arbitration; ask for return within 5 business days.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to all 3 other founders · attach pre-signed Co-Founder Agreement v3
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin, Jason, Dawon
+SUBJECT: Pheeew, Inc. Co-Founder Agreement v3 · please sign + return
+ATTACH: 11_Co_Founder_Agreement_v3.docx (Alex's Company-side sig already on it)</div>Hi all,
+
+Attached is the Co-Founder Agreement v3 — the master document that codifies our roles, equity, vesting, IP, confidentiality, and how we make decisions. I've already signed the Company side. This supersedes any prior co-founder agreement.
+
+Key terms:
+  · 4 Founders: Alex (CEO, Sole Director), Justin (CGO), Jason (COO), Dawon (CBO)
+  · Equity per the locked cap table: Alex 40.00% · Justin 23.00% · Jason 17.00% · Dawon 11.81% · Pool 8.19%
+  · Vesting: layered (not restart) — each share block keeps its own clock
+  · All schedules: 4-year · 1-year cliff · monthly · single-trigger Change of Control acceleration
+  · Full-time commitment + IP assignment (standard moral-rights waiver)
+  · Confidentiality survives termination
+  · 12-month non-solicitation with CA Bus &amp; Prof § 16600 carve-out
+  · Major decisions consultation: I consult the other 3 founders before sale, equity financings &gt;$500K, debt &gt;$250K, dissolution, senior-officer hires
+  · Disputes: good-faith → JAMS mediation → JAMS arbitration in LA
+
+What I need from you:
+  1. Read the full agreement (10 pages — please don't skim)
+  2. Sign your Founder block on the signature page (date field too)
+  3. Send back as signed PDF to hello@pheeew.com
+
+A second email is coming with the Voting Agreement — they're meant to be signed together. Aim for 5-business-day turnaround on both.
+
+Once I have all 4 founder signatures + the Company sig, I'll send everyone the final aggregated PDF.
+
+Talk soon,
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Then circulate to all 4 founders for their Founder signatures (Alex also signs as a Founder on a separate line).</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>5 sig lines · 4 unique people · Alex (Company) + Alex (Founder) + Justin + Jason + Dawon</strong></div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>each of Justin/Jason/Dawon returns signed PDF · Alex aggregates all 4 sigs + Company sig into one final executed PDF</div>
@@ -540,7 +777,25 @@ a:hover{text-decoration:underline}
       <div class="step-title">15 · Voting Agreement</div>
       <div class="step-meta"><span class="owner">All 4 founders sign + company</span><span>Drag-along, tag-along, founder voting protocol on major actions</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">Bundle WITH Step 14 for efficiency — same recipients (Justin, Jason, Dawon). Subject: <code>Pheeew, Inc. Founders' Voting Agreement · sign + return</code>. Attach: <code>12_Voting_Agreement.docx</code> with Alex's Company-side signature already on it.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to all 3 other founders (paired with Step 14) · attach pre-signed Voting Agreement
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin, Jason, Dawon
+SUBJECT: Pheeew, Inc. Founders' Voting Agreement · sign + return
+ATTACH: 12_Voting_Agreement.docx (Alex's Company-side sig already on it)</div>Hi all — paired email to the Co-Founder Agreement v3.
+
+This is the Voting Agreement. It governs how we collectively act on stockholder votes — the founder-coordination layer:
+  · Drag-along: if holders of a majority of common approve a sale, all of us sell on the same per-share terms
+  · Tag-along (co-sale): if any founder tries to sell to a third party, the other founders can join pro-rata
+  · Permitted transfers: estate planning, death, or with Sole Director approval — no drag/tag for these
+  · IPO Lock-up: 180-day market stand-off when we IPO
+  · Specific performance is the remedy for breach (a court can order compliance — money damages aren't enough)
+
+I've already signed the Company side. Your part:
+  1. Sign your Stockholder/Founder block + date
+  2. Send back as signed PDF to hello@pheeew.com
+
+Same 5-business-day turnaround as the Co-Founder Agreement v3.
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value"><strong>Yes — Alex signs as Company first.</strong> Then all 4 founders sign their stockholder sig lines.</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>5 sig lines · 4 unique people · Alex (Company) + Alex (Stockholder) + Justin + Jason + Dawon</strong></div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>each of Justin/Jason/Dawon returns signed PDF · Alex aggregates</div>
@@ -573,7 +828,37 @@ a:hover{text-decoration:underline}
       <div class="step-title">17 · Wire instructions emailed to each founder</div>
       <div class="step-meta"><span class="owner">Alex</span><span>Mercury account info for Pheeew + Alex's personal bank info for gifts</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: Justin, Jason (the only people sending wires besides Alex). Subject: <code>Pheeew, Inc. · Wire Instructions Packet · please initiate within 5 business days</code>. Attach: <code>13_Wire_Instructions_Packet.docx</code> (with Mercury account info + Alex's personal bank info filled in by Alex BEFORE sending). Body: warn never to act on wire-info changes from unverified emails; confirm with phone.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to Justin + Jason · attach the FILLED-IN Wire Instructions Packet · use a secure channel (Signal or encrypted email)
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin, Jason (Dawon doesn't wire anything — she's covered)
+SUBJECT: Pheeew, Inc. · Wire Instructions · please initiate within 5 business days
+ATTACH: 13_Wire_Instructions_Packet.docx — FILL IN Mercury account info + Alex's personal bank info BEFORE sending</div>Hi Justin / Jason,
+
+Attached is the Wire Instructions Packet for the restructure. It lays out the 5 wires that need to happen for the cap table to settle.
+
+Your wires:
+
+JUSTIN — two wires:
+  · Wire #1: $12,673.77 → Pheeew, Inc. (Mercury) · for your 5,607,861 RSPA shares
+  · Wire #2: $9,326.23 → Alex Kim (personal) · gift, paired with Gift Letter #09
+
+JASON — two wires:
+  · Wire #3: $2,656.08 → Pheeew, Inc. (Mercury) · for your 1,175,257 new shares
+  · Wire #4: $5,593.92 → Alex Kim (personal) · gift, paired with Gift Letter #10
+
+Memo line — please use exactly:
+  · "Pheeew RSPA – [Your Name]" for subscription wires
+  · "Personal Gift – [Your Name]" for gift wires
+
+⚠ CRITICAL SECURITY NOTE: I will NEVER ask you to send funds to a different account by email or text. If you receive ANY message that looks like it's from me telling you to change accounts, CALL ME on a known number first. This is standard wire-fraud caution.
+
+Please:
+  1. Initiate the wires within 5 business days of receiving this
+  2. Forward your bank's wire-confirmation receipt to hello@pheeew.com immediately after sending
+  3. Reply to this email confirming receipt of these instructions + planned wire date
+
+Once both gifts land in my personal account, I'll initiate Wire #5 (Alex → Pheeew Mercury · $14,920.15) myself. Total cash in Pheeew, Inc. after all wires settle: $50,000.
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">N/A — not a signed doc</div>
         <div class="exec-label">Signers</div><div class="exec-value">N/A</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>Justin + Jason each confirm receipt + planned wire date</div>
@@ -643,7 +928,22 @@ a:hover{text-decoration:underline}
       <div class="step-title">21 · Co-Founder Agreement counter-signed by all 4</div>
       <div class="step-meta"><span class="owner">All 4 founders</span><span>Final corporate record. Filed with Pheeew, Inc. corporate book.</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">TO: all 4 founders (incl. Alex on CC). Subject: <code>Pheeew, Inc. · Co-Founder Agreement v3 + Voting Agreement · fully executed copies</code>. Attach: the two final aggregated PDFs (Docs 11 and 12 with all signatures).</div>
+        <div class="exec-label">Email</div><div class="exec-value">Send to all 3 other founders · attach final aggregated PDFs of CFA + VA with ALL signatures
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin, Jason, Dawon
+SUBJECT: Pheeew, Inc. · Co-Founder Agreement v3 + Voting Agreement · fully executed
+ATTACH: final aggregated 11_Co_Founder_Agreement_v3_EXECUTED.pdf + 12_Voting_Agreement_EXECUTED.pdf (both with all 5 signatures)</div>Hi all,
+
+Attached are the fully executed PDFs of:
+  1. Co-Founder Agreement v3 — signed by all 4 founders + Company
+  2. Founders' Voting Agreement — signed by all 4 stockholders + Company
+
+These are now filed in the Pheeew, Inc. corporate book. Each of you should save a copy to your personal records.
+
+This effectively closes the founder-restructure paperwork. Stock Ledger update and KPI workshop are the only remaining housekeeping items.
+
+Thanks for moving fast on this. Let's build.
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">Already done — Step 14 / Step 15</div>
         <div class="exec-label">Signers</div><div class="exec-value">Already 5 sig lines on each, fully executed</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill noreply">NO REPLY</span>informational broadcast — confirms the closing book is complete</div>
@@ -673,7 +973,28 @@ a:hover{text-decoration:underline}
       <div class="step-title">23 · KPI workshop · option grant agreements drafted</div>
       <div class="step-meta"><span class="owner">All 4 workshop · Alex drafts</span><span>Lock the KPIs together · ~0.64% per grant × 3 grants = up to 1.91% per non-Alex founder · draft Option Grant Agreements last</span></div>
       <div class="exec">
-        <div class="exec-label">Email</div><div class="exec-value">Workshop scheduling email to all 4 founders. Subject: <code>Pheeew, Inc. · KPI Workshop · lock the first option-grant milestones</code>. After the workshop: individual emails to Justin, Jason, Dawon with their customized Option Grant Agreement (one each) based on Doc 14 TEMPLATE.</div>
+        <div class="exec-label">Email</div><div class="exec-value">Workshop scheduling email to all 3 other founders · after workshop, individual grants
+<div class="email-body"><span class="copy-hint">copy &amp; send</span><div class="email-meta">TO: Justin, Jason, Dawon
+SUBJECT: Pheeew, Inc. · KPI Workshop · lock first option-grant milestones
+ATTACH: 14_KPI_Option_Grant_Agreement_TEMPLATE.docx (read-ahead)</div>Hi all,
+
+Time to lock the first round of KPI-based option grants. Per our cap-table memo, each of you (Justin, Jason, Dawon) is eligible for up to 3 KPI-based grants over time, at ~0.64% each (cumulative cap 1.91% per non-Alex founder).
+
+These are DOUBLE-TRIGGER grants under the 2026 Equity Incentive Plan: each grant vests only when (a) the KPI is hit AND (b) you've been with the company for 12 months after the KPI is hit. If you leave before either trigger is satisfied, the grant is forfeited.
+
+For the first grant per person, I want to workshop the KPIs together so the milestones feel achievable and meaningful — not arbitrary.
+
+Goal of the workshop (90 minutes):
+  1. Each founder proposes 1 specific, measurable, time-bounded KPI for their first grant
+  2. We collectively pressure-test each KPI for "achievable but stretchy" (~70% confidence)
+  3. Lock the KPI language + grant date
+  4. After the workshop, I'll draft Option Grant Agreements (one per person) using the TEMPLATE
+
+Read-ahead: attached is the TEMPLATE so you can see the structure your grant will follow.
+
+Please reply with your availability for a 90-minute video block in the next week.
+
+Alex</div></div>
         <div class="exec-label">Pre-sign</div><div class="exec-value">After workshop, Alex signs each grant as Company first, then sends to grantee</div>
         <div class="exec-label">Signers</div><div class="exec-value"><strong>2 per grant · Alex (Company) + grantee (Participant).</strong> Up to 3 grants per non-Alex founder over time.</div>
         <div class="exec-label">Reply</div><div class="exec-value"><span class="pill reply">REPLY NEEDED</span>each grantee returns signed Grant Agreement</div>
