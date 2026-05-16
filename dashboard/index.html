@@ -540,17 +540,33 @@ details.content-expand[open] summary::after{content:" ▴"}
     <div class="logo">Pheeew</div>
     <div class="tag">Founders Dashboard</div>
 
-    <form id="loginForm" onsubmit="signInPassword(event)">
-      <div class="sub">Sign in with your founder email and password.</div>
-      <input id="emailInput" type="email" placeholder="you@pheeew.com" autocomplete="email" required autofocus>
-      <input id="passwordInput" type="password" placeholder="Password" autocomplete="current-password" required>
-      <button type="submit" id="loginSubmit">Sign in</button>
-      <div class="gate-error" id="loginError"></div>
+    <!-- Step 1: shared passcode -->
+    <form id="passForm" onsubmit="checkPasscode(event)">
+      <div class="sub">Enter the team passcode.</div>
+      <input id="passInput" class="code" type="password" placeholder="passcode" autocomplete="off" required autofocus>
+      <button type="submit" id="passSubmit">Continue</button>
+      <div class="gate-error" id="passError">Wrong passcode</div>
     </form>
+
+    <!-- Step 2: who are you? (hidden until passcode passes) -->
+    <div id="founderPicker" style="display:none">
+      <div class="sub" style="margin-bottom:20px">Who's signing in?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <button type="button" class="founder-btn" data-founder="alex"   style="background:var(--pheeew);color:#fff;border:none;border-radius:12px;padding:14px;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .12s ease,box-shadow .12s ease">Alex Kim<span style="font-size:11px;font-weight:500;opacity:.8">CEO</span></button>
+        <button type="button" class="founder-btn" data-founder="justin" style="background:#A0432F;color:#fff;border:none;border-radius:12px;padding:14px;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .12s ease,box-shadow .12s ease">Justin Kim<span style="font-size:11px;font-weight:500;opacity:.8">CGO</span></button>
+        <button type="button" class="founder-btn" data-founder="jason"  style="background:#1F3D33;color:#fff;border:none;border-radius:12px;padding:14px;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .12s ease,box-shadow .12s ease">Jason Ko<span style="font-size:11px;font-weight:500;opacity:.8">COO</span></button>
+        <button type="button" class="founder-btn" data-founder="dawon"  style="background:#C9923F;color:#1A1A1A;border:none;border-radius:12px;padding:14px;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .12s ease,box-shadow .12s ease">Dawon Kim<span style="font-size:11px;font-weight:500;opacity:.8">CBO</span></button>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Founder picker removed in v6 — identity now auto-detected from authenticated email -->
+<style>
+.founder-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.founder-btn:active{transform:translateY(0)}
+.gate-error{display:none}
+.gate-error.show{display:block}
+</style>
 
 <!-- APP CONTENT -->
 <div id="appContent" style="display:none">
@@ -2195,50 +2211,62 @@ details.content-expand[open] summary::after{content:" ▴"}
   let filters = { todo:'all', creator:'all', content:'all' };
   let calCursor = new Date(); // viewed month in calendar
 
-  /* ====== AUTH (Supabase email + password) ====== */
+  /* ====== AUTH (shared passcode + founder picker) ====== */
+  const PASSCODE = 'pheeew2026';   // shared team passcode — change here to update
+  const PASS_KEY = 'pheeew-dashboard-pass-v1';
+  const FOUNDER_KEY = 'pheeew-dashboard-founder';
+
   function showError(elId, msg){
     const e = document.getElementById(elId);
-    e.textContent = msg;
-    e.style.display = 'block';
+    if(!e) return;
+    if(msg) e.textContent = msg;
+    e.classList.add('show');
   }
   function clearErrors(){
-    document.querySelectorAll('.gate-error').forEach(el => { el.style.display = 'none'; el.textContent = ''; });
+    document.querySelectorAll('.gate-error').forEach(el => { el.classList.remove('show'); });
   }
 
-  async function signInPassword(e){
+  function checkPasscode(e){
     e.preventDefault();
     clearErrors();
-    const email = document.getElementById('emailInput').value.trim().toLowerCase();
-    const password = document.getElementById('passwordInput').value;
-    if(!email || !password) return;
-    const btn = document.getElementById('loginSubmit');
-    btn.disabled = true; btn.textContent = 'Signing in…';
-    try {
-      const { error } = await supa.auth.signInWithPassword({ email, password });
-      if(error) throw error;
-      // onAuthStateChange listener will fire SIGNED_IN and call enterApp()
-    } catch(err){
-      console.error(err);
-      const msg = (err.message || '').toLowerCase();
-      if(msg.includes('invalid login') || msg.includes('invalid_credentials')){
-        showError('loginError', 'Wrong email or password. Double-check both, or ask Alex to reset.');
-      } else {
-        showError('loginError', 'Sign-in failed: ' + (err.message || 'unknown error'));
-      }
-      document.getElementById('passwordInput').value = '';
-      btn.disabled = false; btn.textContent = 'Sign in';
+    const v = document.getElementById('passInput').value.trim().toLowerCase();
+    if(v === PASSCODE){
+      sessionStorage.setItem(PASS_KEY, '1');
+      revealFounderPicker();
+    } else {
+      showError('passError', 'Wrong passcode');
+      document.getElementById('passInput').value = '';
     }
+  }
+
+  function revealFounderPicker(){
+    document.getElementById('passForm').style.display = 'none';
+    document.getElementById('founderPicker').style.display = 'block';
+    // wire up founder buttons (idempotent)
+    document.querySelectorAll('.founder-btn').forEach(btn => {
+      if(btn.dataset.wired) return;
+      btn.dataset.wired = '1';
+      btn.addEventListener('click', () => pickFounder(btn.getAttribute('data-founder')));
+    });
+  }
+
+  function pickFounder(key){
+    if(!FOUNDERS[key]) return;
+    localStorage.setItem(FOUNDER_KEY, key);
+    me = key;
+    document.getElementById('appGate').style.display = 'none';
+    document.getElementById('appContent').style.display = 'block';
+    applyFounderUI();
   }
 
   async function signOut(e){
     if(e) e.preventDefault();
-    if(!supa) return location.reload();
-    await supa.auth.signOut();
-    localStorage.removeItem('pheeew-dashboard-founder');
+    sessionStorage.removeItem(PASS_KEY);
+    localStorage.removeItem(FOUNDER_KEY);
     location.reload();
   }
 
-  /* ====== ENTER APP (auto-detect founder from authed email) ====== */
+  /* ====== APPLY FOUNDER UI ====== */
   function applyFounderUI(){
     const f = FOUNDERS[me];
     document.getElementById('heroName').textContent = f.short;
@@ -2249,42 +2277,7 @@ details.content-expand[open] summary::after{content:" ▴"}
     subscribeAll();
   }
 
-  async function enterApp(){
-    // Pull the active session and resolve which founder this is
-    const { data } = await supa.auth.getUser();
-    const email = data?.user?.email || '';
-    const founderKey = founderFromEmail(email);
-
-    if(!founderKey){
-      // Email authed but not in allowlist — Supabase RLS will also block, but
-      // we surface a clean message and a sign-out path instead of a broken app.
-      showUnauthorized(email);
-      return;
-    }
-
-    me = founderKey;
-    document.getElementById('appGate').style.display = 'none';
-    document.getElementById('appContent').style.display = 'block';
-    applyFounderUI();
-  }
-
-  function showUnauthorized(email){
-    document.getElementById('appGate').style.display = 'flex';
-    document.getElementById('appContent').style.display = 'none';
-    const loginForm = document.getElementById('loginForm');
-    if(loginForm) loginForm.style.display = 'none';
-    const box = document.querySelector('.app-gate-box');
-    box.innerHTML = `
-      <div class="logo">Pheeew</div>
-      <div class="tag">Not on the founder list</div>
-      <div class="sub" style="margin-bottom:20px;line-height:1.55">
-        You're signed in as <strong style="color:var(--text)">${escapeHtml(email)}</strong> but this email isn't in the Pheeew founders allowlist. Only the four founders can access this dashboard.
-      </div>
-      <button type="button" onclick="signOut(event)">Sign out &amp; try another email</button>
-    `;
-  }
-
-  /* ====== SUPABASE (auth-bootstrapped) ====== */
+  /* ====== SUPABASE (no auth · anonymous publishable-key access) ====== */
   function initSupabase(){
     if(!window.supabase){
       console.error('Supabase JS not loaded');
@@ -2293,28 +2286,26 @@ details.content-expand[open] summary::after{content:" ▴"}
     }
     supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
       auth: {
-        persistSession: true,
-        autoRefreshToken: true,
+        persistSession: false,
+        autoRefreshToken: false,
         detectSessionInUrl: false
       },
       realtime: { params: { eventsPerSecond: 5 } }
     });
 
-    // React to sign-in / sign-out
-    supa.auth.onAuthStateChange((event, session) => {
-      if(event === 'SIGNED_IN' && session){
-        enterApp();
-      } else if(event === 'SIGNED_OUT'){
-        // Force back to gate
-        location.reload();
-      }
-    });
-
-    // On load: if a session already exists, enter the app
-    supa.auth.getSession().then(({ data }) => {
-      if(data?.session) enterApp();
-      // else: gate stays visible, user signs in
-    });
+    // Check if user already completed the gate flow (passcode + founder pick)
+    const passOK = sessionStorage.getItem(PASS_KEY) === '1';
+    const savedFounder = localStorage.getItem(FOUNDER_KEY);
+    if(passOK && savedFounder && FOUNDERS[savedFounder]){
+      me = savedFounder;
+      document.getElementById('appGate').style.display = 'none';
+      document.getElementById('appContent').style.display = 'block';
+      applyFounderUI();
+    } else if(passOK){
+      // passcode passed in this session but no founder picked yet — show picker
+      revealFounderPicker();
+    }
+    // else: passcode form is shown by default
   }
   function setConn(online, label){
     const el = document.getElementById('connStatus');
