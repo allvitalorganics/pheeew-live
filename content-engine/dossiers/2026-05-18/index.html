@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Pheeew daily content-engine dossier curation. 18 May 2026. Internal Pheeew, Inc. brand intel · restricted to team + contracted partners.">
+<meta name="author" content="Pheeew, Inc.">
+<title>Day 1 Dossier · 2026-05-18 · Pheeew Content Engine</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%238B4A2C'/%3E%3C/svg%3E">
+<style>
+:root{
+  --pheeew:#8B4A2C;
+  --pheeew-deep:#6B3520;
+  --pheeew-tint:rgba(139,74,44,.08);
+  --pheeew-warm:#A85D3A;
+  --bg-page:#FAF6ED;
+  --bg-card:#FFFFFF;
+  --bg-soft:#FCFAF3;
+  --bg-deep:#F2EBD9;
+  --bg-cream:#F5EFE0;
+  --bg-dark:#1A1A1A;
+  --sunrise:#E89B4B;
+  --text:#1A1A1A;
+  --text-secondary:#4A4A4A;
+  --text-tertiary:#888;
+  --text-muted:#9A9A9A;
+  --line:#E8E0D0;
+  --line-soft:#F0E9D9;
+  --green:#3D8B6E;
+  --green-soft:rgba(61,139,110,.08);
+  --green-line:rgba(61,139,110,.28);
+  --coral:#E8745A;
+  --coral-soft:rgba(232,116,90,.08);
+  --coral-line:rgba(232,116,90,.28);
+  --yellow:#F4C95D;
+  --yellow-soft:rgba(244,201,93,.14);
+  --yellow-line:rgba(244,201,93,.35);
+  --gray-soft:rgba(0,0,0,.04);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Pretendard","Noto Sans KR",sans-serif;
+  --mono:ui-monospace,"SF Mono","Menlo",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg-page);color:var(--text);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--pheeew);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:var(--mono);font-size:.85em;background:var(--bg-deep);padding:1px 7px;border-radius:5px;color:var(--text)}
+
+.wrap{max-width:920px;margin:0 auto;padding:44px 28px 96px}
+
+/* HEADER */
+.hdr{margin-bottom:32px;padding-bottom:28px;border-bottom:2px solid var(--pheeew-tint)}
+.hdr-back{font-size:12px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:6px;margin-bottom:18px}
+.hdr-back:hover{color:var(--pheeew)}
+.hdr-eyebrow{display:inline-block;padding:5px 12px;background:var(--pheeew);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:14px;text-transform:uppercase;margin-bottom:16px}
+.hdr h1{font-size:48px;font-weight:700;letter-spacing:-.025em;line-height:1.08;margin-bottom:12px}
+.hdr h1 em{font-style:italic;color:var(--pheeew)}
+.hdr .sub{font-size:17px;color:var(--text-secondary);max-width:680px;line-height:1.5;margin-bottom:18px}
+.hdr-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--text-tertiary)}
+.hdr-meta strong{color:var(--text-secondary);font-weight:600}
+
+/* STATS BAND */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:48px}
+.stat{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:12px;padding:16px 14px;text-align:center}
+.stat-num{font-size:28px;font-weight:700;letter-spacing:-.02em;color:var(--pheeew);line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.stat-num.green{color:var(--green)}
+.stat-num.yellow{color:#8B6914}
+.stat-num.gray{color:var(--text-tertiary)}
+.stat-num.coral{color:var(--coral)}
+.stat-label{font-size:10px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;line-height:1.3}
+
+/* SECTION */
+section{margin-bottom:56px;scroll-margin-top:24px}
+.sec-num{font-size:12px;font-weight:700;color:var(--pheeew);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.sec-title{font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+.sec-title em{font-style:italic;color:var(--pheeew)}
+.sec-lede{font-size:17px;color:var(--text-secondary);line-height:1.55;margin-bottom:24px;max-width:720px}
+
+/* RUBRIC TABLE */
+.rubric{width:100%;border-collapse:separate;border-spacing:0;background:var(--bg-card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:13.5px}
+.rubric th{background:var(--bg-deep);text-align:left;padding:12px 14px;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-tertiary)}
+.rubric td{padding:14px;border-top:1px solid var(--line-soft);vertical-align:top;line-height:1.45}
+.rubric tr:hover td{background:var(--bg-soft)}
+.rubric .num{font-variant-numeric:tabular-nums;color:var(--text-tertiary);font-weight:700;width:28px}
+.rubric .stars{color:var(--sunrise);font-size:12px;letter-spacing:1px;white-space:nowrap}
+.rubric .pillar-pill{display:inline-block;padding:2px 8px;background:var(--bg-deep);border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text-secondary);margin-right:3px;margin-bottom:3px}
+.rubric .verdict{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:6px;display:inline-block;white-space:nowrap}
+.rubric .verdict.select{background:var(--green-soft);color:var(--green);border:1px solid var(--green-line)}
+.rubric .verdict.hm{background:var(--yellow-soft);color:#8B6914;border:1px solid var(--yellow-line)}
+.rubric .verdict.next-week{background:var(--yellow-soft);color:#8B6914;border:1px solid var(--yellow-line)}
+.rubric .verdict.internal{background:var(--gray-soft);color:var(--text-tertiary);border:1px solid var(--line)}
+.rubric tr.select td{background:rgba(61,139,110,.04)}
+.rubric tr.internal td{opacity:.62}
+
+/* BRIEF CARDS */
+.brief{background:var(--bg-card);border:2px solid var(--green-line);border-radius:18px;padding:36px 38px;margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.brief-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.brief-id{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.brief-title{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--text)}
+.brief-title em{font-style:italic}
+.brief-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.brief-tag{padding:5px 10px;background:var(--pheeew-tint);color:var(--pheeew);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:8px;white-space:nowrap}
+
+.brief-meta{display:grid;grid-template-columns:100px 1fr;gap:14px 18px;font-size:14px;margin-bottom:24px;padding:18px 20px;background:var(--bg-cream);border-radius:10px}
+.brief-meta-label{font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em;font-size:10px;padding-top:3px}
+.brief-meta-value{color:var(--text-secondary);line-height:1.55}
+.brief-meta-value strong{color:var(--text)}
+
+/* HOOK VARIATIONS */
+.hooks{margin:24px 0}
+.hooks-label{font-size:12px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.hook-item{padding:14px 18px;background:var(--bg-soft);border:1px solid var(--line);border-left:3px solid var(--pheeew);border-radius:0 10px 10px 0;font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.4;color:var(--text);margin-bottom:8px;font-style:italic}
+
+/* IG-style post mock */
+.post-mock{background:var(--bg-page);border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin:24px 0}
+.post-mock-handle{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.post-mock-handle .dot{width:30px;height:30px;border-radius:50%;background:var(--pheeew);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px}
+.post-mock-handle .handle{font-size:13px;font-weight:600}
+.post-mock-handle .label{margin-left:auto;font-size:10px;color:var(--text-tertiary);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.post-mock-hook{font-size:22px;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:var(--text);margin-bottom:14px}
+.post-mock-body{font-size:15.5px;line-height:1.6;color:var(--text);margin-bottom:14px}
+.post-mock-turn{font-size:15.5px;line-height:1.6;color:var(--text);margin-bottom:14px;padding-left:14px;border-left:2px solid var(--pheeew-tint);font-style:italic}
+.post-mock-cta{font-size:14px;font-weight:600;color:var(--pheeew);padding:9px 14px;background:var(--pheeew-tint);border-radius:8px;display:inline-block}
+
+/* VISUAL OPTIONS */
+.visuals{margin:20px 0}
+.visuals-label{font-size:12px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.visual-opt{display:grid;grid-template-columns:60px 1fr;gap:14px;padding:12px 16px;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:8px;margin-bottom:6px;font-size:14px;line-height:1.5}
+.visual-opt-tag{font-weight:700;color:var(--pheeew);font-size:11px;letter-spacing:.05em;padding-top:1px}
+
+/* COMPLIANCE */
+.compliance{margin:20px 0;padding:18px 22px;background:var(--coral-soft);border:1px solid var(--coral-line);border-radius:10px;font-size:13.5px;line-height:1.55}
+.compliance-label{font-size:11px;font-weight:700;color:#A0432F;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.compliance ul{margin:0;padding-left:18px}
+.compliance li{margin-bottom:5px;color:var(--text)}
+.compliance li::marker{font-weight:700}
+
+/* SOURCE */
+.source-row{margin:14px 0;padding:14px 18px;background:var(--bg-deep);border-radius:10px;font-size:13px;line-height:1.5}
+.source-row strong{color:var(--text)}
+.source-row a{font-family:var(--mono);font-size:11.5px;word-break:break-all;display:inline-block;margin-top:4px}
+
+/* CALLOUT */
+.callout{background:var(--bg-cream);border-left:3px solid var(--pheeew);border-radius:0 12px 12px 0;padding:18px 22px;margin:18px 0;font-size:15px;line-height:1.6;color:var(--text)}
+.callout strong{color:var(--text);font-weight:700}
+
+/* HONORABLE / INTERNAL ITEMS */
+.list-item{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:12px;padding:18px 22px;margin-bottom:10px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.list-item.yellow{border-left:3px solid var(--yellow)}
+.list-item.gray{background:var(--bg-soft);border-left:3px solid var(--line)}
+.list-item-body{min-width:0}
+.list-item-title{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
+.list-item-meta{font-size:13px;color:var(--text-secondary);line-height:1.5}
+.list-item-meta strong{color:var(--text);font-weight:600}
+.list-item-pill{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.list-item-pill.yellow{background:var(--yellow-soft);color:#8B6914;border:1px solid var(--yellow-line)}
+.list-item-pill.gray{background:var(--gray-soft);color:var(--text-tertiary);border:1px solid var(--line)}
+
+/* TOMORROW */
+.tomorrow{background:var(--bg-dark);color:#fff;border-radius:16px;padding:28px 32px;margin-top:32px}
+.tomorrow h3{color:#fff;font-size:22px;letter-spacing:-.01em;margin-bottom:10px}
+.tomorrow p{color:rgba(255,255,255,.78);font-size:14px;line-height:1.55;max-width:680px;margin-bottom:12px}
+.tomorrow ul{padding-left:20px;margin:14px 0 0}
+.tomorrow li{color:rgba(255,255,255,.85);font-size:14px;line-height:1.6;margin-bottom:6px}
+.tomorrow li strong{color:#fff}
+.tomorrow li code{background:rgba(255,255,255,.08);color:#fff}
+
+/* FOOTER */
+.footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--text-tertiary);line-height:1.55}
+.footer-tag{display:inline-block;padding:4px 10px;background:var(--bg-deep);color:var(--text-secondary);font-size:10px;font-weight:700;letter-spacing:.06em;border-radius:6px;text-transform:uppercase;margin-bottom:12px}
+
+@media (max-width:740px){
+  .wrap{padding:28px 18px 56px}
+  .hdr h1{font-size:34px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sec-title{font-size:24px}
+  .brief{padding:24px 22px}
+  .brief-header{flex-direction:column;align-items:flex-start;gap:10px}
+  .brief-title{font-size:22px}
+  .brief-tags{justify-content:flex-start}
+  .brief-meta{grid-template-columns:1fr;padding:14px 16px}
+  .brief-meta-label{margin-top:8px}
+  .post-mock{padding:18px 18px}
+  .post-mock-hook{font-size:18px}
+  .visual-opt{grid-template-columns:1fr}
+  .rubric{font-size:12px}
+  .rubric td,.rubric th{padding:9px 10px}
+  .list-item{grid-template-columns:1fr}
+  .list-item-pill{justify-self:flex-start;margin-top:6px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="../../" class="hdr-back">← Voice Brief v1</a>
+  <span class="hdr-eyebrow">Day 1 Dossier · noscroll</span>
+  <h1>9 stories in. <em>3 selected.</em></h1>
+  <p class="sub">First Pheeew daily intel from noscroll. Scored against the 7 pillars + skip rules from the Voice Brief. 3 strongest angles briefed up for Andy's tool — including the headline of the week.</p>
+  <div class="hdr-meta">
+    <span><strong>Dossier date:</strong> 2026-05-18</span>
+    <span><strong>Source:</strong> <a href="https://www.noscroll.com/d/o-268vMt7s3-" target="_blank" rel="noopener">noscroll.com/d/o-268vMt7s3-</a></span>
+    <span><strong>Topics:</strong> 4</span>
+    <span><strong>Owner:</strong> Seungjoon ("Alex") Kim</span>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">9</div><div class="stat-label">Stories surfaced</div></div>
+  <div class="stat"><div class="stat-num green">3</div><div class="stat-label">Selected · brief Andy</div></div>
+  <div class="stat"><div class="stat-num yellow">2</div><div class="stat-label">Honorable mentions</div></div>
+  <div class="stat"><div class="stat-num coral">1</div><div class="stat-label">Next-week candidate</div></div>
+  <div class="stat"><div class="stat-num gray">3</div><div class="stat-label">Internal only</div></div>
+</div>
+
+<!-- RUBRIC -->
+<section id="rubric">
+  <div class="sec-num">01 · Scoring</div>
+  <h2 class="sec-title">All 9 stories · <em>scored</em></h2>
+  <p class="sec-lede">Each story rated against Pheeew's 7 pillars (from §3 of the Voice Brief) and 5 brand-specific skip rules (from §5 of the noscroll input). Stars = editorial strength for Pheeew specifically — not absolute scientific significance.</p>
+
+  <table class="rubric">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Story · source</th>
+        <th>Pillars</th>
+        <th>Score</th>
+        <th>Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="select">
+        <td class="num">1</td>
+        <td><strong>Banana synbiotic outperforms probiotic-alone</strong><br><span style="color:var(--text-tertiary);font-size:12px">Heliyon · Cell Press · May 16 · direct Mojave Sunrise mechanism validation</span></td>
+        <td><span class="pillar-pill">P1</span><span class="pillar-pill">P2</span></td>
+        <td class="stars">★★★★★</td>
+        <td><span class="verdict select">Select · headline</span></td>
+      </tr>
+      <tr class="select">
+        <td class="num">2</td>
+        <td><strong>Microbial diversity → cortisol reactivity (SCFA mechanism)</strong><br><span style="color:var(--text-tertiary);font-size:12px">Neurobiology of Stress · Univ. Vienna · May 16</span></td>
+        <td><span class="pillar-pill">P2</span><span class="pillar-pill">P3</span></td>
+        <td class="stars">★★★★</td>
+        <td><span class="verdict select">Select</span></td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td><strong>Rome V framework for DGBI</strong><br><span style="color:var(--text-tertiary);font-size:12px">Gastroenterology · May 16 · positions preventive synbiotic space</span></td>
+        <td><span class="pillar-pill">P3</span></td>
+        <td class="stars">★★★</td>
+        <td><span class="verdict hm">Honorable</span></td>
+      </tr>
+      <tr class="select">
+        <td class="num">4</td>
+        <td><strong>AI study (n≈10,000): gut dysbiosis in Alzheimer's</strong><br><span style="color:var(--text-tertiary);font-size:12px">UTS + MGH/Harvard · May 16 · strict framing required</span></td>
+        <td><span class="pillar-pill">P3</span><span class="pillar-pill">P5</span></td>
+        <td class="stars">★★★★</td>
+        <td><span class="verdict select">Select · framed</span></td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td><strong>4-week whole-food diet → biological age markers</strong><br><span style="color:var(--text-tertiary);font-size:12px">Aging Cell · n=104 · age 65–75 (cohort caveat)</span></td>
+        <td><span class="pillar-pill">P7</span><span class="pillar-pill">P2</span></td>
+        <td class="stars">★★</td>
+        <td><span class="verdict hm">Honorable</span></td>
+      </tr>
+      <tr class="internal">
+        <td class="num">6</td>
+        <td><strong>Pouch market $4.2B / 5.8% CAGR through 2035</strong><br><span style="color:var(--text-tertiary);font-size:12px">IndexBox · category data</span></td>
+        <td><span style="font-size:11px;color:var(--text-tertiary)">none</span></td>
+        <td><span style="color:var(--text-tertiary);font-size:12px">n/a</span></td>
+        <td><span class="verdict internal">Internal</span></td>
+      </tr>
+      <tr class="internal">
+        <td class="num">7</td>
+        <td><strong>Bitchin' Sauce founder case ($56M bootstrapped)</strong><br><span style="color:var(--text-tertiary);font-size:12px">Social Life Magazine · DTC founder story</span></td>
+        <td><span style="font-size:11px;color:var(--text-tertiary)">none</span></td>
+        <td><span style="color:var(--text-tertiary);font-size:12px">n/a</span></td>
+        <td><span class="verdict internal">Internal · voice study</span></td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td><strong>Counterfeit supplements on FB/TikTok Shop</strong><br><span style="color:var(--text-tertiary);font-size:12px">Tridge · "show your work" angle</span></td>
+        <td><span class="pillar-pill">P5-adj</span></td>
+        <td class="stars">★★</td>
+        <td><span class="verdict next-week">Next week</span></td>
+      </tr>
+      <tr class="internal">
+        <td class="num">9</td>
+        <td><strong>Singapore supplement market $583M → $752M by 2029</strong><br><span style="color:var(--text-tertiary);font-size:12px">Micetimes · women 25–44 demo</span></td>
+        <td><span style="font-size:11px;color:var(--text-tertiary)">none</span></td>
+        <td><span style="color:var(--text-tertiary);font-size:12px">n/a</span></td>
+        <td><span class="verdict internal">Internal</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- BRIEFS -->
+<section id="briefs">
+  <div class="sec-num">02 · Post briefs</div>
+  <h2 class="sec-title">3 briefs for <em>Andy's tool</em></h2>
+  <p class="sec-lede">Each brief is structured so Andy's tool can generate 10–15 hook variations + 3 body-length variants + 3 CTA variants. Brief 1 gets 20+ hook variations — it's the headline of the week.</p>
+
+  <!-- BRIEF 1 -->
+  <article class="brief">
+    <div class="brief-header">
+      <div>
+        <div class="brief-id">Brief 1 of 3 · Headline of the week</div>
+        <div class="brief-title">"The receipts <em>are in."</em></div>
+      </div>
+      <div class="brief-tags">
+        <span class="brief-tag">P1 Microbiome 101</span>
+        <span class="brief-tag">P2 Fiber</span>
+        <span class="brief-tag">Mojave xref</span>
+      </div>
+    </div>
+
+    <div class="brief-meta">
+      <div class="brief-meta-label">Why pick</div>
+      <div class="brief-meta-value"><strong>Unicorn.</strong> Heliyon (Cell Press) on May 16 published a study showing banana-flour synbiotic outperforms probiotic-alone for beneficial-bacteria colonization. <strong>That is literally the Mojave Sunrise mechanism.</strong> We didn't fund the study — the science was already on our side and a peer-reviewed paper just made it citable.</div>
+      <div class="brief-meta-label">Voice rule</div>
+      <div class="brief-meta-value"><strong>Never say "scientists validate Pheeew."</strong> Tone is "we were reading the same playbook." Calmly note the receipt. Andy: kill any variation that drifts into chest-beating.</div>
+      <div class="brief-meta-label">Generation</div>
+      <div class="brief-meta-value"><strong>20+ hook variations</strong> (this is the headline) · 3 body-length variants · 3 CTA variants · 2 visual treatments per options below.</div>
+    </div>
+
+    <div class="hooks">
+      <div class="hooks-label">Hook variations · these set the tone (Andy generates more)</div>
+      <div class="hook-item">"A Cell Press paper just confirmed what we built Mojave Sunrise on — and we didn't fund the study."</div>
+      <div class="hook-item">"Banana flour + synbiotic outperforms probiotic-alone for colonizing beneficial bacteria. That's a study from last week."</div>
+      <div class="hook-item">"We didn't pick banana for the flavor. The Cell Press paper just published this week explains why."</div>
+      <div class="hook-item">"There's a quiet kind of validation: when a peer-reviewed paper describes what you've already shipped."</div>
+    </div>
+
+    <div class="post-mock">
+      <div class="post-mock-handle">
+        <div class="dot">P</div>
+        <div class="handle">@saypheeew</div>
+        <span class="label">Mock · full post</span>
+      </div>
+      <div class="post-mock-hook">A Cell Press paper just confirmed what we built Mojave Sunrise on.</div>
+      <div class="post-mock-body">Heliyon (a Cell Press journal) published a study on May 16 testing banana flour from two <em>Musa</em> species as a prebiotic substrate. The synbiotic combination — prebiotic banana flour plus probiotic strains — significantly outperformed probiotic-alone on beneficial-bacteria colonization and survival in the gut. The mechanism: banana resistant starch and oligosaccharides feed the probiotic bacteria before, during, and after they reach the colon.</div>
+      <div class="post-mock-turn">When we locked Mojave Sunrise's formulation, banana wasn't a flavor decision. It was a fiber decision — specifically the resistant starch and pectin that feed the probiotic strains we already had in the formula. The paper from last week shows why that combination outperforms taking probiotics on their own.</div>
+      <div class="post-mock-cta">First batch ships Aug/Sep. The science was already there.</div>
+    </div>
+
+    <div class="visuals">
+      <div class="visuals-label">Visual treatments · 2 to ship</div>
+      <div class="visual-opt"><span class="visual-opt-tag">A</span><div>Editorial illustration · banana cross-section with a soft brown line drawing of probiotic bacteria around it · cream + brown only · no clinical-textbook vibe</div></div>
+      <div class="visual-opt"><span class="visual-opt-tag">B</span><div>Photo · single pouch next to an open printout of the abstract page · natural like a desk-snap · not staged-marketing · morning light</div></div>
+      <div class="visual-opt"><span class="visual-opt-tag">C</span><div>Type-on-image · "Heliyon · Cell Press · May 16, 2026" in 17px above abstract title · cream background · pouch in lower corner</div></div>
+    </div>
+
+    <div class="source-row">
+      <strong>Source:</strong> Heliyon (Cell Press), May 16, 2026 · banana flour from two <em>Musa</em> species tested as prebiotic substrate · synbiotic combination outperformed probiotic-alone<br>
+      <a href="https://www.cell.com/heliyon/fulltext/S2405-8440(26)00537-2" target="_blank" rel="noopener">https://www.cell.com/heliyon/fulltext/S2405-8440(26)00537-2</a>
+    </div>
+
+    <div class="compliance">
+      <div class="compliance-label">⚠ Compliance check</div>
+      <ul>
+        <li>✅ Primary source · peer-reviewed · DOI present</li>
+        <li>✅ No medical claim ("treats / cures / prevents")</li>
+        <li>✅ No "we discovered" — credit goes to the lab</li>
+        <li>⚠ Watch AI variations for "scientists validate our product" drift — flag and reject any that read as marketing</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- BRIEF 2 -->
+  <article class="brief">
+    <div class="brief-header">
+      <div>
+        <div class="brief-id">Brief 2 of 3</div>
+        <div class="brief-title">"Your gut bacteria make <em>stress chemicals."</em></div>
+      </div>
+      <div class="brief-tags">
+        <span class="brief-tag">P2 Fiber Gap</span>
+        <span class="brief-tag">P3 Gut-Brain</span>
+      </div>
+    </div>
+
+    <div class="brief-meta">
+      <div class="brief-meta-label">Why pick</div>
+      <div class="brief-meta-value">Clean mechanism explainer. Connects fiber (the daily action) → bacteria (the actor) → SCFAs (the chemistry) → stress regulation (the felt outcome). <strong>One of the strongest "you-can-act-on-this" frames in the dossier</strong> — actionable, mechanism-grounded, no medical-claim risk.</div>
+      <div class="brief-meta-label">Voice rule</div>
+      <div class="brief-meta-value">Stay in the science. Don't promise calm — explain biology. The hook is the mechanism, not the benefit.</div>
+      <div class="brief-meta-label">Generation</div>
+      <div class="brief-meta-value">10–15 hook variations · 3 body-length variants · 3 CTA variants · 2 visual treatments.</div>
+    </div>
+
+    <div class="hooks">
+      <div class="hooks-label">Hook variations</div>
+      <div class="hook-item">"Your gut bacteria make stress-regulating chemicals. The recipe is fiber."</div>
+      <div class="hook-item">"When you skip fiber, you starve the bacteria that calm you down."</div>
+      <div class="hook-item">"Cortisol regulation, traced back to lunch."</div>
+      <div class="hook-item">"Anxiety isn't only about your brain. The Vienna lab just mapped the gut half."</div>
+    </div>
+
+    <div class="post-mock">
+      <div class="post-mock-handle">
+        <div class="dot">P</div>
+        <div class="handle">@saypheeew</div>
+        <span class="label">Mock · full post</span>
+      </div>
+      <div class="post-mock-hook">Your gut bacteria make stress-regulating chemicals. The recipe is fiber.</div>
+      <div class="post-mock-body">Researchers at the Medical University of Vienna (Neurobiology of Stress, May 16) measured cortisol reactivity in adults with varying gut microbiome diversity. People with more diverse microbiomes showed measurably calmer cortisol responses to acute stress tests. The mechanism: short-chain fatty acids (SCFAs) — acetate, butyrate, propionate — produced when gut bacteria ferment fiber. Those metabolites cross into the bloodstream and modulate the brain's stress signaling.</div>
+      <div class="post-mock-turn">So the bacteria that make you calmer under stress are the same bacteria that need fiber to live. Skip the fiber, the bacteria starve, the SCFAs stop showing up. Stress-eating is probably way less about willpower than the biology suggests.</div>
+      <div class="post-mock-cta">What's your fiber count today? Honest answers only.</div>
+    </div>
+
+    <div class="visuals">
+      <div class="visuals-label">Visual treatments · 2 to ship</div>
+      <div class="visual-opt"><span class="visual-opt-tag">A</span><div>Editorial illustration · flow diagram fiber → bacteria → SCFA molecules → brain · cream + brown · clean lines, no medical-textbook density</div></div>
+      <div class="visual-opt"><span class="visual-opt-tag">B</span><div>Photo · fiber-rich breakfast bowl (oats / chia / berries) on cream surface · single pouch in soft focus background · morning light</div></div>
+    </div>
+
+    <div class="source-row">
+      <strong>Source:</strong> Neurobiology of Stress, University of Vienna, May 16, 2026 · microbial diversity correlates with cortisol reactivity · SCFA mechanism from fiber fermentation<br>
+      <a href="https://www.thestar.com.my/lifestyle/health/2026/05/16/could-we-manage-stress-through-our-gut-bacteria" target="_blank" rel="noopener">https://www.thestar.com.my/lifestyle/health/2026/05/16/could-we-manage-stress-through-our-gut-bacteria</a><br>
+      <em style="color:var(--coral);font-size:12px">⚠ This is a press summary, not the journal page. Find the DOI before publishing.</em>
+    </div>
+
+    <div class="compliance">
+      <div class="compliance-label">⚠ Compliance check</div>
+      <ul>
+        <li>✅ Primary source named (Univ. Vienna · Neurobiology of Stress)</li>
+        <li>✅ No medical claim — we say SCFAs modulate stress signaling (what the paper says), not "fiber treats anxiety"</li>
+        <li>⚠ DOI verification needed before publish — the source link is a press summary</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- BRIEF 3 -->
+  <article class="brief">
+    <div class="brief-header">
+      <div>
+        <div class="brief-id">Brief 3 of 3 · Strict framing</div>
+        <div class="brief-title">"The map <em>keeps getting bigger."</em></div>
+      </div>
+      <div class="brief-tags">
+        <span class="brief-tag">P3 Gut-Brain</span>
+        <span class="brief-tag">P5 Immunity</span>
+        <span class="brief-tag">⚠ Framing risk</span>
+      </div>
+    </div>
+
+    <div class="brief-meta">
+      <div class="brief-meta-label">Why pick</div>
+      <div class="brief-meta-value">A 10,000-person AI study found consistent gut microbiome differences in Alzheimer's patients. <strong>Massive science story · massive risk if framed wrong.</strong> We are NOT a brain-health brand. We CANNOT imply Pheeew prevents anything. The opportunity is treating it as pure science-evolution news — "neuroscientists keep finding gut-brain connections at every layer."</div>
+      <div class="brief-meta-label">Voice rule</div>
+      <div class="brief-meta-value"><strong>HARD LINE.</strong> Frame as science-evolution, not therapeutic claim. Any variation drifting into "Pheeew supports brain health," "fiber prevents Alzheimer's," "good gut = healthy brain" → killed before publish.</div>
+      <div class="brief-meta-label">Generation</div>
+      <div class="brief-meta-value">10–15 hook variations · 3 body-length variants · 3 CTA variants · 2 visual treatments. <strong>Every variation requires Alex's manual compliance read.</strong></div>
+    </div>
+
+    <div class="hooks">
+      <div class="hooks-label">Hook variations · all carefully framed to avoid medical-claim territory</div>
+      <div class="hook-item">"Neuroscientists keep finding the same answer in the gut."</div>
+      <div class="hook-item">"A 10,000-person study just added gut bacteria to the Alzheimer's picture."</div>
+      <div class="hook-item">"Every year the gut-brain map gets bigger. Here's the layer they just added."</div>
+      <div class="hook-item">"The Alzheimer's-microbiome connection isn't new. The scale of evidence is."</div>
+    </div>
+
+    <div class="post-mock">
+      <div class="post-mock-handle">
+        <div class="dot">P</div>
+        <div class="handle">@saypheeew</div>
+        <span class="label">Mock · full post</span>
+      </div>
+      <div class="post-mock-hook">Neuroscientists keep finding the same answer in the gut.</div>
+      <div class="post-mock-body">A new study from University of Technology Sydney and Mass General/Harvard (reported May 16) used AI trained on multi-modal patient data, including microbiome composition, to identify consistent gut bacteria patterns in Alzheimer's patients across n≈10,000 records. Compared to age-matched controls, Alzheimer's patients showed measurably lower microbial diversity and specific shifts in inflammation-related bacterial populations.</div>
+      <div class="post-mock-turn">This doesn't mean fiber prevents Alzheimer's. It means science keeps mapping the gut-brain connection in higher and higher resolution. The "how do I take care of my brain" question increasingly has "how do I take care of my gut" as one of its long-term answers. The everyday version of that takeaway is unglamorous: diverse plants, more fiber, less sugar, fewer all-or-nothing diet swings.</div>
+      <div class="post-mock-cta">The picture keeps getting bigger.</div>
+    </div>
+
+    <div class="visuals">
+      <div class="visuals-label">Visual treatments · 2 to ship</div>
+      <div class="visual-opt"><span class="visual-opt-tag">A</span><div>Editorial illustration · gut → vagus nerve → brain pathway · neutral and clean · no "scary brain disease" imagery · cream + brown</div></div>
+      <div class="visual-opt"><span class="visual-opt-tag">B</span><div>Type-on-image · "n ≈ 10,000" oversized in brand brown · subtitle "the largest gut-Alzheimer's correlation study to date" · clean cream</div></div>
+    </div>
+
+    <div class="source-row">
+      <strong>Source:</strong> University of Technology Sydney + MGH/Harvard, May 16, 2026 · AI multi-modal analysis · n≈10,000 · gut microbiome dysbiosis pattern in Alzheimer's patients<br>
+      <a href="https://www.technology.org/2026/05/16/study-shows-links-between-alzheimers-and-gut-health-can-lead-to-prevention/" target="_blank" rel="noopener">https://www.technology.org/2026/05/16/study-shows-links-between-alzheimers-and-gut-health-can-lead-to-prevention/</a><br>
+      <em style="color:var(--coral);font-size:12px">⚠ This is a press piece — find the actual journal paper + DOI before publishing.</em>
+    </div>
+
+    <div class="compliance">
+      <div class="compliance-label">⚠ Compliance check · this one matters most</div>
+      <ul>
+        <li>✅ Cites primary research (UTS, MGH/Harvard)</li>
+        <li>✅ Explicit "this doesn't mean fiber prevents Alzheimer's" guard in the body</li>
+        <li>✅ Frames as science-evolution · not therapeutic claim</li>
+        <li>🚫 <strong>HARD LINE:</strong> Andy's variations CANNOT include "Pheeew supports brain health" · "fiber prevents Alzheimer's" · "good gut = healthy brain" — any variation that drifts into therapeutic-claim territory gets killed</li>
+        <li>⚠ DOI of the actual study needed · the press piece doesn't credit the underlying paper precisely</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- HONORABLE MENTIONS -->
+<section id="honorable">
+  <div class="sec-num">03 · Honorable mentions</div>
+  <h2 class="sec-title">Hold for <em>future weeks</em></h2>
+  <p class="sec-lede">Strong stories that didn't make this week's 3. Each has a specific "use when" condition so they don't get lost in the queue.</p>
+
+  <div class="list-item yellow">
+    <div class="list-item-body">
+      <div class="list-item-title">Rome V framework for DGBI · Gastroenterology, May 16</div>
+      <div class="list-item-meta"><strong>Pillar:</strong> P3 · <strong>Use when:</strong> share-card-style post next week. Positions Pheeew in the preventive-synbiotic space upstream of clinical DGBI. <strong>Caution:</strong> keep to "framework update" language — never drift into diagnosis territory.</div>
+    </div>
+    <span class="list-item-pill yellow">Next 1–2 weeks</span>
+  </div>
+
+  <div class="list-item yellow">
+    <div class="list-item-body">
+      <div class="list-item-title">4-week whole-food diet → biological age markers · Aging Cell · n=104, age 65–75</div>
+      <div class="list-item-meta"><strong>Pillar:</strong> P7 + P2 · <strong>Use when:</strong> P7-heavy week. Frame "food works fast" as the angle. <strong>Caution:</strong> cohort age-mismatch — caveat the elderly cohort up front rather than over-extrapolate to 30-year-olds.</div>
+    </div>
+    <span class="list-item-pill yellow">P7-heavy week</span>
+  </div>
+
+  <div class="list-item yellow">
+    <div class="list-item-body">
+      <div class="list-item-title">Counterfeit supplements on FB/TikTok Shop · Tridge, May 16</div>
+      <div class="list-item-meta"><strong>Pillar:</strong> P5-adjacent · <strong>Use when:</strong> Week 2 P5 brand-stance post. Counter-narrative: "show your work" + COA transparency. Different lane from research-decoded — sits in brand-storytelling territory.</div>
+    </div>
+    <span class="list-item-pill yellow">Week 2 brand stance</span>
+  </div>
+</section>
+
+<!-- INTERNAL ONLY -->
+<section id="internal">
+  <div class="sec-num">04 · Internal only</div>
+  <h2 class="sec-title">Not for <em>the feed</em></h2>
+  <p class="sec-lede">Useful intel that violates the noscroll input's skip rules for public posts. Save for strategy docs, voice studies, or category planning.</p>
+
+  <div class="list-item gray">
+    <div class="list-item-body">
+      <div class="list-item-title">Pouch market $4.2B / 5.8% CAGR through 2035 · IndexBox</div>
+      <div class="list-item-meta"><strong>Use for:</strong> strategy doc · confirms Pheeew's growth-lane positioning. Reference in fundraising / partner conversations. <strong>Don't post.</strong></div>
+    </div>
+    <span class="list-item-pill gray">Strategy doc</span>
+  </div>
+
+  <div class="list-item gray">
+    <div class="list-item-body">
+      <div class="list-item-title">Bitchin' Sauce founder case ($56M revenue · bootstrapped to 2021) · Social Life Magazine</div>
+      <div class="list-item-meta"><strong>Use for:</strong> voice study for Alex's own founder content. "Clean-label held at scale" parallel to Pheeew's "no synthetic anything." Inspiration for future P5 Founder Voice posts — but <strong>don't cite directly.</strong></div>
+    </div>
+    <span class="list-item-pill gray">Voice study</span>
+  </div>
+
+  <div class="list-item gray">
+    <div class="list-item-body">
+      <div class="list-item-title">Singapore supplement market $583M → $752M by 2029 · Micetimes</div>
+      <div class="list-item-meta"><strong>Use for:</strong> category intel · women 25–44 demo overlap. Could inform AVO / SO crossover thinking — but <strong>not Pheeew editorial.</strong></div>
+    </div>
+    <span class="list-item-pill gray">Category intel</span>
+  </div>
+</section>
+
+<!-- TOMORROW -->
+<section id="tomorrow">
+  <div class="sec-num">05 · Tomorrow</div>
+  <h2 class="sec-title">What to watch <em>next dossier</em></h2>
+  <div class="tomorrow">
+    <h3>noscroll · what to flag</h3>
+    <p>Pre-set filters for tomorrow's dossier so triage stays fast:</p>
+    <ul>
+      <li><strong>Follow-up critique or methodology breakdown of the Heliyon banana paper</strong> → SELECT (continues the story)</li>
+      <li><strong>Korean / fermented-food microbiome research</strong> → ELEVATE PRIORITY (KR overweight rule from §2 of the noscroll input)</li>
+      <li><strong>More gut-brain papers</strong> → judge against P3 saturation this week — we already have 2 in this dossier · a third would be over-rotation</li>
+      <li><strong>Fiber-type comparisons</strong> (XOS vs inulin vs resistant starch) → SELECT (P2 strong fit + relates directly to Pheeew's <code>XOS + Fibersol-2</code> formulation)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-tag">Confidential · Pheeew, Inc.</span>
+  <p>Private internal content-engine intel for Pheeew, Inc., a Delaware C-Corporation (DE File 10559164). Daily dossier curation. Restricted to the Pheeew, Inc. team and contracted partners under NDA. Not for redistribution.</p>
+</footer>
+
+</div>
+
+</body>
+</html>
